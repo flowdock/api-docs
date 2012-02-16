@@ -52,7 +52,7 @@ GET /flows
 ```
 GET /flows/:organization/:flow
 ```
-Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list.
+Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list. Timestamps are milliseconds since epoch.
 
 ### Response
 ```
@@ -65,24 +65,23 @@ Get a single flow. Single flow information always includes user list of flow. Ot
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "users": [
     {
-      "id": 9, 
-      "nick": "Joe", 
-      "name": "Joe Smith", 
-      "email": "joe@example.com", 
-      "status": "Testing API", 
-      "last_activity": 1328016726423, 
-      "last_ping": 1328017690004
+      "id": 9,
+      "nick": "Joe",
+      "name": "Joe Smith",
+      "email": "joe@example.com",
+      "status": "Testing API",
+      "last_activity": 1328016726423000,
+      "last_ping": 1328017690004000
     },
     {
-      "id": 42, 
-      "nick": "Stevie", 
-      "name": "Stevie Johnson", 
-      "email": "stevie@example.com", 
-      "status": null, 
-      "last_activity": 1328016712345, 
-      "last_ping": 1328017612345
+      "id": 42,
+      "nick": "Stevie",
+      "name": "Stevie Johnson",
+      "email": "stevie@example.com",
+      "status": null,
+      "last_activity": 1328016712345000,
+      "last_ping": 1328017612345000
     }
   ]
 }
 ```
-
