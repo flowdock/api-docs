@@ -16,4 +16,4 @@
    * [Net::Flowdock](https://github.com/gphat/net-flowdock) by Cory G. Watson
    * [p5-Flowdock](https://github.com/samvtran/p5-Flowdock) by samvtran
  * Python
-   * [https://bitbucket.org/j00bar/python-flowdock](python-flowdock) by Joshua Ginsberg
+   * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by Joshua Ginsberg
