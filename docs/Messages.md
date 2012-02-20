@@ -3,7 +3,7 @@
 The Messages resource represents all the different messages in Flowdock. Message is a sub-resource for Flow, so it should always be accessed in that context.
 
 ```
-/flows/:organization/:flow_name/messages.
+/flows/:organization/:flow_name/messages
 ```
 
 * **[Send A Message](messages-post)**
