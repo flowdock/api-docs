@@ -51,18 +51,18 @@ HTTP/1.1 200 OK
 Content-Type must be defined with a header in requests that contain data.
 
 ```
-Content-type: application/json
+Content-Type: application/json
 ```
 or
 
 ```
-Content-type: application/x-www-form-urlencoded
+Content-Type: application/x-www-form-urlencoded
 ```
 
-Http-accept should include application/json since that is the supported return format of the API
+Accept header should include application/json since that is the supported return format of the API
 
 ```
-Http-accept: application/json
+Accept: application/json
 ```
 
 ## Structure of an API response
@@ -103,5 +103,5 @@ HTTP/1.1 200 OK
 ### Response headers
 
 ```
-Content-type: application/json
+Content-Type: application/json
 ```
