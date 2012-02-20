@@ -16,7 +16,7 @@ GET /messages
 
 ## Response
 
-```
+```javascript
 [
   {
     "app":"chat",
@@ -30,7 +30,8 @@ GET /messages
       "type":"add_twitter_search",
       "description":"flowdock"
     },
-    "user":"18","attachments":[]
+    "attachments": [],
+    "user":"18"
   },
   {
     "app": "chat",
@@ -64,7 +65,7 @@ GET /messages
 
 * `attachments` &ndash; List of file attachments related to this message.
 
-```
+```javascript
 [
   {
     "content_type":"text/html",
@@ -94,19 +95,20 @@ The event type "message" is sent when user sends chat messages from Flowdock.
 Message `content` is a string containing free-form text.
 
 #### Sample
-
-    {
-      "app": "chat",
-      "event": "message",
-      "tags": [],
-      "uuid": "4W_LQEybVaX-gJmi",
-      "id": 45590,
-      "flow": "subdomain:sample-flow",
-      "content": "Hello World",
-      "sent": 1317715340213,
-      "attachments": [],
-      "user": "2"
-    }
+```javascript
+{
+  "app": "chat",
+  "event": "message",
+  "tags": [],
+  "uuid": "4W_LQEybVaX-gJmi",
+  "id": 45590,
+  "flow": "subdomain:sample-flow",
+  "content": "Hello World",
+  "sent": 1317715340213,
+  "attachments": [],
+  "user": "2"
+}
+```
 
 ### Event: comment
 
@@ -119,23 +121,23 @@ containing the actual comment. Id of parent message is stored in a special tag
 "influx:id".
 
 #### Sample
-
-    {
-      "app":"chat",
-      "sent":1317722877378,
-      "uuid":"O-8aGb0fcc5gEgTX",
-      "tags":["influx:3838422"],
-      "flow":"subdomain:flow",
-      "id":3838423,
-      "event":"comment",
-      "content": {
-        "title": Title of parent",
-        "text":"This is a comment"
-      },
-      "user":"1609",
-      "attachments":[]
-    }
-
+```
+{
+  "app":"chat",
+  "sent":1317722877378,
+  "uuid":"O-8aGb0fcc5gEgTX",
+  "tags":["influx:3838422"],
+  "flow":"subdomain:flow",
+  "id":3838423,
+  "event":"comment",
+  "content": {
+    "title": Title of parent",
+    "text":"This is a comment"
+  },
+  "user":"1609",
+  "attachments":[]
+}
+```
 
 ### Event: action
 
