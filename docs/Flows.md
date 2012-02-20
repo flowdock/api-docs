@@ -69,7 +69,9 @@ Get a single flow. Single flow information always includes user list of flow. Ot
       "nick": "Joe",
       "name": "Joe Smith",
       "email": "joe@example.com",
+      "avatar": "/avatars/f5b8fb60c6116331da07c65b96a8a1d1/",
       "status": "Testing API",
+      "disabled": false,
       "last_activity": 1328016726423000,
       "last_ping": 1328017690004000
     },
@@ -78,7 +80,9 @@ Get a single flow. Single flow information always includes user list of flow. Ot
       "nick": "Stevie",
       "name": "Stevie Johnson",
       "email": "stevie@example.com",
+      "avatar": "/avatars/5bdd089a099acc56fc7120f6325a5d5c/",
       "status": null,
+      "disabled": true,
       "last_activity": 1328016712345000,
       "last_ping": 1328017612345000
     }
