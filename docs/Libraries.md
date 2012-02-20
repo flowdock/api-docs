@@ -1,19 +1,21 @@
 # Libraries
 
-## Flowdock API Ruby Gem
- A Ruby API Gem for the Flowdock API. Currently supports only the [Push API](Push).
+A list of libraries to access Flowdock in your favorite language.
 
- * [Documentation](ruby-gem)
- * [Source on GitHub](https://github.com/flowdock/flowdock-api)
+## JavaScript
 
-## Flowdock Text
- * A JavaScript library for parsing links, tags and other things from Flowdock messages. Works in browsers and with NodeJS.
- * [Source and documentation on GitHub](https://github.com/flowdock/flowdock-text).
+  * [flowdock-text](https://github.com/flowdock/flowdock-text) — A library for parsing links, tags, and other things from Flowdock messages.
+  * [node-flowdock](https://github.com/flowdock/node-flowdock) — Flowdock client for node.js. Used in [hubot-flowdock](https://github.com/flowdock/hubot-flowdock).
 
-## 3rd Party Libraries
+## Perl
 
- * Perl
-   * [Net::Flowdock](https://github.com/gphat/net-flowdock) by Cory G. Watson
-   * [p5-Flowdock](https://github.com/samvtran/p5-Flowdock) by samvtran
- * Python
-   * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by Joshua Ginsberg
+  * [Net::Flowdock](https://github.com/gphat/net-flowdock) by _Cory G. Watson_ — API wrapper for Flowdock in Perl
+  * [p5-Flowdock](https://github.com/samvtran/p5-Flowdock) by _samvtran_ — Perl interface to the Flowdock API
+
+## Python
+
+  * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by _Joshua Ginsberg_ — A Python interface to the Flowdock API
+
+## Ruby
+
+  * [flowdock gem](https://github.com/flowdock/flowdock-api) – Ruby bindings for Push API
