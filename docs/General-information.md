@@ -1,3 +1,5 @@
+# General information
+
 ## All requests must be sent via HTTPS
 All the Flowdock APIs are served under HTTPS only.
 
