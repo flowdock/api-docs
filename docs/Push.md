@@ -11,4 +11,4 @@ The Push API does not require authenticating as a user. In order to access the i
 
 ## Content-Type
 
-**The Content-Type header must always be specified.** The Push API endpoints support both `application/json` and `x-www-urlencoded`.
+**The Content-Type header must always be specified.** The Push API endpoints support both `application/json` and `application/x-www-form-urlencoded`.
