@@ -8,10 +8,9 @@ The Messages resource represents all the different messages in Flowdock. Message
 * *[Send A Message](messages-post)*
 * *[List Messages](messages-get)*
 
-The message resource is used for a lot of things, you can for example:
+The message resource is used for a lot of things, you can for example set the user status. Things to come to the messages API
 
-* Set user status
 * Upload a file
 * Comment a team inbox item
-
+* Search messages by tag
 
