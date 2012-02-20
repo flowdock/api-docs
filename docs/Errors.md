@@ -12,6 +12,7 @@ Example:
 ```
 
 Response:
+
 ```
 // Status: 400
 // Content-Type: application/json; charset=utf-8
