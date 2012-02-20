@@ -5,8 +5,8 @@ The Messages resource represents all the different messages in Flowdock. Message
 `/flows/:organization/:flow_name/messages`.
 ```
 
-* *[Send A Message](messages-post)*
-* *[List Messages](messages-get)*
+* **[Send A Message](messages-post)**
+* **[List Messages](messages-get)**
 
 The message resource is used for a lot of things, you can for example set the user status. Things to come to the messages API
 
