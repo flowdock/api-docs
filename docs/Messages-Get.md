@@ -121,7 +121,7 @@ containing the actual comment. Id of parent message is stored in a special tag
 "influx:id".
 
 #### Sample
-```
+```javascript
 {
   "app":"chat",
   "sent":1317722877378,
@@ -178,21 +178,22 @@ string or an object.
 * `remove_twitter_search` &ndash; Twitter keyword is removed. `description` is the same as in `add_twitter_search`.
 
 #### Sample
-
-    {
-      "app":"chat",
-      "sent":1317397485508,
-      "uuid":"odHapx1VWp7WTrdQ",
-      "tags":[],
-      "flow": "subdomain:sample-flow",
-      "id":3816534,
-      "event":"action",
-      "content":{
-        "type":"add_twitter_search",
-        "description":"flowdock"
-      },
-      "user":"18","attachments":[]
-    }
+```javascript
+{
+  "app":"chat",
+  "sent":1317397485508,
+  "uuid":"odHapx1VWp7WTrdQ",
+  "tags":[],
+  "flow": "subdomain:sample-flow",
+  "id":3816534,
+  "event":"action",
+  "content":{
+    "type":"add_twitter_search",
+    "description":"flowdock"
+  },
+  "user":"18","attachments":[]
+}
+```
 
 ### Event: status
 
@@ -203,19 +204,20 @@ Status event is triggered when users change their statuses.
 `content` is a string containing free-form text.
 
 #### Sample
-
-    {
-      "app":"chat",
-      "sent":1317307033981,
-      "uuid":"anLhpBKqk0TXB27V",
-      "tags":[],
-      "flow":"nodeta:flowdock",
-      "id":3803707,
-      "event":"status",
-      "content":"This is my new status",
-      "user":"49",
-      "attachments":[]
-    }
+```javascript
+{
+  "app":"chat",
+  "sent":1317307033981,
+  "uuid":"anLhpBKqk0TXB27V",
+  "tags":[],
+  "flow":"nodeta:flowdock",
+  "id":3803707,
+  "event":"status",
+  "content":"This is my new status",
+  "user":"49",
+  "attachments":[]
+}
+```
 
 ### Event: tag-change
 
@@ -229,23 +231,24 @@ Used to change tags of messages.
   * `remove` &nbsp; list of tags removed from message
 
 #### Sample
-
-    {
-      "app":null,
-      "sent":1317397485508,
-      "uuid":"odHapx1VWp7WTrdQ",
-      "tags":[],
-      "flow": "subdomain:sample-flow",
-      "id":1235,
-      "event":"tag-change",
-      "content":{
-        "message": 1234,
-        "add": ["foo", "bar"],
-        "remove": ["lol"]
-      },
-      "user":"18",
-      "attachments":[]
-    }
+```javascript
+{
+  "app":null,
+  "sent":1317397485508,
+  "uuid":"odHapx1VWp7WTrdQ",
+  "tags":[],
+  "flow": "subdomain:sample-flow",
+  "id":1235,
+  "event":"tag-change",
+  "content":{
+    "message": 1234,
+    "add": ["foo", "bar"],
+    "remove": ["lol"]
+  },
+  "user":"18",
+  "attachments":[]
+}
+```
 
 ### Event: activity.user
 
@@ -260,22 +263,22 @@ These messages are not stored to database.
 timestamp is not always present when e.g. user is idle.
 
 #### Sample
-
-    {
-      "event": "activity.user",
-      "tags": [],
-      "uuid": null,
-      "id": 45592,
-      "flow": 'lautixentestiflowi',
-      "content": {
-        "last_activity": 1317715364447
-      },
-      "sent": 1317715393030,
-      "app": null,
-      "attachments": [],
-      "user": '2'
-    }
-
+```javascript
+{
+  "event": "activity.user",
+  "tags": [],
+  "uuid": null,
+  "id": 45592,
+  "flow": 'lautixentestiflowi',
+  "content": {
+    "last_activity": 1317715364447
+  },
+  "sent": 1317715393030,
+  "app": null,
+  "attachments": [],
+  "user": '2'
+}
+```
 
 ### Event: backend.join.user
 
@@ -287,25 +290,26 @@ any other possible join notifications. *Deprecated*: may be removed in future ve
 `content` contains the user object.
 
 #### Sample
-
-    {
-      "app":null,
-      "sent":1306481608147,
-      "tags":[],
-      "flow": "subdomain:sample-flow",
-      "id":3144297,
-      "event":"backend.join.user",
-      "content":{
-          "user":{
-              "last_activity":null,
-              "nick":"Marty",
-              "avatar":"https://secure.gravatar.com/avatar/94a5b5f3eb9a8ed1f34ca3ac42b78769?s=30&d=https%3A%2F%2Fstatic.flowdock.com%2Fimages%2Fdefault_user_icon_30.png",
-              "id":2873,
-              "last_name":"McFly",
-              "first_name":"Marty",
-              "email":"marty@example.com"
-            }
-      },
-      "user":"2873",
-      "attachments":[]
-    }
+```javascript
+{
+  "app":null,
+  "sent":1306481608147,
+  "tags":[],
+  "flow": "subdomain:sample-flow",
+  "id":3144297,
+  "event":"backend.join.user",
+  "content":{
+      "user":{
+          "last_activity":null,
+          "nick":"Marty",
+          "avatar":"https://secure.gravatar.com/avatar/94a5b5f3eb9a8ed1f34ca3ac42b78769?s=30&d=https%3A%2F%2Fstatic.flowdock.com%2Fimages%2Fdefault_user_icon_30.png",
+          "id":2873,
+          "last_name":"McFly",
+          "first_name":"Marty",
+          "email":"marty@example.com"
+        }
+  },
+  "user":"2873",
+  "attachments":[]
+}
+```
