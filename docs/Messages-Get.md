@@ -137,17 +137,17 @@ containing the actual comment. Id of parent message is stored in a special tag
     }
 
 
-## Event: action
+### Event: action
 
 Action may be triggered from various activities such as adding Twitter stream.
 
-### Data
+#### Data
 
 `content` is an object containing two keys: `type` containing the type of action
 and `description` containing additional type-specific information. Data can be a
 string or an object.
 
-### Action types
+##### Action types
 
 `type` is one of:
 
