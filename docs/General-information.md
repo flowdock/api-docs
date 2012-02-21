@@ -1,10 +1,12 @@
-# General information
+# General Information
 
 ## All requests must be sent via HTTPS
+
 All the Flowdock APIs are served under HTTPS only.
 
-## Content Type header must always be specified
-The Content-Type header of requests should always be specified when posting to the API. Generally, two content-types are supported: "application/json" and "x-form-urlencoded" (HTTP POST data).
+## Content-Type header must always be specified
+
+The Content-Type header of requests should always be specified when posting to the API. Generally, two content-types are supported: `application/json` and `application/x-www-form-urlencoded` (HTTP POST data).
 
 ## Responses are JSON documents
 
