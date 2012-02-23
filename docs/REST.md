@@ -61,7 +61,7 @@ or
 Content-Type: application/x-www-form-urlencoded
 ```
 
-Accept header should include application/json since that is the supported return format of the API
+Accept header should include `application/json` since that is the supported return format of the API
 
 ```
 Accept: application/json
