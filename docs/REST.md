@@ -106,6 +106,11 @@ Content-Type: application/json; charset=utf-8
 
 ### Response headers
 
+In addition to standard headers like `Content-Type`, the response headers also include the user id of the authenticated user in `Flowdock-User` header.
+
 ```
+Status: 200
+Content-Length: 27
 Content-Type: application/json; charset=utf-8
+Flowdock-User: 1
 ```
