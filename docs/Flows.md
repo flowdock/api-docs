@@ -4,7 +4,7 @@ A flow in Flowdock is like one single team workspace, which contains a chat room
 
 In the REST API, Flow IDs are of the form `:organization/:flow`.
 
-* `organization` is the parametric name of the client organization, as seen in the subdomain of the web URL of the flow. 
+* `organization` is the parametric name of the client organization, as seen in the subdomain of the web URL of the flow.
 * `flow` is the parametric name of the flow, as seen in the path of the web URL of the flow. Eg. `https://:organization.flowdock.com/flows/:flow`
 
 ## List Flows
@@ -20,6 +20,9 @@ GET /flows
 
 ### Response
 ```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
 [
   {
     "id": "acme/my-flow",
@@ -56,6 +59,9 @@ Get a single flow. Single flow information always includes user list of flow. Ot
 
 ### Response
 ```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
 {
   "id": "acme/my-flow",
   "name": "My flow",

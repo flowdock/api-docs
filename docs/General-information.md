@@ -26,8 +26,9 @@ Example:
 Response:
 
 ```
-// Status: 400
-// Content-Type: application/json; charset=utf-8
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
 {
   "message":  "Validation error",
   "errors":  {

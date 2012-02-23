@@ -34,8 +34,8 @@ Example of posting a message: `POST /flows/organization/main/messages`
 
 ```
 {
-  event: "message",
-  content: "Hi all!"
+  "event": "message",
+  "content: "Hi all!"
 }
 ```
 
@@ -43,6 +43,8 @@ Response:
 
 ```
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
 {}
 ```
 
@@ -80,6 +82,8 @@ Response:
 
 ```
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
 [
   {
     "id": "acme/my-flow",
@@ -103,5 +107,5 @@ HTTP/1.1 200 OK
 ### Response headers
 
 ```
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 ```

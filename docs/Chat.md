@@ -20,13 +20,16 @@ Example value: cool,stuff
 
 ```
 {
-  content: "Howdy-Doo @Jackie #awesome",
-  external_user_name: "Stevie",
-  tags:	["todo", "#feedback", "@all"]
+  "content": "Howdy-Doo @Jackie #awesome",
+  "external_user_name": "Stevie",
+  "tags":  ["todo", "#feedback", "@all"]
 }
 ```
 
 ## Response
 ```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
 {}
 ```
