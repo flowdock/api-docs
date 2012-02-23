@@ -30,9 +30,10 @@ https://user:pass@api.flowdock.com/v1/flows/org/flow/messages/message_id
 ### Body
 Both JSON and HTTP POST data is accepted as request body formats. In the API documentation, JSON examples are used.
 
-Example of posting a message: `POST /flows/organization/main/messages`
+Example of posting a message:
 
 ```
+POST /flows/organization/main/messages
 {
   "event": "message",
   "content: "Hi all!"
