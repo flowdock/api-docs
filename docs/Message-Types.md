@@ -140,6 +140,7 @@ string or an object.
 
 
 ## Event: tag-change
+> DISCLAIMER: This message type is likely to change in the near future.
 
 Used to change tags of messages.
 
