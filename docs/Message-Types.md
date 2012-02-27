@@ -203,4 +203,27 @@ timestamp is not always present when e.g. user is idle.
 }
 ```
 
+## Event: file
+The file event represents a file upload to chat.
 
+### Data
+`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data.
+
+### Sample
+```javascript
+{
+  "path":"/flows/main/files/de0eca404387012ff4661093e90ad632/fubuki menu.pdf",
+  "file_name":"fubuki_menu.pdf",
+  "image": {
+    "width": 384,
+    "height": 271
+  },
+  "file_size": 1375305,
+  "content_type": "application\/pdf",
+  "thumbnail": {
+    "width": 100,
+    "height": 71,
+    "path":"/flows/hauska-flowi/files/de0eca404387012ff4661093e90ad632/thumb/fubuki menu.pdf"
+  }
+}
+```
