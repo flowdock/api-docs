@@ -30,7 +30,8 @@ List of tags to be added to the message. Can be either an array (JSON only) or a
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-
+```
+```
 {}
 ```
 

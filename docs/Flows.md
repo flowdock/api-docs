@@ -22,7 +22,8 @@ GET /flows
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-
+```
+```
 [
   {
     "id": "acme/my-flow",
@@ -61,7 +62,8 @@ Get a single flow. Single flow information always includes user list of flow. Ot
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-
+```
+```
 {
   "id": "acme/my-flow",
   "name": "My flow",
