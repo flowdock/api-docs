@@ -9,7 +9,6 @@ POST /flows/:organization/:flow/messages
 Send a chat message, set the status, comment, upload a file...
 
 
-
 ### Input
 * `event`
     One of the valid Flowdock message events. Determines the type of message being sent to Flowdock. See Message Types section below. Required.
@@ -46,7 +45,7 @@ _Event: `status`_
 
 Format is the same as with `message`. Sets the status of the user.
 
-
+<div id="/list"></div>
 ## List Messages
 ```
 GET /messages

@@ -2,7 +2,7 @@
 
 > DISCLAIMER: We are currently working on renewing and expanding both the message types documentation and the format of some of the message types. Thus, they are subject to change.
 
-This list explains the different types of messages you can expect when usinh the [Streaming API](Streaming) or [Listing Messages](Messages). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
+This list explains the different types of messages you can expect when using the [Streaming API](streaming) or [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
 ## Event: message
 
@@ -108,7 +108,7 @@ string or an object.
 
 * `uninvite` &ndash; An invitation is canceled by a member of the flow. `description` is similar to `invite`.
 
-* `add_rss_feed` &ndash; RSS/Atom feed is added to flow. `desciption` is URL of feed.
+* `add_rss_feed` &ndash; RSS/Atom feed is added to flow. `description` is URL of feed.
 
 * `remove_rss_feed` &ndash; RSS/Atom feed is removed from flow. `description` is the same as `add_rss_feed`.
 
