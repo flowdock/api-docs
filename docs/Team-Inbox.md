@@ -47,15 +47,19 @@ Example value: http://www.flowdock.com/
 
 ```
 {
-  source: "News digest service",
-  from_address: "news@example.com",
-  subject: "Daily digest",
-  content: "Interesting news of today",
-  tags:	["news", "#digest", "@all"]
+  "source": "News digest service",
+  "from_address": "news@example.com",
+  "subject": "Daily digest",
+  "content": "Interesting news of today",
+  "tags":  ["news", "#digest", "@all"]
 }
 ```
 
 ## Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
 ```
 {}
 ```

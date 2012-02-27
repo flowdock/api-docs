@@ -15,7 +15,9 @@ The responses of the Flowdock APIs are in JSON format. In case of an error, the 
 Example:
 
 ```
-// POST https://api.flowdock.com/v1/messages/chat/_YOUR_API_TOKEN_HERE_
+POST https://api.flowdock.com/v1/messages/chat/_YOUR_API_TOKEN_HERE_
+```
+```
 {
   "external_user_name": "foobar",
   "content": ""
@@ -26,8 +28,10 @@ Example:
 Response:
 
 ```
-// Status: 400
-// Content-Type: application/json; charset=utf-8
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+```
+```
 {
   "message":  "Validation error",
   "errors":  {

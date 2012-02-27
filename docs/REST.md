@@ -30,12 +30,15 @@ https://user:pass@api.flowdock.com/v1/flows/org/flow/messages/message_id
 ### Body
 Both JSON and HTTP POST data is accepted as request body formats. In the API documentation, JSON examples are used.
 
-Example of posting a message: `POST /flows/organization/main/messages`
+Example of posting a message:
 
 ```
+POST /flows/organization/main/messages
+```
+```
 {
-  event: "message",
-  content: "Hi all!"
+  "event": "message",
+  "content: "Hi all!"
 }
 ```
 
@@ -43,6 +46,9 @@ Response:
 
 ```
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+```
 {}
 ```
 
@@ -59,7 +65,7 @@ or
 Content-Type: application/x-www-form-urlencoded
 ```
 
-Accept header should include application/json since that is the supported return format of the API
+Accept header should include `application/json` since that is the supported return format of the API
 
 ```
 Accept: application/json
@@ -80,6 +86,9 @@ Response:
 
 ```
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+```
 [
   {
     "id": "acme/my-flow",
@@ -102,6 +111,11 @@ HTTP/1.1 200 OK
 
 ### Response headers
 
+In addition to standard headers like `Content-Type`, the response headers also include the user id of the authenticated user in `Flowdock-User` header.
+
 ```
-Content-Type: application/json
+Status: 200
+Content-Length: 27
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 1
 ```
