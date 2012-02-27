@@ -21,13 +21,17 @@ List of tags to be added to the message. Can be either an array (JSON only) or a
 
 ```javascript
 {
-  event: "message",
-  content: "Howdy-Doo @Jackie #awesome",
-  tags:	["todo", "#feedback", "@all"]
+  "event": "message",
+  "content": "Howdy-Doo @Jackie #awesome",
+  "tags":  ["todo", "#feedback", "@all"]
 }
 ```
 
 ### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
 ```
 {}
 ```
