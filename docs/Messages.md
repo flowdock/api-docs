@@ -31,6 +31,7 @@ List of tags to be added to the message. Can be either an array (JSON only) or a
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
 ```
 ```
 {}
@@ -65,7 +66,11 @@ Lists messages from a flow, filtered by parameters.
 * `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response. 
 
 ### Response
-
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
 ```javascript
 [
   {

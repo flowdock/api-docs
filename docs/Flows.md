@@ -22,6 +22,7 @@ GET /flows
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
 ```
 ```
 [
@@ -62,6 +63,7 @@ Get a single flow. Single flow information always includes user list of flow. Ot
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
 ```
 ```
 {
