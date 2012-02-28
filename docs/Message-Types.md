@@ -60,7 +60,7 @@ This message is sent when user comments an item in Team Inbox.
 ### Data
 
 `content` is an object containing two keys: title for Team Inbox item title and text
-containing the actual comment. Id of parent message is stored in a special tag
+containing the actual comment. Id of parent message is stored in a [special tag](Tags)
 "influx:id".
 
 ### Sample
@@ -142,7 +142,7 @@ string or an object.
 ## Event: tag-change
 > DISCLAIMER: This message type is likely to change in the near future.
 
-Used to change tags of messages.
+Used to change tags of messages. See [Tags](Tags) for more information about tags.
 
 ### Data
 
