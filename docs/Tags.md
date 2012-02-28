@@ -100,6 +100,7 @@ If the message has files attached, it gets tagged with `:file`. This can be expe
 ---
 ####:influx:{message.id}
 > DISCLAIMER: This tag type is likely to change in the near future.
+
 Description
 
 [Team Inbox comments](Message-Types) get this tag to store the id of the commented Inbox item. This tag should not be manually removed from the message.
