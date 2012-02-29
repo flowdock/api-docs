@@ -67,7 +67,7 @@ Lists messages from a flow, filtered by parameters.
 
 * `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
 
-* `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags. When searching with user tags, use the meta representation. See more at [Tags](Tags).
+* `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags. When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. See more at [Tags](Tags).
 
 ### Response
 ```
