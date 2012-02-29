@@ -15,7 +15,7 @@ Send a chat message, set the status, comment, upload a file...
 * `content`
     The actual message. The format of content depends on the event. See Message Types section below. Required.
 * `tags`
-List of tags to be added to the message. Can be either an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent:
+List of [tags](Tags) to be added to the message. Can be either an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent:
   * `["@Mike", "#cool", "awesome"]`
   * `"#awesome,cool,@mike"`
 
@@ -105,7 +105,7 @@ Flowdock-User: 2
 ```
 * `event` &ndash; The type of the message. E.g. chat message or tweet. See [Message Types](Message Types).
 * `content` &ndash; Data payload. Different in different events as documented in [Message Types](Message Types).
-* `tags` &ndash; List of tags as strings. Tags containing colon characters have special meaning and can be discarded when working with tagging user interfaces.
+* `tags` &ndash; List of tags as strings. Tags containing colon characters have [special meaning](Tags) and can be discarded when working with tagging user interfaces.
 * `app` &ndash; Deprecated.
 * `uuid` &ndash; Optional client-generated universal identifier for message. Used to recognize messages sent by single Flowdock instance. Can be used to render sent messages instantly and later add necessary data (id) for tagging.
 * `user` &ndash; Numerical user id of user (as string)
