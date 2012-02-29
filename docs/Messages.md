@@ -59,11 +59,15 @@ Lists messages from a flow, filtered by parameters.
 
 ### Parameters
 
-* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default.
+* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas.
 
 * `limit` &ndash; Maximum number of messages
 
-* `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response. 
+* `sort` &ndash; Descending order is used by default in fetching messages. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their id. The sort parameter is for toggling between fetching the latest or the oldest matching messages.
+
+* `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
+
+* `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags. When searching with user tags, use the meta representation. See more at [Tags](Tags).
 
 ### Response
 ```
