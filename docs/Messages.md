@@ -67,7 +67,7 @@ Lists messages from a flow, filtered by parameters.
 
 * `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
 
-* `tags` &ndash; Filter messages by tags. Multiple tags can be used by separating them by commas, which results in _AND search_ of those tags. In the Messages API a special tag `:unread` matches the unread messages of the authenticated API user. For more information about using the special tags, please see the (Tags)[Tags] documentation.
+* `tags` &ndash; Filter messages by tags. Multiple tags can be used by separating them by commas, which results in _AND search_ of those tags. In the Messages API a special tag `:unread` matches the unread messages of the authenticated API user. For more information about using the special tags, please see the [Tags](Tags) documentation.
 
 ### Response
 ```
