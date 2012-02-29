@@ -59,7 +59,7 @@ Lists messages from a flow, filtered by parameters.
 
 ### Parameters
 
-* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them by commas.
+* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas.
 
 * `limit` &ndash; Maximum number of messages
 
@@ -67,7 +67,7 @@ Lists messages from a flow, filtered by parameters.
 
 * `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
 
-* `tags` &ndash; Filter messages by tags. Multiple tags can be used by separating them by commas, which results in _AND search_ of those tags. In the Messages API a special tag `:unread` matches the unread messages of the authenticated API user. For more information about using the special tags, please see the [Tags](Tags) documentation.
+* `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags. When searching with user tags, use the meta representation. See more at [Tags](Tags).
 
 ### Response
 ```
