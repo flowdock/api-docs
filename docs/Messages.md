@@ -53,7 +53,7 @@ Format is the same as with `message`. Sets the status of the user.
 <div id="/list"></div>
 ## List Messages
 ```
-GET /messages
+GET /flows/:organization/:flow/messages
 ```
 Lists messages from a flow, filtered by parameters.
 
