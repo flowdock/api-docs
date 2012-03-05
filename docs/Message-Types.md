@@ -207,23 +207,33 @@ timestamp is not always present when e.g. user is idle.
 The file event represents a file upload to chat.
 
 ### Data
-`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. Inside each attachment the `path` field contains the REST API path of the file.
+`content` is a hash containing metadata about the uploaded file. In the metadata the `path` field contains the REST API path of the file.
 
 ### Sample
 ```javascript
 {
-  "path": "/flows/org/main/files/de0eca404387012ff4661093e90ad632/screenshot.png",
-  "file_name": "screenshot.png",
-  "image": {
-    "width": 384,
-    "height": 271
-  },
-  "file_size": 1375305,
-  "content_type": "image/png",
-  "thumbnail": {
-    "width": 100,
-    "height": 71,
-    "path": "/flows/org/main/files/de0eca404387012ff4661093e90ad632/thumb/screenshot.png"
+  "event": "file",
+  "tags":[":file"],
+  "id": 31461,
+  "app": "chat",
+  "flow": "yup:main",
+  "sent": 1330598808127,
+  "attachments":[],
+  "user":"9",
+  "content": {
+    "path": "/flows/org/main/files/de0eca404387012ff4661093e90ad632/screenshot.png",
+    "file_name": "screenshot.png",
+    "image": {
+      "width": 384,
+      "height": 271
+    },
+    "file_size": 1375305,
+    "content_type": "image/png",
+    "thumbnail": {
+      "width": 100,
+      "height": 71,
+      "path": "/flows/org/main/files/de0eca404387012ff4661093e90ad632/thumb/screenshot.png"
+    }
   }
 }
 ```
