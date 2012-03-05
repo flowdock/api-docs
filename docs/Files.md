@@ -6,7 +6,7 @@ Messages containing files can be fetched by filtering messages by type `file` or
 
 ## Retrieve single file
 
-The REST API path of a file is stored in `path` field of each attachment. The API path is of the following format: `/flows/:org/:flow/files/:uuid/:filename`.
+The REST API path of a file is stored in `path` field of each attachment. The API path is of the following format: `/flows/:org/:flow/files/:uuid/:filename`. See [Message-Types](Message-Types) documentation for examples.
 
 ```
 GET /flows/:org/:flow/files/:uuid/:filename
