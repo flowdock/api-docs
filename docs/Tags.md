@@ -7,9 +7,9 @@ The following message sent to Flowdock...
 
 ```
 {
-  event: "message",
-  content: "@Marty, there's a severe #bug in the flux-capacitor, see http://example.com",
-  tags: ["#space-time-continuum"]
+  "event": "message",
+  "content": "@Marty, there's a severe #bug in the flux-capacitor, see http://example.com",
+  "tags": ["#space-time-continuum"]
 }
 ```
 
@@ -17,9 +17,9 @@ The following message sent to Flowdock...
 
 ```
 {
-  event: "message",
-  content: "@Marty, there's a severe #bug in the flux-capacitor.",
-  tags: [":user:16", ":unread:16", ":url", "bug", "space-time-continuum"]
+  "event": "message",
+  "content": "@Marty, there's a severe #bug in the flux-capacitor.",
+  "tags": [":user:16", ":unread:16", ":url", "bug", "space-time-continuum"]
 }
 ```
 
