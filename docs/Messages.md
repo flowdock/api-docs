@@ -53,22 +53,7 @@ Event: `status`
 #### File Upload
 Event: `file`
 
-The format of the `content` is different depending on the Content-Type of the request. When using `application/json` the binary is sent within the JSON Base64 encoded. Eg.
-
-```
-{
-  "data": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ\nbWFnZVJlYWR5ccllPAAAAElJREFUeNpiYECA/UD8n0y8nwENUGIYTkOpAhihplMNMFHbhVQ3kIVA\ncOAD/0k1kAFP+DIO3UgZTYej6XA0HY6mw9F0CAEAAQYAk/gtCSEUikYAAAAASUVORK5CYII=\n",
-  "content_type": "image/png",
-  "file_name": "cabinet_icon.png"
-}
-```
-
-To send the file using form data, set Content-Type as `multipart/form-data` and set the value of content as the binary part. Here's a `curl` example:
-
-```
-curl -v -X POST -F "event=file" -F "content=@path/to/file.png" http://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
-```
-
+File message is simply a file uploaded to chat. See [Files](Files) documentation for usage examples and [Message Types](Message Types) for details about the message format.
 
 <div id="/list"></div>
 ## List Messages
