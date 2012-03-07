@@ -26,10 +26,10 @@ curl -v -X POST -F "event=file" -F "content=@path/to/file.png" http://BASIC-AUTH
 
 ## Download file
 
-The REST API path of a file is stored in `path` field of each attachment. The API path is of the following format: `/flows/:org/:flow/files/:uuid/:filename`. See [Message Types](Message Types) documentation for examples.
+The REST API path of a file is stored in `path` field of each attachment. See [Message Types](Message Types) documentation for examples of attachments.
 
 ```
-GET /flows/:org/:flow/files/:uuid/:filename
+GET /flows/org/flow/files/3929321049bd012fc20f0026b0d8e16c/screenshot.png
 ```
 
 ### Response
@@ -37,7 +37,7 @@ GET /flows/:org/:flow/files/:uuid/:filename
 HTTP/1.1 200 OK
 Flowdock-User: 2
 Content-Length: 10931
-Content-Type: application/octet-stream
+Content-Type: image/png
 
 DATA
 ```
