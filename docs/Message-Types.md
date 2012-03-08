@@ -39,16 +39,16 @@ Status event is triggered when users change their statuses.
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317307033981,
-  "uuid":"anLhpBKqk0TXB27V",
-  "tags":[],
-  "flow":"nodeta:flowdock",
-  "id":3803707,
-  "event":"status",
-  "content":"This is my new status",
-  "user":"49",
-  "attachments":[]
+  "app": "chat",
+  "sent": 1317307033981,
+  "uuid": "anLhpBKqk0TXB27V",
+  "tags": [],
+  "flow": "nodeta:flowdock",
+  "id": 3803707,
+  "event": "status",
+  "content": "This is my new status",
+  "user": "49",
+  "attachments": []
 }
 ```
 
@@ -66,19 +66,19 @@ containing the actual comment. Id of parent message is stored in a [special tag]
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317722877378,
-  "uuid":"O-8aGb0fcc5gEgTX",
-  "tags":["influx:3838422"],
-  "flow":"subdomain:flow",
-  "id":3838423,
-  "event":"comment",
+  "app": "chat",
+  "sent": 1317722877378,
+  "uuid": "O-8aGb0fcc5gEgTX",
+  "tags": ["influx:3838422"],
+  "flow": "subdomain:flow",
+  "id": 3838423,
+  "event": "comment",
   "content": {
     "title": Title of parent",
-    "text":"This is a comment"
+    "text": "This is a comment"
   },
-  "user":"1609",
-  "attachments":[]
+  "user": "1609",
+  "attachments": []
 }
 ```
 
@@ -123,18 +123,19 @@ string or an object.
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317397485508,
-  "uuid":"odHapx1VWp7WTrdQ",
-  "tags":[],
+  "app": "chat",
+  "sent": 1317397485508,
+  "uuid": "odHapx1VWp7WTrdQ",
+  "tags": [],
   "flow": "subdomain:sample-flow",
-  "id":3816534,
-  "event":"action",
-  "content":{
-    "type":"add_twitter_search",
-    "description":"flowdock"
+  "id": 3816534,
+  "event": "action",
+  "content": {
+    "type": "add_twitter_search",
+    "description": "flowdock"
   },
-  "user":"18","attachments":[]
+  "user": "18",
+  "attachments": []
 }
 ```
 
@@ -154,20 +155,20 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
 ### Sample
 ```javascript
 {
-  "app":null,
-  "sent":1317397485508,
-  "uuid":"odHapx1VWp7WTrdQ",
-  "tags":[],
+  "app": null,
+  "sent": 1317397485508,
+  "uuid": "odHapx1VWp7WTrdQ",
+  "tags": [],
   "flow": "subdomain:sample-flow",
-  "id":1235,
-  "event":"tag-change",
-  "content":{
+  "id": 1235,
+  "event": "tag-change",
+  "content": {
     "message": 1234,
     "add": ["foo", "bar"],
     "remove": ["test"]
   },
-  "user":"18",
-  "attachments":[]
+  "user": "18",
+  "attachments": []
 }
 ```
 
