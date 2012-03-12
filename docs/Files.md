@@ -21,7 +21,7 @@ The format of the `content` is different depending on the Content-Type of the re
 To send the file using form data, set Content-Type as `multipart/form-data` and set the value of content as the binary part. Here's a `curl` example:
 
 ```
-curl -v -X POST -F "event=file" -F "content=@path/to/file.png" http://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
+curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
 ```
 
 ## Download file
