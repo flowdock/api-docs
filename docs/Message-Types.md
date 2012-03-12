@@ -203,12 +203,12 @@ timestamp is not always present when e.g. user is idle.
   "user": '2'
 }
 ```
-
+<div id="/file"></div>
 ## Event: file
 The file event represents a file upload to chat.
 
 ### Data
-`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata the `path` field contains the REST API path of the file.
+`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata, the `path` field contains the REST API path of the file. See [Files](files) for more.
 
 ### Sample
 ```javascript
