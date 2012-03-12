@@ -41,14 +41,34 @@ Flowdock-User: 2
 The event parameter in the message data defines the type of message. More at [Message Types](Message Types).
 
 #### Normal Chat message
-_Event: `message`_
+Event: `message`
 
-For chat messages, the content is simply a string which represents the chat messages content. Additionally, tags are parsed from the message content.
+For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content.
 
-#### Status update
-_Event: `status`_
+#### Status Update
+Event: `status`
 
-Format is the same as with `message`. Sets the status of the user.
+`content` format is the same as with `message`. Sets the status of the user.
+
+<div id="/send/files"></div>
+#### File Upload
+Event: `file`
+
+The format of `content` is different depending on the `Content-Type` of the request. When using `application/json` the binary is sent within the JSON, Base64 encoded. Example:
+
+```
+{
+  "data": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ\nbWFnZVJlYWR5ccllPAAAAElJREFUeNpiYECA/UD8n0y8nwENUGIYTkOpAhihplMNMFHbhVQ3kIVA\ncOAD/0k1kAFP+DIO3UgZTYej6XA0HY6mw9F0CAEAAQYAk/gtCSEUikYAAAAASUVORK5CYII=\n",
+  "content_type": "image/png",
+  "file_name": "cabinet_icon.png"
+}
+```
+
+To send the file using form data, set Content-Type as `multipart/form-data` and set the value of content as the binary part. Here's a `curl` example:
+
+```
+curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
+```
 
 <div id="/list"></div>
 ## List Messages
