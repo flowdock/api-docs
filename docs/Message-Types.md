@@ -39,16 +39,16 @@ Status event is triggered when users change their statuses.
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317307033981,
-  "uuid":"anLhpBKqk0TXB27V",
-  "tags":[],
-  "flow":"nodeta:flowdock",
-  "id":3803707,
-  "event":"status",
-  "content":"This is my new status",
-  "user":"49",
-  "attachments":[]
+  "app": "chat",
+  "sent": 1317307033981,
+  "uuid": "anLhpBKqk0TXB27V",
+  "tags": [],
+  "flow": "nodeta:flowdock",
+  "id": 3803707,
+  "event": "status",
+  "content": "This is my new status",
+  "user": "49",
+  "attachments": []
 }
 ```
 
@@ -66,19 +66,19 @@ containing the actual comment. Id of parent message is stored in a [special tag]
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317722877378,
-  "uuid":"O-8aGb0fcc5gEgTX",
-  "tags":["influx:3838422"],
-  "flow":"subdomain:flow",
-  "id":3838423,
-  "event":"comment",
+  "app": "chat",
+  "sent": 1317722877378,
+  "uuid": "O-8aGb0fcc5gEgTX",
+  "tags": ["influx:3838422"],
+  "flow": "subdomain:flow",
+  "id": 3838423,
+  "event": "comment",
   "content": {
     "title": Title of parent",
-    "text":"This is a comment"
+    "text": "This is a comment"
   },
-  "user":"1609",
-  "attachments":[]
+  "user": "1609",
+  "attachments": []
 }
 ```
 
@@ -123,18 +123,19 @@ string or an object.
 ### Sample
 ```javascript
 {
-  "app":"chat",
-  "sent":1317397485508,
-  "uuid":"odHapx1VWp7WTrdQ",
-  "tags":[],
+  "app": "chat",
+  "sent": 1317397485508,
+  "uuid": "odHapx1VWp7WTrdQ",
+  "tags": [],
   "flow": "subdomain:sample-flow",
-  "id":3816534,
-  "event":"action",
-  "content":{
-    "type":"add_twitter_search",
-    "description":"flowdock"
+  "id": 3816534,
+  "event": "action",
+  "content": {
+    "type": "add_twitter_search",
+    "description": "flowdock"
   },
-  "user":"18","attachments":[]
+  "user": "18",
+  "attachments": []
 }
 ```
 
@@ -154,20 +155,20 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
 ### Sample
 ```javascript
 {
-  "app":null,
-  "sent":1317397485508,
-  "uuid":"odHapx1VWp7WTrdQ",
-  "tags":[],
+  "app": null,
+  "sent": 1317397485508,
+  "uuid": "odHapx1VWp7WTrdQ",
+  "tags": [],
   "flow": "subdomain:sample-flow",
-  "id":1235,
-  "event":"tag-change",
-  "content":{
+  "id": 1235,
+  "event": "tag-change",
+  "content": {
     "message": 1234,
     "add": ["foo", "bar"],
     "remove": ["test"]
   },
-  "user":"18",
-  "attachments":[]
+  "user": "18",
+  "attachments": []
 }
 ```
 
@@ -202,5 +203,54 @@ timestamp is not always present when e.g. user is idle.
   "user": '2'
 }
 ```
+<div id="/file"></div>
+## Event: file
+The file event represents a file upload to chat.
 
+### Data
+`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata, the `path` field contains the REST API path of the file. See [Files](files) for more.
 
+### Sample
+```javascript
+{
+  "id": 31572,
+  "app": "chat",
+  "flow": "yup:main",
+  "event": "file",
+  "sent": 1330953594433,
+  "attachments": [
+    {
+      "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
+      "file_name": "screenshot.png",
+      "image": {
+        "width": 1920,
+        "height": 1087
+      },
+      "file_size": 554535,
+      "content_type": "image/png",
+      "thumbnail": {
+        "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/thumb/screenshot.png",
+        "width": 100,
+        "height": 57
+      }
+    }
+  ],
+  "user": "9",
+  "content": {
+    "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
+    "file_name": "screenshot.png",
+    "image": {
+      "width": 1920,
+      "height": 1087
+    },
+    "file_size": 554535,
+    "content_type": "image/png",
+    "thumbnail": {
+      "width": 100,
+      "height": 57,
+      "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/thumb/firefox_flowdock.png"
+    }
+  },
+  "tags": [":file"]
+}
+```
