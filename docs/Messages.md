@@ -89,6 +89,8 @@ Lists messages from a flow, filtered by parameters.
 
 * `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags. When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. See more at [Tags](Tags).
 
+* `search` &ndash; Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces.
+
 ### Response
 ```
 HTTP/1.1 200 OK
