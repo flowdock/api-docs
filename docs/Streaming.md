@@ -40,14 +40,24 @@ Conveniency method to stream messages from a single flow.
 
 ## Example
 
-    require "uri"
-    require "yajl/http_stream"
+    require 'eventmachine'
+    require 'em-http'
+    require 'json'
 
     # token = your Flowdock access token
     # organization = Flowdock subdomain
     # flow = name of flow in URL
 
-    url = URI.parse("https://#{token}@stream.flowdock.com/flows/#{organization}/#{flow}")
-    Yajl::HttpStream.get(url) do |message|
-      puts message.inspect
+    http = EM::HttpRequest.new("https://stream.flowdock.com/flows/#{organization}/#{flow}")
+    EventMachine.run do
+      s = http.get(:head => { 'Authorization' => [token, ''], 'accept' => 'application/json'}, :keepalive => true, :connect_timeout => 0, :inactivity_timeout => 0)
+
+      buffer = ""
+      s.stream do |chunk|
+        buffer << chunk
+        while line = buffer.slice!(/.+\r\n/)
+          puts JSON.parse(line).inspect
+        end
+      end
     end
+
