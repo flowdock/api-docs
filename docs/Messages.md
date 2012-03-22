@@ -18,6 +18,8 @@ Send a chat message, set the status, comment, upload a file...
 List of [tags](Tags) to be added to the message. Can be either an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent:
   * `["@Mike", "#cool", "awesome"]`
   * `"#awesome,cool,@mike"`
+* `external_user_name`
+  Name which appears as the message sender. This will change message to anonymous message, like it was sent from [Push API](Chat). _Optional_
 
 ```javascript
 {
