@@ -139,7 +139,7 @@ Flowdock-User: 2
 * `user` &ndash; Numerical user id of user (as string)
 * `sent` &ndash; Timestamp when message was sent. Milliseconds since Jan 1st, 1970.
 * `flow` &ndash; Identifier of flow. See [Flows](Flows).
-* `id` &ndash; Incremental if of message. Unique only in flow scope.
+* `id` &ndash; Incremental id of message. Unique only in flow scope.
 * `attachments` &ndash; List of file attachments related to this message. Example:
 
 ```javascript
