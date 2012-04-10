@@ -45,7 +45,7 @@ The event parameter in the message data defines the type of message. More at [Me
 #### Normal Chat message
 Event: `message`
 
-For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content.
+For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content. _Maximum length of the content is 8096 characters._
 
 #### Status Update
 Event: `status`
