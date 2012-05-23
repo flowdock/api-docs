@@ -8,6 +8,7 @@ In the REST API, Flow IDs are of the form `:organization/:flow`.
 * `flow` is the parametric name of the flow, as seen in the path of the web URL of the flow. Eg. `https://:organization.flowdock.com/flows/:flow`
 
 ## List Flows
+
 Lists the flows that the authenticated user has access to.
 
 ```
@@ -17,6 +18,7 @@ GET /flows
 ### Parameters
 
 * `users`: boolean value (1/0) controlling whether a list of users should be included in for each flow.
+* `activity`: boolean value (1/0) controlling whether activity info should be included in for each flow.
 
 ### Response
 ```
@@ -54,10 +56,16 @@ Flowdock-User: 2
 
 
 ## Get a Flow
+
+Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list. Timestamps are milliseconds since epoch.
+
 ```
 GET /flows/:organization/:flow
 ```
-Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list. Timestamps are milliseconds since epoch.
+
+### Parameters
+
+* `activity`: boolean value (1/0) controlling whether activity info should be included in.
 
 ### Response
 ```
@@ -73,6 +81,11 @@ Flowdock-User: 2
   "unread_mentions": 0,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "activity": {
+    "chat": true,
+    "mentions": 0,
+    "inbox": false
+  },
   "users": [
     {
       "id": 9,
@@ -99,3 +112,6 @@ Flowdock-User: 2
   ]
 }
 ```
+
+* `activity`: Indicates with `true`/`false` if there has been chat or inbox activity in the flow since the authenticated user's last visit to Flowdock.  
+  Includes a count of unread messages that mention the authenticated user.
