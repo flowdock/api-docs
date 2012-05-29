@@ -30,13 +30,19 @@ Event-Stream follows HTML5 [Server-Sent Events specification](http://dev.w3.org/
 
 ### GET /flows
 
-Returns all messages from flow specified in query parameter. Clients must specify the flows using _filter_ parameter, which contains comma-separated list of flows.
+Returns all messages from flows specified in _filter_ query parameter.
 
 For example, to stream flows `example/main` and `example/flow`, request should be made to `https://stream.flowdock.com/flows?filter=example/main,example/flow`.
 
+#### Parameters
+
+* `accept` Define content-type if Accept header cannot be used. _Optional._
+* `activity` Show user as active in Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. _Optional._
+* `filter` Comma separated list of flows, e.g. `example/main,example/flow`.
+
 ### GET /flows/:organization/:flow
 
-Conveniency method to stream messages from a single flow.
+Conveniency method to stream messages from a single flow. Uses same parameters as `GET /flows`.
 
 ## Example
 
