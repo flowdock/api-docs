@@ -4,7 +4,7 @@ A user in Flowdock can belong to multiple organizations and flows.
 
 ## List Users
 
-List users of a flow.
+List users of a flow. Authenticated user must belong to the organization.
 
 ```
 GET /flows/:organisation/:flow/users
@@ -33,10 +33,12 @@ Flowdock-User: 2
 * `id`: User resource ID
 
 ## Get a User
+
+Get information of a single user. Authenticated user must be belong to same organization as the target user.
+
 ```
 GET /users/:id
 ```
-Get a single user.
 
 ### Response
 ```
@@ -59,7 +61,7 @@ Flowdock-User: 2
 ```
 PUT /users/:id
 ```
-Update user information.
+Update own user information.
 
 ### Input
 * `nick`
@@ -88,12 +90,11 @@ Flowdock-User: 2
 {}
 ```
 
-
 ## Add a User to flow
 ```
 POST /flows/:organization/:flow/users/:id/add
 ```
-Add user to a flow. The user must be member of the organization.
+Add user to a flow. Authenticated user and the target user must be members of the organization.
 
 ### Response
 ```
