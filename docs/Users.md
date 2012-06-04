@@ -55,6 +55,39 @@ Flowdock-User: 2
 }
 ```
 
+## Update User information
+```
+PUT /users/:id
+```
+Update user information.
+
+### Input
+* `nick`
+  User's nick in chat.
+* `email`
+  User's email address.
+* `first_name`
+  User's first name.
+* `last_name`
+  User's last name.
+
+```javascript
+{
+  "nick": "Steve",
+  "email": "steve@example.com"
+}
+```
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+{}
+```
+
 
 ## Add a User to flow
 ```
