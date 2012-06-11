@@ -2,7 +2,7 @@
 
 A user in Flowdock can belong to multiple organizations and flows.
 
-## List Users
+## List users
 
 List users of a flow. Authenticated user must belong to the organization.
 
@@ -32,7 +32,7 @@ Flowdock-User: 2
 
 * `id`: User resource ID
 
-## Get a User
+## Get a user
 
 Get information of a single user. Authenticated user must be belong to same organization as the target user.
 
@@ -57,7 +57,7 @@ Flowdock-User: 2
 }
 ```
 
-## Update User information
+## Update user information
 ```
 PUT /users/:id
 ```
@@ -90,9 +90,9 @@ Flowdock-User: 2
 {}
 ```
 
-## Add a User to flow
+## Add a user to flow
 ```
-POST /flows/:organization/:flow/users/:id/add
+POST /flows/:organization/:flow/users/:id
 ```
 Add user to a flow. Authenticated user and the target user must be members of the organization.
 
@@ -107,11 +107,21 @@ Flowdock-User: 2
 ```
 
 
-## Block a User from flow
+## Block a flow user
 ```
-POST /flows/:organization/:flow/users/:id/block
+PUT /flows/:organization/:flow/users/:id
 ```
-Removes user from a flow. Organization admins can remove anyone (including other admins), but regular users can only remove other regular users.
+Blocks user from a flow. Organization admins can remove anyone (including other admins), but regular users can only remove other regular users.
+
+### Input
+* `disabled`
+  Value `true` blocks user, `false` re-activates user
+
+```javascript
+{
+  "disabled": true
+}
+```
 
 ### Response
 ```
