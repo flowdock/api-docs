@@ -11,7 +11,7 @@ Authenticate as a user. Get information about flows and post messages as a Flowd
 ### HTTP Method
 We try to uphold the principles of REST in the API. Listing, showing and anything else non-state-altering is done with _GET_, creating with _POST_, deleting with _DELETE_.
 
-_UPDATE_ is used for most update methods instead of _PUT_ because of its inefficiency and inconvenient requirements of idempotency.
+_PATCH_ is used for most update methods instead of _PUT_ because of its inefficiency and inconvenient requirements of idempotency.
 
 ### URL Breakdown
 ```
