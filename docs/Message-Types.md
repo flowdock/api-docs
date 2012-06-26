@@ -148,9 +148,10 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
 ### Data
 
 `content` is an object with
-  * `message` &nbsp; ID of the message being tagged
-  * `add` &nsbp; a list of tags added to message
-  * `remove` &nbsp; list of tags removed from message
+
+* `message` &nbsp; ID of the message being tagged
+* `add` &nsbp; a list of tags added to message
+* `remove` &nbsp; list of tags removed from message
 
 ### Sample
 ```javascript
