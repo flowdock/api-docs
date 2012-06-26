@@ -68,10 +68,6 @@ Update own user information.
   User's nick in chat.
 * `email`
   User's email address.
-* `first_name`
-  User's first name.
-* `last_name`
-  User's last name.
 
 ```javascript
 {
