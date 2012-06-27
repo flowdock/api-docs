@@ -22,9 +22,7 @@ Parsers must be tolerant of occasional extra newline characters placed between m
 
 Event-Stream follows HTML5 [Server-Sent Events specification](http://dev.w3.org/html5/eventsource/). Each event contains a JSON-encoded message.
 
-`Last-Event-ID` header is *not supported*.
-
-**API for Event-Stream may change in future.**
+Each event contains ID string, which can sent to server on reconnection. The server then responds by streaming all messages since last disconnection.
 
 ## Resources
 
