@@ -31,6 +31,7 @@ Flowdock-User: 2
     "name": "My flow",
     "organization": "Acme",
     "unread_mentions": 0,
+    "open": true,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
     "web_url": "https://acme.flowdock.com/flows/my-flow"
   },
@@ -39,6 +40,7 @@ Flowdock-User: 2
     "name": "Another flow",
     "organization": "Acme",
     "unread_mentions": 0,
+    "open": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
     "web_url": "https://acme.flowdock.com/flows/another-flow"
   },
@@ -51,6 +53,7 @@ Flowdock-User: 2
 * `name`: Human-readable name of the flow
 * `organization`: Human-readable name of the organization
 * `unread_mentions`: Count of unread messages that mention the authenticated user
+* `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
 
 
 ## Get a Flow
@@ -71,6 +74,7 @@ Flowdock-User: 2
   "name": "My flow",
   "organization": "Acme",
   "unread_mentions": 0,
+  "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "users": [
