@@ -133,6 +133,38 @@ Flowdock-User: 2
   // ... 28 more messages
 ]
 ```
+* Message fields are described below in the Show message section.
+
+<div id="/show"></div>
+## Show Message
+```
+GET /flows/:organization/:flow/messages/:id
+```
+Retrieve a message with the specified id.
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```javascript
+{
+  "app":"chat",
+  "sent":1317397485508,
+  "uuid":"odHapx1VWp7WTrdQ",
+  "tags":[],
+  "flow": "subdomain:sample-flow",
+  "id":3816534,
+  "event":"action",
+  "content":{
+    "type":"add_twitter_search",
+    "description":"flowdock"
+  },
+  "attachments": [],
+  "user":"18"
+}
+```
 * `event` &ndash; The type of the message. E.g. chat message or tweet. See [Message Types](Message Types).
 * `content` &ndash; Data payload. Different in different events as documented in [Message Types](Message Types).
 * `tags` &ndash; List of tags as strings. Tags containing colon characters have [special meaning](Tags) and can be discarded when working with tagging user interfaces.
@@ -154,4 +186,19 @@ Flowdock-User: 2
     "path":"/flows/flowdock/files/ec53a7aa7a974cdc9d07c5ca395a2f05/cucumber.html"
   }
 ]
+```
+
+
+<div id="/delete"></div>
+## Delete Message
+```
+DELETE /flows/:organization/:flow/messages/:id
+```
+Delete a message with the specified id. Note: only team inbox (`app=influx`) or user's own file (`event=file`) messages can be deleted, for other messages the response will be HTTP status 404 with an error message.
+
+### Response
+```
+HTTP/1.1 204 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
 ```
