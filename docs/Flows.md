@@ -124,7 +124,7 @@ Create a flow for the specified organization.
 ```
 HTTP/1.1 201 OK
 Content-Type: application/json; charset=utf-8
-Flowdock-User: 2
+Flowdock-User: 9
 ```
 ```
 {
