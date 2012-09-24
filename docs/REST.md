@@ -5,6 +5,8 @@ Authenticate as a user. Get information about flows and post messages as a Flowd
 * [Authentication](Authentication)
 * [Flow resource](Flows)
 * [Message resource](Messages)
+* [User resource](Users)
+* [Files](Files)
 
 ## Structure of an API request
 
