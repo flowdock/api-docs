@@ -103,3 +103,50 @@ Flowdock-User: 2
   ]
 }
 ```
+
+## Create a Flow
+```
+POST /flows/:organization
+```
+Create a flow for the specified organization.
+
+### Input
+
+* `name`: name of the flow, max. 100 characters
+
+```javascript
+{
+  "name": "My flow"
+}
+```
+
+### Response
+```
+HTTP/1.1 201 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+{
+  "id": "acme/my-flow",
+  "name": "My flow",
+  "organization": "Acme",
+  "unread_mentions": 0,
+  "open": true,
+  "url": "https://api.flowdock.com/flows/acme/my-flow",
+  "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "users": [
+    {
+      "id": 9,
+      "nick": "Joe",
+      "name": "Joe Smith",
+      "email": "joe@example.com",
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f5b8fb60c6116331da07c65b96a8a1d1/",
+      "status": "Testing API",
+      "disabled": false,
+      "last_activity": 1328016726423000,
+      "last_ping": 1328017690004000
+    }
+  ]
+}
+```
