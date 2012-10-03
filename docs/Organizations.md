@@ -1,6 +1,6 @@
 # Organizations
 
-An organization in Flowdock can have multiple flows.
+An organization in Flowdock represents the organization/company account. Users can belong to several organizations.
 
 ## List organizations
 
@@ -47,6 +47,7 @@ Flowdock-User: 1
 ```
 
 * `id`: Organization resource ID
+* `user_limit`: maximum number of users with the current subscription
 * `subscription`: information about the Flowdock subscription of the organization, contains `trial_ends` or `billing_date` depending on the value of `trial`
 
 ## Get an organization
