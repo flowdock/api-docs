@@ -1,6 +1,6 @@
 # Organizations
 
-An organization in Flowdock represents the organization/company account. Users can belong to several organizations.
+An organization in Flowdock represents the organization/company account. [Users](Users) can belong to several organizations.
 
 ## List organizations
 
