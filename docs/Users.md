@@ -1,6 +1,6 @@
 # Users
 
-A user in Flowdock can belong to multiple organizations and flows.
+A user in Flowdock can belong to multiple [organizations](Organizations) and [flows](Flows).
 
 ## List users
 
