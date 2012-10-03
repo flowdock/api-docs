@@ -52,7 +52,7 @@ Flowdock-User: 1
 
 ## Get an organization
 
-Get information of an organization. Authenticated user must be belong to the organization.
+Get information of an organization. Authenticated user must belong to the organization.
 
 ```
 GET /organizations/:id
