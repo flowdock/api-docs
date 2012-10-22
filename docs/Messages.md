@@ -83,7 +83,7 @@ Lists messages from a flow, filtered by parameters.
 
 * `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas.
 
-* `limit` &ndash; Maximum number of messages
+* `limit` &ndash; Maximum number of messages to return. Defaults to 30, accepted values range from 1 to 100.
 
 * `sort` &ndash; Descending order is used by default in fetching messages. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their id. The sort parameter is for toggling between fetching the latest or the oldest matching messages.
 
