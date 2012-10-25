@@ -33,7 +33,9 @@ Flowdock-User: 2
     "unread_mentions": 0,
     "open": true,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
-    "web_url": "https://acme.flowdock.com/flows/my-flow"
+    "web_url": "https://acme.flowdock.com/flows/my-flow",
+    "require_invitation": false,
+    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow"
   },
   {
     "id": "acme/another-flow",
@@ -42,7 +44,8 @@ Flowdock-User: 2
     "unread_mentions": 0,
     "open": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
-    "web_url": "https://acme.flowdock.com/flows/another-flow"
+    "web_url": "https://acme.flowdock.com/flows/another-flow",
+    "require_invitation": true
   },
 ]
 ```
@@ -54,7 +57,8 @@ Flowdock-User: 2
 * `organization`: Human-readable name of the organization
 * `unread_mentions`: Count of unread messages that mention the authenticated user
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
-
+* `require_invitation`: Boolean value (true or false). Tells if the flow is invitation only or can be joined with a url.
+* `join_url`: URL where new users can join the flow if `require_invitation` is false. Only present if `require_invitation` is false.
 
 ## Get a Flow
 ```
@@ -77,6 +81,8 @@ Flowdock-User: 2
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "require_invitation": false,
+  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "users": [
     {
       "id": 9,
@@ -135,6 +141,7 @@ Flowdock-User: 9
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "require_invitation": true,
   "users": [
     {
       "id": 9,
