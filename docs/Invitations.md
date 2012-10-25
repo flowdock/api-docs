@@ -31,7 +31,7 @@ Flowdock-User: 2
     "state": "pending",
     "email": "otherperson@example.com",
     "flow": "acme:my-flow",
-    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14",
+    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/15",
     "created": 1350482865000,
     "updated": 1350483865000
   }
