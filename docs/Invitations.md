@@ -72,9 +72,9 @@ Flowdock-User: 2
 }
 ```
 
-## Create invitations
+## Create invitation
 
-Can be used to create or resend invitations. To resend an invitation, just post the same email address that was originally used.
+Can be used to create or resend invitation. To resend an invitation, just post the same email address that was originally used.
 
 ```
 POST /flows/:organization/:flow/invitations
@@ -82,16 +82,13 @@ POST /flows/:organization/:flow/invitations
 
 ### Input
 
-* `emails`: An array or comma / whitespace separated list of email addresses to invite.
+* `email`: An email address to invite.
 * `message`: (optional) Message to add to the invitation.
 
 ```javascript
 {
-  "emails": [
-    "someone@example.com",
-    "invalid"
-  ],
-  message: "Please join our team's Flow."
+  "email": "someone@example.com",
+  "message": "Please join our team's Flow."
 }
 ```
 
@@ -103,9 +100,44 @@ Flowdock-User: 2
 ```
 ```
 {
-  "erroneous_emails": [
-    "invalid"
-  ],
+  "id": 9,
+  "state": "pending",
+  "email": "person@example.com",
+  "flow": "acme:my-flow",
+  "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9",
+  "created": 1351159711000,
+  "updated": 1351159711000
+}
+```
+
+## Import address list
+
+The resource can be used to import list of email addresses and invite them to the flow. If an email address matches to existing user in the organization, the user will be added to the flow immediately.
+
+```
+POST /flows/:organization/:flow/invitations/import
+```
+
+### Input
+
+* `list`: A list of email addresses to invite. The list can be separated by commas or linefeeds, and the email addresses can be in either of the following formats: `person@example.com` or `"Joe Smith" <person@example.com>`
+* `message`: (optional) Message to add to the invitation.
+
+```javascript
+{
+  "list": "someone@example.com, \"Joe Smith\" <person@example.com>",
+  "message": "Please join our team's Flow."
+}
+```
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+{
   "invitations": [
     {
       "id": 9,
@@ -116,10 +148,29 @@ Flowdock-User: 2
       "created": 1351159711000,
       "updated": 1351159711000
     }
+  ],
+  "added_users": [
+    {
+      "id": 1,
+      "nick": "Steve",
+      "name": "Steve",
+      "email": "tide@nodeta.fi",
+      "avatar": "https://d1xgiuhrdvh29i.cloudfront.net/avatars/17e5d2cd009f410f75e9eb39f1b54d1c/",
+      "status": null,
+      "disabled": false,
+      "last_activity": 1351230217794,
+      "last_ping": 1351230217800
+    }
+  ],
+  "erroneous_emails": [
+    "test@example.invalid"
   ]
+}
 ```
-* `erroneous_emails`: An array of emails that were invalid. If all of the emails are invalid, the request will fail.
-* `invitations`: An array of invitations that were created or resent.
+
+* `invitations`: An array of the created invitations.
+* `added_users`: An array of the users added to the flow. E.g. those users who already were in the same organization and in the imported email address list.
+* `erroneous_emails`: An array of the email addresses that couldn't be parsed/validated.
 
 
 ## Delete invitation
