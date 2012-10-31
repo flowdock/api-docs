@@ -89,8 +89,8 @@ _Feed_
 _Twitter follow_
 
 * `twitter_user_id`: Numeric identifier of the user in Twitter.
-* `param`: Twitter username of the user. Must NOT include the `@` prefix. TODO: seems like redundant?
-* `name`: Display name of the user. TODO: seems like redundant?
+* `param`: Twitter username of the user. Must NOT include the `@` prefix.
+* `name`: Display name of the user.
 * `replies`: Include replies? `true` or `false`
 * `retweets`: Include retweets? `true` or `false`
 
