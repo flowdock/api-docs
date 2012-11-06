@@ -8,6 +8,7 @@ Authenticate as a user. Get information about flows and post messages as a Flowd
 * [User resource](Users)
 * [Organization resource](Organizations)
 * [Source resource](Sources) (for team inbox messages)
+* [Invitation resource](Invitations)
 * [Files](Files)
 
 ## Structure of an API request
