@@ -22,18 +22,14 @@ Flowdock-User: 2
     "state": "pending",
     "email": "person@example.com",
     "flow": "acme:my-flow",
-    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14",
-    "created": 1350482765000,
-    "updated": 1350483954000
+    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14"
   },
   {
     "id": 15,
     "state": "pending",
     "email": "otherperson@example.com",
     "flow": "acme:my-flow",
-    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/15",
-    "created": 1350482865000,
-    "updated": 1350483865000
+    "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/15"
   }
 ]
 ```
@@ -43,8 +39,6 @@ Flowdock-User: 2
 * `email`: Email address of the person who received the invitation.
 * `flow`: Resource id of the flow that this invitation belongs to.
 * `url`: Invitation resource url.
-* `created`: Timestamp in milliseconds since epoch when the invitation was created.
-* `updated`: Timestamp in milliseconds since epoch when the invitation was resent. Same as created if invitation has not been resent.
 
 ## Get an invitation
 
@@ -66,9 +60,7 @@ Flowdock-User: 2
   "state": "pending",
   "email": "person@example.com",
   "flow": "acme:my-flow",
-  "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14",
-  "created": 1350482765000,
-  "updated": 1350483954000
+  "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14"
 }
 ```
 
@@ -104,9 +96,7 @@ Flowdock-User: 2
   "state": "pending",
   "email": "person@example.com",
   "flow": "acme:my-flow",
-  "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9",
-  "created": 1351159711000,
-  "updated": 1351159711000
+  "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9"
 }
 ```
 
@@ -144,9 +134,7 @@ Flowdock-User: 2
       "state": "pending",
       "email": "person@example.com",
       "flow": "acme:my-flow",
-      "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9",
-      "created": 1351159711000,
-      "updated": 1351159711000
+      "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9"
     }
   ],
   "added_users": [
