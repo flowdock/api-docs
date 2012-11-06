@@ -98,6 +98,8 @@ Matches tweets that are from a particular Twitter user.
 
 _Twitter keyword_
 
+Matches tweets that contain given keywords.
+
 * `param`: The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported.
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
