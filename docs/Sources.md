@@ -91,14 +91,14 @@ _Twitter follow_
 * `twitter_user_id`: Numeric identifier of the user in Twitter.
 * `param`: Twitter username of the user. Must NOT include the `@` prefix.
 * `name`: Display name of the user.
-* `replies`: Include replies? `true` or `false`
-* `retweets`: Include retweets? `true` or `false`
+* `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
+* `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
 _Twitter keyword_
 
 * `param`: The keyword(s) for search.
-* `replies`: Include replies? `true` or `false`
-* `retweets`: Include retweets? `true` or `false`
+* `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
+* `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
 _Example_
 
