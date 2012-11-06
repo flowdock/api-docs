@@ -1,9 +1,9 @@
 # Invitations
 
-Invitations api can be used to invite new users to [flows](Flows). Invitations work for flows with `require_invitation` either true or false.
+Invitations API can be used to invite new [users](Users) to [flows](Flows).
 
 ## List invitations
-Lists open invitations to a flow.
+Lists open (not yet accepted) invitations of a flow.
 
 ```
 GET /flows/:organization/:flow/invitations
@@ -39,7 +39,7 @@ Flowdock-User: 2
 ```
 
 * `id`: Invitation resource id
-* `state`: State of the invitation. Can be `pending` or `accepted`.
+* `state`: State of the invitation. Can be `pending` or `accepted`. Invitation can be declined by deleting it.
 * `email`: Email address of the person who received the invitation.
 * `flow`: Resource id of the flow that this invitation belongs to.
 * `url`: Invitation resource url.
@@ -175,7 +175,7 @@ Flowdock-User: 2
 
 ## Delete invitation
 
-Deletes a single invitation. Only pending invitations can be deleted.
+Deletes a single invitation. Only pending invitations can be deleted. Used to decline or cancel an invitation.
 
 ```
 DELETE /flows/:organization/:flow/invitations/:id
