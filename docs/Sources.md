@@ -81,14 +81,12 @@ Create a source for the specified flow.
 * `type`: Type of the source, allowed types: `twitter_keyword`, `twitter_user` and `feed`
 * `config`: Configuration data for the source, required content depends on the selected `type`. See below for details per type.
 
-_Feed_
+**Feed** &ndash; An RSS / Atom feed
 
 * `url`: The URL of the feed.
 * `title`: Title of the feed, optional.
 
-_Twitter follow_
-
-Matches tweets that are from a particular Twitter user.
+**Twitter follow** &ndash; Matches tweets that are from a particular Twitter user
 
 * `twitter_user_id`: Numeric identifier of the user in Twitter. `String`
 * `param`: Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe`
@@ -96,10 +94,8 @@ Matches tweets that are from a particular Twitter user.
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
-_Twitter keyword_
-
-Matches tweets that contain given keywords.
-
+**Twitter keyword** &ndash; Matches tweets that contain given keywords.
+  
 * `param`: The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported.
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
