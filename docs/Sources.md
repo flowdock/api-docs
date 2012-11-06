@@ -44,7 +44,7 @@ Flowdock-User: 2
 * `id`: Source resource ID
 * `type`: Type of the source, allowed types: `twitter_keyword`, `twitter_user` and `feed`
 * `url`: Source resource URL
-* `config`: Configuration data of the source
+* `config`: Configuration data of the source. See below for more detail on the contents.
 
 ## Get a Source
 ```
@@ -88,15 +88,17 @@ _Feed_
 
 _Twitter follow_
 
-* `twitter_user_id`: Numeric identifier of the user in Twitter.
-* `param`: Twitter username of the user. Must NOT include the `@` prefix.
-* `name`: Display name of the user.
+Matches tweets that are from a particular Twitter user.
+
+* `twitter_user_id`: Numeric identifier of the user in Twitter. `String`
+* `param`: Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe`
+* `name`: Display name of the user. Example: `John Doe`
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
 _Twitter keyword_
 
-* `param`: The keyword(s) for search.
+* `param`: The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported.
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
