@@ -70,7 +70,7 @@ Content-Type: application/json; charset=utf-8
 ## UI Legend
 ![Team Inbox message with fields described](https://raw.github.com/flowdock/api-docs/master/images/flowdock-api-team-inbox.png)
 
-1. `from_name` (`from_address` in the link)
+1. `from_name` and/or `from_address`
 2. `source`
 3. `project`
 4. `subject` (`link` used as URL)
