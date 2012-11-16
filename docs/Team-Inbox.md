@@ -68,7 +68,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## UI Legend
-![Team Inbox message with fields described](https://github.com/flowdock/api-docs/blob/master/images/flowdock-api-team-inbox.png)
+![Team Inbox message with fields described](https://raw.github.com/flowdock/api-docs/master/images/flowdock-api-team-inbox.png)
 
 1. `from_name` (`from_address` in the link)
 2. `source`
