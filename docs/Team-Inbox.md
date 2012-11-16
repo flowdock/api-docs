@@ -29,6 +29,9 @@ Following HTML tags can be used: a abbr acronym address article aside b big bloc
 Name of the message sender.
 Example value: John Doe
 
+* `reply_to`
+Email address for replies, will be used when replying to the message from Flowdock.
+
 * `project`
 Human readable identifier for more detailed message categorization. Only alphanumeric characters, underscores and whitespace can be used. This identifier will be used as the secondary method of categorization for the messages.
 Example value: My Project
@@ -65,7 +68,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## UI Legend
-![Team Inbox message with fields described](https://www.flowdock.com/assets/api-influx-message.png)
+![Team Inbox message with fields described](https://github.com/flowdock/api-docs/blob/master/images/flowdock-api-team-inbox.png)
 
 1. `from_name` (`from_address` in the link)
 2. `source`
