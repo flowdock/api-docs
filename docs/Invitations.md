@@ -151,14 +151,14 @@ Flowdock-User: 2
     }
   ],
   "erroneous_emails": [
-    "test@example.invalid"
+    {"test@example.invalid" => "Invalid email"}
   ]
 }
 ```
 
 * `invitations`: An array of the created invitations.
 * `added_users`: An array of the users added to the flow. E.g. those users who already were in the same organization and in the imported email address list.
-* `erroneous_emails`: An array of the email addresses that couldn't be parsed/validated.
+* `erroneous_emails`: An array of problematic email addresses with detailed error descriptions.
 
 
 ## Delete invitation
