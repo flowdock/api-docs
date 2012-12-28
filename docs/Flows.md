@@ -35,7 +35,9 @@ Flowdock-User: 2
     "url": "https://api.flowdock.com/flows/acme/my-flow",
     "web_url": "https://acme.flowdock.com/flows/my-flow",
     "require_invitation": false,
-    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow"
+    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+    "access_mode": "organization",
+    "joined_to_flow": true
   },
   {
     "id": "acme/another-flow",
@@ -46,6 +48,8 @@ Flowdock-User: 2
     "url": "https://api.flowdock.com/flows/acme/another-flow",
     "web_url": "https://acme.flowdock.com/flows/another-flow",
     "require_invitation": true
+    "access_mode": "link",
+    "joined_to_flow": true
   },
 ]
 ```
@@ -59,6 +63,11 @@ Flowdock-User: 2
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
 * `require_invitation`: Boolean value (true or false). Tells if the flow is invitation only or can be joined with a url.
 * `join_url`: URL where new users can join the flow if `require_invitation` is false. Only present if `require_invitation` is false.
+* `access_mode`: How users see and access the flow. Possible values are:
+    - `invitation`: Only by getting invitation to flow.
+    - `link`: Using invitation link.
+    - `organization`: Everyone in organization can join the flow.
+* `joined_to_flow`: Boolean value (true or false). Tells if user has joined to flow
 
 ## Get a Flow
 ```
@@ -83,6 +92,8 @@ Flowdock-User: 2
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "require_invitation": false,
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "access_mode": "link",
+  "joined_to_flow": true,
   "users": [
     {
       "id": 9,
@@ -155,5 +166,49 @@ Flowdock-User: 9
       "last_ping": 1328017690004000
     }
   ]
+}
+```
+
+## Update a Flow
+```
+PUT /flows/:organization/:flow
+```
+Update flow information. Only admins can modify flow information
+
+### Input
+
+* `name`: New name of the flow, max. 100 characters. Note that changing name does not change flow's email or id
+* `disabled`: Boolean value (true or false). Controlling if the flow is disabled
+* `access_mode`: Controls access mode of the flow. Possible values are:
+    - `invitation`: User can join only by getting invitation to flow.
+    - `link`: User can join using invitation link.
+    - `organization`: Everyone in organization can join the flow.
+
+```javascript
+{
+  "name": "My new flow",
+  "disabled": false,
+  "access_mode": "organization"
+}
+```
+### Response
+```
+HTTP/1.1 201 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 9
+```
+```
+{
+  "id": "acme/my-flow",
+  "name": "My new flow",
+  "organization": "Acme",
+  "unread_mentions": 0,
+  "open": true,
+  "url": "https://api.flowdock.com/flows/acme/my-flow",
+  "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "require_invitation": false,
+  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "access_mode": "organization",
+  "joined_to_flow": true
 }
 ```
