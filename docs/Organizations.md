@@ -93,7 +93,7 @@ Flowdock-User: 1
 
 ## Update organization information
 ```
-PUT /users/:id
+PUT /organizations/:id
 ```
 Update organization information. Only admins can modify organization information.
 
@@ -114,5 +114,16 @@ Content-Type: application/json; charset=utf-8
 Flowdock-User: 1
 ```
 ```
-{}
+{
+    "id": "yup",
+    "name": "My company",
+    "user_limit": 80,
+    "user_count": 2,
+    "active": true,
+    "subscription":
+    {
+        "trial": true,
+        "trial_ends": "2013-01-27"
+    }
+}
 ```
