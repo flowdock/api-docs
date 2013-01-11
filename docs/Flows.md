@@ -185,7 +185,7 @@ Update flow information. Only admins can modify flow information
 ```
 ### Response
 ```
-HTTP/1.1 201 OK
+HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 9
 ```
