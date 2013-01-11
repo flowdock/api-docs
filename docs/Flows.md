@@ -200,6 +200,5 @@ Flowdock-User: 9
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "organization",
-  "joined_to_flow": true
 }
 ```
