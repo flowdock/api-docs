@@ -34,10 +34,8 @@ Flowdock-User: 2
     "open": true,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
     "web_url": "https://acme.flowdock.com/flows/my-flow",
-    "require_invitation": false,
     "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
     "access_mode": "organization",
-    "joined_to_flow": true
   },
   {
     "id": "acme/another-flow",
@@ -47,9 +45,7 @@ Flowdock-User: 2
     "open": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
     "web_url": "https://acme.flowdock.com/flows/another-flow",
-    "require_invitation": true
-    "access_mode": "link",
-    "joined_to_flow": true
+    "access_mode": "invitation",
   },
 ]
 ```
@@ -61,13 +57,11 @@ Flowdock-User: 2
 * `organization`: Human-readable name of the organization
 * `unread_mentions`: Count of unread messages that mention the authenticated user
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
-* `require_invitation`: Boolean value (true or false). Tells if the flow is invitation only or can be joined with a url.
-* `join_url`: URL where new users can join the flow if `require_invitation` is false. Only present if `require_invitation` is false.
+* `join_url`: URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link` false.
 * `access_mode`: How users see and access the flow. Possible values are:
     - `invitation`: Only by getting invitation to flow.
     - `link`: Using invitation link.
     - `organization`: Everyone in organization can join the flow.
-* `joined_to_flow`: Boolean value (true or false). Tells if user has joined to flow
 
 ## Get a Flow
 ```
@@ -90,10 +84,8 @@ Flowdock-User: 2
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "require_invitation": false,
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "link",
-  "joined_to_flow": true,
   "users": [
     {
       "id": 9,
@@ -152,7 +144,7 @@ Flowdock-User: 9
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "require_invitation": true,
+  "access_mode": "invitation",
   "users": [
     {
       "id": 9,
@@ -206,7 +198,6 @@ Flowdock-User: 9
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "require_invitation": false,
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "organization",
   "joined_to_flow": true
