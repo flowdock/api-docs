@@ -59,9 +59,9 @@ Flowdock-User: 2
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
 * `join_url`: URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link` false.
 * `access_mode`: How users see and access the flow. Possible values are:
-    - `invitation`: Only by getting invitation to flow.
-    - `link`: Using invitation link.
-    - `organization`: Everyone in organization can join the flow.
+    - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
+    - `link`: Anyone can join the flow by using the `join_url`.
+    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
 
 ## Get a Flow
 ```
@@ -172,9 +172,9 @@ Update flow information. Only admins can modify flow information
 * `name`: New name of the flow, max. 100 characters. Note that changing name does not change flow's email or id
 * `disabled`: Boolean value (true or false). Controlling if the flow is disabled
 * `access_mode`: Controls access mode of the flow. Possible values are:
-    - `invitation`: User can join only by getting invitation to flow.
-    - `link`: User can join using invitation link.
-    - `organization`: Everyone in organization can join the flow.
+    - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
+    - `link`: Anyone can join the flow by using the `join_url`.
+    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
 
 ```javascript
 {
