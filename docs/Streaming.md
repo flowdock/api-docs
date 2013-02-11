@@ -35,7 +35,7 @@ For example, to stream flows `example/main` and `example/flow`, request should b
 #### Parameters
 
 * `accept` Define content-type if Accept header cannot be used. _Optional._
-* `activity` Show user as active in Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. _Optional._
+* `active` Show user as active in Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. _Optional._
 * `filter` Comma separated list of flows, e.g. `example/main,example/flow`.
 
 ### GET /flows/:organization/:flow
