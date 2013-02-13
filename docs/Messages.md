@@ -188,6 +188,38 @@ Flowdock-User: 2
 ]
 ```
 
+<div id="/edit"></div>
+## Edit Message
+```
+PUT /flows/:organization/:flow/messages/:id
+```
+Updates a message with the specified id. Note: the message editing is limited by the `event` of the message and the properties to be updated. See details from the input section below.
+
+### Input
+* `content`
+    The message content. Updating content is only possible for your own messages of type `message` or `comment`.
+_Optional_
+* `tags`
+    Full list of message [tags](Tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see.
+_Optional_
+
+```javascript
+{
+  "content": "Updated content",
+  "tags":  ["todo", "#feedback", "@all"]
+}
+```
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+{}
+```
+
 
 <div id="/delete"></div>
 ## Delete Message
