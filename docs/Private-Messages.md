@@ -1,6 +1,6 @@
 # Private messages
 
-Private message is a sub-resource for [Private Conversation](Private Conversation), so it should always be accessed in that context. Currently only regular messages are supported in Private Conversations, but file messages and possibly other types will follow soon.
+Private message is a sub-resource for [Private Conversation](Private Conversations), so it should always be accessed in that context. Currently only regular messages are supported in Private Conversations, but file messages and possibly other types will follow soon.
 
 ## Send a message
 ```
@@ -44,7 +44,7 @@ For private messages, `content` is simply a string which represents the chat mes
 ```
 GET /private/:user_id/messages
 ```
-Lists messages from a [Private Conversation](Private Conversation), filtered by parameters.
+Lists messages from a [Private Conversation](Private Conversations), filtered by parameters.
 
 ### Parameters
 
@@ -119,7 +119,7 @@ Flowdock-User: 2
   "event": "action",
   "content": "Secret message",
   "attachments": [],
-  "user": 18
+  "user": 2
 }
 ```
 * `event` &ndash; The type of the message. E.g. chat message or tweet. See [Message Types](Message Types).

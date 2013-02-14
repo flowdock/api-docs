@@ -5,6 +5,8 @@ Authenticate as a user. Get information about flows and post messages as a Flowd
 * [Authentication](Authentication)
 * [Flow resource](Flows)
 * [Message resource](Messages)
+* [Private conversation resource](Private Conversations)
+* [Private message resource](Private Messages)
 * [User resource](Users)
 * [Organization resource](Organizations)
 * [Source resource](Sources) (for team inbox messages)

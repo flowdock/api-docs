@@ -1,8 +1,8 @@
 # Private conversations
 
-A private conversation in Flowdock is like a chat room for two users. Note: the `open` attribute of a closed private conversation changes back to `true` when new unread messages are added to the conversation.
+A private conversation in Flowdock is like a chat room for two users. Note: the `open` attribute of a closed private conversation automatically changes back to `true` when new unread messages are added to the conversation.
 
-In the REST API, Private conversations can be referred with the recipient user ID.
+In the REST API, Private conversations are referred with the recipient [User](Users) ID.
 
 ## List Private conversations
 
