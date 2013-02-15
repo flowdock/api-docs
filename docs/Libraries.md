@@ -2,6 +2,10 @@
 
 A list of libraries to access Flowdock in your favorite language.
 
+## Erlang
+
+  * [eflowdock](https://github.com/0xAX/eflowdock) - Flowdock client for erlang. Used in [Ybot](https://github.com/0xAX/Ybot).
+
 ## JavaScript
 
   * [flowdock-text](https://github.com/flowdock/flowdock-text) — A library for parsing links, tags, and other things from Flowdock messages.
