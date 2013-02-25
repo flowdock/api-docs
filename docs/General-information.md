@@ -1,11 +1,9 @@
 # General Information
 ## Cross-Origin resource sharing (CORS)
-All the Flowdock APIs support CORS and preflight OPTIONS requests.
-
-The following headers are set for each API response:
+All the Flowdock APIs support CORS and preflight OPTIONS requests. Provided that the request has set the required `Origin` header, the resulting response will have a matching `Access-Control-Allow-Origin` header along with other CORS headers:
 
 ```
-Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: example.com
 Access-Control-Allow-Methods: POST, PUT, PATCH, DELETE, GET, OPTIONS
 Access-Control-Allow-Headers: Origin, Accept, Content-type, Authorization, X-CSRF-Token, X-Requested-With, X-Prototype-Version
 ```
