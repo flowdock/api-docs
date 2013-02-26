@@ -19,6 +19,7 @@ A list of libraries to access Flowdock in your favorite language.
 ## Python
 
   * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by _Joshua Ginsberg_ — A Python interface to the Flowdock API
+  * [PyFlowdock](https://github.com/Aeron/PyFlowdock)
 
 ## Ruby
 
