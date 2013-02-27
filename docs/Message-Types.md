@@ -150,7 +150,7 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
 `content` is an object with
 
 * `message` &nbsp; ID of the message being tagged
-* `add` &nsbp; a list of tags added to message
+* `add` &nbsp; a list of tags added to message
 * `remove` &nbsp; list of tags removed from message
 
 ### Sample
@@ -167,6 +167,37 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
     "message": 1234,
     "add": ["foo", "bar"],
     "remove": ["test"]
+  },
+  "user": "18",
+  "attachments": []
+}
+```
+
+## Event: message-edit
+> DISCLAIMER: This message is still a work in progress and likely to change in the near future.
+
+Used to change content of messages. Only messages of types `message` and `comment` can be edited.
+
+### Data
+
+`content` is an object with:
+
+* `message` &nbsp; ID of the message being updated
+* `updated_content` &nbsp; new content of the message
+
+### Sample
+```javascript
+{
+  "app": null,
+  "sent": 1317397425508,
+  "uuid": null,
+  "tags": [],
+  "flow": "subdomain:sample-flow",
+  "id": 1236,
+  "event": "message-edit",
+  "content": {
+    "message": 1234,
+    "updated_content": "foo bar"
   },
   "user": "18",
   "attachments": []
@@ -194,7 +225,7 @@ timestamp is not always present when e.g. user is idle.
   "tags": [],
   "uuid": null,
   "id": 45592,
-  "flow": 'lautixentestiflowi',
+  "flow": 'subdomain:main',
   "content": {
     "last_activity": 1317715364447
   },
@@ -204,6 +235,7 @@ timestamp is not always present when e.g. user is idle.
   "user": '2'
 }
 ```
+
 <div id="/file"></div>
 ## Event: file
 The file event represents a file upload to chat.
