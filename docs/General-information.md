@@ -5,8 +5,11 @@ All the Flowdock APIs support CORS and preflight OPTIONS requests. Provided that
 ```
 Access-Control-Allow-Origin: example.com
 Access-Control-Allow-Methods: POST, PUT, PATCH, DELETE, GET, OPTIONS
-Access-Control-Allow-Headers: Origin, Accept, Content-type, Authorization, X-CSRF-Token, X-Requested-With, X-Prototype-Version
+Access-Control-Allow-Headers: Origin, Accept, Content-type,
+  Authorization, X-CSRF-Token, X-Requested-With, X-Prototype-Version
 ```
+
+If the actual request fails using the REST API, check that you have provided the [HTTP Basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) as a request header. Some client libraries won't send the credentials if they are set in the URL. See the [Authentication page](Authentication) for an example of providing the [HTTP Basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) using [jQuery](http://http://jquery.com/).
 
 ## All requests must be sent via HTTPS
 
