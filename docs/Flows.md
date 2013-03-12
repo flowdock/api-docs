@@ -7,8 +7,10 @@ In the REST API, Flow IDs are of the form `:organization/:flow`.
 * `organization` is the parametric name of the client organization, as seen in the subdomain of the web URL of the flow.
 * `flow` is the parametric name of the flow, as seen in the path of the web URL of the flow. Eg. `https://:organization.flowdock.com/flows/:flow`
 
+By default, the list of flows only includes those flows that the user has access to (`joined` attribute is `true`). However, if the access mode of a flow is set to `organization`, the user must explicitly join the flow to gain access. For these flows, the `joined` attribute is initially `false` and a separate "all flows" resource exists in the API for including them.
+
 ## List Flows
-Lists the flows that the authenticated user has access to.
+Lists the flows that the authenticated user has access to. E.g. `joined` attribute of the flow is `true`.
 
 ```
 GET /flows
@@ -32,6 +34,7 @@ Flowdock-User: 2
     "organization": "Acme",
     "unread_mentions": 0,
     "open": true,
+    "joined": true,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
     "web_url": "https://acme.flowdock.com/flows/my-flow",
     "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
@@ -43,6 +46,7 @@ Flowdock-User: 2
     "organization": "Acme",
     "unread_mentions": 0,
     "open": true,
+    "joined": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
     "web_url": "https://acme.flowdock.com/flows/another-flow",
     "access_mode": "invitation",
@@ -57,11 +61,62 @@ Flowdock-User: 2
 * `organization`: Human-readable name of the organization
 * `unread_mentions`: Count of unread messages that mention the authenticated user
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
+* `joined`: Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`.
 * `join_url`: URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link` false.
 * `access_mode`: How users see and access the flow. Possible values are:
     - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
     - `link`: Anyone can join the flow by using the `join_url`.
     - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
+
+
+## List all Flows
+Lists the flows that the authenticated user has access to or can join to.
+
+Includes all the flows from the "list flows" resource, and those flows that have `organization` as `access_mode` and the user has not yet joined (`joined` is `false`).
+
+```
+GET /flows/all
+```
+
+### Parameters
+
+* `users`: boolean value (1/0) controlling whether a list of users should be included in for each flow.
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+[
+  {
+    "id": "acme/my-flow",
+    "name": "My flow",
+    "organization": "Acme",
+    "unread_mentions": 0,
+    "open": false,
+    "joined": false,
+    "url": "https://api.flowdock.com/flows/acme/my-flow",
+    "web_url": "https://acme.flowdock.com/flows/my-flow",
+    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+    "access_mode": "organization",
+  },
+  {
+    "id": "acme/another-flow",
+    "name": "Another flow",
+    "organization": "Acme",
+    "unread_mentions": 0,
+    "open": true,
+    "joined": true,
+    "url": "https://api.flowdock.com/flows/acme/another-flow",
+    "web_url": "https://acme.flowdock.com/flows/another-flow",
+    "access_mode": "invitation",
+  },
+]
+```
+
+* Flow fields are described above in the List flows section.
 
 ## Get a Flow
 ```
@@ -165,11 +220,12 @@ Flowdock-User: 9
 ```
 PUT /flows/:organization/:flow
 ```
-Update flow information. Only admins can modify flow information
+Update flow information. Only admins can modify certain parts of the flow information.
 
 ### Input
 
 * `name`: New name of the flow, max. 100 characters. Note that changing name does not change flow's email or id
+* `open`: Boolean value (true or false). If set to `true` and the user has not previously joined the flow, the user will automatically be added to the flow.
 * `disabled`: Boolean value (true or false). Controlling if the flow is disabled
 * `access_mode`: Controls access mode of the flow. Possible values are:
     - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
@@ -196,6 +252,7 @@ Flowdock-User: 9
   "organization": "Acme",
   "unread_mentions": 0,
   "open": true,
+  "joined": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
