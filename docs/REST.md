@@ -22,13 +22,12 @@ _PATCH_ is used for most update methods instead of _PUT_ because of its ineffici
 
 ### URL Breakdown
 ```
-https://user:pass@api.flowdock.com/v1/flows/org/flow/messages/message_id
+https://user:pass@api.flowdock.com/flows/org/flow/messages/message_id
 ```
 
 * `https` -- all the Flowdock APIs are served with secure HTTP *only*
 * `user:pass` -- HTTP basic authentication credentials. You can use email/password or user specific tokens. See [Authentication](Authentication). **NOTE**: When using email/pass, remember to URI encode them. Characters outside the ASCII charset can exist in the e-mail address (the @ sign) and password.
 * `api.flowdock.com` -- the API endpoint domain
-* `v1` -- The version of the API. Optional. See [Versioning](Versioning).
 * `flows` -- the resource which is being requested
 * `org/flow` -- identifier of the resource. See [Flows](Flows).
 * `messages` -- sub-resource, a resource which is accessed in the scope of the parent resource. Eg. all the comments of a Team Inbox item. In some cases there can be multiple sub-resources.
