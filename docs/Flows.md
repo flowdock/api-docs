@@ -2,15 +2,10 @@
 
 A flow in Flowdock is like one single team workspace, which contains a chat room and a shared inbox.
 
-In the REST API, Flow IDs are of the form `:organization/:flow`.
-
-* `organization` is the parametric name of the client organization, as seen in the subdomain of the web URL of the flow.
-* `flow` is the parametric name of the flow, as seen in the path of the web URL of the flow. Eg. `https://:organization.flowdock.com/flows/:flow`
-
-By default, the list of flows only includes those flows that the user has access to (`joined` attribute is `true`). However, if the access mode of a flow is set to `organization`, the user must explicitly join the flow to gain access. For these flows, the `joined` attribute is initially `false` and a separate "all flows" resource exists in the API for including them.
-
 ## List Flows
 Lists the flows that the authenticated user has access to. E.g. `joined` attribute of the flow is `true`.
+
+By default, the list of flows only includes those flows that the user has access to (`joined` attribute is `true`). However, if the access mode of a flow is set to `organization`, the user must explicitly join the flow to gain access. For these flows, the `joined` attribute is initially `false` and a separate "all flows" resource exists in the API for including them.
 
 ```
 GET /flows
@@ -54,7 +49,7 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: Flow resource ID
+* `id`: Flow ID
 * `url`: Flow resource URL
 * `web_url`: URL to the flow in the web UI
 * `name`: Human-readable name of the flow
@@ -68,6 +63,8 @@ Flowdock-User: 2
     - `link`: Anyone can join the flow by using the `join_url`.
     - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
 
+
+**Note**: Flow IDs are currently in the form `:organization/:flow`, but this will change in future. IDs should be treated as opaque strings.
 
 ## List all Flows
 Lists the flows that the authenticated user has access to or can join to.
