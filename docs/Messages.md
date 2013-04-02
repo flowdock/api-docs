@@ -172,7 +172,7 @@ Flowdock-User: 2
 * `uuid` &ndash; Optional client-generated universal identifier for message. Used to recognize messages sent by single Flowdock instance. Can be used to render sent messages instantly and later add necessary data (id) for tagging.
 * `user` &ndash; Numerical user id of user (as string)
 * `sent` &ndash; Timestamp when message was sent. Milliseconds since Jan 1st, 1970.
-* `flow` &ndash; Identifier of flow. See [Flows](Flows).
+* `flow` &ndash; Flow identifier
 * `id` &ndash; Incremental id of message. Unique only in flow scope.
 * `attachments` &ndash; List of file attachments related to this message. Example:
 
