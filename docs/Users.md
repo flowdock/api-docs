@@ -4,7 +4,7 @@ A user in Flowdock can belong to multiple [organizations](Organizations) and [fl
 
 ## List all users
 
-List all users visible to the authenticated user.
+List all users visible to the authenticated user, i.e. a combined set of users from all the organizations of the authenticated user. If the authenticated user is admin in the organization, all users are returned. Otherwise only users that are in the same flows as the authenticated user are returned.
 
 ```
 GET /users
