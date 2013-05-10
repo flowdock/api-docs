@@ -88,9 +88,19 @@ Flowdock-User: 2
 
 ## Add a user to flow
 ```
-POST /flows/:organization/:flow/users/:id
+POST /flows/:organization/:flow/users
 ```
 Add user to a flow. Authenticated user and the target user must be members of the organization.
+
+### Input
+* `id`
+  User resource ID
+
+```javascript
+{
+  "id": 42
+}
+```
 
 ### Response
 ```
