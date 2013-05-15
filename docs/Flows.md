@@ -57,11 +57,10 @@ Flowdock-User: 2
 * `unread_mentions`: Count of unread messages that mention the authenticated user
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
 * `joined`: Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`.
-* `join_url`: URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link` false.
+* `join_url`: URL where new users can join the flow if the join url is enabled for the flow.
 * `access_mode`: How users see and access the flow. Possible values are:
     - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
-    - `link`: Anyone can join the flow by using the `join_url`.
-    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
+    - `organization`: Anyone in the organization can join the flow (it will be visible for them).
 
 
 **Note**: Flow IDs are currently in the form `:organization/:flow`, but this will change in future. IDs should be treated as opaque strings.
@@ -137,7 +136,7 @@ Flowdock-User: 2
   "url": "https://api.flowdock.com/flows/acme/my-flow",
   "web_url": "https://acme.flowdock.com/flows/my-flow",
   "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
-  "access_mode": "link",
+  "access_mode": "invitation",
   "users": [
     {
       "id": 9,
@@ -219,6 +218,8 @@ PUT /flows/:organization/:flow
 ```
 Update flow information. Only admins can modify certain parts of the flow information.
 
+Note: To enable or disable join link, see [join url](Join-Url) resource.
+
 ### Input
 
 * `name`: New name of the flow, max. 100 characters. Note that changing name does not change flow's email or id
@@ -226,8 +227,7 @@ Update flow information. Only admins can modify certain parts of the flow inform
 * `disabled`: Boolean value (true or false). Controlling if the flow is disabled
 * `access_mode`: Controls access mode of the flow. Possible values are:
     - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
-    - `link`: Anyone can join the flow by using the `join_url`.
-    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
+    - `organization`: Anyone in the organization can join the flow (it will be visible for them).
 
 ```javascript
 {
