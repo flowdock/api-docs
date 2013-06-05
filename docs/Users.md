@@ -2,7 +2,40 @@
 
 A user in Flowdock can belong to multiple [organizations](Organizations) and [flows](Flows).
 
-## List users
+## List all users
+
+List all users visible to the authenticated user, i.e. a combined set of users from all the organizations of the authenticated user. If the authenticated user is admin in the organization, all users are returned. Otherwise only users that are in the same flows as the authenticated user are returned.
+
+```
+GET /users
+```
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+[
+  {
+    "id": 9,
+    "email": "john@example.com",
+    "name": "John Smith",
+    "nick": "John",
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c/",
+    "status": "Status message",
+    "disabled": false,
+    "last_activity": 1366613085178,
+    "last_ping": 1366616861547
+  },
+  ...
+]
+```
+
+* `id`: User resource ID
+
+## List flow users
 
 List users of a flow. Authenticated user must belong to the organization.
 
@@ -21,10 +54,13 @@ Flowdock-User: 2
   {
     "id": 9,
     "email": "john@example.com",
-    "first_name": "John",
-    "last_name": "Smith",
+    "name": "John Smith",
     "nick": "John",
-    "avatar": "http://api.flowdock.com/avatars/667bc62d0ba333c684f0466d7a30a724/"
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c/",
+    "status": "Status message",
+    "disabled": false,
+    "last_activity": 1366613085178,
+    "last_ping": 1366616861547
   },
   ...
 ]
@@ -50,10 +86,13 @@ Flowdock-User: 2
 {
   "id": 9,
   "email": "john@example.com",
-  "first_name": "John",
-  "last_name": "Smith",
+  "name": "John Smith",
   "nick": "John",
-  "avatar": "http://api.flowdock.com/avatars/667bc62d0ba333c684f0466d7a30a724/"
+  "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c/",
+  "status": "Status message",
+  "disabled": false,
+  "last_activity": 1366613085178,
+  "last_ping": 1366616861547
 }
 ```
 
