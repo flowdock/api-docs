@@ -166,6 +166,60 @@ Flowdock-User: 2
 }
 ```
 
+## Get a Flow by Id
+
+```
+GET /flows/find?id=:id
+```
+
+Get a single flow using flow id. Return data is identical to getting a flow
+using flow URL.
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```
+{
+  "id": "deadbeefdeadbeef",
+  "name": "My flow",
+  "organization": "Acme",
+  "unread_mentions": 0,
+  "open": true,
+  "url": "https://api.flowdock.com/flows/acme/my-flow",
+  "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "access_mode": "link",
+  "users": [
+    {
+      "id": 9,
+      "nick": "Joe",
+      "name": "Joe Smith",
+      "email": "joe@example.com",
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f5b8fb60c6116331da07c65b96a8a1d1/",
+      "status": "Testing API",
+      "disabled": false,
+      "last_activity": 1328016726423000,
+      "last_ping": 1328017690004000
+    },
+    {
+      "id": 42,
+      "nick": "Stevie",
+      "name": "Stevie Johnson",
+      "email": "stevie@example.com",
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/5bdd089a099acc56fc7120f6325a5d5c/",
+      "status": null,
+      "disabled": true,
+      "last_activity": 1328016712345000,
+      "last_ping": 1328017612345000
+    }
+  ]
+}
+```
+
+
 ## Create a Flow
 ```
 POST /flows/:organization
