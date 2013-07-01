@@ -24,7 +24,7 @@ Flowdock-User: 2
 ```
 [
   {
-    "id": "acme/my-flow",
+    "id": "deadbeefdeadbeef",
     "name": "My flow",
     "organization": "Acme",
     "unread_mentions": 0,
@@ -36,7 +36,7 @@ Flowdock-User: 2
     "access_mode": "organization",
   },
   {
-    "id": "acme/another-flow",
+    "id": "anotherflow",
     "name": "Another flow",
     "organization": "Acme",
     "unread_mentions": 0,
@@ -64,7 +64,8 @@ Flowdock-User: 2
     - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
 
 
-**Note**: Flow IDs are currently in the form `:organization/:flow`, but this will change in future. IDs should be treated as opaque strings.
+**Note**: Flow IDs have historically been in the form `organization:flow`, but
+new flows are created with random IDs.
 
 ## List all Flows
 Lists the flows that the authenticated user has access to or can join to.
@@ -88,7 +89,7 @@ Flowdock-User: 2
 ```
 [
   {
-    "id": "acme/my-flow",
+    "id": "deadbeefdeadbeef",
     "name": "My flow",
     "organization": "Acme",
     "unread_mentions": 0,
@@ -129,7 +130,7 @@ Flowdock-User: 2
 ```
 ```
 {
-  "id": "acme/my-flow",
+  "id": "deadbeefdeadbeef",
   "name": "My flow",
   "organization": "Acme",
   "unread_mentions": 0,
@@ -189,7 +190,7 @@ Flowdock-User: 9
 ```
 ```
 {
-  "id": "acme/my-flow",
+  "id": "deadbeefdeadbeef",
   "name": "My flow",
   "organization": "Acme",
   "unread_mentions": 0,
@@ -244,7 +245,7 @@ Flowdock-User: 9
 ```
 ```
 {
-  "id": "acme/my-flow",
+  "id": "deadbeefdeadbeef",
   "name": "My new flow",
   "organization": "Acme",
   "unread_mentions": 0,
