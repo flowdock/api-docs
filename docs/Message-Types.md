@@ -20,7 +20,7 @@ Message `content` is a string containing free-form text.
   "tags": [],
   "uuid": "4W_LQEybVaX-gJmi",
   "id": 45590,
-  "flow": "subdomain:sample-flow",
+  "flow": "deadbeefdeadbeef",
   "content": "Hello World",
   "sent": 1317715340213,
   "attachments": [],
@@ -43,7 +43,7 @@ Status event is triggered when users change their statuses.
   "sent": 1317307033981,
   "uuid": "anLhpBKqk0TXB27V",
   "tags": [],
-  "flow": "nodeta:flowdock",
+  "flow": "deadbeefdeadbeef",
   "id": 3803707,
   "event": "status",
   "content": "This is my new status",
@@ -70,7 +70,7 @@ containing the actual comment. Id of parent message is stored in a [special tag]
   "sent": 1317722877378,
   "uuid": "O-8aGb0fcc5gEgTX",
   "tags": ["influx:3838422"],
-  "flow": "subdomain:flow",
+  "flow": "deadbeefdeadbeef",
   "id": 3838423,
   "event": "comment",
   "content": {
@@ -127,7 +127,7 @@ string or an object.
   "sent": 1317397485508,
   "uuid": "odHapx1VWp7WTrdQ",
   "tags": [],
-  "flow": "subdomain:sample-flow",
+  "flow": "deadbeefdeadbeef",
   "id": 3816534,
   "event": "action",
   "content": {
@@ -160,7 +160,7 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
   "sent": 1317397485508,
   "uuid": "odHapx1VWp7WTrdQ",
   "tags": [],
-  "flow": "subdomain:sample-flow",
+  "flow": "deadbeefdeadbeef",
   "id": 1235,
   "event": "tag-change",
   "content": {
@@ -192,7 +192,7 @@ Used to change content of messages. Only messages of types `message` and `commen
   "sent": 1317397425508,
   "uuid": null,
   "tags": [],
-  "flow": "subdomain:sample-flow",
+  "flow": "deadbeefdeadbeef",
   "id": 1236,
   "event": "message-edit",
   "content": {
@@ -225,7 +225,7 @@ timestamp is not always present when e.g. user is idle.
   "tags": [],
   "uuid": null,
   "id": 45592,
-  "flow": 'subdomain:main',
+  "flow": "deadbeefdeadbeef",
   "content": {
     "last_activity": 1317715364447
   },
@@ -248,7 +248,7 @@ The file event represents a file upload to chat.
 {
   "id": 31572,
   "app": "chat",
-  "flow": "yup:main",
+  "flow": "deadbeefdeadbeef",
   "event": "file",
   "sent": 1330953594433,
   "attachments": [

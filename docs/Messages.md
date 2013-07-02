@@ -108,7 +108,7 @@ Flowdock-User: 2
     "sent":1317397485508,
     "uuid":"odHapx1VWp7WTrdQ",
     "tags":[],
-    "flow": "subdomain:sample-flow",
+    "flow": "deadbeefdeadbeef",
     "id":3816534,
     "event":"action",
     "content":{
@@ -124,7 +124,7 @@ Flowdock-User: 2
     "tags": [],
     "uuid": "4W_LQEybVaX-gJmi",
     "id": 45590,
-    "flow": "subdomain:sample-flow",
+    "flow": "deadbeefdeadbeef",
     "content": "Hello World",
     "sent": 1317715340213,
     "attachments": [],
@@ -154,7 +154,7 @@ Flowdock-User: 2
   "sent":1317397485508,
   "uuid":"odHapx1VWp7WTrdQ",
   "tags":[],
-  "flow": "subdomain:sample-flow",
+  "flow": "deadbeefdeadbeef",
   "id":3816534,
   "event":"action",
   "content":{
