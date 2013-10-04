@@ -21,14 +21,14 @@ Flowdock-User: 2
     "id": 14,
     "state": "pending",
     "email": "person@example.com",
-    "flow": "acme:my-flow",
+    "flow": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14"
   },
   {
     "id": 15,
     "state": "pending",
     "email": "otherperson@example.com",
-    "flow": "acme:my-flow",
+    "flow": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/15"
   }
 ]
@@ -59,7 +59,7 @@ Flowdock-User: 2
   "id": 14,
   "state": "pending",
   "email": "person@example.com",
-  "flow": "acme:my-flow",
+  "flow": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
   "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/14"
 }
 ```
@@ -95,7 +95,7 @@ Flowdock-User: 2
   "id": 9,
   "state": "pending",
   "email": "person@example.com",
-  "flow": "acme:my-flow",
+  "flow": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
   "url": "https://api.flowdock.com/flows/acme/my-flow/invitations/9"
 }
 ```
