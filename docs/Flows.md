@@ -26,24 +26,40 @@ Flowdock-User: 2
   {
     "id": "deadbeefdeadbeef",
     "name": "My flow",
-    "organization": "Acme",
+    "organization": {
+      "id": 42,
+      "name": "Example",
+      "parameterized_name": "example",
+      "user_limit": 0,
+      "user_count": 10,
+      "active": true,
+      "url": "https://api.flowdock.com/organizations/example"
+    }
     "unread_mentions": 0,
     "open": true,
     "joined": true,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
-    "web_url": "https://acme.flowdock.com/flows/my-flow",
-    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+    "web_url": "https://www.flowdock.com/app/acme/my-flow",
+    "join_url": "https://www.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
     "access_mode": "organization",
   },
   {
-    "id": "anotherflow",
+    "id": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "name": "Another flow",
-    "organization": "Acme",
+    "organization": {
+      "id": 8,
+      "name": "Acme",
+      "parameterized_name": "acme",
+      "user_limit": 0,
+      "user_count": 5,
+      "active": true,
+      "url": "https://api.flowdock.com/organizations/acme"
+    }
     "unread_mentions": 0,
     "open": true,
     "joined": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
-    "web_url": "https://acme.flowdock.com/flows/another-flow",
+    "web_url": "https://www.flowdock.com/app/acme/another-flow",
     "access_mode": "invitation",
   },
 ]
@@ -53,7 +69,7 @@ Flowdock-User: 2
 * `url`: Flow resource URL
 * `web_url`: URL to the flow in the web UI
 * `name`: Human-readable name of the flow
-* `organization`: Human-readable name of the organization
+* `organization`: [Organization](Organizations) information
 * `unread_mentions`: Count of unread messages that mention the authenticated user
 * `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
 * `joined`: Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`.
@@ -91,24 +107,40 @@ Flowdock-User: 2
   {
     "id": "deadbeefdeadbeef",
     "name": "My flow",
-    "organization": "Acme",
+    "organization": {
+      "id": 8,
+      "name": "Acme",
+      "parameterized_name": "acme",
+      "user_limit": 0,
+      "user_count": 5,
+      "active": true,
+      "url": "https://api.flowdock.com/organizations/acme"
+    }
     "unread_mentions": 0,
     "open": false,
     "joined": false,
     "url": "https://api.flowdock.com/flows/acme/my-flow",
-    "web_url": "https://acme.flowdock.com/flows/my-flow",
-    "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+    "web_url": "https://www.flowdock.com/app/acme/my-flow",
+    "join_url": "https://www.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
     "access_mode": "organization",
   },
   {
-    "id": "acme/another-flow",
+    "id": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "name": "Another flow",
-    "organization": "Acme",
+    "organization": {
+      "id": 8,
+      "name": "Acme",
+      "parameterized_name": "acme",
+      "user_limit": 0,
+      "user_count": 5,
+      "active": true,
+      "url": "https://api.flowdock.com/organizations/acme"
+    }
     "unread_mentions": 0,
     "open": true,
     "joined": true,
     "url": "https://api.flowdock.com/flows/acme/another-flow",
-    "web_url": "https://acme.flowdock.com/flows/another-flow",
+    "web_url": "https://www.flowdock.com/app/acme/another-flow",
     "access_mode": "invitation",
   },
 ]
@@ -132,12 +164,20 @@ Flowdock-User: 2
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
-  "organization": "Acme",
+  "organization": {
+    "id": 8,
+    "name": "Acme",
+    "parameterized_name": "acme",
+    "user_limit": 0,
+    "user_count": 5,
+    "active": true,
+    "url": "https://api.flowdock.com/organizations/acme"
+  }
   "unread_mentions": 0,
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
-  "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "web_url": "https://www.flowdock.com/app/acme/my-flow",
+  "join_url": "https://www.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "link",
   "users": [
     {
@@ -185,12 +225,20 @@ Flowdock-User: 2
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
-  "organization": "Acme",
+  "organization": {
+    "id": 8,
+    "name": "Acme",
+    "parameterized_name": "acme",
+    "user_limit": 0,
+    "user_count": 5,
+    "active": true,
+    "url": "https://api.flowdock.com/organizations/acme"
+  }
   "unread_mentions": 0,
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
-  "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "web_url": "https://www.flowdock.com/app/acme/my-flow",
+  "join_url": "https://www.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "link",
   "users": [
     {
@@ -246,11 +294,19 @@ Flowdock-User: 9
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
-  "organization": "Acme",
+  "organization": {
+    "id": 8,
+    "name": "Acme",
+    "parameterized_name": "acme",
+    "user_limit": 0,
+    "user_count": 5,
+    "active": true,
+    "url": "https://api.flowdock.com/organizations/acme"
+  }
   "unread_mentions": 0,
   "open": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
-  "web_url": "https://acme.flowdock.com/flows/my-flow",
+  "web_url": "https://www.flowdock.com/app/acme/my-flow",
   "access_mode": "invitation",
   "users": [
     {
@@ -301,13 +357,21 @@ Flowdock-User: 9
 {
   "id": "deadbeefdeadbeef",
   "name": "My new flow",
-  "organization": "Acme",
+  "organization": {
+    "id": 8,
+    "name": "Acme",
+    "parameterized_name": "acme",
+    "user_limit": 0,
+    "user_count": 5,
+    "active": true,
+    "url": "https://api.flowdock.com/organizations/acme"
+  }
   "unread_mentions": 0,
   "open": true,
   "joined": true,
   "url": "https://api.flowdock.com/flows/acme/my-flow",
-  "web_url": "https://acme.flowdock.com/flows/my-flow",
-  "join_url": "https://acme.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
+  "web_url": "https://www.flowdock.com/app/acme/my-flow",
+  "join_url": "https://www.flowdock.com/invitations/eedd2bf0643f75c14be9099272429351c7132a71-my-flow",
   "access_mode": "organization",
 }
 ```
