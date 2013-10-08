@@ -26,6 +26,7 @@ Flowdock-User: 2
   {
     "id": "deadbeefdeadbeef",
     "name": "My flow",
+    "parameterized_name": "my-flow",
     "organization": {
       "id": 42,
       "name": "Example",
@@ -46,6 +47,7 @@ Flowdock-User: 2
   {
     "id": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "name": "Another flow",
+    "parameterized_name": "another-flow",
     "organization": {
       "id": 8,
       "name": "Acme",
@@ -107,6 +109,7 @@ Flowdock-User: 2
   {
     "id": "deadbeefdeadbeef",
     "name": "My flow",
+    "parameterized_name": "my-flow",
     "organization": {
       "id": 8,
       "name": "Acme",
@@ -127,6 +130,7 @@ Flowdock-User: 2
   {
     "id": "05654aa3-3b13-4a79-8cea-92ed45bdc9a5",
     "name": "Another flow",
+    "parameterized_name": "another-flow",
     "organization": {
       "id": 8,
       "name": "Acme",
@@ -152,6 +156,8 @@ Flowdock-User: 2
 ```
 GET /flows/:organization/:flow
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list. Timestamps are milliseconds since epoch.
 
 ### Response
@@ -164,6 +170,7 @@ Flowdock-User: 2
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
+  "parameterized_name": "my-flow",
   "organization": {
     "id": 8,
     "name": "Acme",
@@ -225,6 +232,7 @@ Flowdock-User: 2
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
+  "parameterized_name": "my-flow",
   "organization": {
     "id": 8,
     "name": "Acme",
@@ -272,6 +280,8 @@ Flowdock-User: 2
 ```
 POST /flows/:organization
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Create a flow for the specified organization.
 
 ### Input
@@ -294,6 +304,7 @@ Flowdock-User: 9
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
+  "parameterized_name": "my-flow",
   "organization": {
     "id": 8,
     "name": "Acme",
@@ -328,6 +339,8 @@ Flowdock-User: 9
 ```
 PUT /flows/:organization/:flow
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Update flow information. Only admins can modify certain parts of the flow information.
 
 ### Input
@@ -357,6 +370,7 @@ Flowdock-User: 9
 {
   "id": "deadbeefdeadbeef",
   "name": "My new flow",
+  "parameterized_name": "my-flow",
   "organization": {
     "id": 8,
     "name": "Acme",

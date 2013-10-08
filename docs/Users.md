@@ -42,6 +42,7 @@ List users of a flow. Authenticated user must belong to the organization.
 ```
 GET /flows/:organisation/:flow/users
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -129,6 +130,8 @@ Flowdock-User: 2
 ```
 POST /flows/:organization/:flow/users
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Add user to a flow. Authenticated user and the target user must be members of the organization.
 
 ### Input
@@ -156,6 +159,8 @@ Flowdock-User: 2
 ```
 PUT /flows/:organization/:flow/users/:id
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Blocks user from a flow. Organization admins can remove anyone (including other admins), but regular users can only remove other regular users.
 
 ### Input

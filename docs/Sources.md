@@ -9,6 +9,7 @@ Lists all the sources of the given flow.
 ```
 GET /flows/:organization/:flow/sources
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -50,6 +51,8 @@ Flowdock-User: 2
 ```
 GET /flows/:organization/:flow/source/:id
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Get a single source. The data format is identical to the list above.
 
 ### Response
@@ -74,6 +77,8 @@ Flowdock-User: 2
 ```
 POST /flows/:organization/:flow/sources
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Create a source for the specified flow.
 
 ### Input
@@ -95,7 +100,7 @@ Create a source for the specified flow.
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
 
 **Twitter keyword** &ndash; Matches tweets that contain given keywords.
-  
+
 * `param`: The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported.
 * `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
 * `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
@@ -136,6 +141,7 @@ Flowdock-User: 9
 ```
 DELETE /flows/:organization/:flow/source/:id
 ```
+[URL breakdown](rest#/url-breakdown)
 
 Delete a source with the specified id.
 

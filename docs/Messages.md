@@ -3,17 +3,28 @@
 There are several different [Message Types](Message Types), you can upload files and set the user's status as well as send plain chat messages. Message is a sub-resource for Flow, so it should always be accessed in that context.
 
 ## Send a message
+
+Send a chat message, set the status, comment, upload a file...
+
+```
+POST /messages
+```
+
+or
+
 ```
 POST /flows/:organization/:flow/messages
 ```
-Send a chat message, set the status, comment, upload a file...
+[URL breakdown](rest#/url-breakdown)
 
 
 ### Input
+* `flow`
+  The `id` of the target [flow](Flows) unless specified in the URL. _Optional_
 * `event`
-    One of the valid Flowdock message events. Determines the type of message being sent to Flowdock. See Message Types section below. Required.
+  One of the valid Flowdock message events. Determines the type of message being sent to Flowdock. See Message Types section below. Required.
 * `content`
-    The actual message. The format of content depends on the event. See Message Types section below. Required.
+  The actual message. The format of content depends on the event. See Message Types section below. Required.
 * `tags`
 List of [tags](Tags) to be added to the message. Can be either an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent:
   * `["@Mike", "#cool", "awesome"]`
@@ -77,6 +88,8 @@ curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUT
 ```
 GET /flows/:organization/:flow/messages
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Lists messages from a flow, filtered by parameters.
 
 ### Parameters
@@ -140,6 +153,8 @@ Flowdock-User: 2
 ```
 GET /flows/:organization/:flow/messages/:id
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Retrieve a message with the specified id.
 
 ### Response
@@ -193,6 +208,8 @@ Flowdock-User: 2
 ```
 PUT /flows/:organization/:flow/messages/:id
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Updates a message with the specified id. Note: the message editing is limited by the `event` of the message and the properties to be updated. See details from the input section below.
 
 ### Input
@@ -226,6 +243,8 @@ Flowdock-User: 2
 ```
 DELETE /flows/:organization/:flow/messages/:id
 ```
+[URL breakdown](rest#/url-breakdown)
+
 Delete a message with the specified id. Note: only team inbox (`app=influx`) or user's own file (`event=file`) messages can be deleted, for other messages the response will be HTTP status 404 with an error message.
 
 ### Response

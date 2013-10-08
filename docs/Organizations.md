@@ -65,6 +65,7 @@ Get information of an organization using the parameterized name. Authenticated u
 ```
 GET /organizations/:parameterized_name
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -157,6 +158,7 @@ Update organization information. Only admins can modify organization information
 ```
 PUT /organizations/:parameterized_name
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Input
 * `name`

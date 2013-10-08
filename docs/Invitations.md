@@ -8,6 +8,7 @@ Lists open (not yet accepted) invitations of a flow.
 ```
 GET /flows/:organization/:flow/invitations
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -47,6 +48,7 @@ Get a single invitation. Shows accepted invitations too. Data format and fields 
 ```
 GET /flows/:organization/:flow/invitations/:id
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -71,6 +73,7 @@ Can be used to create or resend invitation. To resend an invitation, just post t
 ```
 POST /flows/:organization/:flow/invitations
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Input
 
@@ -107,6 +110,7 @@ The resource can be used to import list of email addresses and invite them to th
 ```
 POST /flows/:organization/:flow/invitations/import
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Input
 
@@ -168,6 +172,7 @@ Deletes a single invitation. Only pending invitations can be deleted. Used to de
 ```
 DELETE /flows/:organization/:flow/invitations/:id
 ```
+[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```

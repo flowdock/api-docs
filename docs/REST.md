@@ -20,6 +20,7 @@ We try to uphold the principles of REST in the API. Listing, showing and anythin
 
 _PATCH_ is used for most update methods instead of _PUT_ because of its inefficiency and inconvenient requirements of idempotency.
 
+<div id="/url-breakdown"></div>
 ### URL Breakdown
 ```
 https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
@@ -29,8 +30,8 @@ https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
 * `user:pass` -- HTTP basic authentication credentials. You can use email/password or user specific tokens. See [Authentication](Authentication). **NOTE**: When using email/pass, remember to URI encode them. Characters outside the ASCII charset can exist in the e-mail address (the @ sign) and password.
 * `api.flowdock.com` -- the API endpoint domain
 * `flows` -- the resource which is being requested
-* `org` -- organization identifier
-* `flow` -- parametric name of flow. See [Flows](Flows).
+* `org` -- the `parameterized_name` of [organization](Organizations)
+* `flow` -- the `parameterized_name` of [flow](Flows)
 * `messages` -- sub-resource, a resource which is accessed in the scope of the parent resource. Eg. all the comments of a Team Inbox item. In some cases there can be multiple sub-resources.
 * `message_id` -- identifier of the sub-resource
 
@@ -42,6 +43,7 @@ Example of posting a message:
 ```
 POST /flows/organization/main/messages
 ```
+
 ```
 {
   "event": "message",

@@ -28,6 +28,7 @@ Example:
 ```
 POST https://api.flowdock.com/v1/messages/chat/_YOUR_API_TOKEN_HERE_
 ```
+
 ```
 {
   "external_user_name": "foobar",
