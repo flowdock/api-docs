@@ -15,6 +15,13 @@ or
 ```
 POST /flows/:organization/:flow/messages
 ```
+
+Comments can be posted to
+
+```
+POST /flows/:organization/:flow/messages/:message_id/comments
+```
+
 [URL breakdown](rest#/url-breakdown)
 
 
@@ -31,6 +38,7 @@ List of [tags](Tags) to be added to the message. Can be either an array (JSON on
   * `"#awesome,cool,@mike"`
 * `external_user_name`
   Name which appears as the message sender. This will change message to anonymous message, like it was sent from [Push API](Chat). _Optional_
+* `message_id` when sending a comment, the id of the commented message. Must not be a comment.
 
 ```javascript
 {
@@ -57,6 +65,11 @@ The event parameter in the message data defines the type of message. More at [Me
 Event: `message`
 
 For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content. _Maximum length of the content is 8096 characters._
+
+#### Comment message
+Event: `comment`
+
+Comments can only be posted through the message specific comments url (the last type of urls above). `content` format is the same as with `message`. _Please note_ that for forwards compatibility the `content` format is different from the `content` that's returned by the [streaming](/api/streaming) or [rest api](/api/rest) for `comment` messages.
 
 #### Status Update
 Event: `status`
