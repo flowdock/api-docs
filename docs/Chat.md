@@ -18,6 +18,9 @@ Name of the "user" sending the message. Required.
 Tags of the message, separated by commas. Optional.
 Example value: cool,stuff
 
+* `message_id`
+Id of another message that's being commented. Optional. Instead of a regular message, adds a comment to another message. Only messages that are not comments themselves can be commented.
+
 ```
 {
   "content": "Howdy-Doo @Jackie #awesome",
