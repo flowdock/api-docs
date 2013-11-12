@@ -253,7 +253,7 @@ The file event represents a file upload to chat.
   "sent": 1330953594433,
   "attachments": [
     {
-      "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
+      "path": "/files/123/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
       "file_name": "screenshot.png",
       "image": {
         "width": 1920,
@@ -262,7 +262,7 @@ The file event represents a file upload to chat.
       "file_size": 554535,
       "content_type": "image/png",
       "thumbnail": {
-        "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/thumb/screenshot.png",
+        "path": "/files/123/d19d7d7048f3012fc1e40026b0d8e16c/thumb/screenshot.png",
         "width": 100,
         "height": 57
       }
@@ -270,7 +270,7 @@ The file event represents a file upload to chat.
   ],
   "user": "9",
   "content": {
-    "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
+    "path": "/files/123/files/d19d7d7048f3012fc1e40026b0d8e16c/screenshot.png",
     "file_name": "screenshot.png",
     "image": {
       "width": 1920,
@@ -281,7 +281,7 @@ The file event represents a file upload to chat.
     "thumbnail": {
       "width": 100,
       "height": 57,
-      "path": "/flows/yup/main/files/d19d7d7048f3012fc1e40026b0d8e16c/thumb/firefox_flowdock.png"
+      "path": "/files/123/d19d7d7048f3012fc1e40026b0d8e16c/thumb/firefox_flowdock.png"
     }
   },
   "tags": [":file"]
