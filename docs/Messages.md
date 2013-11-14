@@ -211,7 +211,7 @@ Flowdock-User: 2
     "content_id":"4e8b0e5bdccc2_4eec800c21ac57014@ciMac.local.mail",
     "file_name":"cucumber.html",
     "file_size":27798, // Size in bytes
-    "path":"/flows/flowdock/files/ec53a7aa7a974cdc9d07c5ca395a2f05/cucumber.html"
+    "path":"/files/123/ec53a7aa7a974cdc9d07c5ca395a2f05/cucumber.html"
   }
 ]
 ```

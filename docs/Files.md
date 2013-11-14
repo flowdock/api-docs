@@ -7,7 +7,7 @@ The Flowdock API provides functionality for searching, downloading and uploading
 The REST API path of a file is stored in `path` field of each attachment. See [Message Types](message-types) documentation for examples of attachments.
 
 ```
-GET /flows/:org/:flow/files/3929321049bd012fc20f0026b0d8e16c/screenshot.png
+GET /files/:flow/3929321049bd012fc20f0026b0d8e16c/screenshot.png
 ```
 [URL breakdown](rest#/url-breakdown)
 

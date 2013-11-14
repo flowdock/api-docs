@@ -128,7 +128,7 @@ Flowdock-User: 2
 * `app` &ndash; Deprecated.
 * `uuid` &ndash; Optional client-generated universal identifier for message. Used to recognize messages sent by single Flowdock instance. Can be used to render sent messages instantly and later add necessary data (id) for tagging.
 * `user` &ndash; Numerical user id of user
-* `to` &ndash; Numerical user id of the recipien
+* `to` &ndash; Numerical user id of the recipient
 * `sent` &ndash; Timestamp when message was sent. Milliseconds since Jan 1st, 1970.
 * `id` &ndash; Incremental id of message. Unique only in private conversation scope.
 * `attachments` &ndash; List of file attachments related to this message. Example:
@@ -140,7 +140,7 @@ Flowdock-User: 2
     "content_id": "4e8b0e5bdccc2_4eec800c21ac57014@ciMac.local.mail",
     "file_name": "cucumber.html",
     "file_size": 27798, // Size in bytes
-    "path": "/flows/flowdock/files/ec53a7aa7a974cdc9d07c5ca395a2f05/cucumber.html"
+    "path": "/private/1/2/files/ec53a7aa7a974cdc9d07c5ca395a2f05/cucumber.html"
   }
 ]
 ```
