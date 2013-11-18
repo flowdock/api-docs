@@ -96,6 +96,8 @@ To send the file using form data, set Content-Type as `multipart/form-data` and 
 curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
 ```
 
+Files can also be uploaded to threads using the same url format as with comments.
+
 <div id="/list"></div>
 ## List Messages
 ```
