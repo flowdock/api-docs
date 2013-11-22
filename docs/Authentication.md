@@ -10,7 +10,7 @@ Most applications should use OAuth 2.0 as it doesn't store passwords locally and
 
 ## OAuth 2.0
 
-[OAuth 2.0](http://tools.ietf.org/html/rfc6749) is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. This is preferred over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
+[OAuth 2.0](http://tools.ietf.org/html/rfc6749) is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. This is the preferred authentication method over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
 
 All developers need to [register their application](https://flowdock.com/account/authorized_applications) before getting started. A registered OAuth 2.0 application is assigned a unique Client ID and Client Secret. The Client Secret should not be shared.
 
@@ -42,7 +42,7 @@ The redirect might look like
 
     GET https://example.com/oauth/callback?state=123&code=deadbeef&gr
 
-Exchange the `code` for an access token
+Exchange the `code` for an access token with
 
     POST https://api.flowdock.com/oauth/token
 
@@ -90,7 +90,7 @@ Access tokens can also be used as a query string parameter:
 
 OAuth 2.0 access tokens are short-lived. If your application needs access to the Flowdock API beyond the lifetime of a single access token, it can obtain a refresh token. A refresh token allows your application to obtain new access tokens.
 
-Obtain a new access token using the refresh token
+Obtain a new access token using the refresh token with
 
     POST https://api.flowdock.com/oauth/token
 
