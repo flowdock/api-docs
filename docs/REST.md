@@ -26,14 +26,14 @@ _PATCH_ is used for most update methods instead of _PUT_ because of _PUT_'s inef
 https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
 ```
 
-* `https` &ndash; the Flowdock API is served over secure HTTP *only*.
-* `user:pass` &ndash; HTTP basic authentication credentials. You can use a user's email/password or user-specific tokens. See [Authentication](Authentication). **NOTE**: When using email/password, remember to URI encode them. Characters outside the ASCII character set can exist in the e-mail address (the @ sign) and password.
-* `api.flowdock.com` &ndash; the API endpoint domain.
-* `flows` &ndash; the resource which is being requested.
-* `org` &ndash; the `parameterized_name` of the [organization](Organizations).
-* `flow` &ndash; the `parameterized_name` of the [flow](Flows).
-* `messages` &ndash; the sub-resource, a resource which is accessed in the scope of the parent resource. For example, all the comments of a Team Inbox item. In some cases there may be multiple sub-resources.
-* `message_id` &ndash; identifier of the sub-resource.
+* `https`: The Flowdock API is served over secure HTTP *only*.
+* `user:pass`: HTTP basic authentication credentials. You can use a user's email/password or user-specific tokens. See [Authentication](Authentication). **NOTE**: When using email/password, remember to URI encode them. Characters outside the ASCII character set can exist in the e-mail address (the @ sign) and password.
+* `api.flowdock.com`: The API endpoint domain.
+* `flows`: The resource which is being requested.
+* `org`: The `parameterized_name` of the [organization](Organizations).
+* `flow`: The `parameterized_name` of the [flow](Flows).
+* `messages`: The sub-resource, a resource which is accessed in the scope of the parent resource. For example, all the comments of a Team Inbox item. In some cases there may be multiple sub-resources.
+* `message_id`: Identifier of the sub-resource.
 
 ### Body
 Both JSON and HTTP POST data is accepted as request body formats. In the API documentation, JSON examples are used.
