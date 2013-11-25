@@ -2,15 +2,15 @@
 
 > DISCLAIMER: We are currently working on renewing and expanding both the message types documentation and the format of some of the message types. Thus, they are subject to change.
 
-This list explains the different types of messages you can expect when using the [Streaming API](streaming) or [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
+This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
 ## Event: message
 
-The event type "message" is sent when user sends chat messages from Flowdock.
+The message event is sent when a user sends a chat message.
 
 ### Data
 
-Message `content` is a string containing free-form text.
+`content` is a string that contains free-form text.
 
 ### Sample
 ```javascript
@@ -30,11 +30,11 @@ Message `content` is a string containing free-form text.
 
 ## Event: status
 
-Status event is triggered when users change their statuses.
+The status event is sent when a user changes their status.
 
 ### Data
 
-`content` is a string containing free-form text.
+`content` is a string that contains free-form text.
 
 ### Sample
 ```javascript
@@ -55,13 +55,13 @@ Status event is triggered when users change their statuses.
 ## Event: comment
 > DISCLAIMER: This message type is likely to change in the near future.
 
-This message is sent when user comments an item in Team Inbox.
+The comment event is sent when a user comments on an item in the Team Inbox.
 
 ### Data
 
-`content` is an object containing two keys: title for Team Inbox item title and text
-containing the actual comment. Id of parent message is stored in a [special tag](Tags)
-"influx:id".
+`content` is an object that contains two keys: `title` is the Team Inbox item's title and `text`
+contains the actual comment. The id of the parent message is stored in a [special tag](Tags):
+`influx:id`.
 
 ### Sample
 ```javascript
@@ -84,41 +84,41 @@ containing the actual comment. Id of parent message is stored in a [special tag]
 
 ## Event: action
 
-Action may be triggered from various activities such as adding Twitter stream.
+Action events are sent by various activities, such as adding Twitter stream.
 
 ### Data
 
-`content` is an object containing two keys: `type` containing the type of action
-and `description` containing additional type-specific information. Data can be a
+`content` is an object containing two keys: `type` defines the type of action
+and `description` contains additional type-specific information. Data can be a
 string or an object.
 
 #### Action types
 
 `type` is one of:
 
-* `add_people` &ndash; Existing user belonging to the same account is added to the flow. `description` is list of nicks separated by commas (as string).
+* `add_people` &ndash; An existing user or users of the organization are added to the flow. `description` is a comma-separated string of nicks.
 
-* `join` &ndash; User joins flow. User of message is the user who has just joined flow.
+* `join` &ndash; A user joins the flow. The user who sent the message is the user who has just joined flow.
 
-* `block` &ndash; User is blocked from flow. `description` is an object, where the "user" property is id of blocked user.
+* `block` &ndash; A user is blocked from the flow. `description` is an object whose `user` property is the id of the blocked user.
 
-* `invite` &ndash; An invitation email is sent to user. `description` is an object containing the email addes in "email" property.
+* `invite` &ndash; An invitation email is sent to a user. `description` is an object whose `email` property contains the email address.
 
-* `decline` &ndash; Invitation to join flow is declined. `description` is same as in `invite`.
+* `decline` &ndash; An invitation to join the flow is declined. `description` is the same as in `invite`.
 
-* `uninvite` &ndash; An invitation is canceled by a member of the flow. `description` is similar to `invite`.
+* `uninvite` &ndash; An invitation is canceled by a member of the flow. `description` is the same as in `invite`.
 
-* `add_rss_feed` &ndash; RSS/Atom feed is added to flow. `description` is URL of feed.
+* `add_rss_feed` &ndash; An RSS/Atom feed is added to the flow. `description` is the URL of the feed.
 
-* `remove_rss_feed` &ndash; RSS/Atom feed is removed from flow. `description` is the same as `add_rss_feed`.
+* `remove_rss_feed` &ndash; An RSS/Atom feed is removed from the flow. `description` is the same as in `add_rss_feed`.
 
-* `add_twitter_follow` &ndash; Flow starts to follow a Twitter user. `description` is the name of Twitter user.
+* `add_twitter_follow` &ndash; Start following a Twitter user in the flow. `description` is the username of the Twitter user.
 
-* `remove_twitter_follow` &ndash; Twitter user is unfollowed from flow. 'description' is same as in `add_twitter_follow`.
+* `remove_twitter_follow` &ndash; Stop following a Twitter user in the flow. `description` is the same as in `add_twitter_follow`.
 
-* `add_twitter_search` &ndash; A Twitter keyword search is added to flow. `description` contains the Twitter search term.
+* `add_twitter_search` &ndash; A Twitter keyword search is added to the flow. `description` contains the Twitter search term.
 
-* `remove_twitter_search` &ndash; Twitter keyword is removed. `description` is the same as in `add_twitter_search`.
+* `remove_twitter_search` &ndash; A Twitter keyword is removed from the flow. `description` is the same as in `add_twitter_search`.
 
 ### Sample
 ```javascript
@@ -141,17 +141,16 @@ string or an object.
 
 
 ## Event: tag-change
-> DISCLAIMER: This message type is likely to change in the near future.
 
-Used to change tags of messages. See [Tags](Tags) for more information about tags.
+The tag-change event is sent when the tags of a message are changed. See [Tags](Tags) for more information about tags.
 
 ### Data
 
 `content` is an object with
 
-* `message` &nbsp; ID of the message being tagged
-* `add` &nbsp; a list of tags added to message
-* `remove` &nbsp; list of tags removed from message
+* `message` &ndash; id of the message being tagged
+* `add` &ndash; a list of tags that were added to the message
+* `remove` &ndash; a list of tags that were removed from the message
 
 ### Sample
 ```javascript
@@ -174,16 +173,15 @@ Used to change tags of messages. See [Tags](Tags) for more information about tag
 ```
 
 ## Event: message-edit
-> DISCLAIMER: This message is still a work in progress and likely to change in the near future.
 
-Used to change content of messages. Only messages of types `message` and `comment` can be edited.
+The message-edit event is sent when the the content of a message is changed. Only messages of types `message` and `comment` can be edited.
 
 ### Data
 
 `content` is an object with:
 
-* `message` &nbsp; ID of the message being updated
-* `updated_content` &nbsp; new content of the message
+* `message` &ndash; the id of the message being updated
+* `updated_content` &ndash; the new content of the message
 
 ### Sample
 ```javascript
@@ -211,11 +209,11 @@ Used to change content of messages. Only messages of types `message` and `commen
 Activity.user is sent periodically by each user to let others know that they
 are online.
 
-These messages are not stored to database.
+These messages are not stored in Flowdock's database.
 
 ### Data
 
-`content` is an object, which contains a timestamp of last user activity. This
+`content` is an object that contains a timestamp of a user's last activity. This
 timestamp is not always present when e.g. user is idle.
 
 ### Sample
@@ -238,10 +236,10 @@ timestamp is not always present when e.g. user is idle.
 
 <div id="/file"></div>
 ## Event: file
-The file event represents a file upload to chat.
+The file event is sent when a file has been uploaded to the chat.
 
 ### Data
-`content` is a hash containing metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata, the `path` field contains the REST API path of the file. See [Files](files) for more.
+`content` is an object that contains metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata, the `path` field contains the REST API path of the file. See [Files](files) for more.
 
 ### Sample
 ```javascript
