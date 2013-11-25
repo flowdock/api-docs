@@ -6,7 +6,7 @@ A flow in Flowdock is a team workspace that contains a chat room and a shared in
 ## List Flows
 Lists the flows that the authenticated user is a member of.
 
-By default, the list of flows only includes the flows that the user is a member of (i.e. the `joined` attribute is `true`). For flows with an access mode of `organization`, the user must explicitly join the flow in order to be considered a member. For these flows, the `joined` attribute is initially `false`. A separate "all flows" resource exists in the API to list them.
+By default, the list of flows only includes the flows that the user is a member of (i.e. the `joined` attribute is `true`). For flows with an `access_mode` of `organization`, the user must explicitly join the flow in order to be considered a member. For these flows, the `joined` attribute is initially `false`. A separate "all flows" resource exists in the API to list them.
 
 ```
 GET /flows
