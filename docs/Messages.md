@@ -196,7 +196,7 @@ Flowdock-User: 2
 | tags | List of tags as strings. Tags containing colon characters have a [special meaning](Tags) and can be discarded when showing the tags in the user interface. |
 | app | Deprecated. |
 | uuid | Optional client-generated universal identifier for the message. Used to recognize messages sent by a client. |
-| user | Numerical user id of user (as string) |
+| user | Numerical user id of user |
 | sent | Timestamp when the message was sent. Milliseconds since Jan 1st, 1970. |
 | flow | Flow identifier. |
 | id | Incremental id of message. Unique only in the flow's scope. |
