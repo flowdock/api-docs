@@ -96,18 +96,20 @@ string or an object.
 
 `type` is one of:
 
-* `add_people`: An existing user or users of the organization are added to the flow. `description` is a comma-separated string of nicks.
-* `join`: A user joins the flow. The user who sent the message is the user who has just joined flow.
-* `block`: A user is blocked from the flow. `description` is an object whose `user` property is the id of the blocked user.
-* `invite`: An invitation email is sent to a user. `description` is an object whose `email` property contains the email address.
-* `decline`: An invitation to join the flow is declined. `description` is the same as in `invite`.
-* `uninvite`: An invitation is canceled by a member of the flow. `description` is the same as in `invite`.
-* `add_rss_feed`: An RSS/Atom feed is added to the flow. `description` is the URL of the feed.
-* `remove_rss_feed`: An RSS/Atom feed is removed from the flow. `description` is the same as in `add_rss_feed`.
-* `add_twitter_follow`: Start following a Twitter user in the flow. `description` is the username of the Twitter user.
-* `remove_twitter_follow`: Stop following a Twitter user in the flow. `description` is the same as in `add_twitter_follow`.
-* `add_twitter_search`: A Twitter keyword search is added to the flow. `description` contains the Twitter search term.
-* `remove_twitter_search`: A Twitter keyword is removed from the flow. `description` is the same as in `add_twitter_search`.
+| Type          | Description  |
+| ------------- | ------------ |
+| add_people | An existing user or users of the organization are added to the flow. `description` is a comma-separated string of nicks. |
+| join | A user joins the flow. The user who sent the message is the user who has just joined flow. |
+| block | A user is blocked from the flow. `description` is an object whose `user` property is the id of the blocked user. |
+| invite | An invitation email is sent to a user. `description` is an object whose `email` property contains the email address. |
+| decline | An invitation to join the flow is declined. `description` is the same as in `invite`. |
+| uninvite | An invitation is canceled by a member of the flow. `description` is the same as in `invite`. |
+| add\_rss\_feed | An RSS/Atom feed is added to the flow. `description` is the URL of the feed. |
+| remove\_rss\_feed | An RSS/Atom feed is removed from the flow. `description` is the same as in `add_rss_feed`. |
+| add\_twitter\_follow | Start following a Twitter user in the flow. `description` is the username of the Twitter user. |
+| remove\_twitter\_follow | Stop following a Twitter user in the flow. `description` is the same as in `add_twitter_follow`. |
+| add\_twitter\_search | A Twitter keyword search is added to the flow. `description` contains the Twitter search term. |
+| remove\_twitter\_search | A Twitter keyword is removed from the flow. `description` is the same as in `add_twitter_search`. |
 
 ### Sample
 ```javascript
@@ -137,9 +139,11 @@ The tag-change event is sent when the tags of a message are changed. See [Tags](
 
 `content` is an object with
 
-* `message`: The id of the message being tagged.
-* `add`: A list of tags that were added to the message.
-* `remove`: A list of tags that were removed from the message.
+| Field          | Description  |
+| ------------- | ------------ |
+| message | The id of the message being tagged. |
+| add | A list of tags that were added to the message. |
+| remove | A list of tags that were removed from the message. |
 
 ### Sample
 ```javascript
@@ -169,8 +173,10 @@ The message-edit event is sent when the the content of a message is changed. Onl
 
 `content` is an object with:
 
-* `message`: The id of the message being updated.
-* `updated_content`: The new content of the message.
+| Field          | Description  |
+| ------------- | ------------ |
+| message | The id of the message being updated. |
+| updated_content | The new content of the message. |
 
 ### Sample
 ```javascript
