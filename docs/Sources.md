@@ -1,6 +1,6 @@
 # Sources
 
-Sources provide information for the team inbox of a flow. For example, RSS feeds or Twitter keyword searches can be sources.
+Sources provide content for a flow's Team Inbox. RSS feeds or Twitter keyword searches are examples of sources.
 
 ## List Sources
 
@@ -42,10 +42,12 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: Source resource ID
-* `type`: Type of the source, allowed types: `twitter_keyword`, `twitter_user` and `feed`
-* `url`: Source resource URL
-* `config`: Configuration data of the source. See below for more detail on the contents.
+| Name          | Description  |
+| ------------- | ------------ |
+| id | Source resource ID. |
+| type | Type of the source. Allowed types: `twitter_keyword`, `twitter_user` and `feed`. |
+| url | Source resource URL. |
+| config | Configuration data of the source. See below for more information about the contents. |
 
 ## Get a Source
 ```
@@ -81,29 +83,37 @@ POST /flows/:organization/:flow/sources
 
 Create a source for the specified flow.
 
-### Input
+### Parameters
 
-* `type`: Type of the source, allowed types: `twitter_keyword`, `twitter_user` and `feed`
-* `config`: Configuration data for the source, required content depends on the selected `type`. See below for details per type.
+| Name          | Description  |
+| ------------- | ------------ |
+| type | Type of the source. Allowed types: `twitter_keyword`, `twitter_user` and `feed`. |
+| config | Configuration data for the source. The required content depends on the selected `type`. See below for details per type. |
 
 **Feed** &ndash; An RSS / Atom feed
 
-* `url`: The URL of the feed.
-* `title`: Title of the feed, optional.
+| Name          | Description  |
+| ------------- | ------------ |
+| url | **Required** The URL of the feed. |
+| title | The title of the feed. |
 
 **Twitter follow** &ndash; Matches tweets that are from a particular Twitter user
 
-* `twitter_user_id`: Numeric identifier of the user in Twitter. `String`
-* `param`: Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe`
-* `name`: Display name of the user. Example: `John Doe`
-* `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
-* `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
+| Name          | Description  |
+| ------------- | ------------ |
+| twitter_user_id | **Required** Numeric identifier of the user in Twitter as a string. |
+| param | **Required** Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe` |
+| name | **Required** Display name of the user. Example: `John Doe` |
+| replies | **Required** Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false` |
+| retweets | **Required** Should retweets be included? When set to true, each retweet of the user's tweets will cause a new message to appear in team inbox. `true` or `false` |
 
 **Twitter keyword** &ndash; Matches tweets that contain given keywords.
 
-* `param`: The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported.
-* `replies`: Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false`
-* `retweets`: Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false`
+| Name          | Description  |
+| ------------- | ------------ |
+| param | **Required** The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported. |
+| replies | **Required** Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false` |
+| retweets | **Required** Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false` |
 
 _Example_
 
