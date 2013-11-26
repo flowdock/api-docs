@@ -1,8 +1,10 @@
 # Private conversations
 
-A private conversation in Flowdock is like a chat room for two users. Note: the `open` attribute of a closed private conversation automatically changes back to `true` when new unread messages are added to the conversation.
+A private conversation in Flowdock is like a chat room for only two users. 
 
-In the REST API, Private conversations are referred with the recipient [User](Users) ID.
+Note: the `open` attribute of a closed private conversation automatically changes back to `true` when new unread messages are added to the conversation.
+
+In the REST API, Private conversations are referred to with the recipient's [User](Users) ID.
 
 ## List Private conversations
 
@@ -48,12 +50,14 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: Private conversation ID, the same as the recipient user ID
-* `url`: Private conversation resource URL
-* `name`: Human-readable name of the conversation
-* `open`: Boolean value (true or false). Automatically changes to `true` when new unread messages are posted into the conversation. Clients implementing tabs should display tabs for all the `open` private conversation, and list non-open private conversations elsewhere.
-* `activity`: Activity information of the private conversation
-* `users`: List of conversation participants
+| Name          | Description  |
+| ------------- | ------------ |
+| id | Private conversation ID. The same as the recipient's user ID. |
+| url | Private conversation resource URL. |
+| name | Human-readable name of the conversation. |
+| open | Boolean value (true or false). Automatically changes to `true` when new unread messages are posted into the conversation. Clients implementing tabs should display tabs for all the `open` private conversation, and list non-open private conversations elsewhere. |
+| activity | Activity information of the private conversation. |
+| users | List of conversation participants. |
 
 ## Get a Private conversation
 ```
@@ -100,9 +104,11 @@ PUT /private/:id
 ```
 Update private conversation information.
 
-### Input
+### Parameters
 
-* `open`: Boolean value (true or false). Controls the visibility of the private conversation.
+| Name          | Description  |
+| ------------- | ------------ |
+| open | Boolean value (true or false). Controls the visibility of the private conversation. |
 
 ```javascript
 {
