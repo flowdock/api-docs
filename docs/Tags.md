@@ -84,7 +84,7 @@ If a message body contains a URL, it gets tagged with `:url`. This tag can be us
 If a message has file attachments, it gets tagged with `:file`. This can be expected for file uploads and emails that contain attachments.
 
 ### Comments
-> DISCLAIMER: This tag type is likely to change in the near future.
+> _DISCLAIMER: This tag type is likely to change in the near future._
 
 [Team Inbox comments](Message-Types) get a tag of the form `influx:3456` to store a reference to the id of the (parent) commented Inbox item.
 

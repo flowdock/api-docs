@@ -1,6 +1,6 @@
 # Message types
 
-> DISCLAIMER: We are currently working on renewing and expanding both the message types documentation and the format of some of the message types. Thus, they are subject to change.
+> _DISCLAIMER: We are currently working on renewing and expanding both the message types documentation and the format of some of the message types. Thus, they are subject to change._
 
 This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
@@ -53,7 +53,7 @@ The status event is sent when a user changes their status.
 ```
 
 ## Event: comment
-> DISCLAIMER: This message type is likely to change in the near future.
+> _DISCLAIMER: This message type is likely to change in the near future._
 
 The comment event is sent when a user comments on an item in the Team Inbox.
 
@@ -193,7 +193,7 @@ The message-edit event is sent when the the content of a message is changed. Onl
 
 ## Event: activity.user
 
-> DISCLAIMER: This message type is likely to change in the near future.
+> _DISCLAIMER: This message type is likely to change in the near future._
 
 Activity.user is sent periodically by each user to let others know that they
 are online.
