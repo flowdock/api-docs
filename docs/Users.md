@@ -4,7 +4,7 @@ A user in Flowdock can belong to multiple [organizations](Organizations) and [fl
 
 ## List all users
 
-List all users visible to the authenticated user, i.e. a combined set of users from all the organizations of the authenticated user. If the authenticated user is admin in the organization, all users are returned. Otherwise only users that are in the same flows as the authenticated user are returned.
+List all users visible to the authenticated user, i.e. a combined set of users from all the organizations of the authenticated user. If the authenticated user is an admin in an organization, all of that organization's users are returned. Otherwise, only users that are in the same flows as the authenticated user are returned.
 
 ```
 GET /users
@@ -33,11 +33,9 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: User resource ID
-
 ## List flow users
 
-List users of a flow. Authenticated user must belong to the organization.
+List the users of a flow. The user must belong to the organization and have access to the flow.
 
 ```
 GET /flows/:organisation/:flow/users
@@ -67,11 +65,9 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: User resource ID
-
 ## Get a user
 
-Get information of a single user. Authenticated user must be belong to same organization as the target user.
+Get information about a single user. The requesting user must be belong to same organization as the target user.
 
 ```
 GET /users/:id
@@ -101,13 +97,14 @@ Flowdock-User: 2
 ```
 PUT /users/:id
 ```
-Update own user information.
+Update the user's own information.
 
-### Input
-* `nick`
-  User's nick in chat.
-* `email`
-  User's email address.
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| nick | The user's nickname. |
+| email | The user's email address. |
 
 ```javascript
 {
@@ -132,11 +129,12 @@ POST /flows/:organization/:flow/users
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Add user to a flow. Authenticated user and the target user must be members of the organization.
+Add a user to a flow. The authenticated user and the target user must be members of the organization.
 
-### Input
-* `id`
-  User resource ID
+### Parameters
+| Name          | Description  |
+| ------------- | ------------ |
+| id | The ID of the user to be added to the flow. |
 
 ```javascript
 {
@@ -155,17 +153,19 @@ Flowdock-User: 2
 ```
 
 
-## Block a flow user
+## Block a user from a flow
 ```
 PUT /flows/:organization/:flow/users/:id
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Blocks user from a flow. Organization admins can remove anyone (including other admins), but regular users can only remove other regular users.
+Blocks a user from a flow. Organization admins can block anyone (including other admins), but regular users can only block other regular users.
 
-### Input
-* `disabled`
-  Value `true` blocks user, `false` re-activates user
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| disabled | A boolean with a value of `true` to block the user, `false` to unblock them. |
 
 ```javascript
 {
