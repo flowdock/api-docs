@@ -2,7 +2,7 @@
 
 An organization in Flowdock represents the organization/company account. [Users](Users) can belong to several organizations.
 
-Attribute `parameterized_name` is used in the URLs related to the organization. As `parameterized_name` can
+The attribute `parameterized_name` is used in the URLs related to the organization. As `parameterized_name` can
 be changed by the account owner, a persistent `id` is also provided in the data.
 
 ## List organizations
@@ -53,14 +53,16 @@ Flowdock-User: 1
 ]
 ```
 
-* `id`: Organization resource ID
-* `parameterized_name`: Organization subdomain / alternative resource ID (can be changed)
-* `user_limit`: maximum number of users with the current subscription
-* `subscription`: information about the Flowdock subscription of the organization, contains `trial_ends` or `billing_date` depending on the value of `trial`
+| Name          | Description  |
+| ------------- | ------------ |
+| id | Organization resource id. |
+| parameterized_name | Organization subdomain / alternative resource id (can be changed). |
+| user_limit | Maximum number of users with the current subscription. |
+| subscription | Information about the Flowdock subscription of the organization. An object that contains a boolean `trial` and either `trial_ends` or `billing_date` (depending on the value of `trial`). |
 
 ## Get an organization
 
-Get information of an organization using the parameterized name. Authenticated user must belong to the organization.
+Get information about an organization using the parameterized name. The authenticated user must belong to the organization.
 
 ```
 GET /organizations/:parameterized_name
@@ -110,9 +112,9 @@ Flowdock-User: 1
 GET /organizations/find?id=:id
 ```
 
-Get information of an organization using the persistent organization id. Authenticated user
-must belong to the organization. Return data is identical to getting an organization using
-organization URL.
+Get information about an organization using the persistent organization id. The authenticated user
+must belong to the organization. The returned data is identical to getting an organization using
+it's parametrized name.
 
 ### Response
 ```
@@ -160,9 +162,11 @@ PUT /organizations/:parameterized_name
 ```
 [URL breakdown](rest#/url-breakdown)
 
-### Input
-* `name`
-  Organization's display name.
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| name | The organization's display name. |
 
 ```javascript
 {
