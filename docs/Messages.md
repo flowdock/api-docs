@@ -60,7 +60,7 @@ Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comm
   "id": 12345
   "event": "message",
   "content": "Howdy-Doo @Jackie #awesome",
-  "tags":  ["todo", "#feedback", "@all"],
+  "tags":  ["todo", "feedback", ":user:everyone", "awesome", ":user:123"],
   "user": "2",
   "uuid":"9rOhL9RS-jhr8-YvFHRfhA",
   "sent":1385546251160,
