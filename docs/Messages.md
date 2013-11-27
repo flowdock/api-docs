@@ -53,9 +53,20 @@ List of [tags](Tags) to be added to the message. Can be either an array (JSON on
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
+Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comments"
 ```
 ```
-{}
+{
+  "id": 12345
+  "event": "message",
+  "content": "Howdy-Doo @Jackie #awesome",
+  "tags":  ["todo", "#feedback", "@all"],
+  "user": "2",
+  "uuid":"9rOhL9RS-jhr8-YvFHRfhA",
+  "sent":1385546251160,
+  "app":"chat",
+  "attachments":[]
+}
 ```
 
 ### Message Types
