@@ -101,7 +101,7 @@ Create a source for the specified flow.
 
 | Name          | Description  |
 | ------------- | ------------ |
-| twitter_user_id | **Required** Numeric identifier of the user in Twitter as a string. |
+| twitter\_user\_id | **Required** Numeric identifier of the user in Twitter as a string. |
 | param | **Required** Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe` |
 | name | **Required** Display name of the user. Example: `John Doe` |
 | replies | **Required** Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false` |
