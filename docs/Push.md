@@ -7,7 +7,7 @@ Use the Push API to post content to
 
 ## Authentication
 
-The Push API does not require authenticating as a user. In order to access the information of a flow you must know its API Token. To obtain the API Token go to **Settings -> Team Inbox** inside a flow or see [Tokens](/account/tokens) page for all your tokens. When accessing the API Resources this token needs to be placed into the request URL.
+The Push API does not require authentication as a user. In order to push content to a flow, you must know its API Token. To obtain the API Token, go to **Settings -> Team Inbox** inside a flow or open the [Tokens](/account/tokens) page for all your tokens.
 
 ## Content-Type
 

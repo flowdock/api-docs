@@ -1,9 +1,9 @@
 # Invitations
 
-Invitations API can be used to invite new [users](Users) to [flows](Flows).
+The invitations API can be used to invite new [users](Users) to [flows](Flows).
 
 ## List invitations
-Lists open (not yet accepted) invitations of a flow.
+Lists the open (not yet accepted) invitations of a flow.
 
 ```
 GET /flows/:organization/:flow/invitations
@@ -34,16 +34,17 @@ Flowdock-User: 2
   }
 ]
 ```
-
-* `id`: Invitation resource id
-* `state`: State of the invitation. Can be `pending` or `accepted`. Invitation can be declined by deleting it.
-* `email`: Email address of the person who received the invitation.
-* `flow`: Resource id of the flow that this invitation belongs to.
-* `url`: Invitation resource url.
+| Name          | Description  |
+| ------------- | ------------ |
+| id | Invitation resource id. |
+| state | State of the invitation. Can be `pending` or `accepted`. Invitation can be declined by deleting it. |
+| email | Email address of the person who received the invitation. |
+| flow | Resource id of the flow that this invitation belongs to. |
+| url | Invitation resource url. |
 
 ## Get an invitation
 
-Get a single invitation. Shows accepted invitations too. Data format and fields are the same as in invitations listing.
+Get a single invitation. Shows accepted invitations as well. Data format and fields are the same as in invitations listing.
 
 ```
 GET /flows/:organization/:flow/invitations/:id
@@ -68,17 +69,19 @@ Flowdock-User: 2
 
 ## Create invitation
 
-Can be used to create or resend invitation. To resend an invitation, just post the same email address that was originally used.
+Can be used to create or resend invitation. To resend an invitation, use the same email address that was originally used.
 
 ```
 POST /flows/:organization/:flow/invitations
 ```
 [URL breakdown](rest#/url-breakdown)
 
-### Input
+### Parameters
 
-* `email`: An email address to invite.
-* `message`: (optional) Message to add to the invitation.
+| Name          | Description  |
+| ------------- | ------------ |
+| email | **Required** The email address to invite. |
+| message | An optional message that is added to the invitation. |
 
 ```javascript
 {
@@ -105,17 +108,19 @@ Flowdock-User: 2
 
 ## Import address list
 
-The resource can be used to import list of email addresses and invite them to the flow. If an email address matches to existing user in the organization, the user will be added to the flow immediately.
+This resource can be used to import a list of email addresses and invite them to the flow. If an email address matches an existing user in the organization, the user will be added to the flow immediately.
 
 ```
 POST /flows/:organization/:flow/invitations/import
 ```
 [URL breakdown](rest#/url-breakdown)
 
-### Input
+### Parameters
 
-* `list`: A list of email addresses to invite. The list can be separated by commas or linefeeds, and the email addresses can be in either of the following formats: `person@example.com` or `"Joe Smith" <person@example.com>`
-* `message`: (optional) Message to add to the invitation.
+| Name          | Description  |
+| ------------- | ------------ |
+| list | **Required** A list of email addresses to invite. The list can be separated by commas or linefeeds, and the email addresses can be in either of the following formats: `person@example.com` or `"Joe Smith" <person@example.com>` |
+| message | An optional message that is added to the invitations. |
 
 ```javascript
 {
@@ -159,10 +164,11 @@ Flowdock-User: 2
   ]
 }
 ```
-
-* `invitations`: An array of the created invitations.
-* `added_users`: An array of the users added to the flow. E.g. those users who already were in the same organization and in the imported email address list.
-* `erroneous_emails`: An array of problematic email addresses with detailed error descriptions.
+| Name          | Description  |
+| ------------- | ------------ |
+| invitations | An array of the newly created invitations. |
+| added_users | An array of the existing users added to the flow. |
+| erroneous_emails | An array of problematic email addresses with detailed error descriptions. |
 
 
 ## Delete invitation

@@ -1,6 +1,6 @@
 # Private messages
 
-Private message is a sub-resource for [Private Conversation](Private Conversations), so it should always be accessed in that context. Currently only regular messages are supported in Private Conversations, but file messages and possibly other types will follow soon.
+Private message is a sub-resource for [Private conversation](Private conversations). It should always be accessed in a private conversation's context. Currently, only regular messages are supported in Private Conversations, but file messages and other message types might be supported in the future.
 
 ## Send a message
 ```
@@ -8,11 +8,12 @@ POST /private/:user_id/messages
 ```
 Send a private chat message to the specified user.
 
-### Input
-* `event`
-    One of the valid private message events. Determines the type of message being sent to Flowdock. See Message Types section below. Required.
-* `content`
-    The actual message. The format of content depends on the event. See Message Types section below. Required.
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| event | **Required** One of the valid private message events. Determines the type of message being sent to Flowdock. See Message Types section below.  |
+| content | **Required** The actual message. The format of content depends on the event. See Message Types section below. |
 
 ```javascript
 {
@@ -37,7 +38,7 @@ The event parameter in the message data defines the type of message. More at [Me
 #### Normal private message
 Event: `message`
 
-For private messages, `content` is simply a string which represents the chat message's content. _Maximum length of the content is 8096 characters._
+For private messages, `content` is simply a string which represents the chat message's content. The maximum length of the content is 8096 characters.
 
 <div id="/list"></div>
 ## List private messages
@@ -48,15 +49,13 @@ Lists messages from a [Private Conversation](Private Conversations), filtered by
 
 ### Parameters
 
-* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas.
-
-* `limit` &ndash; Maximum number of messages to return. Defaults to 30, accepted values range from 1 to 100.
-
-* `sort` &ndash; Descending order is used by default in fetching messages. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their id. The sort parameter is for toggling between fetching the latest or the oldest matching messages.
-
-* `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
-
-* `search` &ndash; Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces.
+| Name          | Description  |
+| ------------- | ------------ |
+| event | Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas. |
+| limit | Maximum number of messages to return. Accepted values range from 1 to 100. Defaults to 30. |
+| sort | Descending order is used by default. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their `id`. The sort parameter is for toggling between fetching the latest or the oldest matching messages. |
+| since\_id and until\_id | Get messages starting from or leading to a message `id`. The message specified with the parameter won't be included in the response. |
+| search | Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces. |
 
 ### Response
 ```
@@ -93,7 +92,8 @@ Flowdock-User: 2
   // ... 14 more messages
 ]
 ```
-* Message fields are described below in the Show message section.
+
+Message fields are described in the Show private message section below.
 
 <div id="/show"></div>
 ## Show private message
@@ -122,16 +122,19 @@ Flowdock-User: 2
   "user": 2
 }
 ```
-* `event` &ndash; The type of the message. E.g. chat message or tweet. See [Message Types](Message Types).
-* `content` &ndash; Data payload. Different in different events as documented in [Message Types](Message Types).
-* `tags` &ndash; List of tags as strings. Currently tagging is not enabled for private messages.
-* `app` &ndash; Deprecated.
-* `uuid` &ndash; Optional client-generated universal identifier for message. Used to recognize messages sent by single Flowdock instance. Can be used to render sent messages instantly and later add necessary data (id) for tagging.
-* `user` &ndash; Numerical user id of user
-* `to` &ndash; Numerical user id of the recipient
-* `sent` &ndash; Timestamp when message was sent. Milliseconds since Jan 1st, 1970.
-* `id` &ndash; Incremental id of message. Unique only in private conversation scope.
-* `attachments` &ndash; List of file attachments related to this message. Example:
+
+| Name          | Description  |
+| ------------- | ------------ |
+| event | The type of the message. E.g. chat message or tweet. See [Message Types](Message Types). |
+| content | Data payload. Different in different events as documented in [Message Types](Message Types). |
+| tags | List of tags as strings. Currently tagging is not enabled for private messages. |
+| app | Deprecated. |
+| uuid | Optional client-generated universal identifier for message. Used to recognize messages sent by a client. |
+| user | Numerical user id of user |
+| to | Numerical user id of the recipient |
+| sent | Timestamp when message was sent. Milliseconds since Jan 1st, 1970. |
+| id | Incremental id of message. Unique only in private conversation scope. |
+| attachments | List of file attachments related to this message. Example: |
 
 ```javascript
 [

@@ -1,11 +1,12 @@
 # Flows
 
-A flow in Flowdock is like one single team workspace, which contains a chat room and a shared inbox.
+A flow in Flowdock is a team workspace that contains a chat room and a shared inbox.
 
+<div id="/list-flows"></div>
 ## List Flows
-Lists the flows that the authenticated user has access to. E.g. `joined` attribute of the flow is `true`.
+Lists the flows that the authenticated user is a member of.
 
-By default, the list of flows only includes those flows that the user has access to (`joined` attribute is `true`). However, if the access mode of a flow is set to `organization`, the user must explicitly join the flow to gain access. For these flows, the `joined` attribute is initially `false` and a separate "all flows" resource exists in the API for including them.
+By default, the list of flows only includes the flows that the user is a member of (i.e. the `joined` attribute is `true`). For flows with an `access_mode` of `organization`, the user must explicitly join the flow in order to be considered a member. For these flows, the `joined` attribute is initially `false`. A separate "all flows" resource exists in the API to list them.
 
 ```
 GET /flows
@@ -13,7 +14,9 @@ GET /flows
 
 ### Parameters
 
-* `users`: boolean value (1/0) controlling whether a list of users should be included in for each flow.
+| Name          | Description  |
+| ------------- | ------------ |
+| users | A boolean value (1/0) that controls whether a list of users should be included with each flow. |
 
 ### Response
 ```
@@ -67,28 +70,26 @@ Flowdock-User: 2
 ]
 ```
 
-* `id`: Flow ID
-* `url`: Flow resource URL
-* `web_url`: URL to the flow in the web UI
-* `name`: Human-readable name of the flow
-* `organization`: [Organization](Organizations) information
-* `unread_mentions`: Count of unread messages that mention the authenticated user
-* `open`: Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere.
-* `joined`: Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`.
-* `join_url`: URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link` false.
-* `access_mode`: How users see and access the flow. Possible values are:
-    - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
-    - `link`: Anyone can join the flow by using the `join_url`.
-    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
+| Name          | Description  |
+| ------------- | ------------ |
+| id | The flow's id. |
+| url | The flow's resource URL. |
+| web_url | The flow's web UI URL. |
+| name | Human-readable name of the flow. |
+| organization | [Organization](Organizations) information. |
+| unread_mentions | Count of unread messages that mention the authenticated user. |
+| open | Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere. |
+| joined | Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`. |
+| join_url | URL where new users can join the flow if `access_mode` is `organization` or `link`. Only present if `access_mode` is `organization` or `link`. |
+| access_mode | How users see and access the flow. Possible values are `invitation` (the flow is invite-only – new members have to be explicitly invited or added by existing members), `link` (anyone can join the flow by using the `join_url`) or `organization` (in addition to using the link, anyone in the organization can join the flow.) |
 
 
-**Note**: Flow IDs have historically been in the form `organization:flow`, but
-new flows are created with random IDs.
+**Note**: Flow IDs have historically been in the form `organization:flow`, but new flows are created with random IDs.
 
-## List all Flows
-Lists the flows that the authenticated user has access to or can join to.
+## List all flows
+Lists the flows that the authenticated user has access to or can join.
 
-Includes all the flows from the "list flows" resource, and those flows that have `organization` as `access_mode` and the user has not yet joined (`joined` is `false`).
+Includes all the flows from the "list flows" resource as well as the flows with an `access_mode` of `organization` that the user has not joined (`joined` is `false`).
 
 ```
 GET /flows/all
@@ -96,7 +97,9 @@ GET /flows/all
 
 ### Parameters
 
-* `users`: boolean value (1/0) controlling whether a list of users should be included in for each flow.
+| Name          | Description  |
+| ------------- | ------------ |
+| users | A boolean value (1/0) that controls whether a list of users should be included with each flow. |
 
 ### Response
 ```
@@ -150,15 +153,15 @@ Flowdock-User: 2
 ]
 ```
 
-* Flow fields are described above in the List flows section.
+*Flow fields are described above in the [List flows section](flows#/list-flows).*
 
-## Get a Flow
+## Get a flow
 ```
 GET /flows/:organization/:flow
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Get a single flow. Single flow information always includes user list of flow. Otherwise the data format is identical to the list. Timestamps are milliseconds since epoch.
+Get a single flow. Single flow information always includes the flow's user list. Otherwise, the data format is identical to what is returned with the list of flows. Timestamps are milliseconds since epoch.
 
 ### Response
 ```
@@ -213,14 +216,13 @@ Flowdock-User: 2
 }
 ```
 
-## Get a Flow by Id
+## Get a flow by id
 
 ```
 GET /flows/find?id=:id
 ```
 
-Get a single flow using flow id. Return data is identical to getting a flow
-using flow URL.
+Get a single flow using the flow's id. The returned data is identical to getting a flow with the flow's URL.
 
 ### Response
 ```
@@ -276,7 +278,7 @@ Flowdock-User: 2
 ```
 
 
-## Create a Flow
+## Create a flow
 ```
 POST /flows/:organization
 ```
@@ -284,9 +286,11 @@ POST /flows/:organization
 
 Create a flow for the specified organization.
 
-### Input
+### Parameters
 
-* `name`: name of the flow, max. 100 characters
+| Name          | Description  |
+| ------------- | ------------ |
+| name | The name of the new flow (max. 100 characters). |
 
 ```javascript
 {
@@ -335,23 +339,22 @@ Flowdock-User: 9
 }
 ```
 
-## Update a Flow
+## Update a flow
 ```
 PUT /flows/:organization/:flow
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Update flow information. Only admins can modify certain parts of the flow information.
+Update flow information. Only adminstrators can modify certain parts of the flow metadata.
 
-### Input
+### Parameters
 
-* `name`: New name of the flow, max. 100 characters. Note that changing name does not change flow's email or id
-* `open`: Boolean value (true or false). If set to `true` and the user has not previously joined the flow, the user will automatically be added to the flow.
-* `disabled`: Boolean value (true or false). Controlling if the flow is disabled
-* `access_mode`: Controls access mode of the flow. Possible values are:
-    - `invitation`: Flow is invite only. New members have to be explicitly invited or added by existing members.
-    - `link`: Anyone can join the flow by using the `join_url`.
-    - `organization`: In addition to using the link, anyone in the organization can join the flow (it will be visible for them).
+| Name          | Description  |
+| ------------- | ------------ |
+| name | New name of the flow (max. 100 characters). Note that changing name does not change the flow's email address or id. |
+| open | Boolean value (true or false). If set to `true` and the user has not previously joined the flow, the user will automatically be  added to the flow. |
+| disabled | Boolean value (true or false). When set to true, the flow will disappear from users, users will no longer be able to send  messages to it and users will not be able to join the flow. The flow can be considered to be archived. |
+| access_mode | How users see and access the flow. Possible values are `invitation` (the flow is invite-only – new members have to be explicitly invited or added by existing members), `link` (anyone can join the flow by using the `join_url`) or `organization` (in addition to using the link, anyone in the organization can join the flow.) |
 
 ```javascript
 {

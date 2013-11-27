@@ -1,6 +1,6 @@
 # Messages
 
-There are several different [Message Types](Message Types), you can upload files and set the user's status as well as send plain chat messages. Message is a sub-resource for Flow, so it should always be accessed in that context.
+There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
 
 ## Send a message
 
@@ -25,20 +25,17 @@ POST /flows/:organization/:flow/messages/:message_id/comments
 [URL breakdown](rest#/url-breakdown)
 
 
-### Input
-* `flow`
-  The `id` of the target [flow](Flows) unless specified in the URL. _Optional_
-* `event`
-  One of the valid Flowdock message events. Determines the type of message being sent to Flowdock. See Message Types section below. Required.
-* `content`
-  The actual message. The format of content depends on the event. See Message Types section below. Required.
-* `tags`
-List of [tags](Tags) to be added to the message. Can be either an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent:
-  * `["@Mike", "#cool", "awesome"]`
-  * `"#awesome,cool,@mike"`
-* `external_user_name`
-  Name which appears as the message sender. This will change message to anonymous message, like it was sent from [Push API](Chat). _Optional_
-* `message_id` when sending a comment, the id of the commented message. Must not be a comment.
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| flow | The `id` of the target [flow](Flows) unless specified in the URL. |
+| event | **Required** The message event type. See the [Message Types](messages#/message-type) section below.  |
+| content | **Required** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
+| tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
+| external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
+| uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
+| message_id | Required when sending a comment, the `id` of the commented parent message. Must not be a comment. |
 
 ```javascript
 {
@@ -69,29 +66,30 @@ Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comm
 }
 ```
 
+<div id="/message-type"></div>
 ### Message Types
-The event parameter in the message data defines the type of message. More at [Message Types](Message Types).
+The event parameter in the message data defines the type of message. More information can be found on the [Message Types](Message Types) page.
 
 #### Normal Chat message
 Event: `message`
 
-For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content. _Maximum length of the content is 8096 characters._
+For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content. The maximum length of the content is 8096 characters.
 
 #### Comment message
 Event: `comment`
 
-Comments can only be posted through the message specific comments url (the last type of urls above). `content` format is the same as with `message`. _Please note_ that for forwards compatibility the `content` format is different from the `content` that's returned by the [streaming](/api/streaming) or [rest api](/api/rest) for `comment` messages.
+Comments can only be posted through the message specific comments URL. The format of `content` is the same as with `message`. Please note that for forward compatibility reasons, the format of `content` is different here than the `content` field that's returned by the [Streaming](/api/streaming) or [REST API](/api/rest) for `comment` messages.
 
 #### Status Update
 Event: `status`
 
-`content` format is the same as with `message`. Sets the status of the user.
+The format of `content` is the same as with `message`. Sets the status of the user.
 
 <div id="/send/files"></div>
 #### File Upload
 Event: `file`
 
-The format of `content` is different depending on the `Content-Type` of the request. When using `application/json` the binary is sent within the JSON, Base64 encoded. Example:
+The format of `content` is different depending on the `Content-Type` of the request. When using `application/json`, the binary is sent as a Base64-encoded string within the JSON. Example:
 
 ```
 {
@@ -101,13 +99,13 @@ The format of `content` is different depending on the `Content-Type` of the requ
 }
 ```
 
-To send the file using form data, set Content-Type as `multipart/form-data` and set the value of content as the binary part. Here's a `curl` example:
+To send the file using form data, set Content-Type as `multipart/form-data` and set the value of content as the binary part. Here's an example using `curl`:
 
 ```
 curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
 ```
 
-Files can also be uploaded to threads using the same url format as with comments.
+Files can also be uploaded to discussion threads using the same URL format as with comments.
 
 <div id="/list"></div>
 ## List Messages
@@ -120,19 +118,15 @@ Lists messages from a flow, filtered by parameters.
 
 ### Parameters
 
-* `event` &ndash; Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas.
-
-* `limit` &ndash; Maximum number of messages to return. Defaults to 30, accepted values range from 1 to 100.
-
-* `sort` &ndash; Descending order is used by default in fetching messages. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their id. The sort parameter is for toggling between fetching the latest or the oldest matching messages.
-
-* `since_id` and `until_id` &ndash; Get messages starting from or leading to a message. The message specified with the parameter won't be included in the response.
-
-* `tags` &ndash; Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an _AND search_ of those tags by default (see `tag_mode` parameter). When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. See more at [Tags](Tags).
-
-* `tag_mode` &ndash; Toggles tag filtering of messages, by default the value is `and`. Use value `or` to search for messages that contain any of the tags specified in `tags`.
-
-* `search` &ndash; Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces.
+| Name          | Description  |
+| ------------- | ------------ |
+| event | Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas. |
+| limit | Maximum number of messages to return. Accepted values range from 1 to 100. Defaults to 30. |
+| sort | Descending order is used by default. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their `id`. The sort parameter is for toggling between fetching the latest or the oldest matching messages. |
+| since\_id and until\_id | Get messages starting from or leading to a message `id`. The message specified with the parameter won't be included in the response. |
+| tags | Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an AND search of those tags by default (see `tag_mode` parameter). When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. Read more at [Tags](Tags). |
+| tag_mode | Toggles tag filtering of messages. By default the value is `and`. Use value `or` to search for messages that contain any of the tags specified in `tags`. |
+| search | Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces. |
 
 ### Response
 ```
@@ -172,7 +166,7 @@ Flowdock-User: 2
   // ... 28 more messages
 ]
 ```
-* Message fields are described below in the Show message section.
+Message fields are described below in the [Show Message](messages#/show) section.
 
 <div id="/show"></div>
 ## Show Message
@@ -206,16 +200,18 @@ Flowdock-User: 2
   "user":"18"
 }
 ```
-* `event` &ndash; The type of the message. E.g. chat message or tweet. See [Message Types](Message Types).
-* `content` &ndash; Data payload. Different in different events as documented in [Message Types](Message Types).
-* `tags` &ndash; List of tags as strings. Tags containing colon characters have [special meaning](Tags) and can be discarded when working with tagging user interfaces.
-* `app` &ndash; Deprecated.
-* `uuid` &ndash; Optional client-generated universal identifier for message. Used to recognize messages sent by single Flowdock instance. Can be used to render sent messages instantly and later add necessary data (id) for tagging.
-* `user` &ndash; Numerical user id of user (as string)
-* `sent` &ndash; Timestamp when message was sent. Milliseconds since Jan 1st, 1970.
-* `flow` &ndash; Flow identifier
-* `id` &ndash; Incremental id of message. Unique only in flow scope.
-* `attachments` &ndash; List of file attachments related to this message. Example:
+| Name          | Description  |
+| ------------- | ------------ |
+| event | The type of the message. E.g. a chat message or tweet. See [Message Types](Message Types). |
+| content | Data payload. The format depends on the event type, as documented in [Message Types](Message Types). |
+| tags | List of tags as strings. Tags containing colon characters have a [special meaning](Tags) and can be discarded when showing the tags in the user interface. |
+| app | Deprecated. |
+| uuid | Optional client-generated universal identifier for the message. Used to recognize messages sent by a client. |
+| user | Numerical user id of user |
+| sent | Timestamp when the message was sent. Milliseconds since Jan 1st, 1970. |
+| flow | Flow identifier. |
+| id | Incremental id of message. Unique only in the flow's scope. |
+| attachments | List of file attachments related to this message. Example: |
 
 ```javascript
 [
@@ -236,15 +232,14 @@ PUT /flows/:organization/:flow/messages/:id
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Updates a message with the specified id. Note: the message editing is limited by the `event` of the message and the properties to be updated. See details from the input section below.
+Updates a message with the specified id. Note: only certain types and certain content can be edited, as defined by the message event type.
 
-### Input
-* `content`
-    The message content. Updating content is only possible for your own messages of type `message` or `comment`.
-_Optional_
-* `tags`
-    Full list of message [tags](Tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see.
-_Optional_
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| content | The message content. Updating content is only possible for your own messages of type `message` or `comment`. |
+| tags | Full list of message [tags](Tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see. |
 
 ```javascript
 {
@@ -271,7 +266,7 @@ DELETE /flows/:organization/:flow/messages/:id
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Delete a message with the specified id. Note: only team inbox (`app=influx`) or user's own file (`event=file`) messages can be deleted, for other messages the response will be HTTP status 404 with an error message.
+Delete a message with the specified id. Note: only team inbox (`app=influx`) or a user's own file (`event=file`) messages can be deleted, for other messages the response will be HTTP status 404 with an error message.
 
 ### Response
 ```
