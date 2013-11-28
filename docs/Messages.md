@@ -75,6 +75,7 @@ Event: `message`
 
 For chat messages, `content` is simply a string which represents the chat message's content. Additionally, tags are parsed from the message content. The maximum length of the content is 8096 characters.
 
+<div id="/send/comment"></div>
 #### Comment message
 Event: `comment`
 
