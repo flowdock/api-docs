@@ -1,6 +1,6 @@
 # Sources
 
-Sources provide content for a flow's Team Inbox. RSS feeds or Twitter keyword searches are examples of sources.
+Sources provide content for a flow's team inbox. RSS feeds or Twitter keyword searches are examples of sources.
 
 ## List Sources
 

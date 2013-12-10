@@ -55,11 +55,11 @@ The status event is sent when a user changes their status.
 ## Event: comment
 > _DISCLAIMER: This message type is likely to change in the near future._
 
-The comment event is sent when a user comments on an item in the Team Inbox.
+The comment event is sent when a user comments on an item in the team inbox.
 
 ### Data
 
-`content` is an object that contains two keys: `title` is the Team Inbox item's title and `text`
+`content` is an object that contains two keys: `title` is the team inbox item's title and `text`
 contains the actual comment. The id of the parent message is stored in a [special tag](Tags):
 `influx:id`.
 

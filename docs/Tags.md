@@ -86,7 +86,7 @@ If a message has file attachments, it gets tagged with `:file`. This can be expe
 ### Comments
 > _DISCLAIMER: This tag type is likely to change in the near future._
 
-[Team Inbox comments](Message-Types) get a tag of the form `influx:3456` to store a reference to the id of the (parent) commented Inbox item.
+[Team inbox comments](Message-Types) get a tag of the form `influx:3456` to store a reference to the id of the (parent) commented Inbox item.
 
 Example:
 
@@ -97,7 +97,7 @@ influx:123445
 
 ### Team inbox source
 
-All messages sent to the Team Inbox via [Team Inbox Push API](Team-Inbox) get tagged with a user-provided `source` parameter.
+All messages sent to the team inbox via the [Team Inbox Push API](Team-Inbox) get tagged with a user-provided `source` parameter.
 
 Example:
 
