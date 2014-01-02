@@ -31,7 +31,7 @@ The following query string parameters can be used:
 | ------------- | ------------ |
 | client_id     | **Required** The registered client ID for your application |
 | redirect_uri  | The URL in your app where users will be sent after authorization. See details below about redirect URLs. |
-| scope         | A comma separated list of scopes. |
+| scope         | A space-delimited list of scopes. |
 | state         | An unguessable random string. This is used to protect authorization consumers (you!) against cross-site request forgery attacks. |
 
 #### 2. Flowdock redirects back to your site
@@ -178,7 +178,7 @@ When using `password` grant type, the following additional fields are used to au
 | -------------- | --------------------------------- |
 | username       | The user's email address.         |
 | password       | The user's password.              |
-| scope          | A comma separated list of scopes. |
+| scope          | A space-delimited list of scopes. |
 
 
 A successful response will contain the following fields:
