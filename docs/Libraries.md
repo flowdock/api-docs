@@ -24,3 +24,7 @@ A list of libraries to access Flowdock in your favorite language.
 ## Ruby
 
   * [flowdock gem](https://github.com/flowdock/flowdock-api) – Ruby bindings for Push API
+
+## Go
+
+  * [go-flowdock](https://github.com/wm/go-flowdock) – Go bindings for the Flowdock API
