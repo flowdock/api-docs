@@ -48,8 +48,8 @@ Convenience method to stream messages from a single flow. Uses same parameters a
 
 ## Browser Example
 
-[EventSource API](http://www.w3.org/TR/eventsource/#the-eventsource-interface)
-exists in most browsers. Even older browsers can use this interface via a
+The [EventSource API](http://www.w3.org/TR/eventsource/#the-eventsource-interface)
+is implemented in most browsers. Even older browsers can use this interface via a
 [polyfill](https://github.com/Yaffle/EventSource).
 
     var stream = new EventSource('https://stream.flowdock.com/flows?filter=<flow-id>&access_token=<oauth-token>')
