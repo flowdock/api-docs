@@ -46,7 +46,20 @@ For example, to stream the flows `example/main` and `example/flow`, a request sh
 
 Convenience method to stream messages from a single flow. Uses same parameters as `GET /flows`.
 
-## Example
+## Browser Example
+
+The [EventSource API](http://www.w3.org/TR/eventsource/#the-eventsource-interface)
+is implemented in most browsers. Even older browsers can use this interface via a
+[polyfill](https://github.com/Yaffle/EventSource).
+
+    var stream = new EventSource('https://stream.flowdock.com/flows?filter=<flow-id>&access_token=<oauth-token>')
+    stream.onmessage = function(event) {
+      var message = JSON.parse(event.data);
+      // handle message
+    }
+
+
+## Ruby Example
 
     require 'eventmachine'
     require 'em-http'
