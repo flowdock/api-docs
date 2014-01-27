@@ -274,7 +274,7 @@ DELETE /flows/:organization/:flow/messages/:id
 ```
 [URL breakdown](rest#/url-breakdown)
 
-Delete a message with the specified id. Note: only team inbox (`app=influx`) or a user's own file (`event=file`) messages can be deleted, for other messages the response will be HTTP status 404 with an error message.
+Delete a message with the specified id. Team inbox (`app=influx`) and a user's own file (`event=file`) messages will be completely removed and HTTP status 204 will be returned. User's own chat messages (`event=message` or `event=comment`) will be truncated with HTTP status 200. For any other messages the response will be HTTP status 403.
 
 ### Response
 ```
