@@ -36,7 +36,7 @@ For example, to stream the flows `example/main` and `example/flow`, a request sh
 
 | Name          | Description  |
 | ------------- | ------------ |
-| filter | Comma separated list of flows, e.g. `example/main,example/flow`. Either this or `user` needs to be set. |
+| filter | Comma separated list of flows, e.g. `example/main,example/flow`. You can also use flow ids. Either this or `user` needs to be set. |
 | user | When set to `1`, stream private messages that are sent to the user. Either this or `filter` needs to be set. |
 | accept | Define the content-type if the Accept header cannot be used. |
 | active | Show user as active in Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. |
@@ -69,9 +69,11 @@ is implemented in most browsers. Even older browsers can use this interface via 
     # organization = parametrized organization name
     # flow = name of flow in URL
 
-    http = EM::HttpRequest.new("https://stream.flowdock.com/flows/#{organization}/#{flow}")
+    http = EM::HttpRequest.new(
+      "https://stream.flowdock.com/flows/#{organization}/#{flow}",
+      :keepalive => true, :connect_timeout => 0, :inactivity_timeout => 0)
     EventMachine.run do
-      s = http.get(:head => { 'Authorization' => [token, ''], 'accept' => 'application/json'}, :keepalive => true, :connect_timeout => 0, :inactivity_timeout => 0)
+      s = http.get(:head => { 'Authorization' => [token, ''], 'accept' => 'application/json'})
 
       buffer = ""
       s.stream do |chunk|
