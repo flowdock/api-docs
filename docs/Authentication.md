@@ -1,10 +1,10 @@
 # Authentication
 
-There are three ways to authenticate with the Flowdock API: 
+There are three ways to authenticate with the Flowdock API:
 
 1. OAuth 2.0
-2. User credentials with HTTP Basic Authentication 
-3. API token with HTTP Basic Authentication. 
+2. User credentials with HTTP Basic Authentication
+3. API token with HTTP Basic Authentication.
 
 Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for Flowdock.
 
@@ -30,6 +30,7 @@ The following query string parameters can be used:
 | Name          | Description  |
 | ------------- | ------------ |
 | client_id     | **Required** The registered client ID for your application |
+| response_type | **Required** Use value `code` |
 | redirect_uri  | The URL in your app where users will be sent after authorization. See details below about redirect URLs. |
 | scope         | A space-delimited list of scopes. |
 | state         | An unguessable random string. This is used to protect authorization consumers (you!) against cross-site request forgery attacks. |
