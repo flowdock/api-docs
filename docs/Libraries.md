@@ -4,12 +4,12 @@ A list of libraries to access Flowdock in your favorite language.
 
 ## Erlang
 
-  * [eflowdock](https://github.com/0xAX/eflowdock) - Flowdock client for erlang. Used in [Ybot](https://github.com/0xAX/Ybot).
+  * [eflowdock](https://github.com/0xAX/eflowdock) - Flowdock client for erlang. Used in [Ybot](https://github.com/0xAX/Ybot)
 
 ## JavaScript
 
-  * [flowdock-text](https://github.com/flowdock/flowdock-text) — A library for parsing links, tags, and other things from Flowdock messages.
-  * [node-flowdock](https://github.com/flowdock/node-flowdock) — Flowdock client for node.js. Used in [hubot-flowdock](https://github.com/flowdock/hubot-flowdock).
+  * [flowdock-text](https://github.com/flowdock/flowdock-text) — A library for parsing links, tags, and other things from Flowdock messages
+  * [node-flowdock](https://github.com/flowdock/node-flowdock) — Flowdock client for node.js. Used in [hubot-flowdock](https://github.com/flowdock/hubot-flowdock)
   * [flowdock-stream](https://www.npmjs.org/package/flowdock-stream) by _gildean_ - A node.js module for streaming Flowdock flows
 
 ## Perl
