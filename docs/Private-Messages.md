@@ -1,6 +1,6 @@
 # Private messages
 
-Private message is a sub-resource for [Private conversation](Private conversations). It should always be accessed in a private conversation's context. Currently, only regular messages are supported in Private Conversations, but file messages and other message types might be supported in the future.
+Private message is a sub-resource for [Private conversation](private-conversations). It should always be accessed in a private conversation's context. Currently, only regular messages are supported in Private Conversations, but file messages and other message types might be supported in the future.
 
 ## Send a message
 ```
