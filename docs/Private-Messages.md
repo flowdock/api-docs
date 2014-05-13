@@ -33,7 +33,7 @@ Flowdock-User: 2
 ```
 
 ### Message Types
-The event parameter in the message data defines the type of message. More at [Message Types](Message Types).
+The event parameter in the message data defines the type of message. More at [Message Types](message-types).
 
 #### Normal private message
 Event: `message`
@@ -45,7 +45,7 @@ For private messages, `content` is simply a string which represents the chat mes
 ```
 GET /private/:user_id/messages
 ```
-Lists messages from a [Private Conversation](Private Conversations), filtered by parameters.
+Lists messages from a [Private conversation](private-conversations), filtered by parameters.
 
 ### Parameters
 
@@ -125,8 +125,8 @@ Flowdock-User: 2
 
 | Name          | Description  |
 | ------------- | ------------ |
-| event | The type of the message. E.g. chat message or tweet. See [Message Types](Message Types). |
-| content | Data payload. Different in different events as documented in [Message Types](Message Types). |
+| event | The type of the message. E.g. chat message or tweet. See [Message Types](message-types). |
+| content | Data payload. Different in different events as documented in [Message Types](message-types). |
 | tags | List of tags as strings. Currently tagging is not enabled for private messages. |
 | app | Deprecated. |
 | uuid | Optional client-generated universal identifier for message. Used to recognize messages sent by a client. |
