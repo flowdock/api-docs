@@ -204,10 +204,12 @@ Some clients allow the authentication to be defined as part of the URL.
 
 ### API Tokens
 
-The user's API token is available on the [Tokens](https://flowdock.com/account/tokens) page. This can be simply used as the username with HTTP Basic Authentication. The password is in this case ignored. Thereby, the following authentication attempts are equivalent:
+The API tokens are available on the [Tokens](https://flowdock.com/account/tokens) page. These tokens can be simply used as the username with HTTP Basic Authentication. The password is in this case ignored. Thereby, the following authentication attempts are equivalent:
 
     $ curl https://deadbeefdeadbeef@api.flowdock.com/flows/acme/main/messages
     $ curl https://deadbeefdeadbeef:DUMMY@api.flowdock.com/flows/acme/main/messages
+    
+Flowdock has two types of API tokens: user tokens and flow tokens. User API tokens can be used to authenticate as a specific user in [REST API](rest). Flow specific tokens can only be used to authorize anonymous posting to a flow in [Push API](push). 
 
 ### Email / password
 
