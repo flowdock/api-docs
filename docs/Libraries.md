@@ -17,6 +17,10 @@ A list of libraries to access Flowdock in your favorite language.
   * [Net::Flowdock](https://github.com/gphat/net-flowdock) by _Cory G. Watson_ — API wrapper for Flowdock in Perl
   * [p5-Flowdock](https://github.com/samvtran/p5-Flowdock) by _samvtran_ — Perl interface to the Flowdock API
 
+## PHP
+
+  * [Flowdock library](https://github.com/mremi/Flowdock) by [_@mremitsme_](https://twitter.com/mremitsme) – A PHP5 library for the Flowdock API
+
 ## Python
 
   * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by _Joshua Ginsberg_ — A Python interface to the Flowdock API
