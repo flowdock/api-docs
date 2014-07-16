@@ -2,9 +2,21 @@
 
 A list of libraries to access Flowdock in your favorite language.
 
+## Clojure
+
+  * [clj-flowdock](https://github.com/RallySoftware/clj-flowdock) - A Clojure library for interacting with Flowdock
+
 ## Erlang
 
   * [eflowdock](https://github.com/0xAX/eflowdock) - Flowdock client for erlang. Used in [Ybot](https://github.com/0xAX/Ybot)
+
+## Go
+
+  * [go-flowdock](https://github.com/wm/go-flowdock) – Go bindings for the Flowdock API
+
+## Haskell
+
+  * [flowdock-api](http://hackage.haskell.org/package/flowdock-api) by _Gabriel McArthur_ - A Haskell library to interact with the Flowdock API
 
 ## JavaScript
 
@@ -29,15 +41,3 @@ A list of libraries to access Flowdock in your favorite language.
 ## Ruby
 
   * [flowdock gem](https://github.com/flowdock/flowdock-api) – Ruby bindings for Push API
-
-## Clojure
-
-  * [clj-flowdock](https://github.com/RallySoftware/clj-flowdock) - A Clojure library for interacting with Flowdock
-
-## Haskell
-
-  * [flowdock-api](http://hackage.haskell.org/package/flowdock-api) by _Gabriel McArthur_ - A Haskell library to interact with the Flowdock API
-
-## Go
-
-  * [go-flowdock](https://github.com/wm/go-flowdock) – Go bindings for the Flowdock API
