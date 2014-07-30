@@ -13,6 +13,7 @@ A list of libraries to access Flowdock in your favorite language.
 ## Go
 
   * [go-flowdock](https://github.com/wm/go-flowdock) – Go bindings for the Flowdock API
+  * [flowdock](https://github.com/njern/flowdock) – A Go library for the Flowdock API
 
 ## Haskell
 
