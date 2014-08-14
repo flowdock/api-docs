@@ -18,6 +18,7 @@ A list of libraries to access Flowdock in your favorite language.
 ## Haskell
 
   * [flowdock-api](http://hackage.haskell.org/package/flowdock-api) by _Gabriel McArthur_ - A Haskell library to interact with the Flowdock API
+  * [flowdock](http://hackage.haskell.org/package/flowdock) by _Ian Duncan_ – A client library for the Flowdock API
 
 ## JavaScript
 
