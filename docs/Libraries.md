@@ -34,7 +34,7 @@ A list of libraries to access Flowdock in your favorite language.
 ## PHP
 
   * [Flowdock library](https://github.com/mremi/Flowdock) by [_@mremitsme_](https://twitter.com/mremitsme) – A PHP5 library for the Flowdock API
-  * [PHPFlow](https://github.com/duellsy/PHPFlow) by [Chris Duell](https://github.com/duellsy) – A PHP library for the Flowdock API
+  * [PHPFlow](https://github.com/flim/PHPFlow) by [Florent LIM](https://github.com/flim) – A PHP library for the Flowdock API
 
 ## Python
 
