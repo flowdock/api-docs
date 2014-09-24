@@ -8,6 +8,7 @@ There are three ways to authenticate with the Flowdock API:
 
 Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for Flowdock.
 
+<div id="/oauth2"></div>
 ## OAuth 2.0
 
 [OAuth 2.0](http://tools.ietf.org/html/rfc6749) is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. This is the preferred authentication method over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
