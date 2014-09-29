@@ -34,27 +34,106 @@ After creating the application, you should see the application id and secret tok
 <div id="/oauth2-authorize"></div>
 ## Authorizing application using OAuth 2.0
 
-OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. 
+OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password.
 
 The OAuth 2.0 flow is described in the [Authentication](Authentication#/oauth2) section of the API documentation. Once you have received an authentication token for the end user, you can proceed to the next section of this guide.
-  
+
 <div id="/create-integration"></div>
 ## Creating an integration for a flow
 
-### Getting flows of the authenticated user
-  * Using flowdock.rb?
-  * Do you get the integrations endpoint URL in flow data?
+Before you can post messages using the Activity API, you need to create an integration mapping for your application and a flow. The integration mapping gives you a token that you will use to post to the flow. In addition, the mapping enables searching for items posted by the application and displays the application in the flow's source list.
+
+### Choosing the target flow
+
+There's two options for choosing the target flow: let the user choose the flow or assume that the target flow is provided for you. The former approach works well for cases when you don't intend to publish the application for all Flowdock users. The latter simplifies your application logic and works automatically for all published applications. Both approaches are explained in detail in the following sections.
+
+#### Listing available flows for end user to choose
+
+Now that you have the OAuth access token, you can fetch the user's flows using the [Flows resource](Flows) of [REST API](REST).
+
+Example request:
+
+```
+GET https://api.flowdock.com/flows
+```
+
+#### Expecting target flow as parameter
+
+With published applications, we list your application in the Inbox Sources list along with a setup link that points to the URL you have defined for the application. You will receive the target flow's identifier as a query parameter named `flow`.
+
+You will still need to fetch [flow's data](Flows) to get the URL for creating an integration for the flow. The flow data, like the name of the flow, will also help in displaying an informative integration screen for the end user.
+
+Example request:
+
+```
+GET https://api.flowdock.com/flows/find?id=:flow
+```
 
 ### Creating integration
-  * Post to integrations endpoint of the flow
 
-### Handling the response data
-  * `id` is a reference to this particular integration between your application and the flow. This will be provided to you when a Flowdock user attempts to configure your integration from the flow.
-  
-  * Storing the response data is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#integration_configuration)
+Once you have the access token and integrations endpoint URL, you can create the actual integration between the flow and your application.
+
+Example request:
+
+```
+POST https://api.flowdock.com/flows/:org/:flow/integrations
+
+{
+    name: "My project"
+}
+```
+
+| Name          | Description  |
+| ------------- | ------------ |
+| name | This is the data source you are connecting to the flow. For example, if your application connects a project in an issue tracker as inbox source, this should be the title of project. If your application is connected to one flow multiple times with different data sources, this helps the end user to differentiate between data sources when adding, removing or listing integrations. |
+
+Example response data:
+
+```
+
+```
+
+| Name          | Description  |
+| ------------- | ------------ |
+| id | A reference to this particular integration between your application and the flow. This will be provided to you when a Flowdock user attempts to configure your integration from the flow. |
+| flow_token | Token for posting to the flow using [Activity API](Activities). |
+
+Storing the reference is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#integration-config).
 
 <div id="/post-inbox"></div>
 ## Posting to inbox
+
+Example request:
+
+```
+POST https://api.flowdock.com/activities
+
+{
+  "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",
+  "event": "activity",
+  "author": {
+    "name": "anttipitkanen",
+    "avatar": "https://avatars.githubusercontent.com/u/946511?v=2"
+  },
+  "title": "Opened pull request",
+  "thread_id": "github:flowdock:component:pr:42",
+  "thread": {
+    "title": "Fix bug in thread API",
+    "body": "Body with &lt;b&gt;HTML&lt;b&gt; formatting",
+    "external_url": "https://github.com/flowdock/component/pull/42",
+    "status": {
+      "color": "green",
+      "value": "open"
+    }
+  }
+}
+```
+
+The most important and universal fields are listed below, for full reference on fields and message types, see [Activity API documentation](Activities#/activity).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| thread_id | This is the identifier used for connecting activities into threads. This should be an unique identifier within the scope of the integration created for this particular flow. For example, if you post two activities with the same identifier and the same flow token, those activities will be end up in the same thread. |
 
 ## Additional steps
 
