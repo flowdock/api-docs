@@ -1,6 +1,6 @@
 # Streaming API
 
-**Use the streaming API to listen to messsages, events and changes in flows.** The streaming API allows real-time access to flows. Unlike other APIs, all requests to the streaming API should be made to *stream.flowdock.com*. Authentication is identical to [the REST API Authentication](Authentication).
+**Use the streaming API to listen to messages, events and changes in flows.** The streaming API allows real-time access to flows. Unlike other APIs, all requests to the streaming API should be made to *stream.flowdock.com*. Authentication is identical to [the REST API Authentication](Authentication).
 
 ## Connecting
 
