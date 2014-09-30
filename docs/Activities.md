@@ -2,7 +2,13 @@
 
 Activity messages represent events in external services. That event could be a new user story for a project, an update to a support ticket or a commit to some repository, for example. Activities are always related to some entity which is represented by a [thread](Threads).
 
-However, a comment or discussion in external services is represented by a separate [discussion](#/discussion) message.
+There are three types of messages that can belong to a thread:
+
+ * [Activity](/#activity)
+ * [Discussion](/#discussion)
+ * [Chat message](/#message)
+
+However, a comment or discussion in external services is represented by a separate [discussion](#/discussion) message. [Chat messages posted to a thread](/#messages) in Flowdock include thread data.
 
 <div id="/activity"></div>
 ## Activity
@@ -61,6 +67,8 @@ However, a comment or discussion in external services is represented by a separa
 <div id="/discussion"></div>
 ## Discussion
 
+Discussion is a chat message or comment that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+
 ```
 {
   "id": 13904478,
@@ -108,11 +116,59 @@ However, a comment or discussion in external services is represented by a separa
       "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
       "application": "Zendesk",
     },
-    "activities": 0,
+    "activities": 1,
     "internal_comments": 2,
     "external_comments": 6
   }
 }
 ```
 
-##
+<div id="/message"></div>
+## Message
+
+Message is simply a chat message posted from Flowdock. In addition to [the regular attributes](/messages), thread message also includes a copy of the thread data. Messages
+
+```
+{
+  "id": 13904478,
+  "sent": 1411632833971,
+  "event": "message",
+  "tags": [],
+  "attachments": [],
+  "uuid": "nudVKk0wy79MTMk6URqJfw",
+  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
+  "app": "chat",
+  "user": "42",
+  "edited": null,
+  "content": "I'm commenting this support ticket",
+  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
+  "thread": {
+    "title": "Support request",
+    "body": null,
+    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
+    "status": {
+      "value": "open",
+      "color": "green"
+    },
+    "actions": [],
+    "fields": [
+      {
+        "label": "Assignee",
+        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
+      },
+      {
+        "label": "Requester",
+        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
+      }
+    ],
+    "source": {
+      "id": 106,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
+      "application": "Zendesk",
+    },
+    "activities": 1,
+    "internal_comments": 1,
+    "external_comments": 2
+  }
+}
+```
