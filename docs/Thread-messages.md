@@ -6,6 +6,36 @@ There are three types of messages that can belong to a thread:
  * [Discussion](/#discussion)
  * [Chat message](/#message)
 
+## Posting threaded messages
+
+To post threaded messages to a flow, you need to have an application with authorization from the end user. This process is described in [the integration guide](/how-to-integrate).
+
+Example request for posting a new [activity message](thread-messages#/activity) to a flow:
+
+```
+POST https://api.flowdock.com/activities
+
+{
+  "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",
+  "event": "activity",
+  "author": {
+    "name": "anttipitkanen",
+    "avatar": "https://avatars.githubusercontent.com/u/946511?v=2"
+  },
+  "title": "Opened pull request",
+  "thread_id": "github:flowdock:component:pr:42",
+  "thread": {
+    "title": "Fix bug in thread API",
+    "body": "Body with &lt;b&gt;HTML&lt;b&gt; formatting",
+    "external_url": "https://github.com/flowdock/component/pull/42",
+    "status": {
+      "color": "green",
+      "value": "open"
+    }
+  }
+}
+```
+
 <div id="/activity"></div>
 ## Activity
 
@@ -77,7 +107,7 @@ The attributes specific to this message type are explained below. For full refer
 | author.email | Email of the author |
 | thread_id * | Reference to the [thread](threads) |
 | thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field_
+_* denotes a required field when posting a message_
 
 
 <div id="/discussion"></div>
@@ -152,7 +182,7 @@ The attributes specific to this message type are explained below. For full refer
 | author.email | Email of the author |
 | thread_id * | Reference to the [thread](threads) |
 | thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field_
+_* denotes a required field when posting a message_
 
 
 <div id="/message"></div>
@@ -214,5 +244,5 @@ The attributes specific to this message type are explained below. For full refer
 | message * | Content of the chat message |
 | thread_id * | Reference to the [thread](threads) |
 | thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field_
+_* denotes a required field when posting a message_
 
