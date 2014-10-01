@@ -1,6 +1,4 @@
-# Activities
-
-Activity messages represent events in external services. That event could be a new user story for a project, an update to a support ticket or a commit to some repository, for example. Activities are always related to some entity which is represented by a [thread](Threads).
+# Thread messages
 
 There are three types of messages that can belong to a thread:
 
@@ -8,10 +6,14 @@ There are three types of messages that can belong to a thread:
  * [Discussion](/#discussion)
  * [Chat message](/#message)
 
-However, a comment or discussion in external services is represented by a separate [discussion](#/discussion) message. [Chat messages posted to a thread](/#messages) in Flowdock include thread data.
-
 <div id="/activity"></div>
 ## Activity
+
+Activity messages represent events in external services. That event could be a new user story for a project, an update to a support ticket or a commit to some repository, for example. Activities are always related to some entity which is represented by a [thread](Threads).
+
+However, comments in external services are represented by a separate [discussion](#/discussion) message type.
+
+An activity message has the following format:
 
 ```
 {
@@ -64,10 +66,26 @@ However, a comment or discussion in external services is represented by a separa
 }
 ```
 
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| title * | Title of the activity, can contain following HTML tags: `a`.  |
+| body | Body of the activity, HTML allowed |
+| author.name * | Name of the author |
+| author.avatar | URL of the author's avatar |
+| author.email | Email of the author |
+| thread_id * | Reference to the [thread](threads) |
+| thread * | See [thread documentation](threads) for details on fields |
+_* denotes a required field_
+
+
 <div id="/discussion"></div>
 ## Discussion
 
 Discussion is a chat message or comment that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+
+A discussion message has the following format:
 
 ```
 {
@@ -123,10 +141,26 @@ Discussion is a chat message or comment that is made in the third party service.
 }
 ```
 
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| title * | Title of the activity, can contain following HTML tags: `a`.  |
+| body | Body of the activity, HTML allowed |
+| author.name * | Name of the author |
+| author.avatar | URL of the author's avatar |
+| author.email | Email of the author |
+| thread_id * | Reference to the [thread](threads) |
+| thread * | See [thread documentation](threads) for details on fields |
+_* denotes a required field_
+
+
 <div id="/message"></div>
 ## Message
 
-Message is simply a chat message posted from Flowdock. In addition to [the regular attributes](/messages), thread message also includes a copy of the thread data. Messages
+Message is simply a chat message that has been posted to a thread. In addition to [the regular attributes](/messages), these chat messages also include a copy of the thread data.
+
+A chat message has the following format:
 
 ```
 {
@@ -172,3 +206,13 @@ Message is simply a chat message posted from Flowdock. In addition to [the regul
   }
 }
 ```
+
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| message * | Content of the chat message |
+| thread_id * | Reference to the [thread](threads) |
+| thread * | See [thread documentation](threads) for details on fields |
+_* denotes a required field_
+
