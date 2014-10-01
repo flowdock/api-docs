@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this guide you will be creating an application that posts to the inbox of a flow provided by a Flowdock user. The guide is divided into four steps that describe different parts of the development process. If you have any questions, drop us a line at support@flowdock.com
+In this guide you will be creating an application that posts to the inbox of a flow provided by a Flowdock user. The guide is divided into four steps that describe different parts of the development process. If you have any questions, drop us a line at [support@flowdock.com](mailto:support@flowdock.com).
 
 ### Steps
 
@@ -101,7 +101,7 @@ Example response data:
 | Name          | Description  |
 | ------------- | ------------ |
 | id | A reference to this particular integration between your application and the flow. This will be provided to you when a Flowdock user attempts to configure your integration from the flow. |
-| flow_token | Token for posting to the flow using [Activity API](activities). |
+| flow_token | Token for posting [thread messages](thread-messages) to the flow. |
 
 Storing the reference is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#integration-config).
 
@@ -134,7 +134,7 @@ POST https://api.flowdock.com/activities
 }
 ```
 
-The most important and universal fields are listed below, for full reference on fields and message types, see [Activity API documentation](activities#/activity).
+The most important and universal fields are listed below, for full reference on fields and message types, see [thread messages documentation](thread-messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
@@ -156,5 +156,3 @@ Integration configuration is optional for applications. For example, if your app
 If you supply a configuration URI for your application, we will display a configure button for each of integration the end user has set up for a flow. This will enable the end user to change the integration settings afterwards by going back to your application.
 
 We will provide a reference to the integration as `integration_id` query parameter that is appended to the configuration URI along with the `flow` parameter. These two parameters should allow you to identify which integration the end user is trying to configure, provided that you stored the `id` attribute of the integration you created in [the previous step](#/post-integration).
-
-
