@@ -8,7 +8,7 @@ There are three types of messages that can belong to a thread:
 
 ## Posting threaded messages
 
-To post threaded messages to a flow, you need to have an application with authorization from the end user. This process is described in [the integration guide](/how-to-integrate).
+To post threaded messages to a flow, you need to have an application with authorization from the end user. This process is described in [the integration guide](how-to-integrate).
 
 Example request for posting a new [activity message](thread-messages#/activity) to a flow:
 

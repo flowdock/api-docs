@@ -4,11 +4,13 @@
 
 In this guide you will be creating an application that posts to the inbox of a flow provided by a Flowdock user. The guide is divided into four steps that describe different parts of the development process. If you have any questions, drop us a line at [support@flowdock.com](mailto:support@flowdock.com).
 
+We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails and the guide will point you to relevant parts of the code as you progress.
+
 ### Steps
 
 1. [Create application in Flowdock](#/create-app)
 2. [Authorize application using OAuth 2.0](#/oauth2-authorize)
-3. [Create integration for a flow](#/create-integration)
+3. [Create integration for flow](#/create-integration)
 4. [Post to inbox](#/post-inbox)
 
 ### Additional steps
@@ -19,7 +21,7 @@ In this guide you will be creating an application that posts to the inbox of a f
 <div id="/create-app"></div>
 ## Creating application in Flowdock
 
-The first step is to [create a new application](https://www.flowdock.com/oauth/applications/new) using your own Flowdock credentials. All your developer applications are listed in [Application page](https://www.flowdock.com/account/authorized_applications). The page also contains all the applications you have authorized to use your account.
+The first step is to [create a new application](https://www.flowdock.com/oauth/applications/new) using your own Flowdock credentials. All your developer applications are listed in [Applications page](https://www.flowdock.com/account/authorized_applications). The page also contains all the applications you have authorized to use your account.
 
 The application requires following information:
 
@@ -27,8 +29,8 @@ The application requires following information:
 | ------------- | ------------ |
 | Name | Visible name for your application. This is used in the OAuth dialog when the end user is prompted to allow access for your application and when listing your application in inbox sources or search. |
 | Redirect URI | The OAuth 2.0 redirect URI of your application. The end user is redirected to this URI after allowing or denying access for your application. This should be an endpoint in your application. |
-| Setup URI | TODO |
-| Configuration URI | TODO |
+| Setup URI | URI to your endpoint that sets up an integration between your application and given flow. The end user will be redirected to this URI when clicking setup for your application in a flow. The identifier of the flow is provided to you by appending a query parameter `flow` to the URI. |
+| Configuration URI | URI to your endpoint that lets the end user change settings of an existing integration. The end user will be redirected to this URI when clicking configure for an existing intergration of your application in a flow. The identifiers for the flow and the integration are provided to you by query parameters `flow` and `integration_id`. |
 | Icons | The provided icons are used when listing your application and rendering messages from your application. |
 
 After creating the application, you should see the application id and secret tokens. You will use these when sending OAuth protocol requests to Flowdock from your application.
@@ -45,25 +47,9 @@ The OAuth 2.0 flow is described in the [Authentication](Authentication#/oauth2) 
 
 Before you can post messages using the Activity API, you need to create an integration mapping for your application and a flow. The integration mapping gives you a token that you will use to post to the flow. In addition, the mapping enables searching for items posted by the application and displays the application in the flow's source list.
 
-### Choosing the target flow
+When published, we list your application in the Inbox Sources list along with a setup link that points to the setup URL you have defined for the application. You will receive the target flow's identifier as a query parameter named `flow`.
 
-There's two options for choosing the target flow: let the user choose the flow or assume that the target flow is provided for you. The former approach works well for cases when you don't intend to publish the application for all Flowdock users. The latter simplifies your application logic and works automatically for all published applications. Both approaches are explained in detail in the following sections.
-
-#### Listing available flows for end user to choose
-
-Now that you have the OAuth access token, you can fetch the user's flows using the [Flows resource](flows) of [REST API](rest).
-
-Example request:
-
-```
-GET https://api.flowdock.com/flows
-```
-
-#### Expecting target flow as parameter
-
-With published applications, we list your application in the Inbox Sources list along with a setup link that points to the URL you have defined for the application. You will receive the target flow's identifier as a query parameter named `flow`.
-
-You will still need to fetch [flow's data](flows) to get the URL for creating an integration for the flow. The flow data, like the name of the flow, will also help in displaying an informative integration screen for the end user.
+Next, you will need to fetch [flow's data](flows) to get the URL for creating an integration for the flow. The flow data, like the name of the flow, will also help in displaying an informative integration screen for the end user.
 
 Example request:
 
@@ -95,7 +81,16 @@ POST https://api.flowdock.com/flows/:org/:flow/integrations
 Example response data:
 
 ```
-
+{
+  "id": 36,
+  "name": "My project",
+  "flow_token": "965427ebf9997f7aa71384b6f03d608f",
+  "application": {
+    "id": "4",
+    "name": "Example application",
+    "configuration_uri": "http://www.example.com"
+  }
+}
 ```
 
 | Name          | Description  |
@@ -104,6 +99,8 @@ Example response data:
 | flow_token | Token for posting [thread messages](thread-messages) to the flow. |
 
 Storing the reference is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#integration-config).
+
+You can now test the integration flow by going to [Applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything goes well, you should see a message about new integration in the flow.
 
 <div id="/post-inbox"></div>
 ## Posting to inbox
