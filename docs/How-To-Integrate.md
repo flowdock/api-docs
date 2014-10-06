@@ -66,7 +66,7 @@ This part of the process is implemented [here in the example application code](h
 
 Once you have the access token and flow data, you can create the actual integration between the flow and your application.
 
-The flow data contains an array of called `links`. The links array lists available API resources for the flow and what HTTP methods are allowed for the authenticated user. You can find the integrations endpoint URL of the target flow from those links.
+The flow data contains an attribute called `links`. The attribute lists available API resources for the flow and what HTTP methods are allowed for the authenticated user. You can find the integrations endpoint URL under `sources` resource.
 
 Example request:
 
@@ -74,7 +74,7 @@ Example request:
 POST https://api.flowdock.com/flows/:org/:flow/integrations
 
 {
-    name: "My project"
+  name: "My project"
 }
 ```
 
