@@ -38,9 +38,11 @@ After creating the application, you should see the application id and secret tok
 <div id="/oauth2-authorize"></div>
 ## Authorizing application using OAuth 2.0
 
-OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password.
+OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. The OAuth 2.0 flow is described in the [Authentication](Authentication#/oauth2) section of the API documentation. We recommend using a library for implementing the OAuth flow.
 
-The OAuth 2.0 flow is described in the [Authentication](Authentication#/oauth2) section of the API documentation. Once you have received an authentication token for the end user, you can proceed to the next section of this guide.
+In the example application we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Flowdock strategy for Omniauth](https://github.com/flowdock/omniauth-flowdock/). The OAuth logic can be found [here in the code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb).
+
+Once you have obtained an authentication token for the end user, you can proceed to the next section of this guide.
 
 <div id="/create-integration"></div>
 ## Creating an integration for a flow
@@ -56,6 +58,8 @@ Example request:
 ```
 GET https://api.flowdock.com/flows/find?id=:flow
 ```
+
+This part of the process is implemented [here in the example application code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb).
 
 <div id="/post-integration"></div>
 ### Posting to integrations endpoint
@@ -100,10 +104,14 @@ Example response data:
 
 Storing the reference is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#integration-config).
 
+This part of the process is implemented [here in the example application code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb).
+
 You can now test the integration flow by going to [Applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything goes well, you should see a message about new integration in the flow.
 
 <div id="/post-inbox"></div>
 ## Posting to inbox
+
+Now your application should be ready to start delivering messages to the flow. All the messages should be sent to the endpoint described below using the `flow_token` to authenticate and identify the target flow.
 
 Example request:
 
@@ -131,12 +139,14 @@ POST https://api.flowdock.com/activities
 }
 ```
 
-The most important and universal fields are listed below, for full reference on fields and message types, see [thread messages documentation](thread-messages).
+The most important and universal fields are listed below, for full reference on fields and different message types, see [thread messages documentation](thread-messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
 | flow_token | The token you received after creating the integration between your application and the flow |
 | thread_id | This is the identifier used for connecting activities into threads. This should be an unique identifier within the scope of the integration created for this particular flow. For example, if you post two activities with the same identifier and the same flow token, those activities will be end up in the same thread. |
+
+The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) for producing JSON payloads like the above example.
 
 ## Additional steps
 
