@@ -2,56 +2,46 @@
 
 ## Introduction
 
-In this guide you will be creating an application that posts to the inbox of a flow provided by a Flowdock user. The guide is divided into four steps that describe different parts of the development process. If you have any questions, drop us a line at [support@flowdock.com](mailto:support@flowdock.com).
+In this guide we'll show how to create an integration where a web app posts notifications into a Flowdock flow. This is the basis of almost all of our public [integrations](/integrations). The guide is divided into four steps that describe different parts of the development process. If you have any questions, drop us a line at [support@flowdock.com](mailto:support@flowdock.com).
 
-We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails and the guide will point you to relevant parts of the code as you progress.
+We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails and the guide will point you to relevant parts of the code.
 
 ### Steps
 
-1. [Create application in Flowdock](#/create-app)
-2. [Authorize application using OAuth 2.0](#/oauth2-authorize)
-3. [Create integration for flow](#/create-integration)
-4. [Post to inbox](#/post-inbox)
+1. [Create an application in Flowdock](#/create-app)
+2. [Authorize using OAuth 2.0](#/oauth2-authorize)
+3. [Create integration for a flow](#/create-integration)
+4. [Post messages to inbox](#/post-inbox)
 
 ### Additional steps
 
-* [Publish application](#/publish-app)
+* [Publish your application](#/publish-app)
 * [Integration configuration](#/integration-config)
 
 <div id="/create-app"></div>
-## Creating application in Flowdock
+## Creating an application in Flowdock
 
-The first step is to [create a new application](https://www.flowdock.com/oauth/applications/new) using your own Flowdock credentials. All your developer applications are listed in [Applications page](https://www.flowdock.com/account/authorized_applications). The page also contains all the applications you have authorized to use your account.
+The first step is to [create a new application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on the [Developer applications page](https://www.flowdock.com/oauth/applications).
 
-The application requires following information:
+Follow the instructions in the form. After creating the application, you should see the application id and secret tokens. You will use these when sending OAuth protocol requests to Flowdock from your application.
 
-| Name          | Description  |
-| ------------- | ------------ |
-| Name | Visible name for your application. This is used in the OAuth dialog when the end user is prompted to allow access for your application and when listing your application in inbox sources or search. |
-| Redirect URI | The OAuth 2.0 redirect URI of your application. The end user is redirected to this URI after allowing or denying access for your application. This should be an endpoint in your application. |
-| Setup URI | URI to your endpoint that sets up an integration between your application and given flow. The end user will be redirected to this URI when clicking setup for your application in a flow. The identifier of the flow is provided to you by appending a query parameter `flow` to the URI. |
-| Configuration URI | URI to your endpoint that lets the end user change settings of an existing integration. The end user will be redirected to this URI when clicking configure for an existing intergration of your application in a flow. The identifiers for the flow and the integration are provided to you by query parameters `flow` and `integration_id`. |
-| Icons | The provided icons are used when listing your application and rendering messages from your application. |
-
-After creating the application, you should see the application id and secret tokens. You will use these when sending OAuth protocol requests to Flowdock from your application.
+First, you will need an endpoint in your web application, that we will point the user to, when they start setting up an integration to their Flowdock flow using your OAuth app that you created in Step 1. Once your application is published, users will find this link in the Flowdock app's inbox sources view. For testing purposes, on your Developer application's page, there is a flow chooser, that will generate the full setup URI for that specific flow. Your setup endpoint should start by allowing the user to authorize your app to post messages to Flowdock.
 
 <div id="/oauth2-authorize"></div>
 ## Authorizing application using OAuth 2.0
 
-OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. The OAuth 2.0 flow is described in the [Authentication](Authentication#/oauth2) section of the API documentation. We recommend using a library for implementing the OAuth flow.
+OAuth 2.0 is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. We recommend using an established library for implementing the OAuth flow.
 
-In the example application we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Flowdock strategy for Omniauth](https://github.com/flowdock/omniauth-flowdock/). The OAuth logic can be found [here in the code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb).
+You'll need to create the endpoint that you specified as the Callback URI in your app. That endpoint needs to take care of using the authentication code to obtain an access token from our endpoint as described in [Step 2 of the web application flow description](authentication#/oauth2) in our OAuth 2 documentation. In our example Rails application we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Flowdock strategy for Omniauth](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token as you can see in the [code of the callback endpoint in our example app](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
 
-Once you have obtained an authentication token for the end user, you can proceed to the next section of this guide.
+Once you have obtained an access token for the end user, you can proceed to the next section of this guide.
 
 <div id="/create-integration"></div>
-## Creating an integration for a flow
+## Adding your app as a source to a Flowdock flow
 
-Before you can post messages using the Activity API, you need to create an integration mapping for your application and a flow. The integration mapping gives you a token that you will use to post to the flow. In addition, the mapping enables searching for items posted by the application and displays the application in the flow's source list.
+Before you can post messages to Flows, you need to use the access token and the flow parameters that your setup endpoint received as query parameters to add your app to a Flowdock flow as a team inbox source by using the [Sources API](/sources). This way you will obtain a flow token, which you can then use to post notifications into the flow's team inbox by using the [Activity API](/activity). Once a source is added to a Flow, it will also show up as a filter in that flow's team inbox. The source will also idetify the external entity (eg. a repo for GitHub or a project for a project management tool), which your OAuth application has tied into the particular Flowdock flow.
 
-When published, we list your application in the Inbox Sources list along with a setup link that points to the setup URL you have defined for the application. You will receive the target flow's identifier as a query parameter named `flow`.
-
-Next, you will need to fetch [flow's data](flows) to get the URL for creating an integration for the flow. The flow data, like the name of the flow, will also help in displaying an informative integration screen for the end user.
+To add a source to a flow, you will need to first fetch information about the flow using [the Flows API](flows). It is good practice, to show the user a confirmation screen for creating this source so connecting the Flowdock flow to your application.
 
 Example request:
 
@@ -59,12 +49,12 @@ Example request:
 GET https://api.flowdock.com/flows/find?id=:flow
 ```
 
-This part of the process is implemented [here in the example application code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb).
+This part of the process is implemented as a part of the callback [in the example application code](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
 
 <div id="/post-integration"></div>
-### Posting to integrations endpoint
+### Example: Posting to the sources endpoint
 
-Once you have the access token and flow data, you can create the actual integration between the flow and your application.
+With the access token and flow data, you can create the actual integration between the flow and your application.
 
 The flow data contains an attribute called `links`. The attribute lists available API resources for the flow and what HTTP methods are allowed for the authenticated user. You can find the integrations endpoint URL under `sources` resource.
 
