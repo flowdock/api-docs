@@ -2,15 +2,15 @@
 
 There are three types of messages that can belong to a thread:
 
- * [Activity](/#activity)
- * [Discussion](/#discussion)
- * [Chat message](/#message)
+ * [Activity](#/activity)
+ * [Discussion](#/discussion)
+ * [Chat message](#/message)
 
 ## Posting threaded messages
 
-To post threaded messages to a flow, you need to have an application with authorization from the end user. This process is described in [the integration guide](how-to-integrate).
+To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the integration guide](how-to-integrate).
 
-Example request for posting a new [activity message](thread-messages#/activity) to a flow:
+Here's an example request that posts a new [activity message](thread-messages#/activity) to a flow:
 
 ```
 POST https://api.flowdock.com/activities
@@ -39,7 +39,7 @@ POST https://api.flowdock.com/activities
 <div id="/activity"></div>
 ## Activity
 
-Activity messages represent events in external services. That event could be a new user story for a project, an update to a support ticket or a commit to some repository, for example. Activities are always related to some entity which is represented by a [thread](Threads).
+Activity messages represent events in external services. For example, that event could be a new user story for a project, an update to a support ticket or a commit to a repository. Activities are always related to some entity, which is represented by a [thread](Threads).
 
 However, comments in external services are represented by a separate [discussion](#/discussion) message type.
 
@@ -96,18 +96,18 @@ An activity message has the following format:
 }
 ```
 
-The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
-| title * | Title of the activity, can contain following HTML tags: `a`.  |
-| body | Body of the activity, HTML allowed |
-| author.name * | Name of the author |
-| author.avatar | URL of the author's avatar |
-| author.email | Email of the author |
-| thread_id * | Reference to the [thread](threads) |
-| thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field when posting a message_
+| **title** | Title of the activity. It can contain following HTML tags: `a` |
+| body | Body of the activity. HTML is allowed. |
+| **author.name** | The name of the author. |
+| author.avatar | The URL of the author's avatar. |
+| author.email | The email address of the author. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | The current state of the external entity, represented as a thread. See our [thread documentation](threads) for details on the fields. |
+_Bolded text denotes a required field when posting a message._
 
 
 <div id="/discussion"></div>
@@ -171,24 +171,24 @@ A discussion message has the following format:
 }
 ```
 
-The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+The attributes specific to this message type are explained below. For full reference on general message attributes, see our [Messages documentation](messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
-| title * | Title of the activity, can contain following HTML tags: `a`.  |
-| body | Body of the activity, HTML allowed |
-| author.name * | Name of the author |
-| author.avatar | URL of the author's avatar |
-| author.email | Email of the author |
-| thread_id * | Reference to the [thread](threads) |
-| thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field when posting a message_
+| **title** | The title of the activity. It can contain the following HTML tags: `a`  |
+| body | The message body. HTML is allowed. |
+| **author.name** | The name of the author. |
+| author.avatar | The URL of the author's avatar. |
+| author.email | The email address of the author. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | The current state of the external entity, represented as a thread. See our [thread documentation](threads) for details on the fields. |
+_Bolded text denotes a required field when posting a message._
 
 
 <div id="/message"></div>
 ## Message
 
-Message is simply a chat message that has been posted to a thread. In addition to [the regular attributes](/messages), these chat messages also include a copy of the thread data.
+Message is a Flowdock chat message that has been posted to the thread. In addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
 
 A chat message has the following format:
 
@@ -237,12 +237,11 @@ A chat message has the following format:
 }
 ```
 
-The attributes specific to this message type are explained below. For full reference on general message attributes, see [Messages documentation](/messages).
+The attributes specific to this message type are explained below. For full reference on general message attributes, see our [Messages documentation](messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
-| message * | Content of the chat message |
-| thread_id * | Reference to the [thread](threads) |
-| thread * | See [thread documentation](threads) for details on fields |
-_* denotes a required field when posting a message_
-
+| **message** | The content of the chat message. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | See our [thread documentation](threads) for details on fields. |
+_Bolded text denotes a required field when posting a message._
