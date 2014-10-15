@@ -21,6 +21,7 @@ Given the security implications of getting the implementation correct, we strong
 
 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) is probably the most used authorization flow. It allows clients to obtain both access tokens and refresh tokens. The flow is based on redirects and requires the client to have a web browser. Use this flow if your client is another web application.
 
+<div id="/redirect"></div>
 #### 1. Redirect users to request Flowdock access
 
       GET https://api.flowdock.com/oauth/authorize
@@ -36,6 +37,7 @@ The following query string parameters can be used:
 | scope         | A space-delimited list of scopes. |
 | state         | An unguessable random string. This is used to protect authorization consumers (you!) against cross-site request forgery attacks. |
 
+<div id="/redirect-back"></div>
 #### 2. Flowdock redirects back to your site
 
 If the user accepts your request, Flowdock redirects back to your site with a temporary authorization code in the redirect URL as well as the state parameter provided in the previous step.
@@ -76,6 +78,7 @@ However, you can also specify the JSON content type using the `Accept` header.
     Accept: application/json
     {"access_token":[omitted], "scope":"flow,private", "token_type":"bearer"}
 
+<div id="/make-request"></div>
 #### 3. Make API requests with the access token.
 
 The access token allows you to make requests to the API on behalf of a user.
@@ -88,6 +91,7 @@ Access tokens can also be used as a query string parameter:
 
     GET https://api.flowdock.com/user?access_token=...
 
+<div id="/refresh-token"></div>
 #### 4. Refresh the access token, if necessary.
 
 OAuth 2.0 access tokens are short-lived. If your application needs access to the Flowdock API beyond the lifetime of a single access token, it can obtain a refresh token. A refresh token allows your application to obtain new access tokens.
