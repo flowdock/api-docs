@@ -1,9 +1,8 @@
 # Sources
 
 Sources provide content from external sources to a flow. These include
-integrations such as GitHub, Rally and Zendesk. Each source have a secret
-`flow_token` that can be used for authentication when posting content to to a
-flow.
+integrations such as GitHub, Rally and Zendesk. Each source has a secret
+`flow_token` that is used for authentication when posting content to a flow.
 
 ## List Flow Sources
 
@@ -99,14 +98,14 @@ flow.
 ### OAuth scope requirements
 
 This endpoint is currently only available for OAuth applications with scope
-`integration`. The OAuth application will be used as the application attribtue
+`integration`. The OAuth application will be used as the application attribute
 of the source.
 
 ### Input
 
 | Name          | Description  |
 | ------------- | ------------ |
-| name          | *Required* The name of the source. |
+| name          | **Required** The name of the source. |
 
 ### Example
 
@@ -142,8 +141,8 @@ Flowdock-User: 9
 }
 ```
 
-**`flow_token` is only visible in the response of source request.** It cannot be
-retrieved later.
+**`flow_token` is only visible in the response of the source creation request.** It cannot be
+retrieved later on.
 
 ## Delete a Source
 
