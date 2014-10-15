@@ -1,10 +1,10 @@
 # Threads
 
-Threads represent entities in external services. They allow tracking events that happen in external services and collecting them into a single view of what has happened to the entity over time. Moreover, all the discussion related to the entity and its events is visible in the thread.
+Threads represent entities in external services. They allow users to track events that happen in external services and collect related events into a single view. Furthermore, all discussion related to the entity – both in Flowdock and the external service – is visible in the thread.
 
 Common examples of thread entities are support tickets, issues in project management software and pull requests in version control software.
 
-A thread in Flowdock API has the following format:
+A thread in the Flowdock API has the following format:
 
 ```
 {
@@ -43,16 +43,16 @@ A thread in Flowdock API has the following format:
 
 | Name          | Description  |
 | ------------- | ------------ |
-| title | Title of the thread, can contain following HTML tags: `a` |
-| body | Body of the thread, HTML allowed |
-| external_url | URL to the external resource that is represented by this thread, e.g. Github pull request or Rally user story |
-| status.value | Text value of the thread's status |
+| title | Title of the thread. It can contain following HTML tags: `a` |
+| body | Body of the thread. HTML allowed. |
+| external_url | URL to the external resource or entity that this thread represents, e.g. Github pull request or Rally user story. |
+| status.value | Text value of the thread's status. |
 | status.color | Background color for the above text value. Allowed values: red, green, yellow, cyan, orange, grey, black, lime, purple, blue |
-| actions | An array of custom actions for the thread in [schema.org Action format](http://schema.org/Action). The only currently supported action is the [ViewAction](http://schema.org/ViewAction). See above thread data for an example of ViewAction |
-| fields | An array of key/value type of propertites for the thread. Value can contain following HTML tags: `a` |
-| source | Application that posted this thread. Includes application name and icon |
-| activities | Number of [activity messages](thread-messages#/activity) in this thread |
-| internal_comments | Number of [chat messages](thread-messages#/message) in this thread |
-| external_comments | Number of [discussion messages](thread-messages#/discussion) in this thread |
+| actions | An array of custom actions for the thread in [schema.org Action format](http://schema.org/Action). The only currently supported action is [ViewAction](http://schema.org/ViewAction). See the sample data above for an example of ViewAction. |
+| fields | An array of key/value propertites for the thread. Value can contain the following HTML tags: `a` |
+| source | The application that posted this thread. Includes the application name and icon. |
+| activities | The number of [activity messages](thread-messages#/activity) in this thread. |
+| internal_comments | The number of [chat messages](thread-messages#/message) in this thread. |
+| external_comments | The number of [discussion messages](thread-messages#/discussion) in this thread. |
 
 
