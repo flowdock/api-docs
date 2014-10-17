@@ -2,6 +2,7 @@
 
 Sources provide content for a flow's team inbox. RSS feeds or Twitter keyword searches are examples of sources.
 
+<div id="/list"></div>
 ## List Sources
 
 Lists all the sources of the given flow.
@@ -49,6 +50,7 @@ Flowdock-User: 2
 | url | Source resource URL. |
 | config | Configuration data of the source. See below for more information about the contents. |
 
+<div id="/get"></div>
 ## Get a Source
 ```
 GET /flows/:organization/:flow/source/:id
@@ -75,6 +77,7 @@ Flowdock-User: 2
 }
 ```
 
+<div id="/create"></div>
 ## Create a Source
 ```
 POST /flows/:organization/:flow/sources
@@ -147,6 +150,7 @@ Flowdock-User: 9
 },
 ```
 
+<div id="/delete"></div>
 ## Delete a Source
 ```
 DELETE /flows/:organization/:flow/source/:id
