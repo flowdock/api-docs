@@ -4,6 +4,7 @@ Sources provide content from external sources to a flow. These include
 integrations such as GitHub, Rally and Zendesk. Each source has a secret
 `flow_token` that is used for authentication when posting content to a flow.
 
+<div id="/list"></div>
 ## List Flow Sources
 
 Lists all the sources of the given flow.
@@ -52,6 +53,7 @@ Flowdock-User: 2
 ]
 ```
 
+<div id="/get"></div>
 ## Get a Source
 
 ```
@@ -85,6 +87,7 @@ Flowdock-User: 2
 }
 ```
 
+<div id="/create"></div>
 ## Create a Source
 
 ```
@@ -144,6 +147,7 @@ Flowdock-User: 9
 **`flow_token` is only visible in the response of the source creation request.** It cannot be
 retrieved later on.
 
+<div id="/delete"></div>
 ## Delete a Source
 
 ```
