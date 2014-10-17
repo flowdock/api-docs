@@ -13,7 +13,7 @@ To post threaded messages to a flow, you need to have an application that has be
 Here's an example request that posts a new [activity message](thread-messages#/activity) to a flow:
 
 ```
-POST https://api.flowdock.com/activities
+POST https://api.flowdock.com/messages
 
 {
   "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",

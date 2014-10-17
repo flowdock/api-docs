@@ -67,7 +67,7 @@ The flow data contains an attribute called `links`. The attribute lists availabl
 Example request:
 
 ```
-POST https://api.flowdock.com/flows/:org/:flow/integrations
+POST https://api.flowdock.com/flows/:org/:flow/sources
 
 {
   name: "My project"
@@ -114,7 +114,7 @@ Your integration should now be ready to start delivering messages to the flow. A
 Example request:
 
 ```
-POST https://api.flowdock.com/activities
+POST https://api.flowdock.com/messages
 
 {
   "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",
