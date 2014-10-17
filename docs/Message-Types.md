@@ -4,6 +4,7 @@
 
 This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
+<div id="/message"></div>
 ## Event: message
 
 The message event is sent when a user sends a chat message.
@@ -280,3 +281,218 @@ The file event is sent when a file has been uploaded to the chat.
   "tags": [":file"]
 }
 ```
+
+<div id="/activity"></div>
+## Event: activity
+
+Activity messages represent events in external services. For example, that event could be a new user story for a project, an update to a support ticket or a commit to a repository. Activities are always related to some entity, which is represented by a [thread](Threads).
+
+However, comments in external services are represented by a separate [discussion](#/discussion) message type.
+
+### Data
+
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Message type](message-types#/message).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| **title** | Title of the activity. It can contain following HTML tags: `a` |
+| body | Body of the activity. HTML is allowed. |
+| **author.name** | The name of the author. |
+| author.avatar | The URL of the author's avatar. |
+| author.email | The email address of the author. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | The current state of the external entity, represented as a thread. See our [thread documentation](threads) for details on the fields. |
+_Bolded text denotes a required field when posting a message._
+
+### Sample
+
+```
+{
+  "id": 13895827,
+  "sent": 1411560930521,
+  "event": "activity",
+  "tags": [],
+  "attachments": [],
+  "flow": "ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
+  "author": {
+    "name": "anttipitkanen",
+    "avatar": "https://avatars.githubusercontent.com/u/946511?v=2"
+  },
+  "title": "Closed pull request",
+  "body": null,
+  "app": "influx",
+  "user": 0,
+  "edited": null,
+  "content": null,
+  "_application": 104,
+  "_project": 220,
+  "thread_id": "HbjDdeOqrZm6QzlSO8rwtftzwts",
+  "thread": {
+    "title": "Fix bug in thread API",
+    "body": "",
+    "external_url": "https://github.com/flowdock/component/pull/42",
+    "status": {
+      "color": "grey",
+      "value": "closed"
+    },
+    "actions": [
+      {
+        "@type": "ViewAction",
+        "url": "https://github.com/flowdock/component/pull/42/files",
+        "name": "Diff",
+        "description": "View diff in GitHub",
+        "image": "https://s3.amazonaws.com/flowdock-resources/images/diff.png"
+      }
+    ],
+    "fields": [],
+    "source": {
+      "id": 104,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+      "application": "GitHub"
+    },
+    "activities": 3,
+    "internal_comments": 3,
+    "external_comments": 5
+  }
+}
+```
+
+<div id="/discussion"></div>
+## Event: discussion
+
+Discussion is a chat message or comment that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+
+### Data
+
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Message type](message-types#/message).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| **title** | The title of the activity. It can contain the following HTML tags: `a`  |
+| body | The message body. HTML is allowed. |
+| **author.name** | The name of the author. |
+| author.avatar | The URL of the author's avatar. |
+| author.email | The email address of the author. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | The current state of the external entity, represented as a thread. See our [thread documentation](threads) for details on the fields. |
+_Bolded text denotes a required field when posting a message._
+
+### Sample
+
+```
+{
+  "id": 13904478,
+  "sent": 1411632833971,
+  "event": "discussion",
+  "tags": [],
+  "attachments": [],
+  "uuid": "nudVKk0wy79MTMk6URqJfw",
+  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
+  "author": {
+    "name": "Antti Pitk\u00e4nen",
+    "avatar": "https://secure.gravatar.com/avatar/0d7d028dd0eec07add85a3bba314b456?s=120&r=pg",
+    "email":"antti@flowdock.com"
+  },
+  "title": "replied",
+  "body": "Message body with HTML formatting &lt;br&gt;&lt;br&gt;",
+  "app": "influx",
+  "user": "0",
+  "edited": null,
+  "content": null,
+  "_application": 106,
+  "_project":221,
+  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
+  "thread": {
+    "title": "Support request",
+    "body": null,
+    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
+    "status": {
+      "value": "solved",
+      "color": "grey"
+    },
+    "actions": [],
+    "fields": [
+      {
+        "label": "Assignee",
+        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
+      },
+      {
+        "label": "Requester",
+        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
+      }
+    ],
+    "source": {
+      "id": 106,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
+      "application": "Zendesk",
+    },
+    "activities": 1,
+    "internal_comments": 2,
+    "external_comments": 6
+  }
+}
+```
+
+<div id="/thread-chat-message"></div>
+## Event: message
+
+Message is a Flowdock chat message that has been posted to the thread. In addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
+
+### Data
+
+The attributes specific to this message type are explained below. For full reference on general message attributes, see [Message type](message-types#/message).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| **message** | The content of the chat message. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | See our [thread documentation](threads) for details on fields. |
+_Bolded text denotes a required field when posting a message._
+
+### Sample
+
+```
+{
+  "id": 13904478,
+  "sent": 1411632833971,
+  "event": "message",
+  "tags": [],
+  "attachments": [],
+  "uuid": "nudVKk0wy79MTMk6URqJfw",
+  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
+  "app": "chat",
+  "user": "42",
+  "edited": null,
+  "content": "I'm commenting this support ticket",
+  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
+  "thread": {
+    "title": "Support request",
+    "body": null,
+    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
+    "status": {
+      "value": "open",
+      "color": "green"
+    },
+    "actions": [],
+    "fields": [
+      {
+        "label": "Assignee",
+        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
+      },
+      {
+        "label": "Requester",
+        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
+      }
+    ],
+    "source": {
+      "id": 106,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
+      "application": "Zendesk",
+    },
+    "activities": 1,
+    "internal_comments": 1,
+    "external_comments": 2
+  }
+}
+```
+

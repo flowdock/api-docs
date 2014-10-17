@@ -99,7 +99,7 @@ Example response data:
 | ------------- | ------------ |
 | id | A reference to this particular integration between your application and the flow. This will be provided to you when a Flowdock user attempts to configure your integration from the flow. |
 | name | The data source name, as provided when creating the integration. |
-| flow_token | The token for posting [messages](thread-messages) to the flow's team inbox. |
+| flow_token | The token for posting [messages](messages) to the flow's team inbox. |
 | application | Information about the integration application. |
 
 Storing the reference (id) is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#/integration-configuration).
@@ -111,7 +111,7 @@ You can now test the integration flow by going to your [Applications page](https
 <div id="/post-inbox"></div>
 ## 4. Post messages to the team inbox
 
-Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [thread messages endpoint](thread-messages) (described below) using `flow_token` to authenticate and identify the target flow.
+Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
 
 Example request:
 
@@ -139,7 +139,7 @@ POST https://api.flowdock.com/messages
 }
 ```
 
-The most important fields are listed below. For full reference on fields and different message types, see the [thread messages documentation](thread-messages).
+The most important fields are listed below. For full reference on fields and different message types, see the [messages documentation](messages#/thread-messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
