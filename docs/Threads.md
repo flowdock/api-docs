@@ -51,8 +51,8 @@ A thread in the Flowdock API has the following format:
 | actions | An array of custom actions for the thread in [schema.org Action format](http://schema.org/Action). The only currently supported action is [ViewAction](http://schema.org/ViewAction). See the sample data above for an example of ViewAction. |
 | fields | An array of key/value propertites for the thread. Value can contain the following HTML tags: `a` |
 | source | The application that posted this thread. Includes the application name and icon. |
-| activities | The number of [activity messages](messages-types#/activity) in this thread. |
-| internal_comments | The number of [chat messages](messages-types#/thread-chat-message) in this thread. |
+| activities | The number of [activity messages](message-types#/activity) in this thread. |
+| internal_comments | The number of [chat messages](message-types#/thread-chat-message) in this thread. |
 | external_comments | The number of [discussion messages](message-types#/discussion) in this thread. |
 
 
