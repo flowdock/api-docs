@@ -287,7 +287,7 @@ The file event is sent when a file has been uploaded to the chat.
 
 Activity messages represent events in external services. For example, that event could be a new user story for a project, an update to a support ticket or a commit to a repository. Activities are always related to some entity, which is represented by a [thread](Threads).
 
-However, comments in external services are represented by a separate [discussion](#/discussion) message type.
+Comments in external services are not considered activities – they are represented by a separate [discussion](#/discussion) message type.
 
 ### Data
 
@@ -360,11 +360,11 @@ _Bolded text denotes a required field when posting a message._
 <div id="/discussion"></div>
 ## Event: discussion
 
-Discussion is a chat message or comment that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+Discussion is a chat message or comment that is made in an external service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
 
 ### Data
 
-The attributes specific to this message type are explained below. For full reference on general message attributes, see [Message type](message-types#/message).
+The attributes specific to this message type are explained below. For full reference on general message attributes, see the [message event](message-types#/message).
 
 | Name          | Description  |
 | ------------- | ------------ |
@@ -440,7 +440,7 @@ Message is a Flowdock chat message that has been posted to the thread. In additi
 
 ### Data
 
-The attributes specific to this message type are explained below. For full reference on general message attributes, see [Message type](message-types#/message).
+The attributes specific to this message type are explained below. For full reference on general message attributes, see the [message event](message-types#/message).
 
 | Name          | Description  |
 | ------------- | ------------ |
