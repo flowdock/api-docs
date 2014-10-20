@@ -4,6 +4,18 @@
 
 This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
+* [message](#/message)
+* [message (threaded)](#/thread-chat-message)
+* [status](#/status)
+* [comment](#/comment)
+* [action](#/action)
+* [tag-change](#/tag-change)
+* [message-edit](#/message-edit)
+* [activity.user](#/activity-user)
+* [file](#/file)
+* [activity](#/activity)
+* [discussion](#/discussion)
+
 <div id="/message"></div>
 ## Event: message
 
@@ -32,7 +44,7 @@ The message event is sent when a user sends a chat message.
 <div id="/thread-chat-message"></div>
 ## Event: message (threaded)
 
-When a message is posted to a thread, un addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
+When a message is posted to a thread, in addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
 
 ### Data
 
@@ -91,6 +103,8 @@ _Bolded text denotes a required field when posting a message._
   }
 }
 ```
+
+<div id="/status"></div>
 ## Event: status
 
 The status event is sent when a user changes their status.
@@ -115,6 +129,7 @@ The status event is sent when a user changes their status.
 }
 ```
 
+<div id="/comment"></div>
 ## Event: comment
 > _DISCLAIMER: This message type is likely to change in the near future._
 
@@ -145,6 +160,7 @@ contains the actual comment. The id of the parent message is stored in a [specia
 }
 ```
 
+<div id="/action"></div>
 ## Event: action
 
 Action events are sent by various activities, such as adding Twitter stream.
@@ -193,7 +209,7 @@ string or an object.
 }
 ```
 
-
+<div id="/tag-change"></div>
 ## Event: tag-change
 
 The tag-change event is sent when the tags of a message are changed. See [Tags](Tags) for more information about tags.
@@ -228,6 +244,7 @@ The tag-change event is sent when the tags of a message are changed. See [Tags](
 }
 ```
 
+<div id="/message-edit"></div>
 ## Event: message-edit
 
 The message-edit event is sent when the the content of a message is changed. Only messages of types `message` and `comment` can be edited.
@@ -260,6 +277,7 @@ The message-edit event is sent when the the content of a message is changed. Onl
 }
 ```
 
+<div id="/activity-user"></div>
 ## Event: activity.user
 
 > _DISCLAIMER: This message type is likely to change in the near future._
