@@ -29,6 +29,68 @@ The message event is sent when a user sends a chat message.
 }
 ```
 
+<div id="/thread-chat-message"></div>
+## Event: message (threaded)
+
+When a message is posted to a thread, un addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
+
+### Data
+
+The attributes specific to this message type are explained below. For full reference on general message attributes, see the [message event](message-types#/message).
+
+| Name          | Description  |
+| ------------- | ------------ |
+| **message** | The content of the chat message. |
+| **thread_id** | Reference to the [thread](threads). |
+| **thread** | See our [thread documentation](threads) for details on fields. |
+_Bolded text denotes a required field when posting a message._
+
+### Sample
+
+```
+{
+  "id": 13904478,
+  "sent": 1411632833971,
+  "event": "message",
+  "tags": [],
+  "attachments": [],
+  "uuid": "nudVKk0wy79MTMk6URqJfw",
+  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
+  "app": "chat",
+  "user": "42",
+  "edited": null,
+  "content": "I'm commenting this support ticket",
+  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
+  "thread": {
+    "title": "Support request",
+    "body": null,
+    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
+    "status": {
+      "value": "open",
+      "color": "green"
+    },
+    "actions": [],
+    "fields": [
+      {
+        "label": "Assignee",
+        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
+      },
+      {
+        "label": "Requester",
+        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
+      }
+    ],
+    "source": {
+      "id": 106,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
+      "application": "Zendesk",
+    },
+    "activities": 1,
+    "internal_comments": 1,
+    "external_comments": 2
+  }
+}
+```
 ## Event: status
 
 The status event is sent when a user changes their status.
@@ -432,67 +494,3 @@ _Bolded text denotes a required field when posting a message._
   }
 }
 ```
-
-<div id="/thread-chat-message"></div>
-## Event: message
-
-Message is a Flowdock chat message that has been posted to the thread. In addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
-
-### Data
-
-The attributes specific to this message type are explained below. For full reference on general message attributes, see the [message event](message-types#/message).
-
-| Name          | Description  |
-| ------------- | ------------ |
-| **message** | The content of the chat message. |
-| **thread_id** | Reference to the [thread](threads). |
-| **thread** | See our [thread documentation](threads) for details on fields. |
-_Bolded text denotes a required field when posting a message._
-
-### Sample
-
-```
-{
-  "id": 13904478,
-  "sent": 1411632833971,
-  "event": "message",
-  "tags": [],
-  "attachments": [],
-  "uuid": "nudVKk0wy79MTMk6URqJfw",
-  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
-  "app": "chat",
-  "user": "42",
-  "edited": null,
-  "content": "I'm commenting this support ticket",
-  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
-  "thread": {
-    "title": "Support request",
-    "body": null,
-    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
-    "status": {
-      "value": "open",
-      "color": "green"
-    },
-    "actions": [],
-    "fields": [
-      {
-        "label": "Assignee",
-        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
-      },
-      {
-        "label": "Requester",
-        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
-      }
-    ],
-    "source": {
-      "id": 106,
-      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
-      "application": "Zendesk",
-    },
-    "activities": 1,
-    "internal_comments": 1,
-    "external_comments": 2
-  }
-}
-```
-
