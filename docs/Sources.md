@@ -129,17 +129,17 @@ Flowdock-User: 9
 ```json
 {
   "id": 3,
-  "name": "New Integration",
+  "name": "Helsinki Lunch Poll",
   "url": "https://api.flowdock.com/flows/example/main/sources/3",
   "created_at": "2014-10-14T11:06:28.131Z",
   "updated_at": "2014-10-14T11:06:28.131Z",
   "flow_token": "1b609b5253702a0a7ca3607f02642130",
   "_links": {},
   "application": {
-    "id": 327,
-    "name": "Zendesk",
+    "id": 1,
+    "name": "Polldock",
     "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
-    "url": "http://api.flowdock.com/oauth/applications/327"
+    "url": "http://api.flowdock.com/oauth/applications/1"
   }
 }
 ```
