@@ -113,7 +113,7 @@ _Bolded text denotes a required field when posting a message._
 <div id="/discussion"></div>
 ## Discussion
 
-Discussion is a chat message or comment that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+Discussion is a comment or other piece of discussion that is made in the third party service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets. Flowdock's UI will distinguish between items originating in your service and those only appearing in Flowdock.
 
 A discussion message has the following format:
 

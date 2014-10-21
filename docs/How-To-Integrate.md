@@ -2,7 +2,7 @@
 
 ### Introduction
 
-This guide will step you through the process of integrating your web app with Flowdock. Once integrated, your app will be able to send notifications to Flowdock flows. All future public [integrations](/integrations) should be built in a similar manner. 
+This guide will step you through the process of integrating your web app with Flowdock. Once integrated, your app will be able to send notifications to Flowdock flows. All future public [integrations](/integrations) should be built in a similar manner.
 
 The guide is divided into the four steps of the development process.
 
@@ -27,16 +27,18 @@ If you have any questions, don't hesitate to contact the development team at [su
 
 The first step is to [create a new Flowdock developer application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on the [Developer applications page](https://www.flowdock.com/oauth/applications).
 
-Follow the instructions in the form. After creating the application, you should see your Application Id and Secret tokens. You will use these when sending OAuth requests to Flowdock from your web application.
+Follow the instructions in the form. After creating the application, you should see your Application Id and Secret tokens. You will use these when sending OAuth requests to Flowdock from your application.
 
-First, you will need an endpoint in your web application that the user will be redirected to when they start setting up an integration with their flow. Once your application is published, users will find this link in the Flowdock app's inbox sources view. For testing purposes, on your Developer application's page, there is a flow dropdown that will generate the full setup URI for that specific flow. Your setup endpoint should start by allowing the user to authorize your app to post messages to Flowdock, which is explained in the following step.
+First, you will need an endpoint in your web application that the user will be redirected to when they start setting up an integration with their flow. Once your application is published, users will find this link in the Flowdock app's "Inbox Settings" view. For testing purposes, on your Developer application's page, there is a flow dropdown that will generate the full setup URI for that specific flow. Your setup endpoint should start by allowing the user to authorize your app to post messages to Flowdock, which is explained in the following step.
 
 <div id="/oauth2-authorize"></div>
 ## 2. Authorize the application
 
-Your web application will need to be authorized using OAuth 2.0. OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to Flowdock on a user's behalf without getting access their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. Because of multiple gotchas, we recommend using an established library to implement your OAuth flow.
+Your web application will need to be authorized using OAuth 2.0.
 
-In your web app, create the endpoint that you specify as the Callback URI in your Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)). 
+OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to Flowdock on a user's behalf without getting access their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. Because of multiple gotchas, we recommend using an established library to implement your OAuth flow.
+
+In your web app, create the endpoint that you specify as the Callback URI in your Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)).
 
 In our example Rails application, we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Flowdock strategy for Omniauth](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token, as you can see from the [callback endpoint in our example app](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
 
@@ -45,7 +47,7 @@ Once you have obtained an access token for the end user, you need to set up your
 <div id="/create-integration"></div>
 ## 3. Add your app as an inbox source
 
-Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a source by using the [Sources API](sources). Once done, you will obtain a flow token that is used to post notifications into the flow's team inbox using the [Thread Messages API](thread-messages). When a source is added to a flow, it will also show up as a filter in that flow's team inbox. The source will also identify the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
+Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a source by using the [Sources API](sources). Once done, you will obtain a flow token that is used to post notifications into the flow's team inbox using the [Thread Messages API](thread-messages). When a source is added to a flow, it will also show up as an inbox filter in that flow. The source will also identify the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
 
 To add a source to a flow, you will first need to fetch information about the flow using [the Flows API](flows). It is a good practice to display a confirmation screen for the user when creating the source for the specified flow.
 
