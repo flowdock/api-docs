@@ -21,6 +21,7 @@ If you have any questions, don't hesitate to contact the development team at [su
 
 * [Publish your application](#/publish-app)
 * [Integration configuration](#/integration-config)
+* [Removing integration](#/integration-remove)
 
 <div id="/create-app"></div>
 ## 1. Create an application in Flowdock
@@ -163,3 +164,10 @@ Integration configuration is optional for applications. For example, if your app
 If you supply a configuration URI for your application, we will display a configure button for each of integration the end user has set up for a flow. This will allow the user to go back to your application to change the integration settings.
 
 We will provide a reference to the integration as the `integration_id` query parameter (the `id` parameter that your web application received when the [integration was created](#/post-integration)) along with the `flow` parameter. These two parameters should allow you to identify which integration the end user is trying to configure.
+
+<div id="/integration-remove"></div>
+### Removing integration
+
+Only the end user can remove integrations. When this happens for one of your integrations, you will receive a `410 GONE` response when posting [thread messages](thread-messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
+
+
