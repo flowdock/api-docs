@@ -63,8 +63,6 @@ An activity message has the following format:
   "user": 0,
   "edited": null,
   "content": null,
-  "_application": 104,
-  "_project": 220,
   "thread_id": "HbjDdeOqrZm6QzlSO8rwtftzwts",
   "thread": {
     "title": "Fix bug in thread API",
@@ -137,8 +135,6 @@ A discussion message has the following format:
   "user": "0",
   "edited": null,
   "content": null,
-  "_application": 106,
-  "_project":221,
   "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
   "thread": {
     "title": "Support request",
