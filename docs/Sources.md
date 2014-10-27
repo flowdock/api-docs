@@ -1,16 +1,17 @@
 # Sources
 
-Sources provide content for a flow's team inbox. RSS feeds or Twitter keyword searches are examples of sources.
+Sources provide content from external sources to a flow. These include
+integrations such as GitHub, Rally and Zendesk. Each source has a secret
+`flow_token` that is used for authentication when posting content to a flow.
 
 <div id="/list"></div>
-## List Sources
+## List Flow Sources
 
 Lists all the sources of the given flow.
 
 ```
 GET /flows/:organization/:flow/sources
 ```
-[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
@@ -18,148 +19,146 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+
+```json
 [
   {
-    "id": "twitter_keyword-3",
-    "type": "twitter_keyword",
-    "config": {
-        "param": "mysearch",
-        "replies": false,
-        "retweets": true
-    },
-    "url": "https://api.flowdock.com/flows/acme/my-flow/sources/twitter_keyword-3"
+    "id": 1,
+    "name": "Example",
+    "url": "https://api.flowdock.com/flows/example/main/sources/1",
+    "created_at": "2014-10-14T11:05:27.176Z",
+    "updated_at": "2014-10-14T11:05:27.176Z",
+    "_links": {},
+    "application": {
+      "id": 327,
+      "name": "Zendesk",
+      "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+      "url": "http://api.flowdock.com/oauth/applications/327"
+    }
   },
-,
   {
-    "id": "feed-1",
-    "type": "feed",
-    "config": {
-      "url": "http://blog.flowdock.com/feed/",
-      "title": "Flowdock Blog"
-    },
-    "url":"https://api.flowdock.com/flows/acme/my-flow/sources/feed-1"
+    "id": 2,
+    "name": "Engineering",
+    "url": "https://api.flowdock.com/flows/example/main/sources/2",
+    "created_at": "2014-10-14T11:05:27.007Z",
+    "updated_at": "2014-10-14T11:05:27.007Z",
+    "_links": {},
+    "application": {
+      "id": 327,
+      "name": "Zendesk",
+      "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+      "url": "http://api.flowdock.com/oauth/applications/327"
+    }
   }
 ]
 ```
 
-| Name          | Description  |
-| ------------- | ------------ |
-| id | Source resource ID. |
-| type | Type of the source. Allowed types: `twitter_keyword`, `twitter_user` and `feed`. |
-| url | Source resource URL. |
-| config | Configuration data of the source. See below for more information about the contents. |
-
 <div id="/get"></div>
 ## Get a Source
+
 ```
 GET /flows/:organization/:flow/source/:id
 ```
-[URL breakdown](rest#/url-breakdown)
 
-Get a single source. The data format is identical to the list above.
+Get a single source.
 
 ### Response
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+
+```json
 {
-  "id": "feed-1",
-  "type": "feed",
-  "config": {
-    "url": "http://blog.flowdock.com/feed/",
-    "title": "Flowdock Blog"
-  },
-  "url":"https://api.flowdock.com/flows/acme/my-flow/sources/feed-1"
+  "id": 2,
+  "name": "Engineering",
+  "url": "https://api.flowdock.com/flows/example/main/sources/2",
+  "created_at": "2014-10-14T11:05:27.007Z",
+  "updated_at": "2014-10-14T11:05:27.007Z",
+  "_links": {},
+  "application": {
+    "id": 327,
+    "name": "Zendesk",
+    "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+    "url": "http://api.flowdock.com/oauth/applications/327"
+  }
 }
 ```
 
 <div id="/create"></div>
 ## Create a Source
+
 ```
 POST /flows/:organization/:flow/sources
 ```
-[URL breakdown](rest#/url-breakdown)
 
-Create a source for the specified flow.
+Create a source for the specified flow. The source will be assigned a
+`flow_token` that can be used to push content by the OAuth application to the
+flow.
 
-### Parameters
+### OAuth scope requirements
 
-| Name          | Description  |
-| ------------- | ------------ |
-| type | Type of the source. Allowed types: `twitter_keyword`, `twitter_user` and `feed`. |
-| config | Configuration data for the source. The required content depends on the selected `type`. See below for details per type. |
+This endpoint is currently only available for OAuth applications with scope
+`integration`. The OAuth application will be used as the application attribute
+of the source.
 
-**Feed** &ndash; An RSS / Atom feed
-
-| Name          | Description  |
-| ------------- | ------------ |
-| url | **Required** The URL of the feed. |
-| title | The title of the feed. |
-
-**Twitter follow** &ndash; Matches tweets that are from a particular Twitter user
+### Input
 
 | Name          | Description  |
 | ------------- | ------------ |
-| twitter\_user\_id | **Required** Numeric identifier of the user in Twitter as a string. |
-| param | **Required** Twitter username of the user. Must NOT include the `@` prefix. Example: `jdoe` |
-| name | **Required** Display name of the user. Example: `John Doe` |
-| replies | **Required** Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false` |
-| retweets | **Required** Should retweets be included? When set to true, each retweet of the user's tweets will cause a new message to appear in team inbox. `true` or `false` |
+| name          | **Required** The name of the source. |
 
-**Twitter keyword** &ndash; Matches tweets that contain given keywords.
+### Example
 
-| Name          | Description  |
-| ------------- | ------------ |
-| param | **Required** The keyword(s) for search. A simple AND search is performed with the given keywords. Phrase searches are not supported. |
-| replies | **Required** Should the search return tweets that are replies to another tweet, ie. have `in_reply_to` field set in Twitter? `true` or `false` |
-| retweets | **Required** Should retweets be included? When set to true, each retweet of a matching tweet will cause a new message to appear in team inbox. `true` or `false` |
-
-_Example_
-
-```javascript
+```json
 {
-  "type": "twitter_keyword",
-  "config": {
-    "param": "flowdock",
-    "replies": true,
-    "retweets": false
-  }
+  "name": "Helsinki Lunch Poll"
 }
 ```
 
 ### Response
+
 ```
 HTTP/1.1 201 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 9
 ```
-```
+
+```json
 {
-  "id": "twitter_keyword-5",
-  "type": "twitter_keyword",
-  "config": {
-      "param": "flowdock",
-      "replies": true,
-      "retweets": false
-  },
-  "url": "https://api.flowdock.com/flows/acme/my-flow/sources/twitter_keyword-5"
-},
+  "id": 3,
+  "name": "Helsinki Lunch Poll",
+  "url": "https://api.flowdock.com/flows/example/main/sources/3",
+  "created_at": "2014-10-14T11:06:28.131Z",
+  "updated_at": "2014-10-14T11:06:28.131Z",
+  "flow_token": "1b609b5253702a0a7ca3607f02642130",
+  "_links": {},
+  "application": {
+    "id": 1,
+    "name": "Polldock",
+    "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+    "url": "http://api.flowdock.com/oauth/applications/1"
+  }
+}
 ```
+
+**`flow_token` is only visible in the response of the source creation request.** It cannot be
+retrieved later on.
 
 <div id="/delete"></div>
 ## Delete a Source
+
 ```
 DELETE /flows/:organization/:flow/source/:id
 ```
-[URL breakdown](rest#/url-breakdown)
 
-Delete a source with the specified id.
+Delete a source with the specified id. This will also invalidate the flow_token
+and prevent the source from posting content to the flow.
 
 ### Response
+
 ```
 HTTP/1.1 204 OK
 Content-Type: application/json; charset=utf-8
