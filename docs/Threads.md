@@ -52,9 +52,9 @@ Common examples of thread entities are support tickets, issues in project manage
 | actions | An array of custom actions for the thread in [schema.org Action format](http://schema.org/Action). The only currently supported action is [ViewAction](http://schema.org/ViewAction). See the sample data above for an example of ViewAction. |
 | fields | An array of key/value propertites for the thread. Value can contain the following HTML tags: `a` |
 | source | The application that posted this thread. Includes the application name and icon. |
-| activities | The number of [activity messages](thread-messages#/activity) in this thread. |
-| internal_comments | The number of [chat messages](thread-messages#/message) in this thread. |
-| external_comments | The number of [discussion messages](thread-messages#/discussion) in this thread. |
+| activities | The number of [activity messages](message-types#/activity) in this thread. |
+| internal_comments | The number of [chat messages](message-types#/thread-chat-message) in this thread. |
+| external_comments | The number of [discussion messages](message-types#/discussion) in this thread. |
 
 
 <div id="/list"></div>

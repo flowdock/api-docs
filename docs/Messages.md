@@ -115,6 +115,17 @@ curl -v -X POST -F "event=file" -F "content=@path/to/file.png" https://BASIC-AUT
 
 Files can also be uploaded to discussion threads using the same URL format as with comments.
 
+<div id="/thread-messages"></div>
+### Threaded messages
+
+There are three types of messages that can belong to a thread:
+
+ * [Activity](message-types#/activity)
+ * [Discussion](message-types#/discussion)
+ * [Threaded chat message](message-types#/thread-chat-message)
+
+To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the integration guide](how-to-integrate).
+
 <div id="/list"></div>
 ## List Messages
 ```
