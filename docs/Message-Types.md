@@ -1,11 +1,10 @@
 # Message types
 
-> _DISCLAIMER: We are currently working on renewing and expanding both the message types documentation and the format of some of the message types. Thus, they are subject to change._
-
 This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
+Any message can also be a part of a [thread](threads). In that case, the message data will also include a copy of the most recent up-to-date thread data in the `thread` field as well as the thread id in a separate `thread_id` field.
+
 * [message](#/message)
-* [message (threaded)](#/thread-chat-message)
 * [status](#/status)
 * [comment](#/comment)
 * [action](#/action)
@@ -38,69 +37,6 @@ The message event is sent when a user sends a chat message.
   "sent": 1317715340213,
   "attachments": [],
   "user": "2"
-}
-```
-
-<div id="/thread-chat-message"></div>
-## Event: message (threaded)
-
-When a message is posted to a thread, in addition to [the regular attributes](messages), these chat messages also include a copy of the thread data.
-
-### Data
-
-The attributes specific to this message type are explained below. For full reference on general message attributes, see the [message event](message-types#/message).
-
-| Name          | Description  |
-| ------------- | ------------ |
-| **message** | The content of the chat message. |
-| **thread_id** | Reference to the [thread](threads). |
-| **thread** | See our [thread documentation](threads) for details on fields. |
-_Bolded text denotes a required field when posting a message._
-
-### Sample
-
-```
-{
-  "id": 13904478,
-  "sent": 1411632833971,
-  "event": "message",
-  "tags": [],
-  "attachments": [],
-  "uuid": "nudVKk0wy79MTMk6URqJfw",
-  "flow":"ccc2899a-0485-4fd9-8706-e5bd28f03a9d",
-  "app": "chat",
-  "user": "42",
-  "edited": null,
-  "content": "I'm commenting this support ticket",
-  "thread_id": "zPEM5204zx5J9DwYI7BaU0eLk88",
-  "thread": {
-    "title": "Support request",
-    "body": null,
-    "external_url": "https://flowdock.zendesk.com/agent/#/tickets/6240",
-    "status": {
-      "value": "open",
-      "color": "green"
-    },
-    "actions": [],
-    "fields": [
-      {
-        "label": "Assignee",
-        "value": "&lt;a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\"&gt;Antti Pitk&auml;nen&lt;/a&gt;"
-      },
-      {
-        "label": "Requester",
-        "value": "&lt;a href=\"mailto:foo@example.com\" rel=\"nofollow\"&gt;John Smith&lt;/a&gt;"
-      }
-    ],
-    "source": {
-      "id": 106,
-      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/106/6001f4814ff24487.png",
-      "application": "Zendesk",
-    },
-    "activities": 1,
-    "internal_comments": 1,
-    "external_comments": 2
-  }
 }
 ```
 
