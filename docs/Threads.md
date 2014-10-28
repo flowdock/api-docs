@@ -28,12 +28,12 @@ Common examples of thread entities are support tickets, issues in project manage
   "fields": [
     {
       "label": "assignee",
-      "value": "&lt;a href="mailto:antti@flowdock.com" rel="nofollow"&gt;Antti Pitkänen&lt;/a&gt;"
+      "value": "<a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\">Antti Pitkänen</a>"
     }
   ],
   "source": {
     "id": 104,
-    "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+    "icon": "https://dxgv4vuja9avs.cloudfront.net/applications/104/64981f9198413209.png",
     "application": "GitHub"
   },
   "activities": 3,
@@ -107,12 +107,12 @@ Link  <https://api.flowdock.com/flows/example/main/threads?until=2014-10-27T14%3
     "fields": [
       {
         "label": "assignee",
-        "value": "&lt;a href="mailto:antti@flowdock.com" rel="nofollow"&gt;Antti Pitkänen&lt;/a&gt;"
+        "value": "<a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\">Antti Pitkänen</a>"
       }
     ],
     "source": {
       "id": 104,
-      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+      "icon": "https://dxgv4vuja9avs.cloudfront.net/applications/104/64981f9198413209.png",
       "application": "GitHub"
     },
     "activities": 3,
@@ -163,12 +163,12 @@ Flowdock-User: 2
   "fields": [
     {
       "label": "assignee",
-      "value": "&lt;a href="mailto:antti@flowdock.com" rel="nofollow"&gt;Antti Pitkänen&lt;/a&gt;"
+      "value": "<a href=\"mailto:antti@flowdock.com\" rel=\"nofollow\">Antti Pitkänen</a>"
     }
   ],
   "source": {
     "id": 104,
-    "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+    "icon": "https://dxgv4vuja9avs.cloudfront.net/applications/104/64981f9198413209.png",
     "application": "GitHub"
   },
   "activities": 3,
