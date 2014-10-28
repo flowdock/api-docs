@@ -2,7 +2,7 @@
 
 This list explains the different types of messages you can expect when using the [Streaming API](streaming) or when [Listing Messages](messages#/list). Bear in mind that undocumented internal message types exist and the duty is left to the client to discard them properly.
 
-Any message can also be a part of a [thread](threads). In that case, the message data will also include a copy of the most recent up-to-date thread data in the `thread` field as well as the thread id in a separate `thread_id` field.
+Most messages can also be a part of a [thread](threads). In that case, the message data will also include a copy of the most recent up-to-date thread data in the `thread` field as well as the thread id in a separate `thread_id` field. Details are available in the [Messages documentation](messages#/thread-messages).
 
 * [message](#/message)
 * [status](#/status)
