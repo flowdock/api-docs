@@ -4,9 +4,10 @@ Threads represent entities in external services. They allow users to track event
 
 Common examples of thread entities are support tickets, issues in project management software and pull requests in version control software.
 
-A thread in the Flowdock API has the following format:
 
-```
+## Thread Format
+
+```json
 {
   "title": "Fix bug in thread API",
   "body": "",
@@ -55,4 +56,126 @@ A thread in the Flowdock API has the following format:
 | internal_comments | The number of [chat messages](thread-messages#/message) in this thread. |
 | external_comments | The number of [discussion messages](thread-messages#/discussion) in this thread. |
 
+
+<div id="/list"></div>
+## List Flow Threads
+
+Lists threads from a flow, filtered by optional parameters.
+
+```
+GET /flows/:organization/:flow/threads
+```
+
+### Parameters
+
+| Name          | Description  |
+| ------------- | ------------ |
+| until | Return only threads updated before the specified ISO8601 date. |
+| since | Return only threads updated after the specified ISO8601 date. |
+| application | Only threads created by application. This should be either OAuth application id, or one of special values `chat` or `ìnbox`. |
+| empty | Include empty threads in response when empty is `1`. Defaults to `0`. |
+
+
+### Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+Link  <https://api.flowdock.com/flows/example/main/threads?until=2014-10-27T14%3A29%3A36.855Z>; rel="next"
+```
+
+```json
+[
+  {
+    "title": "Fix bug in thread API",
+    "body": "",
+    "external_url": "https://github.com/flowdock/component/pull/42",
+    "status": {
+      "color": "grey",
+      "value": "closed"
+    },
+    "actions": [
+      {
+        "@type": "ViewAction",
+        "url": "https://github.com/flowdock/component/pull/42/files",
+        "name": "Diff",
+        "description": "View diff in GitHub",
+        "image": "https://s3.amazonaws.com/flowdock-resources/images/diff.png"
+      }
+    ],
+    "fields": [
+      {
+        "label": "assignee",
+        "value": "&lt;a href="mailto:antti@flowdock.com" rel="nofollow"&gt;Antti Pitkänen&lt;/a&gt;"
+      }
+    ],
+    "source": {
+      "id": 104,
+      "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+      "application": "GitHub"
+    },
+    "activities": 3,
+    "internal_comments": 3,
+    "external_comments": 5,
+    "updated_at": "2014-10-28T15:49:31.197Z",
+    "created_at": "2014-10-28T15:33:17.000Z"
+  },
+  ...
+]
+```
+
+<div id="/show"></div>
+## Get a Thread
+
+Get a single thread.
+
+```
+GET /flows/:organization/:flow/threads/:id
+```
+
+### Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+
+```json
+{
+  "title": "Fix bug in thread API",
+  "body": "",
+  "external_url": "https://github.com/flowdock/component/pull/42",
+  "status": {
+    "color": "grey",
+    "value": "closed"
+  },
+  "actions": [
+    {
+      "@type": "ViewAction",
+      "url": "https://github.com/flowdock/component/pull/42/files",
+      "name": "Diff",
+      "description": "View diff in GitHub",
+      "image": "https://s3.amazonaws.com/flowdock-resources/images/diff.png"
+    }
+  ],
+  "fields": [
+    {
+      "label": "assignee",
+      "value": "&lt;a href="mailto:antti@flowdock.com" rel="nofollow"&gt;Antti Pitkänen&lt;/a&gt;"
+    }
+  ],
+  "source": {
+    "id": 104,
+    "icon": "https://fd-files-eu-qa.s3.amazonaws.com/applications/104/ef8eff491304914a.png",
+    "application": "GitHub"
+  },
+  "activities": 3,
+  "internal_comments": 3,
+  "external_comments": 5,
+  "updated_at": "2014-10-28T15:49:31.197Z",
+  "created_at": "2014-10-28T15:33:17.000Z"
+}
+```
 
