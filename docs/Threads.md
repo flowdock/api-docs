@@ -72,7 +72,7 @@ GET /flows/:organization/:flow/threads
 | ------------- | ------------ |
 | until | Return only threads updated before the specified ISO8601 date. |
 | since | Return only threads updated after the specified ISO8601 date. |
-| application | Only threads created by application. This should be either OAuth application id, or one of special values `chat` or `ìnbox`. |
+| application | Only threads created by an application. This should be either OAuth application id, or one of special values `chat` or `ìnbox`. |
 | empty | Include empty threads in response when empty is `1`. Defaults to `0`. |
 
 
