@@ -104,7 +104,7 @@ Flowdock-User: 2
 ```json
 [
   {
-    "id": "acme/my-flow",
+    "id": "e2366fd7-d720-4272-b32c-3dc995fc549d",
     "name": "My flow",
     "organization": "Acme",
     "unread_mentions": 0,
@@ -112,7 +112,7 @@ Flowdock-User: 2
     "web_url": "https://acme.flowdock.com/flows/my-flow"
   },
   {
-    "id": "acme/another-flow",
+    "id": "26dd3da8-4d6d-42a0-8032-c22fc55907b0",
     "name": "Another flow",
     "organization": "Acme",
     "unread_mentions": 0,
