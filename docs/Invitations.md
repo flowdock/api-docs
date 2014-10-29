@@ -16,7 +16,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 [
   {
     "id": 14,
@@ -83,7 +83,7 @@ POST /flows/:organization/:flow/invitations
 | email | **Required** The email address to invite. |
 | message | An optional message that is added to the invitation. |
 
-```javascript
+```
 {
   "email": "someone@example.com",
   "message": "Please join our team's Flow."
@@ -122,7 +122,7 @@ POST /flows/:organization/:flow/invitations/import
 | list | **Required** A list of email addresses to invite. The list can be separated by commas or linefeeds, and the email addresses can be in either of the following formats: `person@example.com` or `"Joe Smith" <person@example.com>` |
 | message | An optional message that is added to the invitations. |
 
-```javascript
+```
 {
   "list": "someone@example.com, \"Joe Smith\" <person@example.com>",
   "message": "Please join our team's Flow."
@@ -160,7 +160,7 @@ Flowdock-User: 2
     }
   ],
   "erroneous_emails": [
-    {"test@example.invalid" => "Invalid email"}
+    {"test@example.invalid": "Invalid email"}
   ]
 }
 ```

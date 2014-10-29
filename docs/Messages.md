@@ -44,7 +44,8 @@ POST /flows/:organization/:flow/messages/:message/comments
 | external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
 
-```javascript
+
+```
 {
   "event": "message",
   "content": "Howdy-Doo @Jackie #awesome",
@@ -61,7 +62,7 @@ Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comm
 ```
 ```
 {
-  "id": 12345
+  "id": 12345,
   "event": "message",
   "content": "Howdy-Doo @Jackie #awesome",
   "tags":  ["todo", "feedback", ":user:everyone", "awesome", ":user:123"],

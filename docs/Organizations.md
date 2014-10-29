@@ -19,7 +19,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 1
 ```
-```
+```json
 [
   {
     "id": 42,
