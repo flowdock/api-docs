@@ -44,10 +44,10 @@ Example of posting a message:
 POST /flows/organization/main/messages
 ```
 
-```
+```json
 {
   "event": "message",
-  "content: "Hi all!"
+  "content": "Hi all!"
 }
 ```
 
@@ -58,7 +58,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+
+```json
 {}
 ```
 
@@ -99,7 +100,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+
+```json
 [
   {
     "id": "acme/my-flow",
