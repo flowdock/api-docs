@@ -44,7 +44,7 @@ Common examples of thread entities are support tickets, issues in project manage
 
 | Name          | Description  |
 | ------------- | ------------ |
-| title | Title of the thread. It can contain following HTML tags: `a` |
+| title | **Required** Title of the thread. It can contain following HTML tags: `a` |
 | body | Body of the thread. HTML allowed. |
 | external_url | URL to the external resource or entity that this thread represents, e.g. Github pull request or Rally user story. |
 | status.value | Text value of the thread's status. |
@@ -53,7 +53,7 @@ Common examples of thread entities are support tickets, issues in project manage
 | fields | An array of key/value propertites for the thread. Value can contain the following HTML tags: `a` |
 | source | The application that posted this thread. Includes the application name and icon. |
 | activities | The number of [activity messages](message-types#/activity) in this thread. |
-| internal_comments | The number of [chat messages](message-types#/thread-chat-message) in this thread. |
+| internal_comments | The number of [chat messages](message-types#/message) in this thread. |
 | external_comments | The number of [discussion messages](message-types#/discussion) in this thread. |
 
 
@@ -179,3 +179,10 @@ Flowdock-User: 2
 }
 ```
 
+
+<div id="/show"></div>
+## Threads and messages
+
+Threads can be updated by posting [messages](messages) to them. A basic update is done by sending an [activity message](message-types#/activity) into the thread. Any message sent into a thread can contain an updated thread in the `thread` field. The activity message will serve as a kind of a change log of changes in that thread. Because of this, there is no separate way to update a thread.
+
+Likewise, any message, which is part of a thread, contains the full current state of that thread.
