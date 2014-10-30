@@ -9,6 +9,7 @@ Common examples of thread entities are support tickets, issues in project manage
 
 ```json
 {
+  "id": "x6BAmK_UPxKvtOSj1egQiVUma0s",
   "title": "Fix bug in thread API",
   "body": "",
   "external_url": "https://github.com/flowdock/component/pull/42",
@@ -88,6 +89,7 @@ Link  <https://api.flowdock.com/flows/example/main/threads?until=2014-10-27T14%3
 ```json
 [
   {
+    "id": "x6BAmK_UPxKvtOSj1egQiVUma0s",
     "title": "Fix bug in thread API",
     "body": "",
     "external_url": "https://github.com/flowdock/component/pull/42",
@@ -144,6 +146,7 @@ Flowdock-User: 2
 
 ```json
 {
+  "id": "x6BAmK_UPxKvtOSj1egQiVUma0s",
   "title": "Fix bug in thread API",
   "body": "",
   "external_url": "https://github.com/flowdock/component/pull/42",
