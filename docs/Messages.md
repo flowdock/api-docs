@@ -35,9 +35,8 @@ POST /flows/:organization/:flow/messages/:message/comments
 | external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
 | thread_id | The `id` of the [thread](threads) this message is being posted to. In order to post a message into a thread, this or `external_thread_id` is **required**. |
-| external\_thread\_id | A [source](sources)-specific string to identify the thread this message should be added to. |
+| external\_thread\_id | An ID specified by the API user, to identify the thread this message should be added to. The ID should be unique within this one [source](sources). For examples, see the integration guide's [section about posting to inbox](how-to-integrate#/post-inbox). |
 | thread | New state for the [thread](threads). |
-
 
 ```
 {
@@ -113,11 +112,12 @@ Files can also be uploaded to discussion threads using the same URL format as wi
 <div id="/thread-messages"></div>
 ### Threaded messages
 
-There are three types of messages that can belong to a thread:
+There are a few types of messages that can belong to a [thread](threads):
 
  * [Activity](message-types#/activity) - updates to a thread
  * [Discussion](message-types#/discussion) - external discussions in another service
  * [Message](message-types#/message) - comments/discussion in Flowdock
+ * [File](message-types#/file) - uploaded file stored in Flowdock
 
 To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the integration guide](how-to-integrate).
 

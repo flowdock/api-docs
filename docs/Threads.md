@@ -4,6 +4,12 @@ Threads represent entities in external services. They allow users to track event
 
 Common examples of thread entities are support tickets, issues in project management software and pull requests in version control software.
 
+## Threads and messages
+
+Threads can be updated by posting [messages](messages) to them. A basic update is done by sending an [activity message](message-types#/activity) into the thread. Any message sent into a thread can contain an updated thread in the `thread` field. The activity message will serve as a kind of a change log of changes in that thread. Because of this, there is no separate way to update a thread.
+
+Likewise, any message, which is part of a thread, contains the full current state of that thread.
+
 
 ## Thread Format
 
@@ -181,11 +187,3 @@ Flowdock-User: 2
   "created_at": "2014-10-28T15:33:17.000Z"
 }
 ```
-
-
-<div id="/show"></div>
-## Threads and messages
-
-Threads can be updated by posting [messages](messages) to them. A basic update is done by sending an [activity message](message-types#/activity) into the thread. Any message sent into a thread can contain an updated thread in the `thread` field. The activity message will serve as a kind of a change log of changes in that thread. Because of this, there is no separate way to update a thread.
-
-Likewise, any message, which is part of a thread, contains the full current state of that thread.
