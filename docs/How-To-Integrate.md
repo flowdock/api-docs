@@ -48,9 +48,9 @@ Once you have obtained an access token for the end user, you need to set up your
 <div id="/create-integration"></div>
 ## 3. Add your app as an inbox source
 
-Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a source by using the [Sources API](sources). Once done, you will obtain a flow token that is used to post notifications into the flow's team inbox using the [Thread Messages API](thread-messages). When a source is added to a flow, it will also show up as an inbox filter in that flow. The source will also identify the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
+Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a flow token that is used to post notifications ([messages](messages)) into the flow's team inbox. When a source is added to a flow, it will also show up as an inbox filter in that flow. The source will also identify the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
 
-To add a source to a flow, you will first need to fetch information about the flow using [the Flows API](flows). It is a good practice to display a confirmation screen for the user when creating the source for the specified flow.
+To add a source to a flow, you will first need to fetch information about the [flow](flows). It is good practice to display a confirmation screen for the user when creating the source for the specified flow.
 
 Example request:
 
@@ -147,7 +147,7 @@ The most important fields are listed below. For full reference on fields and dif
 | ------------- | ------------ |
 | flow_token | The token you received after creating the integration between your application and the flow. |
 | external\_thread\_id | Identification for the thread that this message is a part of. For example, if you're creating an integration for an issue tracking tool, and you're sending issue change notifications to Flowdock, you would use the unique identifier of the issue. For GitHub issues, it would be the issue number, for a customer support tool, it would be the ticket ID. The ID only needs to be unique for this particular source (not the whole application). **This field is required if thread_id is not set.** |
-| thread_id | Flowdock's thread ID. Can be used to specify the thread, to which you're posting this message. **This field is required if external_thread_id is not set.** |
+| thread_id | Flowdock's thread ID. Can be used to specify the thread, to which you're posting this message. **This field is required if external\_thread\_id is not set.** |
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
 
@@ -170,6 +170,6 @@ We will provide a reference to the integration as the `integration_id` query par
 <div id="/integration-remove"></div>
 ### Removing integration
 
-Only the end user can remove integrations. When this happens for one of your integrations, you will receive a `410 GONE` response when posting [thread messages](thread-messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
+Only the end user can remove integrations. When this happens for one of your integrations, you will receive a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
 
 
