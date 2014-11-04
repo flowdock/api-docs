@@ -128,6 +128,7 @@ POST https://api.flowdock.com/messages
   },
   "title": "Opened pull request",
   "thread_id": "github:flowdock:component:pr:42",
+  "external_thread_id": "backend-123",
   "thread": {
     "title": "Fix bug in thread API",
     "body": "Body with &lt;b&gt;HTML&lt;b&gt; formatting",
@@ -145,7 +146,8 @@ The most important fields are listed below. For full reference on fields and dif
 | Name          | Description  |
 | ------------- | ------------ |
 | flow_token | The token you received after creating the integration between your application and the flow. |
-| thread_id | This is the identifier used to connect separate activities as threads. This should be a unique identifier within the scope of the integration for this particular flow. In other words, if you post two activities with the same identifier and the same flow token, those activities will be end up in the same thread. As an example, this could be a support ticket ID in a customer support system or a pull request ID in GitHub. |
+| external_thread_id | Identification for the thread that this message is a part of. For example, if you're creating an integration for an issue tracking tool, and you're sending issue change notifications to Flowdock, you would use the unique identifier of the issue. For GitHub issues, it would be the issue number, for a customer support tool, it would be the ticket ID. The ID only needs to be unique for this particular source (not the whole application). **This field is required if thread_id is not set.** |
+| thread_id | Flowdock's thread ID. Can be used to specify the thread, to which you're posting this message. **This field is required if external_thread_id is not set.** |
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
 
