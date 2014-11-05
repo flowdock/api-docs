@@ -127,8 +127,8 @@ POST https://api.flowdock.com/messages
     "avatar": "https://avatars.githubusercontent.com/u/946511?v=2"
   },
   "title": "Opened pull request",
-  "thread_id": "github:flowdock:component:pr:42",
-  "external_thread_id": "backend-123",
+  "thread_id": "WT5yWsIpdvUPxP07lfgQDmLoGQQ",
+  "external_thread_id": "github:component:pr:42",
   "thread": {
     "title": "Fix bug in thread API",
     "body": "Body with &lt;b&gt;HTML&lt;b&gt; formatting",
