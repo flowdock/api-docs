@@ -2,9 +2,8 @@
 
 ## Getting started
 
-> Screenshot from a Zendesk ticket showing fields, body, actions…
-
-*An example of a fully fledged Flowdock integration. You can discuss Zendesk tickets internally in Flowdock and even assign them to you or close them directly from the Flowdock UI.*
+***Screenshot from a Zendesk ticket showing fields, body, actions…***
+<small>*An example of a fully fledged Flowdock integration. You can discuss Zendesk tickets internally in Flowdock and even assign them to you or close them directly from the Flowdock UI.*</small>
 
 To get started on the fast track, simply run the following script to set up everything you need to start firing requests to the API. NOTE: You need to have ruby and the oauth2 gem installed for this to work.
 
@@ -14,10 +13,10 @@ To get started on the fast track, simply run the following script to set up ever
 
 If you'd rather do things manually, [just follow these simple instructions](???).
 
-Once you have everything set up, let's try out a simple test request:
+Once you have everything set up, let's try out a simple test request. Just replace the token and flow name with what you generated in the step above.
 
 ```
-curl -i -X POST -H "Content-Type: application/json" -d '{
+> curl -i -X POST -H "Content-Type: application/json" -d '{
 "flow_token": "be299b91fffe8e4124986b9b5b44dfc6",
   "event": "activity",
   "author": {
@@ -39,11 +38,9 @@ curl -i -X POST -H "Content-Type: application/json" -d '{
 }' https://api.flowdock.com/messages
 ```
 
-Just replace the token and flow name with what you generated in the step above.
-
 This posts a [message](Messages) into the Flowdock API. Since it refers to a [thread](Threads), a new thread is created and the message is posted in the context of that thread. 
 
-> SCREENSHOT
+***SMALL SCREENSHOT OF THE MESSAGE POSTED ABOVE***
 
 In this example, the message is a notification of some [activity](a new ticket being created) and the thread data sent with the message contains the new state (name, description etc) of that new ticket.
 
@@ -54,7 +51,7 @@ The threads can show a few types of different information (body, custom fields) 
 
 ## What does a great integration look like?
 
-> SCREENSHOT with legend
+***SCREENSHOT with legend***
 
 Most Flowdock integrations are with other work-related web apps and send updates from those services into Flowdock. A great integration with a project management tool will send updates when items are created, updated or commented. For example, our Zendesk integration sends updates to Flowdock whenever someone replies to a support ticket or updates its status. There are a couple of great features you can use:
 
