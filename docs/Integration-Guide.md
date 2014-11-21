@@ -9,7 +9,7 @@
 To get started on the fast track, simply run the following script to set up everything you need to start firing requests to the API. NOTE: You need to have ruby and the oauth2 gem installed for this to work.
 
 ```
-> curl https://gist.githubusercontent.com/livedo/aa5ed39b601ec3dbc741/raw/5f1e4504530ce75762139d281cbda62457924b64/flowdock-oauth.rb | ruby
+> ruby -e "$(curl -fsSL https://gist.githubusercontent.com/livedo/aa5ed39b601ec3dbc741/raw/5f1e4504530ce75762139d281cbda62457924b64/flowdock-oauth.rb)"
 ```
 
 If you'd rather do things manually, [just follow these simple instructions](???).
