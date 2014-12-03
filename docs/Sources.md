@@ -35,13 +35,13 @@ Flowdock-User: 2
       "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
       "url": "http://api.flowdock.com/oauth/applications/327"
     },
-    "created_by": {
+    "creator": {
       "id": 1,
       "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
       "email": "testuser@example.com",
       "name": "User",
       "nick": "User",
-      "website": null
+      "website": "http://www.example.com/"
     }
   },
   {
@@ -58,13 +58,13 @@ Flowdock-User: 2
       "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
       "url": "http://api.flowdock.com/oauth/applications/327"
     },
-    "created_by": {
+    "creator": {
       "id": 1,
       "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
       "email": "testuser@example.com",
       "name": "User",
       "nick": "User",
-      "website": null
+      "website": "http://www.example.com/"
     }
   }
 ]
@@ -102,13 +102,13 @@ Flowdock-User: 2
     "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
     "url": "http://api.flowdock.com/oauth/applications/327"
   },
-  "created_by": {
+  "creator": {
     "id": 1,
     "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
     "email": "testuser@example.com",
     "name": "User",
     "nick": "User",
-    "website": null
+    "website": "http://www.example.com/"
     }
 }
 ```
@@ -170,13 +170,13 @@ Flowdock-User: 9
     "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
     "url": "http://api.flowdock.com/oauth/applications/1"
   },
-  "created_by": {
+  "creator": {
     "id": 1,
     "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
     "email": "testuser@example.com",
     "name": "User",
     "nick": "User",
-    "website": null
+    "website": "http://www.example.com/"
   }
 }
 ```
