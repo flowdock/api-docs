@@ -36,8 +36,12 @@ Flowdock-User: 2
       "url": "http://api.flowdock.com/oauth/applications/327"
     },
     "created_by": {
-      "email": "user@example.com",
-      "name": "User"
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": null
     }
   },
   {
@@ -55,8 +59,12 @@ Flowdock-User: 2
       "url": "http://api.flowdock.com/oauth/applications/327"
     },
     "created_by": {
-      "email": "user1@example.com",
-      "name": "User1"
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": null
     }
   }
 ]
@@ -95,9 +103,13 @@ Flowdock-User: 2
     "url": "http://api.flowdock.com/oauth/applications/327"
   },
   "created_by": {
-    "email": "user@example.com",
-    "name": "User"
-  }
+    "id": 1,
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+    "email": "testuser@example.com",
+    "name": "User",
+    "nick": "User",
+    "website": null
+    }
 }
 ```
 
@@ -159,8 +171,12 @@ Flowdock-User: 9
     "url": "http://api.flowdock.com/oauth/applications/1"
   },
   "created_by": {
-    "email": "user@example.com",
-    "name": "User"
+    "id": 1,
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+    "email": "testuser@example.com",
+    "name": "User",
+    "nick": "User",
+    "website": null
   }
 }
 ```
