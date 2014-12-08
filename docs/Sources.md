@@ -34,12 +34,21 @@ Flowdock-User: 2
       "name": "Zendesk",
       "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
       "url": "http://api.flowdock.com/oauth/applications/327"
+    },
+    "creator": {
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": "http://www.example.com/"
     }
   },
   {
     "id": 2,
     "name": "Engineering",
     "url": "https://api.flowdock.com/flows/example/main/sources/2",
+    "external_url": "https://acme.example.com/polls/helsinki",
     "created_at": "2014-10-14T11:05:27.007Z",
     "updated_at": "2014-10-14T11:05:27.007Z",
     "_links": {},
@@ -48,6 +57,14 @@ Flowdock-User: 2
       "name": "Zendesk",
       "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
       "url": "http://api.flowdock.com/oauth/applications/327"
+    },
+    "creator": {
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": "http://www.example.com/"
     }
   }
 ]
@@ -75,6 +92,7 @@ Flowdock-User: 2
   "id": 2,
   "name": "Engineering",
   "url": "https://api.flowdock.com/flows/example/main/sources/2",
+  "external_url": "https://acme.example.com/polls/helsinki"
   "created_at": "2014-10-14T11:05:27.007Z",
   "updated_at": "2014-10-14T11:05:27.007Z",
   "_links": {},
@@ -83,7 +101,15 @@ Flowdock-User: 2
     "name": "Zendesk",
     "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
     "url": "http://api.flowdock.com/oauth/applications/327"
-  }
+  },
+  "creator": {
+    "id": 1,
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+    "email": "testuser@example.com",
+    "name": "User",
+    "nick": "User",
+    "website": "http://www.example.com/"
+    }
 }
 ```
 
@@ -109,12 +135,14 @@ of the source.
 | Name          | Description  |
 | ------------- | ------------ |
 | name          | **Required** The name of the source. |
+| external_url  | URL to the external resource or entity that this source represents, e.g. Github repository |
 
 ### Example
 
 ```json
 {
-  "name": "Helsinki Lunch Poll"
+  "name": "Helsinki Lunch Poll",
+  "external_url": "https://acme.example.com/polls/helsinki"
 }
 ```
 
@@ -131,15 +159,24 @@ Flowdock-User: 9
   "id": 3,
   "name": "Helsinki Lunch Poll",
   "url": "https://api.flowdock.com/flows/example/main/sources/3",
+  "external_url": "https://acme.example.com/polls/helsinki",
   "created_at": "2014-10-14T11:06:28.131Z",
   "updated_at": "2014-10-14T11:06:28.131Z",
   "flow_token": "1b609b5253702a0a7ca3607f02642130",
   "_links": {},
   "application": {
     "id": 1,
-    "name": "Polldock",
+    "name": "AwesomeApp",
     "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
     "url": "http://api.flowdock.com/oauth/applications/1"
+  },
+  "creator": {
+    "id": 1,
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+    "email": "testuser@example.com",
+    "name": "User",
+    "nick": "User",
+    "website": "http://www.example.com/"
   }
 }
 ```
