@@ -48,7 +48,7 @@ Flowdock-User: 2
     "id": 2,
     "name": "Engineering",
     "url": "https://api.flowdock.com/flows/example/main/sources/2",
-    "external_url": "https://my.awesomeapp.com",
+    "external_url": "https://acme.example.com/polls/helsinki",
     "created_at": "2014-10-14T11:05:27.007Z",
     "updated_at": "2014-10-14T11:05:27.007Z",
     "_links": {},
@@ -92,7 +92,7 @@ Flowdock-User: 2
   "id": 2,
   "name": "Engineering",
   "url": "https://api.flowdock.com/flows/example/main/sources/2",
-  "external_url": "http://my.awesomeapp.com"
+  "external_url": "https://acme.example.com/polls/helsinki"
   "created_at": "2014-10-14T11:05:27.007Z",
   "updated_at": "2014-10-14T11:05:27.007Z",
   "_links": {},
@@ -142,7 +142,7 @@ of the source.
 ```json
 {
   "name": "Helsinki Lunch Poll",
-  "external_url": "http://my.awesomeapp.com/"
+  "external_url": "https://acme.example.com/polls/helsinki"
 }
 ```
 
@@ -159,7 +159,7 @@ Flowdock-User: 9
   "id": 3,
   "name": "Helsinki Lunch Poll",
   "url": "https://api.flowdock.com/flows/example/main/sources/3",
-  "external_url": "http://my.awesomeapp.com/",
+  "external_url": "https://acme.example.com/polls/helsinki",
   "created_at": "2014-10-14T11:06:28.131Z",
   "updated_at": "2014-10-14T11:06:28.131Z",
   "flow_token": "1b609b5253702a0a7ca3607f02642130",
