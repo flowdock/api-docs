@@ -1,8 +1,10 @@
-# How to handle UpdateActions in Ruby
+# How to handle UpdateActions with Ruby on Rails
 
-This document gives examples on how to securely handle UpdateActions. The basic logic is to get the user's Flowdock id securely as an authentication method for the target system and then perform the actions as the user.
+This document gives examples of how to securely handle UpdateActions in your application. [UpdateActions](http://schema.org/UpdateAction) allows you to have a bidirectional integration with Flowdock – in other words, in addition to getting activity notifications from your service in Flowdock, it allows users to perform actions in your application right from within Flowdock.
 
-## Example controller for receiving the UpdateAction request from Flowdock
+The basic premise is to securely authenticate the user in the target system (your application) with their Flowdock ID and then perform the actions as the user.
+
+### An example controller for receiving the UpdateAction request from Flowdock
 ```ruby
   def update_action
     user_id = decode_flowdock_user_id(ENV['OAUTH_APP_SECRET'])
@@ -16,11 +18,11 @@ This document gives examples on how to securely handle UpdateActions. The basic 
   end
 ```
 
-## Example Flowdock user id extraction and verification of request in Ruby
+### Example Flowdock user ID extraction and request verification
 ```ruby
   def decode_flowdock_user_id
     token, _ = JWT.decode(request.env['HTTP_FLOWDOCK_TOKEN'], ENV['OAUTH_APP_SECRET'])
-    verify_request_not_expirated(token["exp"])
+    verify_request_not_expired(token["exp"])
     verify_request_signature(token["signature"])
     token["sub"].to_s
   end
@@ -32,7 +34,7 @@ This document gives examples on how to securely handle UpdateActions. The basic 
     end
   end
 
-  def verify_request_not_expirated(expiration_time)
+  def verify_request_not_expired(expiration_time)
     if expiration_time < Time.now.to_i
       raise Forbidden.new()
     end
@@ -41,7 +43,7 @@ This document gives examples on how to securely handle UpdateActions. The basic 
 
 ## Authentication challenge
 
-The following example demonstrates how to return an authentication challenge for the user. We append the authentication URL with a claim-parameter, which is created uniquely for the user that tried to perform the UpdateAction.
+The following example demonstrates how to return an authentication challenge for the user. We append the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction.
 
 ### Example authentication challenge to the Flowdock user
 ```ruby
