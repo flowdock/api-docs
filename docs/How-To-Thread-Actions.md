@@ -43,7 +43,7 @@ The basic premise is to securely authenticate the user in the target system (you
 
 ## Authentication challenge
 
-The following example demonstrates how to return an authentication challenge for the user. We append the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction.
+The following example demonstrates how to return an [authentication challenge](thread-actions#/authentication-challenge) for the user. We append the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction.
 
 ### Example authentication challenge to the Flowdock user
 ```ruby

@@ -1,12 +1,12 @@
 # Thread actions
 
-Threads can specify custom actions for the thread's external resource. Actions follow the [schema.org Action format](http://schema.org/Action).
+[Threads](threads) can specify custom actions for the thread's external resource. Actions follow the [schema.org Action format](http://schema.org/Action).
 Two types of actions are supported: [ViewAction](#/view-action) and [UpdateAction](#/update-action).
 
 <span id="/view-action"></span>
 ## ViewAction
 [ViewActions](http://schema.org/ViewAction) are simply links that are shown in the thread's action listing.
-### Example thread action
+#### Example ViewAction in a thread message
 ```json
 {
     "@type": "ViewAction",
@@ -18,15 +18,15 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 
 <span id="/update-action"></span>
 ## UpdateAction
-[UpdateActions](http://schema.org/UpdateAction) enable bidirectional integrations. Users can perform simple
+[UpdateActions](http://schema.org/UpdateAction) allow bi-directional integrations. Users can perform simple
 actions securely from Flowdock without opening new browser tabs. The integration will receive a request from Flowdock
-with the user's Flowdock id so that it can utilize it as an authentication method for performing actions to the resource.
+with the user's Flowdock ID (for authentication) to perform actions on the resource.
 
-User input is currently not supported.
+Text input from the user is currently not supported.
 
-Examples on how to handle the requests coming from UpdateActions can be found in [How to handle UpdateActions in Ruby](how-to-thread-actions).
+Examples on how to handle the requests coming from UpdateActions can be found in [How to handle UpdateActions in Ruby on Rails](how-to-thread-actions).
 
-### Example thread action data
+#### Example UpdateAction in a thread message
 ```json
 {
     "@type": "UpdateAction",
@@ -39,9 +39,8 @@ Examples on how to handle the requests coming from UpdateActions can be found in
 }
 ```
 
-### Requests from UpdateActions
-Once Flowdock receives the thread with UpdateActions, it converts the target's urlTemplate into a signed Flowdock URL.
-When a Flowdock user clicks the action, Flowdock will perform the specified request to the resource. The action payload data is the same that is given in the thread data - augmented with agent data which contains some information about the Flowdock user that is processing the action.
+### UpdateAction requests made by Flowdock
+Once Flowdock receives the thread message with UpdateActions, it converts the target's urlTemplate into a signed Flowdock URL. When a Flowdock user selects the action, Flowdock will perform the specified request to the resource. The action payload data is the same as in the thread data, enriched with agent data that contains information about the Flowdock user that is performing the action.
 
 #### Example action request from Flowdock
 ```json
@@ -61,10 +60,10 @@ When a Flowdock user clicks the action, Flowdock will perform the specified requ
 }
 ```
 
-#### Flowdock user id and request signature
-'FLOWDOCK-TOKEN' -header is an encoded token which contains the user's Flowdock id, expiration time and a signature of the request body. The token is encoded with [JWT](http://jwt.io) using the OAuth client secret as signing key.
+#### Flowdock user ID and request signature
+The 'FLOWDOCK-TOKEN' header is an encoded token that contains the user's Flowdock ID, expiration time and a signature of the request body. The token is encoded with [JWT](http://jwt.io) using the OAuth client secret as a signing key.
 
-##### Example decoded FLOWDOCK-TOKEN header
+##### Example of a decoded FLOWDOCK-TOKEN header
 ```json
 {
     "sub": "<flowdock_user_id>",
@@ -73,14 +72,14 @@ When a Flowdock user clicks the action, Flowdock will perform the specified requ
 }
 ```
 
+<div id="/authentication-challenge"></div>
 ### Authentication challenge
-Often the application needs the user to authenticate to complete the action. In this case the application should respond to the user's action by returning 401 with an URL where the user can create the required authentications. This URL will be then given to the user in Flowdock.
+If the application needs the user to authenticate in order to complete the action, the application should respond to the user's action with a 401 status code and a URL where the user can perform the authentication. The user will be directed to this URL.
 
-The authentication challenge must specify the authentication url by giving the URL inside the "www-authenticate" -header in the following format.
+The authentication challenge must specify the authentication URL inside the 'www-authenticate' header in the following format:
+
 ```
 www-authenticate = "Flowdock-Token url=https://my-flowdock-github-integrator.com/authenticate"
 ```
 
-Remember that the authentication challenge is only an URL, which will be opened by a GET request in the browser. This means that you should avoid CSRF by either
-forcing the user to acknowledge the authorization creation by submitting a form by POST and validating a CSRF-token in it. Other possibility is to create a unique
-authorization URL for the Flowdock user that needs authentication.
+Remember that the authentication challenge is a URL that will be opened by a GET request in the browser. This means that you should protect yourself against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) by either forcing the user to acknowledge the authorization by POSTing a form and validating a CSRF-token in it, or by creating a unique authorization URL for the Flowdock user.
