@@ -53,7 +53,7 @@ Likewise, any message, which is part of a thread, contains the full current stat
 | ------------- | ------------ |
 | title | **Required** Title of the thread. It can contain following HTML tags: `a` |
 | body | Body of the thread. HTML allowed. |
-| external_url | URL to the external resource or entity that this thread represents, e.g. Github pull request or Rally user story. |
+| external_url | URL to the external resource or entity that this thread represents, e.g. GitHub pull request or Rally user story. |
 | status.value | Text value of the thread's status. |
 | status.color | Background color for the above text value. Allowed values: red, green, yellow, cyan, orange, grey, black, lime, purple, blue |
 | actions | An array of custom actions for the thread in [schema.org Action format](http://schema.org/Action). The only currently supported action is [ViewAction](http://schema.org/ViewAction). See the sample data above for an example of ViewAction. |

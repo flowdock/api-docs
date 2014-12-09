@@ -135,7 +135,7 @@ of the source.
 | Name          | Description  |
 | ------------- | ------------ |
 | name          | **Required** The name of the source. |
-| external_url  | URL to the external resource or entity that this source represents, e.g. Github repository |
+| external_url  | URL to the external resource or entity that this source represents, e.g. GitHub repository |
 
 ### Example
 
