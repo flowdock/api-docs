@@ -131,7 +131,6 @@ Once your integration is ready for general use, make sure you've [configured you
 <div id="/an-example-integration-app"></div>
 ## An example integration app: Polldock
 
-***SCREENSHOT OF POLLDOCK***
-![Polldock in a window and in Flowdock](https://raw.github.com/flowdock/api-docs/master/images/polldock-screenshot.png)
+![Polldock in its own browser window and in Flowdock](https://raw.github.com/flowdock/api-docs/master/images/polldock-screenshot.png)
 
 We've written an example polling app that updates Flowdock with new polls and votes, has a discussion integration, and even allows users to vote directly from Flowdock. The source code is [available on GitHub](https://github.com/flowdock/flowdock-example-integration). You can use it as an example for building your own integration.
