@@ -5,7 +5,7 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 
 <span id="/view-action"></span>
 ## ViewAction
-[ViewActions](http://schema.org/ViewAction) are simply links that are shown in the thread's action listing.
+[ViewActions](http://schema.org/ViewAction) are simply links that are shown in the thread's list of actions.
 #### Example ViewAction in a thread message
 ```json
 {
@@ -18,7 +18,7 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 
 <span id="/update-action"></span>
 ## UpdateAction
-[UpdateActions](http://schema.org/UpdateAction) allow bi-directional integrations. Users can perform simple
+[UpdateActions](http://schema.org/UpdateAction) allow for bi-directional integrations. Users can perform simple
 actions securely from Flowdock without opening new browser tabs. The integration will receive a request from Flowdock
 with the user's Flowdock ID (for authentication) to perform actions on the resource.
 
