@@ -345,7 +345,7 @@ _Bolded text denotes a required field when posting a message._
   "title": "Closed pull request",
   "body": null,
   "app": "influx",
-  "user": 0,
+  "user": "0",
   "edited": null,
   "content": null,
   "created_at": "2014-09-24T12:15:30.520Z",

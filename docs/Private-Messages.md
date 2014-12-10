@@ -70,12 +70,12 @@ Flowdock-User: 2
     "sent": 1317397485508,
     "uuid": "odHapx1VWp7WTrdQ",
     "tags": [],
-    "to": 42,
+    "to": "42",
     "id": 3816534,
     "event": "message",
     "content": "Secret message",
     "attachments": [],
-    "user": 2,
+    "user": "2",
     "created_at": "2011-09-30T15:44:45.507Z"
   },
   {
@@ -83,12 +83,12 @@ Flowdock-User: 2
     "event": "message",
     "tags": [],
     "uuid": "4W_LQEybVaX-gJmi",
-    "to": 2,
+    "to": "2",
     "id": 45590,
     "content": "For your eyes only!",
     "sent": 1317715340213,
     "attachments": [],
-    "user": 42,
+    "user": "42",
     "created_at": "2011-10-04T08:02:20.213Z"
   },
   // ... 14 more messages
@@ -116,12 +116,12 @@ Flowdock-User: 2
   "sent": 1317397485508,
   "uuid": "odHapx1VWp7WTrdQ",
   "tags": [],
-  "to": 42,
+  "to": "42",
   "id": 3816534,
   "event": "action",
   "content": "Secret message",
   "attachments": [],
-  "user": 2,
+  "user": "2",
   "created_at": "2011-09-30T15:44:45.507Z"
 }
 ```
