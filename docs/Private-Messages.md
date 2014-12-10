@@ -75,7 +75,8 @@ Flowdock-User: 2
     "event": "message",
     "content": "Secret message",
     "attachments": [],
-    "user": 2
+    "user": 2,
+    "created_at": "2011-09-30T15:44:45.507Z"
   },
   {
     "app": "chat",
@@ -87,7 +88,8 @@ Flowdock-User: 2
     "content": "For your eyes only!",
     "sent": 1317715340213,
     "attachments": [],
-    "user": 42
+    "user": 42,
+    "created_at": "2011-10-04T08:02:20.213Z"
   },
   // ... 14 more messages
 ]
@@ -119,7 +121,8 @@ Flowdock-User: 2
   "event": "action",
   "content": "Secret message",
   "attachments": [],
-  "user": 2
+  "user": 2,
+  "created_at": "2011-09-30T15:44:45.507Z"
 }
 ```
 

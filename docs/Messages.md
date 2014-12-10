@@ -63,7 +63,8 @@ Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comm
   "uuid":"9rOhL9RS-jhr8-YvFHRfhA",
   "sent":1385546251160,
   "app":"chat",
-  "attachments":[]
+  "attachments":[],
+  "created_at": "2013-11-27T09:57:31.160Z"
 }
 ```
 
@@ -164,7 +165,8 @@ Flowdock-User: 2
       "description":"flowdock"
     },
     "attachments": [],
-    "user":"18"
+    "user":"18",
+    "created_at": "2011-09-30T15:44:45.507Z"
   },
   {
     "app": "chat",
@@ -176,7 +178,8 @@ Flowdock-User: 2
     "content": "Hello World",
     "sent": 1317715340213,
     "attachments": [],
-    "user": "2"
+    "user": "2",
+    "created_at": "2011-10-04T08:02:20.213Z"
   },
   // ... 28 more messages
 ]
@@ -212,7 +215,8 @@ Flowdock-User: 2
     "description":"flowdock"
   },
   "attachments": [],
-  "user":"18"
+  "user":"18",
+  "created_at": "2011-09-30T15:44:45.507Z"
 }
 ```
 | Name          | Description  |
