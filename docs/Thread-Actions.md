@@ -20,7 +20,7 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 ## UpdateAction
 [UpdateActions](http://schema.org/UpdateAction) allow for bi-directional integrations. Users can perform simple
 actions securely from Flowdock without opening new browser tabs. The integration will receive a request from Flowdock
-with the user's Flowdock ID (for authentication) to perform actions on the resource.
+with the user's Flowdock user ID (for authentication) to perform actions on the resource.
 
 Text input from the user is currently not supported.
 
@@ -74,7 +74,7 @@ The 'FLOWDOCK-TOKEN' header is an encoded token that contains the user's Flowdoc
 
 <div id="/authentication-challenge"></div>
 ### Authentication challenge
-If the application needs the user to authenticate in order to complete the action, the application should respond to the user's action with a 401 status code and a URL where the user can perform the authentication. The user will be directed to this URL.
+If the application needs the user to authenticate in order to complete the action, the application should respond to the user's action with a 401 status code and a URL where the user can perform the authentication. The user will be instructed to open this URL in his browser as the result of the failed action.
 
 The authentication challenge must specify the authentication URL inside the 'www-authenticate' header in the following format:
 
@@ -82,4 +82,4 @@ The authentication challenge must specify the authentication URL inside the 'www
 www-authenticate = "Flowdock-Token url=https://my-flowdock-github-integrator.com/authenticate"
 ```
 
-Remember that the authentication challenge is a URL that will be opened by a GET request in the browser. This means that you should protect yourself against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) by either forcing the user to acknowledge the authorization by POSTing a form and validating a CSRF-token in it, or by creating a unique authorization URL for the Flowdock user.
+
