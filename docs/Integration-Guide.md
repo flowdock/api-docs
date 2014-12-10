@@ -11,6 +11,7 @@
 ## Getting started
 
 ***Screenshot from a Zendesk ticket showing fields, body, actions…***
+https://www.dropbox.com/s/1o0p73h5gfxxaxe/two-way-actions.png?dl=0
 
 <small>*An example of a full-fledged Flowdock integration. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
 
@@ -48,6 +49,7 @@ Once you have everything set up, let's try sending a simple request. You can eit
 This posts a [message](Messages) to the Flowdock API. Since it includes [thread](Threads) data, a new thread is created and the message is posted in the context of that thread.
 
 ***SMALL SCREENSHOT OF THE MESSAGE POSTED ABOVE***
+https://www.dropbox.com/s/k47x4p8ebyn9exq/Screenshot%202014-12-10%2013.24.00.png?dl=0
 
 In this example, the message describes an [activity](message-types#/activity) that took place in the third party service – a new ticket was created. The included thread data contains the current state (name, description, etc.) of the newly created ticket.
 
@@ -69,6 +71,7 @@ We can update the status of the ticket by changing the values in the status fiel
 The item will update in real-time along with a message saying that the ticket was updated.
 
 ***SCREENSHOT OF UPDATE***
+https://www.dropbox.com/s/hkl8tnet3xkpw4r/Screenshot%202014-12-10%2013.28.30.png?dl=0
 
 <div id="/a-great-integration"></div>
 ## What does a great integration look like?
@@ -80,6 +83,7 @@ For example, our Zendesk integration sends updates to Flowdock whenever a new cu
 <div id="/components-of-a-message"></div>
 ## The components of an integration message
 ***ZENDESK SCREENSHOT with legend***
+https://www.dropbox.com/s/icu9aenckl3v7ek/lifespan-of-a-support-ticket.png?dl=0
 
 When presenting your app's items in Flowdock as a thread, you can use these great features:
 
@@ -99,6 +103,7 @@ When posting messages into threads, there are a generally two types of messages 
 [Activity messages](message-types#/activity) should be used when an item in your app gets created, updated or deleted.
 
 ***SCREENSHOT OF ACTIVITY MESSAGE***
+https://www.dropbox.com/s/hkyjhbmwmg40x8t/activity-message.png?dl=0
 
 An activity message has a couple of unique features:
 
@@ -110,6 +115,7 @@ An activity message has a couple of unique features:
 If the update is related to a discussion or comment in your app, you should send a [discussion](message-types#/discussion) message.
 
 ***SCREENSHOT OF DISCUSSION MESSAGE***
+https://www.dropbox.com/s/w40fnno7t1l3l3h/discussion-message.png?dl=0
 
 A discussion message's most important fields are the author and body. You can also set a title, if needed.
 
