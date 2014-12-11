@@ -93,7 +93,7 @@ When presenting your app's items in Flowdock as a thread, you can use these grea
 
 For detailed descriptions of these fields, check out the [threads documentation](threads).
 
-When posting messages into threads, there are a generally two types of messages that should be used: [activities](message-types#/activity) or [discussions](message-types#/discussion).
+When posting messages into threads, there are a generally two types of messages that should be used: [activities](message-types#/activity) or [discussions](message-types#/discussion). To control which kind of a message is being sent, set the *event* field as "activity" or "discussion".
 
 #### Activities
 
@@ -101,9 +101,7 @@ When posting messages into threads, there are a generally two types of messages 
 
 ![An activity message](https://raw.githubusercontent.com/flowdock/api-docs/master/images/activity-message.png)
 
-An activity message should be descriptive:
-
-* The title should follow the format "Marty McFly **did something**". In other words, good titles are "updated ticket" or "merged pull request".
+The *title* should follow the format "Marty McFly **did something**". In other words, examples of a good title are "updated ticket" or "merged pull request".
 
 #### Discussions
 
@@ -111,7 +109,7 @@ If the update is related to a discussion or comment in your app, you should send
 
 ![A discussion message](https://raw.githubusercontent.com/flowdock/api-docs/master/images/discussion-message.png)
 
-A discussion message's most important fields are the author and body. You can also set a title, if needed.
+A discussion message's most important field is *body*. You can also set the *title* similarly as with activity messages ("said" or "commented" are good candidates).
 
 <div id="/authentication"></div>
 ## Authentication
