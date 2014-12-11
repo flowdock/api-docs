@@ -51,7 +51,7 @@ This posts a [message](Messages) to the Flowdock API. Since it includes [thread]
 
 In this example, the message describes an [activity](message-types#/activity) that took place in the third party service – a new ticket was created. The included thread data contains the current state (name, description, etc.) of the newly created ticket.
 
-This brings up an important point when designing your integration: each message is related to some item in the third party service. What the item is depends on the service. With customer support systems, the item is most likely a support ticket. With version control, it can be a commit or pull request. Messages that are related to that one item are grouped together as a thread in Flowdock, and the contents of the `thread` parameter should contain the latest state of the item. 
+This brings up an important point when designing your integration: each message is related to some item in the third party service. What the item is depends on the service. With customer support systems, the item is most likely a support ticket. With version control, it can be a commit or pull request. Messages that are related to that one item are grouped together as a thread in Flowdock, and the contents of the `thread` parameter should contain the latest state of the item.
 
 In other words, **an item in the third party service is the same as a thread in Flowdock**.
 
@@ -73,13 +73,13 @@ The item will update in real-time along with a message saying that the ticket wa
 <div id="/a-great-integration"></div>
 ## What does a great integration look like?
 
-The best Flowdock integrations are with other work-related web apps. These third party apps send activity updates to Flowdock. A great integration with a project management tool will send updates when items are created, updated or commented on. 
+The best Flowdock integrations are with other work-related web apps. These third party apps send activity updates to Flowdock. A great integration with a project management tool will send updates when items are created, updated or commented on.
 
 For example, our Zendesk integration sends updates to Flowdock whenever a new customer support ticket is created, someone replies to a ticket or updates its status. Each new update can include both a message ("ticket was updated") and a new updated state for the ticket.
 
 <div id="/components-of-a-message"></div>
 ## The components of an integration message
-***TODO add legend***
+
 ![A support ticket from Zendesk with legend](https://raw.githubusercontent.com/flowdock/api-docs/master/images/lifespan-of-a-support-ticket-legend.png)
 
 When presenting your app's items in Flowdock as a thread, you can use these great features:
@@ -101,10 +101,9 @@ When posting messages into threads, there are a generally two types of messages 
 
 ![An activity message](https://raw.githubusercontent.com/flowdock/api-docs/master/images/activity-message.png)
 
-An activity message has a couple of unique features:
+An activity message should be descriptive:
 
 * The title should follow the format "Marty McFly **did something**". In other words, good titles are "updated ticket" or "merged pull request".
-* If you like, you can include an icon. The icon should reflect the action that was taken.
 
 #### Discussions
 
