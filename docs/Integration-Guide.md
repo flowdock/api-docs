@@ -14,7 +14,7 @@
 
 <small>*An example of a full-fledged Flowdock integration. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
 
-To start testing the API, run the following command. **NOTE:** You need to have [Ruby](https://www.ruby-lang.org/en/installation/) and the [oauth2 gem](https://github.com/intridea/oauth2) installed.
+To start testing the API, run the following command. **NOTE:** You need to have [Ruby](https://www.ruby-lang.org/en/installation/) and the [oauth2 gem](https://github.com/intridea/oauth2) installed. The [helper script](https://raw.githubusercontent.com/flowdock/flowdock-example-integration/master/flowdock-oauth.rb) this command runs will generate the tokens you need.
 
 ```
 > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/flowdock/flowdock-example-integration/master/flowdock-oauth.rb)"
