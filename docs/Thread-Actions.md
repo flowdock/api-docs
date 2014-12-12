@@ -1,7 +1,7 @@
 # Thread actions
 
 [Threads](threads) can specify custom actions for the thread's external resource. Actions follow the [schema.org Action format](http://schema.org/Action).
-Two types of actions are supported: [ViewAction](#/view-action) and [UpdateAction](#/update-action).
+Two types of actions are supported: [ViewAction](#/view-action) and [UpdateAction](#/update-action). Actions enable you to create [bidirectional integrations with Flowdock](how-to-create-bidirectional-integrations).
 
 <span id="/view-action"></span>
 ## ViewAction
@@ -20,11 +20,9 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 ## UpdateAction
 [UpdateActions](http://schema.org/UpdateAction) allow for bi-directional integrations. Users can perform simple
 actions securely from Flowdock without opening new browser tabs. The integration will receive a request from Flowdock
-with the user's Flowdock user ID (for authentication) to perform actions on the resource.
+with the user's Flowdock user ID (for authentication) to perform actions on the resource. Text input from the user is currently not supported.
 
-Text input from the user is currently not supported.
-
-Examples on how to handle the requests coming from UpdateActions can be found in [How to handle UpdateActions in Ruby on Rails](how-to-thread-actions).
+Examples on how to handle the requests coming from UpdateActions can be found in [How to create bidirectional integrations](how-to-create-bidirectional-integrations).
 
 #### Example UpdateAction in a thread message
 ```json
@@ -33,7 +31,7 @@ Examples on how to handle the requests coming from UpdateActions can be found in
     "name": "Assign to me",
     "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://my-flowdock-github-integrator.com/issues/42?assignee=me",
+        "urlTemplate": "https://my-flowdock-app-integrator.com/issues/42?assignee=me",
         "httpMethod": "POST"
     }
 }
@@ -54,7 +52,7 @@ Once Flowdock receives the thread message with UpdateActions, it converts the ta
     },
     "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://my-flowdock-github-integrator.com/issues/42?assignee=me",
+        "urlTemplate": "https://my-flowdock-app-integrator.com/issues/42?assignee=me",
         "httpMethod": "POST"
     }
 }
@@ -79,7 +77,5 @@ If the application needs the user to authenticate in order to complete the actio
 The authentication challenge must specify the authentication URL inside the 'www-authenticate' header in the following format:
 
 ```
-www-authenticate = "Flowdock-Token url=https://my-flowdock-github-integrator.com/authenticate"
+www-authenticate = "Flowdock-Token url=https://my-flowdock-app-integrator.com/authenticate"
 ```
-
-

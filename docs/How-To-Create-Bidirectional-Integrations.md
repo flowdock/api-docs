@@ -1,8 +1,11 @@
-# How to create bi-directional integrations
+# How to create bidirectional integrations
 
-Your Flowdock integration can actually create simple user interfaces for your app inside Flowdock. Good simple example actions are assign to me or resolve an issue. To create these kinds of bi-directional integrations, you will first need to follow the steps in [How to integrate](how-to-integrate). Then, once you can post activities to Flowdock, you will need to include what's called [UpdateActions](thread-actions#/update-action) in the thread's *actions* attribute. An UpdateAction defines an HTTP request that will be sent from Flowdock to your application.
+![Example bidirectional integration](https://raw.githubusercontent.com/flowdock/api-docs/master/images/two-way-actions.png)
 
-## Example activity request with an UpdateAction
+Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](integration-guide). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
+
+Here's an example activity message which includes an UpdateAction. This example defines an "assign to me" action. When it's clicked in the Flowdock UI, a signed POST request will be sent to the defined URL.
+
 
 ```
 POST https://api.flowdock.com/messages
@@ -38,14 +41,12 @@ POST https://api.flowdock.com/messages
 }
 ```
 
-This example defines an "assign to me" action. When it's clicked in the Flowdock UI, a signed POST request will be sent to the defined URL.
-
-
 ## Receiving UpdateActions
 
-The basic premise is to securely authenticate the user in the target system (your application) using their Flowdock user ID and then perform the actions as the user.
+The basic premise is to securely authenticate the user in the target system (your application) using their Flowdock user ID and then perform the actions as the user (and update the thread in Flowdock).
 
-### An example Ruby on Rails controller for receiving an UpdateAction request from Flowdock
+Below is an example Ruby on Rails controller action for receiving an UpdateAction request from Flowdock.
+
 ```ruby
   def assign_to_me
     user_id = decode_flowdock_user_id(ENV['OAUTH_APP_SECRET'])
@@ -59,9 +60,7 @@ The basic premise is to securely authenticate the user in the target system (you
   end
 ```
 
-### Example Flowdock user ID extraction and request verification
-
-We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth token and client secret to decode it.
+We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth token and client secret to decode it. Here's an example of Flowdock user ID extraction and request verification.
 
 ```ruby
   def decode_flowdock_user_id
@@ -87,11 +86,12 @@ We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth tok
 
 ## Authentication challenge
 
-The following example demonstrates how to return an [authentication challenge](thread-actions#/authentication-challenge) for the user. We append the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction. This enables one click authentication that avoids [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+If the action cannot be completed because the user needs to authenticate first, your app should respond with an [authentication challenge](thread-actions#/authentication-challenge). The Flowdock UI will then communicate the situation and present the user with the option to proceed to the link you've defined to authenticate.
+
+The following example demonstrates how to return an authentication challenge for the user. As a best practice, we've appended the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction. This enables one click authentication that avoids [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 When we receive the request for the new authentication, we make sure that the claim's Flowdock user ID matches with the Flowdock user ID that is received from user's [authorization for Flowdock](how-to-integrate#/oauth2-authorize).
 
-### Example authentication challenge to the Flowdock user
 ```ruby
   def response_authentication_challenge(user_id)
     response.headers["www-authenticate"] = "Flowdock-Token url=#{authentication_claim(user_id)}"
@@ -104,3 +104,5 @@ When we receive the request for the new authentication, we make sure that the cl
     "https://my-flowdock-github-integrator.com/authorization?claim=#{token}"
   end
 ```
+
+Once the user has successfully authenticated, the one-click actions should work smoothly.
