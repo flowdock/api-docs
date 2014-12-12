@@ -1,6 +1,6 @@
-# How to create bi-directional integrations (with Ruby)
+# How to create bi-directional integrations
 
-To create bi-directional integrations, you will first need to follow the steps in [How to integrate](how-to-integrate). After the integration is all set and you can post activities to Flowdock, you will need to include [UpdateActions](thread-actions#/update-action) in the thread's actions attribute.
+Your Flowdock integration can actually create simple user interfaces for your app inside Flowdock. Good simple example actions are assign to me or resolve an issue. To create these kinds of bi-directional integrations, you will first need to follow the steps in [How to integrate](how-to-integrate). Then, once you can post activities to Flowdock, you will need to include what's called [UpdateActions](thread-actions#/update-action) in the thread's *actions* attribute. An UpdateAction defines an HTTP request that will be sent from Flowdock to your application.
 
 ## Example activity request with an UpdateAction
 
@@ -38,11 +38,14 @@ POST https://api.flowdock.com/messages
 }
 ```
 
-## Handling UpdateActions
+This example defines an "assign to me" action. When it's clicked in the Flowdock UI, a signed POST request will be sent to the defined URL.
 
-The basic premise is to securely authenticate the user in the target system (your application) with their Flowdock user ID and then perform the actions as the user.
 
-### An example controller for receiving the UpdateAction request from Flowdock
+## Receiving UpdateActions
+
+The basic premise is to securely authenticate the user in the target system (your application) using their Flowdock user ID and then perform the actions as the user.
+
+### An example Ruby on Rails controller for receiving an UpdateAction request from Flowdock
 ```ruby
   def assign_to_me
     user_id = decode_flowdock_user_id(ENV['OAUTH_APP_SECRET'])
@@ -57,6 +60,9 @@ The basic premise is to securely authenticate the user in the target system (you
 ```
 
 ### Example Flowdock user ID extraction and request verification
+
+We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth token and client secret to decode it.
+
 ```ruby
   def decode_flowdock_user_id
     token, _ = JWT.decode(request.env['HTTP_FLOWDOCK_TOKEN'], ENV['OAUTH_APP_SECRET'])
