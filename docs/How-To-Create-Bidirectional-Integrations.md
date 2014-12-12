@@ -60,12 +60,11 @@ Below is an example Ruby on Rails controller action for receiving an UpdateActio
   end
 ```
 
-We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth token and client secret to decode it. Here's an example of Flowdock user ID extraction and request verification.
+We use [JWT](http://jwt.io) to [sign the Flowdock user ID](thread-actions#/signature). The encoded token is in the 'FLOWDOCK-TOKEN' header. You need the OAuth application secret to verify the authenticity of the token. Here's an example of Flowdock user ID extraction and verification of the request body.
 
 ```ruby
   def decode_flowdock_user_id
     token, _ = JWT.decode(request.env['HTTP_FLOWDOCK_TOKEN'], ENV['OAUTH_APP_SECRET'])
-    verify_request_not_expired(token["exp"])
     verify_request_signature(token["signature"])
     token["sub"].to_s
   end
@@ -73,12 +72,6 @@ We use [JWT](http://jwt.io) to sign the Flowdock user ID. You need the OAuth tok
   def verify_request_signature(signature)
     request_data = request.body.read
     if !Rack::Utils.secure_compare(signature, Digest::SHA256.hexdigest(request_data))
-      raise Forbidden.new()
-    end
-  end
-
-  def verify_request_not_expired(expiration_time)
-    if expiration_time < Time.now.to_i
       raise Forbidden.new()
     end
   end

@@ -58,6 +58,7 @@ Once Flowdock receives the thread message with UpdateActions, it converts the ta
 }
 ```
 
+<span id="/signature"></span>
 #### Flowdock user ID and request signature
 The 'FLOWDOCK-TOKEN' header is an encoded token that contains the user's Flowdock ID, expiration time and a signature of the request body. The token is encoded with [JWT](http://jwt.io) using the OAuth client secret as a signing key.
 
