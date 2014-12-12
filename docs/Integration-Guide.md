@@ -89,7 +89,7 @@ When presenting your app's items in Flowdock as a thread, you can use these grea
 1. **Fields** - All the simple properties – in other words, a list of key-value pairs. The Zendesk integration uses these to show the To, From and other fields of the support ticket. Project management tools send all the properties of a specific issue/ticket/story.
 1. **Body** - This generally contains the most important content of the item, like an issue description. In some cases, this is not needed, such as when new replies and updates make up the most interesting content in Zendesk.
 1. **Status** - A great way to highlight progress. It gives a quick and visible answer to questions like "Has this pull request been merged?", "What's the status of our server?" or "Has this support ticket been resolved?". The status is shown visibly in the [team inbox](/help/team_inbox). You can even color-code the different states (e.g. blocked = red, solved = green).
-1. **[Actions](actions)** - An amazing tool to make the integration bidirectional. You can define actions to allow users to complete tasks directly from Flowdock. Examples include "Assign to me", "Mark as solved", "Try to build this again" and "Merge pull request".
+1. **[Actions](thread-actions)** - An amazing tool for [making the integration bidirectional](how-to-create-bidirectional-integrations). You can define actions to allow users to complete tasks directly from Flowdock. Examples include "Assign to me", "Mark as solved", "Try to build this again" and "Merge pull request".
 
 For detailed descriptions of these fields, check out the [threads documentation](threads).
 
