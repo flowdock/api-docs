@@ -154,6 +154,7 @@ The following scopes are available in the Flowdock API:
 | manage         | Manage flows, organizations and their users. |
 | profile        | Access the user's profile. |
 | offline_access | Access the API when the user is not present. | 
+| integration    | Create [sources](https://www.flowdock.com/api/sources) |
 
 
 ### Requesting tokens
