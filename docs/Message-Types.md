@@ -25,7 +25,7 @@ The message event is sent when a user sends a chat message.
 `content` is a string that contains free-form text.
 
 ### Sample
-```
+```json
 {
   "app": "chat",
   "event": "message",
@@ -36,7 +36,8 @@ The message event is sent when a user sends a chat message.
   "content": "Hello World",
   "sent": 1317715340213,
   "attachments": [],
-  "user": "2"
+  "user": "2",
+  "created_at": "2011-10-04T08:02:20.213Z"
 }
 ```
 
@@ -50,7 +51,7 @@ The status event is sent when a user changes their status.
 `content` is a string that contains free-form text.
 
 ### Sample
-```
+```json
 {
   "app": "chat",
   "sent": 1317307033981,
@@ -61,7 +62,8 @@ The status event is sent when a user changes their status.
   "event": "status",
   "content": "This is my new status",
   "user": "49",
-  "attachments": []
+  "attachments": [],
+  "created_at": "2011-10-04T08:02:20.213Z"
 }
 ```
 
@@ -78,7 +80,7 @@ contains the actual comment. The id of the parent message is stored in a [specia
 `influx:id`.
 
 ### Sample
-```
+```json
 {
   "app": "chat",
   "sent": 1317722877378,
@@ -92,7 +94,8 @@ contains the actual comment. The id of the parent message is stored in a [specia
     "text": "This is a comment"
   },
   "user": "1609",
-  "attachments": []
+  "attachments": [],
+  "created_at": "2011-10-04T10:07:57.378Z"
 }
 ```
 
@@ -141,7 +144,8 @@ string or an object.
     "description": "flowdock"
   },
   "user": "18",
-  "attachments": []
+  "attachments": [],
+  "sent": "2011-09-30T15:44:45.507Z"
 }
 ```
 
@@ -176,7 +180,8 @@ The tag-change event is sent when the tags of a message are changed. See [Tags](
     "remove": ["test"]
   },
   "user": "18",
-  "attachments": []
+  "attachments": [],
+  "created_at": "2011-09-30T15:44:45.507Z"
 }
 ```
 
@@ -209,7 +214,8 @@ The message-edit event is sent when the the content of a message is changed. Onl
     "updated_content": "foo bar"
   },
   "user": "18",
-  "attachments": []
+  "attachments": [],
+  "created_at": "2011-09-30T15:44:45.507Z"
 }
 ```
 
@@ -242,7 +248,8 @@ timestamp is not always present when e.g. user is idle.
   "sent": 1317715393030,
   "app": null,
   "attachments": [],
-  "user": '2'
+  "user": "2",
+  "created_at": "2011-10-04T08:03:13.029Z"
 }
 ```
 
@@ -294,7 +301,8 @@ The file event is sent when a file has been uploaded to the chat.
       "path": "/files/123/d19d7d7048f3012fc1e40026b0d8e16c/thumb/firefox_flowdock.png"
     }
   },
-  "tags": [":file"]
+  "tags": [":file"],
+  "created_at": "2012-03-05T13:19:54.433Z"
 }
 ```
 
@@ -337,9 +345,10 @@ _Bolded text denotes a required field when posting a message._
   "title": "Closed pull request",
   "body": null,
   "app": "influx",
-  "user": 0,
+  "user": "0",
   "edited": null,
   "content": null,
+  "created_at": "2014-09-24T12:15:30.520Z",
   "_application": 104,
   "_project": 220,
   "thread_id": "HbjDdeOqrZm6QzlSO8rwtftzwts",
@@ -413,6 +422,7 @@ _Bolded text denotes a required field when posting a message._
   "body": "Message body with HTML formatting &lt;br&gt;&lt;br&gt;",
   "app": "influx",
   "user": "0",
+  "created_at": "2014-09-25T08:13:53.970Z",
   "edited": null,
   "content": null,
   "_application": 106,
