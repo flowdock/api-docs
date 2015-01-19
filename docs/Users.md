@@ -59,6 +59,37 @@ Flowdock-User: 2
 ]
 ```
 
+
+## List organizations users
+
+List the users of an organization.
+
+```
+GET /organizations/:organization/users
+```
+[URL breakdown](rest#/url-breakdown)
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+```json
+[
+  {
+    "id": 9,
+    "email": "john@example.com",
+    "name": "John Smith",
+    "nick": "John",
+    "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c/",
+    "website": "http://www.example.com/",
+    "admin": false
+  },
+  ...
+]
+```
+
 ## Get a user
 
 Get information about a single user. The requesting user must be belong to same organization as the target user.
