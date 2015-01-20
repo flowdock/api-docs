@@ -8,7 +8,7 @@ The SCIM api is a REST based api that can be found under `https://api.flowdock.c
 
 The api uses JSON encoded data, so all requests need to be made using `application/json` content type and the data received back will be in the same format.
 
-## Autentication
+## Authentication
 
 The SCIM api uses basic HTTP authentication using a bearer token. The token can be acquired during the SSO setup. When making requests to the SCIM api, you will need to provide the token in an authorization header. Given the authorization token `1b54iFrTbKIgP0Fl657cHA`, all of the requests to the api need a header:
 
@@ -120,6 +120,7 @@ The Users index accepts an optional filter parameter, that can be used to search
 
 | Parameter| Description |
 |----------|-------------|
+| **uid** | The uid for your SSO organization |
 | **filter** | A scim filter string. Only the `userName eq` filter is supported at the moment. |
 
 #### Example request
