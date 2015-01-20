@@ -1,42 +1,44 @@
-# SCIM provisioning api
+# SCIM provisioning API
 
-The Single Sign-On for Flowdock Enterprise offers partial support for provisioning using [System for Cross-Domain Identity Management (SCIM)](http://www.simplecloud.info/). To use the SCIM api, you need to be a Flowdock Enterprise customer and have the Single Sign-On configured. If you haven't completed these steps, please contact [support@flowdock.com](mailto:support@flowdock.com).
+The Single Sign-On for Flowdock Enterprise offers partial support for provisioning using [System for Cross-Domain Identity Management (SCIM)](http://www.simplecloud.info/).
+
+To use the SCIM API, you need to be a Flowdock Enterprise customer and have Single Sign-On configured for your organization. Contact [support@flowdock.com](mailto:support@flowdock.com) if you have not done this yet or are interested about Flowdock Enterprise.
 
 ## Basics
 
-The SCIM api is a REST based api that can be found under `https://api.flowdock.com/scim/:uid`. Uid is an organization specific identifier that can be acquired when setting up the SSO. All the resources can be found under that path.
+The SCIM API is a REST-based API that can be found under `https://api.flowdock.com/scim/:uid`. The UID is an organization-specific identifier that is acquired when setting up SSO. All the resources can be found under this path.
 
-The api uses JSON encoded data, so all requests need to be made using `application/json` content type and the data received back will be in the same format.
+All requests need to be made using a content-type of `application/json`. Responses will be sent in JSON format.
 
 ## Authentication
 
-The SCIM api uses basic HTTP authentication using a bearer token. The token can be acquired during the SSO setup. When making requests to the SCIM api, you will need to provide the token in an authorization header. Given the authorization token `1b54iFrTbKIgP0Fl657cHA`, all of the requests to the api need a header:
+The SCIM API uses basic HTTP authentication using a bearer token. The token is acquired during the SSO setup. When making requests to the SCIM API, you will need to provide the token in an authorization header. Given the authorization token `1b54iFrTbKIgP0Fl657cHA`, all of the requests to the API need a header:
 
 ```
 Authorization: Bearer 1b54iFrTbKIgP0Fl657cHA
 ```
 
-A missing authorization header will result in `401 Unauthorized` response. If the header is malformed or you use the wrong token, you will receive a `403 Forbidden` response.
+A missing authorization header will result in a `401 Unauthorized` response. If the header is malformed or has the wrong token, you will receive a `403 Forbidden` response.
 
-You can test that you have a working authorization by making a request to the SCIM root url.
+You can test your authorization by making a request to the SCIM root URL.
 
+#### Request
 ```
 GET https://api.flowdock.com/scim/:uid
 ```
 
-Response:
-
+#### Response
 ```
 {
   "message": "Authorization ok"
 }
 ```
 
-Failed attempts are heavily ratelimited, so if you start receiving `429` responses, you need to wait for a while before trying again.
+Failed attempts are heavily rate-limited. If you start receiving `429` responses, you will need to wait for a while before trying again.
 
 ## Users resource
 
-Users resource provides information about the users in your Flowdock organization. The api can only be used to access and modify users that have the SSO enabled, so if you have bots or other accounts that don't have SSO logins (like users that haven't yet migrated their account to use SSO), they won't show up here.
+The users resource provides information about the users in your Flowdock organization. The API can only be used to access and modify users that have SSO enabled. Accounts that don't have a linked SSO identity (such as bots) will not be listed.
 
 ### SCIM identifiers
 
@@ -54,24 +56,24 @@ GET https://api.flowdock.com/scim/:uid/Users
 
 | Parameter | Description |
 |-----------|-------------|
-| **uid** | The uid for your SSO organization |
+| **uid** | The UID of your SSO organization. |
 
 #### Response fields:
 
-- **Resources** an array of user objects
-    - **id** Id of the user object in Flowdock
-    - **externalId** Extenal id of the user. Flowdock always reports this as the user's SSO email address.
-    - **userName** User account name used to identify the user. Flowdock will always display this as the user's email address from the SSO provider.
+- **Resources** An array of user objects.
+    - **id** The ID of the user object in Flowdock.
+    - **externalId** The extenal id of the user. Flowdock always reports this as the user's SSO email address.
+    - **userName** The user account name used to identify the user. Flowdock always reports this as the user's SSO email address.
     - **name** Information about the user's name.
-        - **givenName** First name. As Flowdock only record's a user's full name, this will be the part of the name until the first space.
-        - **familyName** Last name. This will be everything after the first space in a user's name.
-    - **meta** SCIM metainformation
-        - **location** The url for this user resource.
-        - **created** When the user was created (date format ISO 8061)
-        - **lastModified** When the user was last modified (date format ISO 8061)
+        - **givenName** First name. As Flowdock only record's a user's full name, this will be the part of the name that precedes the first space.
+        - **familyName** Last name. This is everything after the first space in a user's name.
+    - **meta** SCIM metadata.
+        - **location** The URL for this user resource.
+        - **created** When the user was created (using the ISO 8061 format).
+        - **lastModified** When the user was last modified (using the ISO 8061 format).
     - **emails** An array with all known email addresses for the user. For each one:
         - **value** Contains the email address.
-    - **nickName** Displayname of the user in Flowdock
+    - **nickName** The display name (nickname) of the user in Flowdock.
 
 #### Example request
 
@@ -106,7 +108,7 @@ Content-Type: application/json
           "value":  "johndoe@example.com"
         }
       ],
-      "nickName":"John"
+      "nickName":"JohnD"
     }
   ]
 }
@@ -114,14 +116,14 @@ Content-Type: application/json
 
 ### Search index (find by email)
 
-The Users index accepts an optional filter parameter, that can be used to search for users. Currently only supported filter is `userName eq "email@example.com"`, which allows searching for users using their email address. The response is in the same format as with index.
+The Users index accepts an optional filter parameter that can be used to search for users. Currently, the only supported filter is `userName eq "email@example.com"`. This allows you to search for users using their email address. The response is in the same format as in the user index.
 
 #### Parameters
 
 | Parameter| Description |
 |----------|-------------|
-| **uid** | The uid for your SSO organization |
-| **filter** | A scim filter string. Only the `userName eq` filter is supported at the moment. |
+| **uid** | The UID of your SSO organization. |
+| **filter** | A SCIM filter string. Only the `userName eq` filter is supported. |
 
 #### Example request
 
@@ -145,10 +147,10 @@ GET https://api.flowdock.com/scim/:uid/Users/:id
 
 | Parameter| Description |
 |----------|-------------|
-| **uid** | The uid for your SSO organization |
-| **id** | Id of the Flowdock user |
+| **uid** | The UID of your SSO organization. |
+| **id** | The ID of the Flowdock user. |
 
-The response is a single user object that has the same information as in index.
+The response is a single user object in the same format as in the user index.
 
 #### Example request
 
@@ -181,13 +183,13 @@ Content-Type: application/json
       "value":  "johndoe@example.com"
     }
   ],
-  "nickName":"John"
+  "nickName":"JohnD"
 }
 ```
 
 ### Update
 
-A single user object can be partially updated by doing a PUT to the user resource's location.
+A single user object can be partially updated by sending a PUT to the user resource's location.
 
 ```
 PUT https://api.flowdock.com/scim/:uid/Users/:id
@@ -197,17 +199,17 @@ PUT https://api.flowdock.com/scim/:uid/Users/:id
 
 | Parameter| Description |
 |----------|-------------|
-| **uid** | The uid for your SSO organization |
-| **id** | Id of the Flowdock user |
+| **uid** | The UID of your SSO organization. |
+| **id** | The ID of the Flowdock user. |
 
-Payload must be a json document that contains the following parts from the full user representation:
+The payload must be a JSON document that contains the following parts from the full user representation:
 
-- **name** Name that is split into first and last name. The api concatenates these and stores it in a single field.
+- **name** The full name that is split into first and last name. The API concatenates these and stores them in a single field.
     - **givenName** First name.
     - **familyName** Last name.
 - **emails** An array of email objects. Only the first one is used. For that:
     - **value** Contains the email address.
-- **nickName** (optional) the displayname for the user in Flowdock.
+- **nickName** (optional) The display name of the user in Flowdock.
 
 #### Example request
 
@@ -237,7 +239,7 @@ The response will contain the full information for the user.
 
 ### Destroy
 
-Destroy can be used to deprovision a user. The user will be removed from the organization immediately and will lose all access to the organization's data.
+Destroy can be used to deprovision a user. The user will be removed from the organization and any child organizations immediately. The user will lose all access to the organization's data, including flows and private conversations.
 
 ```
 DELETE https://api.flowdock.com/scim/:uid/Users/:id
@@ -247,10 +249,10 @@ DELETE https://api.flowdock.com/scim/:uid/Users/:id
 
 | Parameter| Description |
 |----------|-------------|
-| **uid** | The uid for your SSO organization |
-| **id** | Id of the Flowdock user |
+| **uid** | The UID of your SSO organization. |
+| **id** | The ID of the Flowdock user. |
 
-A successfull response will be a `204 No Content`.
+A response to a successful request is `204 No Content`.
 
 #### Example request
 
