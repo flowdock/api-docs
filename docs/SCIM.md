@@ -114,16 +114,16 @@ Content-Type: application/json
 }
 ```
 
-### Search index (find by email)
+### Search
 
-The Users index accepts an optional filter parameter that can be used to search for users. Currently, the only supported filter is `userName eq "email@example.com"`. This allows you to search for users using their email address. The response is in the same format as in the user index.
+The Users index accepts an optional filter parameter that can be used to search for users. Currently, the only supported filters are `userName eq "email@example.com"` and `emails eq "email@example.com"`. This allows you to search for users using their login or email address. The response is in the same format as in the user index.
 
 #### Parameters
 
 | Parameter| Description |
 |----------|-------------|
 | **uid** | The UID of your SSO organization. |
-| **filter** | A SCIM filter string. Only the `userName eq` filter is supported. |
+| **filter** | A SCIM filter string. Only the `userName eq` and `emails eq` filters are supported. |
 
 #### Example request
 
