@@ -123,7 +123,7 @@ The response will by default be represented as `application/x-www-form-urlencode
 
 Applications that do not run in a web browser can use the [Resource Owner Password Credentials](http://tools.ietf.org/html/rfc6749#section-4.3) authentication flow. However, this requires users to type in their Flowdock email address and password.
 
-Use Basic Authentication to create an OAuth2 token using the interface token interface below. With this technique, an email address and password need not be stored permanently, and the user can revoke access at any time.
+Use the token interface with email and password from below. With this technique, an email address and password need not be stored permanently, and the user can revoke access at any time.
 
 ### Redirect URI
 
@@ -179,7 +179,7 @@ When using `authorization_code`, the following additional fields are used to aut
 | code           | The code returned as part of the redirect from the Flowdock API. |
 | redirect_uri   | The URI registered with the application. |
 
-When using `password` grant type, the following additional fields are used to authenticate the request:
+When using `password` grant type, the following additional fields are used to authenticate the request and DO NOT add an Authorization header:
 
 | Field          | Description                       |
 | -------------- | --------------------------------- |
@@ -214,8 +214,8 @@ The API tokens are available on the [Tokens](https://flowdock.com/account/tokens
 
     $ curl https://deadbeefdeadbeef@api.flowdock.com/flows/acme/main/messages
     $ curl https://deadbeefdeadbeef:DUMMY@api.flowdock.com/flows/acme/main/messages
-    
-Flowdock has two types of API tokens: user tokens and flow tokens. User API tokens can be used to authenticate as a specific user in [REST API](rest). Flow specific tokens can only be used to authorize anonymous posting to a flow in [Push API](push). 
+
+Flowdock has two types of API tokens: user tokens and flow tokens. User API tokens can be used to authenticate as a specific user in [REST API](rest). Flow specific tokens can only be used to authorize anonymous posting to a flow in [Push API](push).
 
 ### Email / password
 
