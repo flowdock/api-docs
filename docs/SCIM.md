@@ -62,8 +62,8 @@ GET https://api.flowdock.com/scim/:uid/Users
 
 - **Resources** An array of user objects.
     - **id** The ID of the user object in Flowdock.
-    - **externalId** The extenal id of the user. Flowdock always reports this as the user's SSO email address.
-    - **userName** The user account name used to identify the user. Flowdock always reports this as the user's SSO email address.
+    - **externalId** The extenal id of the user. It has the same value as `userName`.
+    - **userName** The user account name used to identify the user. This will be the Subject's NameID passed by the SAML provider.
     - **name** Information about the user's name.
         - **givenName** First name. As Flowdock only record's a user's full name, this will be the part of the name that precedes the first space.
         - **familyName** Last name. This is everything after the first space in a user's name.
