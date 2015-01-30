@@ -210,6 +210,7 @@ The payload must be a JSON document that contains the following parts from the f
 - **emails** An array of email objects. Only the first one is used. For that:
     - **value** Contains the email address.
 - **nickName** (optional) The display name of the user in Flowdock.
+- **active** (optional) Supply a value of `false` to log out all of user's sessions. This can be used when the user is suspended in the SSO provider, and will have the effect of suspending the user in Flowdock too, since the user is forced to reauthenticate, which in turn requires using the SSO provider.
 
 #### Example request
 
@@ -263,6 +264,8 @@ Authorization: Bearer 1b54iFrTbKIgP0Fl657cHA
 Accept: application/json
 Content-Type: application/json
 ```
+
+The response will be `200 OK` with a json document containing "message".
 
 ### Create
 
