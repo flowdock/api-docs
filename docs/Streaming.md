@@ -59,7 +59,7 @@ is implemented in most browsers. Even older browsers can use this interface via 
     }
 
 
-## Ruby Example
+## Ruby Example (JSON stream)
 
     require 'eventmachine'
     require 'em-http'
@@ -84,3 +84,6 @@ is implemented in most browsers. Even older browsers can use this interface via 
       end
     end
 
+## Ruby Example (Event-Stream)
+
+Another Ruby example that uses the [em-eventsource](https://github.com/AF83/em-eventsource) library and Event-Stream content type: [https://github.com/AF83/em-eventsource/blob/master/examples/flowdock.rb](https://github.com/AF83/em-eventsource/blob/master/examples/flowdock.rb)
