@@ -238,6 +238,8 @@ Content-Type: application/json
 
 The response will contain the full information for the user.
 
+Alternatively, a `400 Bad request` response might be returned if the user validation fails.
+
 ### Destroy
 
 Destroy can be used to deprovision a user. The user will be removed from the organization and any child organizations immediately. The user will lose all access to the organization's data, including flows and private conversations.
@@ -269,4 +271,79 @@ The response will be `200 OK` with a json document containing "message".
 
 ### Create
 
-Creating users is not supported and will result in a `405 Method Not Allowed` response.
+Users can be created using SCIM.
+
+```
+POST https://api.flowdock.com/scim/:uid/Users
+```
+
+#### Parameters
+
+| Parameter| Description |
+|----------|-------------|
+| **uid** | The UID of your SSO organization. |
+
+The payload must be a JSON document that contains the following parts from the full user representation:
+
+- **userName** The user account name used to identify the user. This must be the same as the Subject's NameID passed by the SAML provider.
+- **name** The full name that is split into first and last name. The API concatenates these and stores them in a single field.
+    - **givenName** First name.
+    - **familyName** Last name.
+- **emails** An array of email objects. Only the first one is used. For that:
+    - **value** Contains the email address.
+- **nickName** (optional) The display name of the user in Flowdock. If omitted, a nickname based on name is generated.
+
+
+#### Example request
+
+```
+POST https://api.flowdock.com/scim/123456/Users
+
+Authorization: Bearer 1b54iFrTbKIgP0Fl657cHA
+Accept: application/json
+Content-Type: application/json
+
+{
+  "userName": "johndoe"
+  "name": {
+    "givenName": "John",
+    "familyName": "Doe"
+  },
+  "emails": [
+    {
+      "value":  "john.doe@example.com"
+    }
+  ],
+  "nickName":"JohnDoe"
+}
+
+```
+
+#### Response
+
+A successfull request will result in a `201 Created` response.
+
+```
+{
+  "id": 1,
+  "externalId":"johndoe",
+  "userName":"johndoe",
+  "name": {
+    "givenName": "John",
+    "familyName": "Doe"
+  },
+  "meta": {
+    "location": "https://api.flowdock.com/scim/123456/Users/1",
+    "created": "2013-03-12T10:36:38Z",
+    "lastModified": "2015-01-15T14:51:45Z"
+  },
+  "emails": [
+    {
+      "value":  "johndoe@example.com"
+    }
+  ],
+  "nickName":"JohnDoe"
+}
+```
+
+Alternatively, a validation error will result in a `400 Bad request` response. If a user by the `userName` or `email` already exists, a `409 Conflict` response will be returned.
