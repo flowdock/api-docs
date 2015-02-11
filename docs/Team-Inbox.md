@@ -1,4 +1,7 @@
-# Push API: Team Inbox
+# Push API: Team Inbox (deprecated)
+
+**Deprecated, use [messages](Messages).**
+
 Send mail-like messages to the team inbox of a flow.
 
 ```
