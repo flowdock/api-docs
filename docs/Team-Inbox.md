@@ -1,6 +1,6 @@
 # Push API: Team Inbox (deprecated)
 
-**Deprecated, use [messages](Messages).**
+**Deprecated, use the [Messages endpoint](Messages) instead.**
 
 Send mail-like messages to the team inbox of a flow.
 
