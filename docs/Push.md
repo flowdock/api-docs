@@ -1,6 +1,8 @@
 # Push API
 
-Use the Push API to post content to 
+**The Push API is deprecated and will be removed. The [Messages](Messages) endpoint should be used instead. For instructions on how to build an integration, see our [integration guide](Integration-Guide).**
+
+Use the Push API to post content to
 
 * [Team Inbox](Team Inbox)
 * [Chat](Chat)
