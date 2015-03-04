@@ -4,7 +4,10 @@ Sources provide content from external sources to a flow. These include
 integrations such as GitHub, Rally and Zendesk. Each source has a secret
 `flow_token` that is used for authentication when posting content to a flow.
 
-<div id="/list"></div>
+Sources can be accessed with [flow token authentication](/authentication#source-token).
+In this case only the specific source is exposed.
+Creating new sources requires OAuth 2.0.
+See [how to integration](how-to-integrate) for more information about building integrations.
 
 
 <a id="/list"></a>
