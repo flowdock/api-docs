@@ -20,6 +20,8 @@ POST /comments
 POST /flows/:organization/:flow/messages/:message/comments
 ```
 
+Sending a message to a flow is possible using all authentication methods, including [flow tokens](/authentication#source-token).
+
 [URL breakdown](rest#/url-breakdown)
 
 
@@ -27,10 +29,10 @@ POST /flows/:organization/:flow/messages/:message/comments
 
 | Name          | Description  |
 | ------------- | ------------ |
-| flow | **Required** The `id` of the target [flow](Flows). Can be specified in the URL. |
-| event | **Required** The message event type. See the [Message Types](messages#/message-type) section below.  |
-| content | **Required** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
-| message | **Required for comments** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
+| flow | **Required when flow is not specified by URL or flow token.** The `id` of the target [flow](Flows). Can be specified in the URL. |
+| event | **Required.** The message event type. See the [Message Types](messages#/message-type) section below.  |
+| content | **Required.** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
+| message | **Required for comments.** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
 | tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
 | external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
