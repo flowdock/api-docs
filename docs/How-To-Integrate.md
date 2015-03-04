@@ -14,8 +14,8 @@ If you have any questions, don't hesitate to contact the development team at [su
 
 1. [Create an application in Flowdock](#/create-app)
 2. [Authorize the application](#/oauth2-authorize)
-3. [Add your app as an inbox source](#/create-integration)
-4. [Post messages to the team inbox](#/post-inbox)
+3. [Add your app as a source](#/create-integration)
+4. [Post messages to the flow](#/post-inbox)
 
 ### Additional steps
 
@@ -110,9 +110,9 @@ This part of the process is implemented [in routes.rb](https://github.com/flowdo
 You can now test the integration flow by going to your [Applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything goes well, you should see a message about a new integration in your flow.
 
 <div id="/post-inbox"></div>
-## 4. Post messages to the team inbox
+## 4. Post messages to the flow
 
-Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
+Your integration should now be ready to start delivering messages to the team inbox. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
 
 Example request:
 
@@ -150,6 +150,9 @@ The most important fields are listed below. For full reference on fields and dif
 | thread_id | Flowdock's thread ID. Can be used to specify the thread, to which you're posting this message. **This field is required if external\_thread\_id is not set.** |
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
+
+**Note:** Automated messages from integrations should generally go into the team inbox.
+Posting to the flow chat can be desirable e.g. when replying to a chat message.
 
 ## Additional steps
 
