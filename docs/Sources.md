@@ -5,6 +5,75 @@ integrations such as GitHub, Rally and Zendesk. Each source has a secret
 `flow_token` that is used for authentication when posting content to a flow.
 
 <div id="/list"></div>
+
+
+<a id="/list"></a>
+## List Sources
+
+Lists all sources visible for user.
+
+```
+GET /sources
+```
+
+### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
+```
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Example",
+    "url": "https://api.flowdock.com/flows/example/main/sources/1",
+    "created_at": "2014-10-14T11:05:27.176Z",
+    "updated_at": "2014-10-14T11:05:27.176Z",
+    "_links": {},
+    "application": {
+      "id": 327,
+      "name": "Zendesk",
+      "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+      "url": "http://api.flowdock.com/oauth/applications/327"
+    },
+    "creator": {
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": "http://www.example.com/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Engineering",
+    "url": "https://api.flowdock.com/flows/example/other/sources/2",
+    "external_url": "https://acme.example.com/polls/helsinki",
+    "created_at": "2014-10-14T11:05:27.007Z",
+    "updated_at": "2014-10-14T11:05:27.007Z",
+    "_links": {},
+    "application": {
+      "id": 327,
+      "name": "Zendesk",
+      "icon_url": "https://dxgv4vuja9avs.cloudfront.net/applications/327/64981f9198413209.png",
+      "url": "http://api.flowdock.com/oauth/applications/327"
+    },
+    "creator": {
+      "id": 1,
+      "avatar": "https://d2cxspbh1aoie1.cloudfront.net/avatars/f0b4520a6e0001636bf8fc1431af151c",
+      "email": "testuser@example.com",
+      "name": "User",
+      "nick": "User",
+      "website": "http://www.example.com/"
+    }
+  }
+]
+```
+
+<a id="/list-flow"></a>
 ## List Flow Sources
 
 Lists all the sources of the given flow.
