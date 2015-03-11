@@ -8,7 +8,7 @@ There are three ways to authenticate as a user with the Flowdock API:
 
 Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for Flowdock.
 
-Integrations can use [flow tokens](#source-token) from configured sources to authenticate to some resources.
+Integrations can use [flow tokens](#source-token) from configured [sources](sources) to POST messages to flows and perform actions on the source.
 
 <div id="/oauth2"></div>
 ## OAuth 2.0
@@ -232,9 +232,8 @@ As not all users have a separate password for Flowdock (but use Google or Rally 
 <div id="source-token"></div>
 ## Source Token Authentication
 
-Integrations can authenticate to some resources using [Source](/sources) `flow_token`. The token only allows posting new messages and fetching the source data. This token is not attached to any user and will continue to exist even if the user who has configured the token is removed from the flow.
+Integrations can POST messages to flows and perform actions on the source using a [source's](sources) `flow_token`. This token is not linked to any user and will exist even if the user who configured the token is removed from the flow.
 
-The `flow_token` should be given via query string or post parameters.
+The `flow_token` should be given via a query string or POST parameters.
 
     $ curl https://api.flowdock.com/sources?flow_token=deadc0de
-

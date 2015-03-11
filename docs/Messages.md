@@ -20,7 +20,7 @@ POST /comments
 POST /flows/:organization/:flow/messages/:message/comments
 ```
 
-Sending a message to a flow is possible using all authentication methods, including [flow tokens](/authentication#source-token).
+Sending a message to a flow is possible using all authentication methods, including [flow tokens](authentication#source-token).
 
 [URL breakdown](rest#/url-breakdown)
 
@@ -29,7 +29,7 @@ Sending a message to a flow is possible using all authentication methods, includ
 
 | Name          | Description  |
 | ------------- | ------------ |
-| flow | **Required when flow is not specified by URL or flow token.** The `id` of the target [flow](Flows). Can be specified in the URL. |
+| flow | **Required when flow is not specified in the URL or when not using a flow_token.** The `id` of the target [flow](Flows). Can be specified in the URL. |
 | event | **Required.** The message event type. See the [Message Types](messages#/message-type) section below.  |
 | content | **Required.** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
 | message | **Required for comments.** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
