@@ -114,7 +114,7 @@ You can now test the integration flow by going to your [Applications page](https
 <div id="/post-inbox"></div>
 ## 4. Post messages to the flow
 
-Your integration should now be ready to start delivering messages to the team inbox. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
+Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
 
 Example request:
 
