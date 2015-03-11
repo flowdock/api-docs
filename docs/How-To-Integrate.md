@@ -153,8 +153,8 @@ The most important fields are listed below. For full reference on fields and dif
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
 
-**Note:** Automated messages from integrations should generally go into the team inbox.
-Posting to the flow chat can be desirable e.g. when replying to a chat message.
+**Note:** Automated messages from integrations should generally be sent to the flow's team inbox.
+Posting to the flow's chat is generally desirable only when e.g. replying to a chat message.
 
 ## Additional steps
 
