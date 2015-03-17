@@ -7,19 +7,18 @@ The Flowdock API provides functionality for downloading and uploading files. Fil
 The REST API path of a file is stored in the `path` field of each attachment. See [Message Types](message-types) documentation for examples of attachments.
 
 ```
-GET /files/:flow/3929321049bd012fc20f0026b0d8e16c/screenshot.png
+GET /files/12345/3929321049bd012fc20f0026b0d8e16c/screenshot.png
 ```
-[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
-HTTP/1.1 200 OK
+HTTP/1.1 302 Found
 Flowdock-User: 2
-Content-Length: 10931
-Content-Type: image/png
-
-BINARY DATA
+Content-Length: 0
+Location: https://fd-files-production.s3-us-east-1.amazonaws.com/12345/3929321049bd012fc20f0026b0d8e16c/...
 ```
+
+The full file can be downloaded by following the redirect. The URL is only valid for a short time period.
 
 ## List files
 
