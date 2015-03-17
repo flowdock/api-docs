@@ -1,10 +1,10 @@
 # Messages
 
-There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can create inbox items, upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
+There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can post content to the team inbox, upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
 
 ## Send a message
 
-Send a chat message, create a team inbox item, set a user's status, comment in a thread, upload a file, etc. You can optionally define the flow as a part of the path.
+Send a chat message, set a user's status, comment in a thread, upload a file, etc. You can optionally define the flow as a part of the path.
 
 ```
 POST /messages

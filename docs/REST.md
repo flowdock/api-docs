@@ -32,7 +32,7 @@ https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
 * `flows`: The resource which is being requested.
 * `org`: The `parameterized_name` of the [organization](Organizations).
 * `flow`: The `parameterized_name` of the [flow](Flows).
-* `messages`: The sub-resource, a resource which is accessed in the scope of the parent resource. For example, all the comments of a team inbox item. In some cases there may be multiple sub-resources.
+* `messages`: The sub-resource, a resource which is accessed in the scope of the parent resource. In some cases there may be multiple sub-resources.
 * `message_id`: Identifier of the sub-resource.
 
 ### Body
