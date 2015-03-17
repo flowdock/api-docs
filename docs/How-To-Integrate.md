@@ -48,7 +48,7 @@ Once you have obtained an access token for the end user, you need to set up your
 <div id="/create-integration"></div>
 ## 3. Add your app as a source
 
-Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a `flow_token` that is used to post notifications ([messages](messages)) into the flow's team inbox.
+Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a `flow_token` that can be used to post ([messages](messages)) into the flow's team inbox.
 
 When a source is added to a flow, it will show up as an inbox filter in that flow. The source also identifies the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
 
