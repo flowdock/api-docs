@@ -14,8 +14,8 @@ If you have any questions, don't hesitate to contact the development team at [su
 
 1. [Create an application in Flowdock](#/create-app)
 2. [Authorize the application](#/oauth2-authorize)
-3. [Add your app as an inbox source](#/create-integration)
-4. [Post messages to the team inbox](#/post-inbox)
+3. [Add your app as a source](#/create-integration)
+4. [Post messages to the flow](#/post-inbox)
 
 ### Additional steps
 
@@ -46,9 +46,11 @@ In our example Rails application, we have used [Omniauth](https://github.com/int
 Once you have obtained an access token for the end user, you need to set up your web app as a notifications source for the specified flow. This is described in the next section of this guide.
 
 <div id="/create-integration"></div>
-## 3. Add your app as an inbox source
+## 3. Add your app as a source
 
-Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a flow token that is used to post notifications ([messages](messages)) into the flow's team inbox. When a source is added to a flow, it will also show up as an inbox filter in that flow. The source will also identify the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
+Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a `flow_token` that can be used to post ([messages](messages)) into the flow's team inbox.
+
+When a source is added to a flow, it will show up as an inbox filter in that flow. The source also identifies the external entity (eg. a repo for GitHub or a project for a project management tool) that your OAuth application has tied to the particular flow.
 
 To add a source to a flow, you will first need to fetch information about the [flow](flows). It is good practice to display a confirmation screen for the user when creating the source for the specified flow.
 
@@ -110,7 +112,7 @@ This part of the process is implemented [in routes.rb](https://github.com/flowdo
 You can now test the integration flow by going to your [Applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything goes well, you should see a message about a new integration in your flow.
 
 <div id="/post-inbox"></div>
-## 4. Post messages to the team inbox
+## 4. Post messages to the flow
 
 Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
 
@@ -150,6 +152,9 @@ The most important fields are listed below. For full reference on fields and dif
 | thread_id | Flowdock's thread ID. Can be used to specify the thread, to which you're posting this message. **This field is required if external\_thread\_id is not set.** |
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
+
+**Note:** Automated messages from integrations should generally be sent to the flow's team inbox.
+Posting to the flow's chat is generally desirable only when e.g. replying to a chat message.
 
 ## Additional steps
 

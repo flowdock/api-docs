@@ -1,12 +1,14 @@
 # Authentication
 
-There are three ways to authenticate with the Flowdock API:
+There are three ways to authenticate as a user with the Flowdock API:
 
 1. OAuth 2.0
 2. User credentials with HTTP Basic Authentication
 3. API token with HTTP Basic Authentication.
 
 Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for Flowdock.
+
+Integrations can use [flow tokens](#source-token) from configured [sources](sources) to POST messages to flows and perform actions on the source.
 
 <div id="/oauth2"></div>
 ## OAuth 2.0
@@ -200,7 +202,7 @@ A successful response will contain the following fields:
 
 ## HTTP Basic Authentication
 
-[HTTP Basic Authentication](http://tools.ietf.org/html/rfc2617#section-2) allows credentials, such as a username and password, or API tokens to be transferred in HTTP headers. The secret is encoded using [Base64](http://en.wikipedia.org/wiki/Base64).
+[HTTP Basic Authentication](http://tools.ietf.org/html/rfc2617#section-2) allows credentials (such as a username and password or an API token) to be transferred in HTTP headers. The secret is encoded using [Base64](http://en.wikipedia.org/wiki/Base64).
 
     Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
@@ -226,3 +228,12 @@ HTTP Basic Authentication also works by using a Flowdock user's username and pas
 This can mean that you have to take care of properly encoding the username and password.
 
 As not all users have a separate password for Flowdock (but use Google or Rally as authentication providers), using HTTP Basic Authentication for anything user-facing is strongly discouraged.
+
+<div id="source-token"></div>
+## Source Token Authentication
+
+Integrations can POST messages to flows and perform actions on the source using a [source's](sources) `flow_token`. This token is not linked to any user and will exist even if the user who configured the token is removed from the flow.
+
+The `flow_token` should be given via a query string or POST parameters.
+
+    $ curl https://api.flowdock.com/sources?flow_token=deadc0de

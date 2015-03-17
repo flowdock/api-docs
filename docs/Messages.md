@@ -1,10 +1,10 @@
 # Messages
 
-There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
+There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can create inbox items, upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
 
 ## Send a message
 
-Send a chat message, set the status, comment, upload a file etc. You can optionally define the flow as a part of the path.
+Send a chat message, create a team inbox item, set a user's status, comment in a thread, upload a file, etc. You can optionally define the flow as a part of the path.
 
 ```
 POST /messages
@@ -13,12 +13,14 @@ POST /flows/:organization/:flow/threads/:id/messages
 ```
 
 <div id="/post/comment"></div>
-Comments have their own endpoint.
+Comments (replies to a previous non-threaded message) have their own endpoint.
 
 ```
 POST /comments
 POST /flows/:organization/:flow/messages/:message/comments
 ```
+
+Sending a message to a flow is possible using all authentication methods, including [flow tokens](authentication#source-token).
 
 [URL breakdown](rest#/url-breakdown)
 
@@ -27,15 +29,15 @@ POST /flows/:organization/:flow/messages/:message/comments
 
 | Name          | Description  |
 | ------------- | ------------ |
-| flow | **Required** The `id` of the target [flow](Flows). Can be specified in the URL. |
-| event | **Required** The message event type. See the [Message Types](messages#/message-type) section below.  |
-| content | **Required** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
-| message | **Required for comments** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
+| flow | **Required when flow is not specified in the URL or when not using a flow_token.** The `id` of the target [flow](Flows). Can be specified in the URL. |
+| event | **Required.** The message event type. See the [Message Types](messages#/message-type) section below.  |
+| content | **Required.** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
+| message | **Required for comments.** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
 | tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
 | external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
 | thread_id | The `id` of the [thread](threads) this message is being posted to. In order to post a message into a thread, this or `external_thread_id` is **required**. |
-| external\_thread\_id | An ID specified by the API user, to identify the thread this message should be added to. The ID should be unique within this one [source](sources). For examples, see the integration guide's [section about posting to inbox](how-to-integrate#/post-inbox). |
+| external\_thread\_id | An ID (specified by the API user) to identify the thread this message should be added to. The ID should be unique within the [source](sources). For examples, see the integration guide's [section about posting to the inbox](how-to-integrate#/post-inbox). |
 | thread | New state for the [thread](threads). |
 
 ```
