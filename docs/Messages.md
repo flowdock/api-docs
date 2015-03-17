@@ -39,6 +39,7 @@ Sending a message to a flow is possible using all authentication methods, includ
 | thread_id | The `id` of the [thread](threads) this message is being posted to. In order to post a message into a thread, this or `external_thread_id` is **required**. |
 | external\_thread\_id | An ID (specified by the API user) to identify the thread this message should be added to. The ID should be unique within the [source](sources). For examples, see the integration guide's [section about posting to the inbox](how-to-integrate#/post-inbox). |
 | thread | New state for the [thread](threads). |
+| attachments | List of attachments for a message. Only valid for `activity` and `discussion` events. See [files](files). |
 
 ```
 {
