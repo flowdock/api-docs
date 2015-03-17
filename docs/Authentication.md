@@ -202,7 +202,7 @@ A successful response will contain the following fields:
 
 ## HTTP Basic Authentication
 
-[HTTP Basic Authentication](http://tools.ietf.org/html/rfc2617#section-2) allows credentials (such as a username and password) or API tokens to be transferred in HTTP headers. The secret is encoded using [Base64](http://en.wikipedia.org/wiki/Base64).
+[HTTP Basic Authentication](http://tools.ietf.org/html/rfc2617#section-2) allows credentials (such as a username and password or an API token) to be transferred in HTTP headers. The secret is encoded using [Base64](http://en.wikipedia.org/wiki/Base64).
 
     Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
