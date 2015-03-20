@@ -34,4 +34,4 @@ Alternatively, as an integration developer, files can be uploaded as attachments
 
     curl -H "Accept: application/json" -F "attachments[id]=@localfile.jpg" -F "author[name]=Uploaded" -F "event=activity" -F 'title="Upload a file"' -F 'body=test <img src="cid:id">' -F "thread[title]='Thread title'", -F "external_thread_id=asdfasdf" -F "flow_token=FLOW_TOKEN" http://api.flowdock.com/messages
 
-Note that here the uploaded file is given an id in attributes and referenced by that name in body with `cid:id`. This is optional, but either all attachments must have an id or it should be omitted for all.
+In this example, the attachment is given an id to be able to reference it in body with `cid:id` URI. This is optional, but either all attachments must have an id or the id should be omitted for all attachments.
