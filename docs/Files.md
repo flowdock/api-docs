@@ -32,6 +32,6 @@ You can [upload individual files using the Messages resource](messages#/send/fil
 
 Alternatively, as an integration developer, files can be uploaded as attachments to `activity` and `discussion` messages.
 
-    curl -H "Accept: application/json" -F "attachments[id]=@localfile.jpg" -F "author[name]=Uploaded" -F "event=activity" -F 'title="Upload a file"' -F 'body=test <img src="cid:cid">' -F "thread[title]='Thread title'", -F "external_thread_id=asdfasdf" -F "flow_token=FLOW_TOKEN" http://api.flowdock.com/messages
+    curl -H "Accept: application/json" -F "attachments[id]=@localfile.jpg" -F "author[name]=Uploaded" -F "event=activity" -F 'title="Upload a file"' -F 'body=test <img src="cid:id">' -F "thread[title]='Thread title'", -F "external_thread_id=asdfasdf" -F "flow_token=FLOW_TOKEN" http://api.flowdock.com/messages
 
 Note that here the uploaded file is given an id in attributes and referenced by that name in body with `cid:id`. This is optional, but either all attachments must have an id or it should be omitted for all.
