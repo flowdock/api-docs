@@ -1,34 +1,37 @@
 # Files
 
-The Flowdock API provides functionality for searching for, downloading and uploading files. Files are accessible via messages, which can contain file paths. There are several [message types](message-types) which can contain files, but the `file` event is used for [uploading files](messages#/send/files). For example, mail messages can contain files as attachments.
+The Flowdock API provides functionality for downloading and uploading files. Files are accessible via messages, which can contain file paths. There are several [message types](message-types) which can contain files, but the `file` event is used for [uploading files](messages#/send/files). For example, mail messages can contain files as attachments.
 
-## Download file
+## Download a file
 
 The REST API path of a file is stored in the `path` field of each attachment. See [Message Types](message-types) documentation for examples of attachments.
 
 ```
-GET /files/:flow/3929321049bd012fc20f0026b0d8e16c/screenshot.png
+GET /files/12345/3929321049bd012fc20f0026b0d8e16c/screenshot.png
 ```
-[URL breakdown](rest#/url-breakdown)
 
 ### Response
 ```
-HTTP/1.1 200 OK
+HTTP/1.1 302 Found
 Flowdock-User: 2
-Content-Length: 10931
-Content-Type: image/png
-
-BINARY DATA
+Content-Length: 0
+Location: https://fd-files-production.s3-us-east-1.amazonaws.com/12345/3929321049bd012fc20f0026b0d8e16c/...
 ```
+
+The full file can be downloaded by following the redirect. The URL is only valid for a short time period.
 
 ## List files
 
 A list of messages that contain files can be fetched by searching with the tag `:file`. If you just want the files uploaded to the flow's chat, you can filter by the message event `file`. See the [documentation for listing messages](messages#/list).
 
-## Upload file
+## Upload a file
 
-You can [upload files using the Messages resource](messages#/send/files) of the REST API. Here's a quick `curl` example:
+You can [upload individual files using the Messages resource](messages#/send/files) of the REST API. Here's a quick `curl` example:
 
-```
-curl -v -X POST -F "event=file" -F "content=@path/to/file.png" http://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
-```
+    curl -v -X POST -F "event=file" -F "content=@path/to/file.png" http://BASIC-AUTH@api.flowdock.com/flows/ORGANIZATION/FLOW/messages
+
+Alternatively, as an integration developer, files can be uploaded as attachments to `activity` and `discussion` messages.
+
+    curl -H "Accept: application/json" -F "attachments[file1]=@localfile.jpg" -F "author[name]=Uploaded" -F "event=activity" -F 'title="Upload a file"' -F 'body=test <img src="cid:file1">' -F "thread[title]='Thread title'", -F "external_thread_id=asdfasdf" -F "flow_token=FLOW_TOKEN" http://api.flowdock.com/messages
+
+In this example, the attachment is given an id (`file1`) to be able to reference it in body with the `cid:file1` URI. This is optional, but either all attachments must have an id or the id should be omitted for all attachments.
