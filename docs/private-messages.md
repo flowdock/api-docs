@@ -15,7 +15,7 @@ Send a private chat message to the specified user.
 | event | **Required** One of the valid private message events. Determines the type of message being sent to Flowdock. See Message Types section below.  |
 | content | **Required** The actual message. The format of content depends on the event. See Message Types section below. |
 
-```javascript
+```json
 {
   "event": "message",
   "content": "Howdy-Doo @Jackie #awesome"
@@ -63,7 +63,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 [
   {
     "app": "chat",
@@ -110,7 +110,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 {
   "app": "chat",
   "sent": 1317397485508,
@@ -139,7 +139,7 @@ Flowdock-User: 2
 | id | Incremental id of message. Unique only in private conversation scope. |
 | attachments | List of file attachments related to this message. Example: |
 
-```javascript
+```json
 [
   {
     "content_type": "text/html",

@@ -110,7 +110,7 @@ Update private conversation information.
 | ------------- | ------------ |
 | open | Boolean value (true or false). Controls the visibility of the private conversation. |
 
-```javascript
+```json
 {
   "open": false
 }

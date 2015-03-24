@@ -153,7 +153,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 [
   {
     "app":"chat",
@@ -235,7 +235,7 @@ Flowdock-User: 2
 | id | Incremental id of message. Unique only in the flow's scope. |
 | attachments | List of file attachments related to this message. Example: |
 
-```javascript
+```json
 [
   {
     "content_type":"text/html",

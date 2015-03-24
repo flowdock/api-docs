@@ -292,7 +292,7 @@ Create a flow for the specified organization.
 | ------------- | ------------ |
 | name | The name of the new flow (max. 100 characters). |
 
-```javascript
+```json
 {
   "name": "My flow"
 }
@@ -356,7 +356,7 @@ Update flow information. Only adminstrators can modify certain parts of the flow
 | disabled | Boolean value (true or false). When set to true, the flow will disappear from users, users will no longer be able to send  messages to it and users will not be able to join the flow. The flow can be considered to be archived. |
 | access_mode | How users see and access the flow. Possible values are `invitation` (the flow is invite-only – new members have to be explicitly invited or added by existing members), `link` (anyone can join the flow by using the `join_url`) or `organization` (in addition to using the link, anyone in the organization can join the flow.) |
 
-```javascript
+```json
 {
   "name": "My new flow",
   "disabled": false,
