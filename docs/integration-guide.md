@@ -10,7 +10,7 @@
 <div id="/getting-started"></div>
 ## Getting started
 
-![A support ticket from Zendesk](https://raw.githubusercontent.com/flowdock/api-docs/master/images/lifespan-of-a-support-ticket.png)
+![A support ticket from Zendesk](/images/lifespan-of-a-support-ticket.png)
 
 <small>*An example of a full-fledged Flowdock integration. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
 
@@ -45,9 +45,9 @@ Once you have everything set up, let's try sending a simple request. You can eit
 }' https://api.flowdock.com/messages
 ```
 
-This posts a [message](Messages) to the Flowdock API. Since it includes [thread](Threads) data, a new thread is created and the message is posted in the context of that thread.
+This posts a [message](messages) to the Flowdock API. Since it includes [thread](threads) data, a new thread is created and the message is posted in the context of that thread.
 
-![The message posted above](https://raw.githubusercontent.com/flowdock/api-docs/master/images/example-message-polish-the-flux-capacitor.png)
+![The message posted above](/images/example-message-polish-the-flux-capacitor.png)
 
 In this example, the message describes an [activity](message-types#/activity) that took place in the third party service – a new ticket was created. The included thread data contains the current state (name, description, etc.) of the newly created ticket.
 
@@ -68,7 +68,7 @@ We can update the status of the ticket by changing the values in the status fiel
 
 The item will update in real-time along with a message saying that the ticket was updated.
 
-![The update that just happened](https://raw.githubusercontent.com/flowdock/api-docs/master/images/update-happened.png)
+![The update that just happened](/images/update-happened.png)
 
 <div id="/a-great-integration"></div>
 ## What does a great integration look like?
@@ -80,7 +80,7 @@ For example, our Zendesk integration sends updates to Flowdock whenever a new cu
 <div id="/components-of-a-message"></div>
 ## The components of an integration message
 
-![A support ticket from Zendesk with legend](https://raw.githubusercontent.com/flowdock/api-docs/master/images/lifespan-of-a-support-ticket-legend.png)
+![A support ticket from Zendesk with legend](/images/lifespan-of-a-support-ticket-legend.png)
 
 When presenting your app's items in Flowdock as a thread, you can use these great features:
 
@@ -99,7 +99,7 @@ When posting messages into threads, there are a generally two types of messages 
 
 [Activity messages](message-types#/activity) should be used when an item in your app gets created, updated or deleted.
 
-![An activity message](https://raw.githubusercontent.com/flowdock/api-docs/master/images/activity-message.png)
+![An activity message](/images/activity-message.png)
 
 The *title* should follow the format "Marty McFly **did something**". In other words, examples of a good title are "updated ticket" or "merged pull request".
 
@@ -107,7 +107,7 @@ The *title* should follow the format "Marty McFly **did something**". In other w
 
 If the update is related to a discussion or comment in your app, you should send a [discussion](message-types#/discussion) message.
 
-![A discussion message](https://raw.githubusercontent.com/flowdock/api-docs/master/images/discussion-message.png)
+![A discussion message](/images/discussion-message.png)
 
 A discussion message's most important field is *body*. You can also set the *title* similarly as with activity messages ("said" or "commented" are good candidates).
 
@@ -128,6 +128,6 @@ Once your integration is ready for general use, make sure you've [configured you
 <div id="/an-example-integration-app"></div>
 ## An example integration app: Polldock
 
-![Polldock in its own browser window and in Flowdock](https://raw.githubusercontent.com/flowdock/api-docs/master/images/polldock-screenshot.png)
+![Polldock in its own browser window and in Flowdock](/images/polldock-screenshot.png)
 
 We've written an example polling app that updates Flowdock with new polls and votes, has a discussion integration, and even allows users to vote directly from Flowdock. The source code is [available on GitHub](https://github.com/flowdock/flowdock-example-integration). You can use it as an example for building your own integration.

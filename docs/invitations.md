@@ -1,6 +1,6 @@
 # Invitations
 
-The invitations API can be used to invite new [users](Users) to [flows](Flows).
+The invitations API can be used to invite new [users(users) to [flows(flows).
 
 ## List invitations
 Lists the open (not yet accepted) invitations of a flow.

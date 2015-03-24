@@ -1,6 +1,6 @@
 # Organizations
 
-An organization in Flowdock represents the organization/company account. [Users](Users) can belong to several organizations.
+An organization in Flowdock represents the organization/company account. [Users](users) can belong to several organizations.
 
 The attribute `parameterized_name` is used in the URLs related to the organization. As `parameterized_name` can
 be changed by the account owner, a persistent `id` is also provided in the data.

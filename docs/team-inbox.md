@@ -1,6 +1,6 @@
 # Push API: Team Inbox (deprecated)
 
-**Deprecated, use the [Messages endpoint](Messages) instead.**
+**Deprecated, use the [Messages endpoint](messages) instead.**
 
 Send mail-like messages to the team inbox of a flow.
 
@@ -20,7 +20,7 @@ POST https://api.flowdock.com/v1/messages/team_inbox/:flow_api_token
 | reply_to | Email address for replies. It will be used when replying to the message from Flowdock.  |
 | project | Human readable identifier for more detailed message categorization. Only alphanumeric characters, underscores and whitespace can be used. This identifier will be used as the secondary method of categorization for the messages. Example value: `My Project` |
 | format | Format of the message content. The default value is `html`. Only HTML is currently supported. |
-| tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
+| tags | List of [tags](tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
 | link | Link associated with the message. This will be used to link the message subject in the team inbox. Example value: `http://www.flowdock.com/` |
 
 ```json

@@ -1,6 +1,6 @@
 # How to create bidirectional integrations
 
-![Example bidirectional integration](https://raw.githubusercontent.com/flowdock/api-docs/master/images/two-way-actions.png)
+![Example bidirectional integration](/images/two-way-actions.png)
 
 Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](integration-guide). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
 

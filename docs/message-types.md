@@ -76,7 +76,7 @@ The comment event is sent when a user comments on an item in the team inbox.
 ### Data
 
 `content` is an object that contains two keys: `title` is the team inbox item's title and `text`
-contains the actual comment. The id of the parent message is stored in a [special tag](Tags):
+contains the actual comment. The id of the parent message is stored in a [special tag(tags):
 `influx:id`.
 
 ### Sample
@@ -152,7 +152,7 @@ string or an object.
 <div id="/tag-change"></div>
 ## Event: tag-change
 
-The tag-change event is sent when the tags of a message are changed. See [Tags](Tags) for more information about tags.
+The tag-change event is sent when the tags of a message are changed. See [Tags(tags) for more information about tags.
 
 ### Data
 
@@ -309,7 +309,7 @@ The file event is sent when a file has been uploaded to the chat.
 <div id="/activity"></div>
 ## Event: activity
 
-Activity messages represent events in external services. For example, that event could be a new user story for a project, an update to a support ticket or a commit to a repository. Activities are always related to some entity, which is represented by a [thread](Threads).
+Activity messages represent events in external services. For example, that event could be a new user story for a project, an update to a support ticket or a commit to a repository. Activities are always related to some entity, which is represented by a [thread](threads).
 
 Comments in external services are not considered activities – they are represented by a separate [discussion](#/discussion) message type.
 
