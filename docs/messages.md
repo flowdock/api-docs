@@ -153,7 +153,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 [
   {
     "app":"chat",
@@ -204,7 +204,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 {
   "app":"chat",
   "sent":1317397485508,
@@ -235,7 +235,7 @@ Flowdock-User: 2
 | id | Incremental id of message. Unique only in the flow's scope. |
 | attachments | List of file attachments related to this message. Example: |
 
-```javascript
+```json
 [
   {
     "content_type":"text/html",
@@ -263,7 +263,7 @@ Updates a message with the specified id. Note: only certain types and certain co
 | content | The message content. Updating content is only possible for your own messages of type `message` or `comment`. |
 | tags | Full list of message [tags](tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see. |
 
-```javascript
+```json
 {
   "content": "Updated content",
   "tags":  ["todo", "#feedback", "@all"]

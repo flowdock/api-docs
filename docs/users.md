@@ -128,7 +128,7 @@ Update the user's own information.
 | nick | The user's nickname. |
 | email | The user's email address. |
 
-```javascript
+```json
 {
   "nick": "Steve",
   "email": "steve@example.com"
@@ -158,7 +158,7 @@ Add a user to a flow. The authenticated user and the target user must be members
 | ------------- | ------------ |
 | id | The ID of the user to be added to the flow. |
 
-```javascript
+```json
 {
   "id": 42
 }
@@ -189,7 +189,7 @@ Blocks a user from a flow. Organization admins can block anyone (including other
 | ------------- | ------------ |
 | disabled | A boolean with a value of `true` to block the user, `false` to unblock them. |
 
-```javascript
+```json
 {
   "disabled": true
 }

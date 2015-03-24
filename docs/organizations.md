@@ -168,7 +168,7 @@ PUT /organizations/:parameterized_name
 | ------------- | ------------ |
 | name | The organization's display name. |
 
-```javascript
+```json
 {
   "name": "My company"
 }
