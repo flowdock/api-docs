@@ -76,7 +76,7 @@ Flowdock-User: 2
 | url | The flow's resource URL. |
 | web_url | The flow's web UI URL. |
 | name | Human-readable name of the flow. |
-| organization | [Organization](Organizations) information. |
+| organization | [Organization](organizations) information. |
 | unread_mentions | Count of unread messages that mention the authenticated user. |
 | open | Boolean value (true or false). Clients implementing tabs should display tabs for all the `open` flows, and list non-open flows elsewhere. |
 | joined | Boolean value (true or false). If false, the user must explicitly join the flow to gain access to it. This can be done with a `PUT` request that sets the `open` attribute of the flow to `true`. |

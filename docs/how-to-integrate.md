@@ -176,5 +176,3 @@ We will provide a reference to the integration as the `integration_id` query par
 ### Removing integration
 
 Only the end user can remove integrations. When this happens for one of your integrations, you will receive a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
-
-

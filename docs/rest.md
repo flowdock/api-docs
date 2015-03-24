@@ -2,16 +2,16 @@
 
 Use the REST API to authenticate as a user, get information about flows and post messages.
 
-* [Authentication](Authentication)
-* [Flow resource](Flows)
-* [Message resource](Messages)
-* [Private conversation resource](Private Conversations)
-* [Private message resource](Private Messages)
-* [User resource](Users)
-* [Organization resource](Organizations)
-* [Source resource](Sources) (for team inbox messages)
-* [Invitation resource](Invitations)
-* [Files](Files)
+* [Authentication](authentication)
+* [Flow resource](flows)
+* [Message resource](messages)
+* [Private conversation resource](private-conversations)
+* [Private message resource](private-messages)
+* [User resource](users)
+* [Organization resource](organizations)
+* [Source resource](sources) (for team inbox messages)
+* [Invitation resource](invitations)
+* [Files](files)
 
 ## Structure of an API request
 
@@ -27,11 +27,11 @@ https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
 ```
 
 * `https`: The Flowdock API is served over secure HTTP *only*.
-* `user:pass`: HTTP basic authentication credentials. You can use a user's email/password or user-specific tokens. See [Authentication](Authentication). **NOTE**: When using email/password, remember to URI encode them. Characters outside the ASCII character set can exist in the e-mail address (the @ sign) and password.
+* `user:pass`: HTTP basic authentication credentials. You can use a user's email/password or user-specific tokens. See [Authentication](authentication). **NOTE**: When using email/password, remember to URI encode them. Characters outside the ASCII character set can exist in the e-mail address (the @ sign) and password.
 * `api.flowdock.com`: The API endpoint domain.
 * `flows`: The resource which is being requested.
-* `org`: The `parameterized_name` of the [organization](Organizations).
-* `flow`: The `parameterized_name` of the [flow](Flows).
+* `org`: The `parameterized_name` of the [organization](organizations).
+* `flow`: The `parameterized_name` of the [flow](flows).
 * `messages`: The sub-resource, a resource which is accessed in the scope of the parent resource. In some cases there may be multiple sub-resources.
 * `message_id`: Identifier of the sub-resource.
 

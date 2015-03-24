@@ -1,6 +1,6 @@
 # Messages
 
-There are several different [Message Types](Message Types): in addition to sending plain chat messages, you can post content to the team inbox, upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
+There are several different [Message Types](message-types): in addition to sending plain chat messages, you can post content to the team inbox, upload files and set the user's status. Messages are a sub-resource of flows, meaning they should always be accessed in a flow's context.
 
 ## Send a message
 
@@ -29,12 +29,12 @@ Sending a message to a flow is possible using all authentication methods, includ
 
 | Name          | Description  |
 | ------------- | ------------ |
-| flow | **Required when flow is not specified in the URL or when not using a flow_token.** The `id` of the target [flow](Flows). Can be specified in the URL. |
+| flow | **Required when flow is not specified in the URL or when not using a flow_token.** The `id` of the target [flow](flows). Can be specified in the URL. |
 | event | **Required.** The message event type. See the [Message Types](messages#/message-type) section below.  |
 | content | **Required.** The message content. The format of the content depends on the event type. See the [Message Types](messages#/message-type) section below. |
 | message | **Required for comments.** The `id` of the commented parent message (which must not be a comment). Can be specified in the URL. |
-| tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
-| external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](Chat).  |
+| tags | List of [tags](tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
+| external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
 | thread_id | The `id` of the [thread](threads) this message is being posted to. In order to post a message into a thread, this or `external_thread_id` is **required**. |
 | external\_thread\_id | An ID (specified by the API user) to identify the thread this message should be added to. The ID should be unique within the [source](sources). For examples, see the integration guide's [section about posting to the inbox](how-to-integrate#/post-inbox). |
@@ -73,7 +73,7 @@ Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comm
 
 <div id="/message-type"></div>
 ### Message Types
-The event parameter in the message data defines the type of message. More information can be found on the [Message Types](Message Types) page.
+The event parameter in the message data defines the type of message. More information can be found on the [Message Types](message-types) page.
 
 #### Normal Chat message
 Event: `message`
@@ -143,7 +143,7 @@ Lists messages from a flow, filtered by parameters.
 | limit | Maximum number of messages to return. Accepted values range from 1 to 100. Defaults to 30. |
 | sort | Descending order is used by default. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their `id`. The sort parameter is for toggling between fetching the latest or the oldest matching messages. |
 | since\_id and until\_id | Get messages starting from or leading to a message `id`. The message specified with the parameter won't be included in the response. |
-| tags | Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an AND search of those tags by default (see `tag_mode` parameter). When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. Read more at [Tags](Tags). |
+| tags | Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an AND search of those tags by default (see `tag_mode` parameter). When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. Read more at [Tags](tags). |
 | tag_mode | Toggles tag filtering of messages. By default the value is `and`. Use value `or` to search for messages that contain any of the tags specified in `tags`. |
 | search | Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces. |
 
@@ -224,9 +224,9 @@ Flowdock-User: 2
 ```
 | Name          | Description  |
 | ------------- | ------------ |
-| event | The type of the message. E.g. a chat message or tweet. See [Message Types](Message Types). |
-| content | Data payload. The format depends on the event type, as documented in [Message Types](Message Types). |
-| tags | List of tags as strings. Tags containing colon characters have a [special meaning](Tags) and can be discarded when showing the tags in the user interface. |
+| event | The type of the message. E.g. a chat message or tweet. See [Message Types](message-types). |
+| content | Data payload. The format depends on the event type, as documented in [Message Types](message-types). |
+| tags | List of tags as strings. Tags containing colon characters have a [special meaning](tags) and can be discarded when showing the tags in the user interface. |
 | app | Deprecated. |
 | uuid | Optional client-generated universal identifier for the message. Used to recognize messages sent by a client. |
 | user | Numerical user id of user |
@@ -261,7 +261,7 @@ Updates a message with the specified id. Note: only certain types and certain co
 | Name          | Description  |
 | ------------- | ------------ |
 | content | The message content. Updating content is only possible for your own messages of type `message` or `comment`. |
-| tags | Full list of message [tags](Tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see. |
+| tags | Full list of message [tags](tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see. |
 
 ```javascript
 {

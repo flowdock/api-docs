@@ -41,7 +41,7 @@ Tags beginning with an at-sign get mapped to the id of a user with corresponding
 
 ### User
 
-If a message gets tagged with, for example, `@Marty`, the meta tag that is actually added is `:user:16` (or whatever Marty's user id is). This mapping allows for users to change their nicknames and not lose reference to messages that were tagged earlier. The raw form should not be shown to user, but the human-readable tag `@Marty` should be used instead. The list of a flow's users can be fetched using the [Flows resource](Flows).
+If a message gets tagged with, for example, `@Marty`, the meta tag that is actually added is `:user:16` (or whatever Marty's user id is). This mapping allows for users to change their nicknames and not lose reference to messages that were tagged earlier. The raw form should not be shown to user, but the human-readable tag `@Marty` should be used instead. The list of a flow's users can be fetched using the [Flows resource](flows).
 
 Example:
 
@@ -86,7 +86,7 @@ If a message has file attachments, it gets tagged with `:file`. This can be expe
 ### Comments
 > _DISCLAIMER: This tag type is likely to change in the near future._
 
-[Team inbox comments](Message-Types) get a tag of the form `influx:3456` to store a reference to the id of the (parent) commented Inbox item.
+[Team inbox comments](message-types) get a tag of the form `influx:3456` to store a reference to the id of the (parent) commented Inbox item.
 
 Example:
 
@@ -97,7 +97,7 @@ influx:123445
 
 ### Team inbox source
 
-All messages sent to the team inbox via the [Team Inbox Push API](Team-Inbox) get tagged with a user-provided `source` parameter.
+All messages sent to the team inbox via the [Team Inbox Push API](team-inbox) get tagged with a user-provided `source` parameter.
 
 Example:
 

@@ -1,6 +1,6 @@
 # Push API: Chat (deprecated)
 
-**Deprecated, use the [Messages endpoint](Messages) instead.**
+**Deprecated, use the [Messages endpoint](messages) instead.**
 
 Post messages to a flow's chat from an "external user".
 
