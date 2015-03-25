@@ -60,7 +60,7 @@ Flowdock-User: 2
 ```
 
 
-## List organizations users
+## List an organization's users
 
 List the users of an organization.
 
@@ -88,6 +88,22 @@ Flowdock-User: 2
   },
   ...
 ]
+```
+
+## Remove a user from an organization
+
+To remove a user from an organization, you will need to have administrator rights to the organization.
+
+```
+DELETE /organizations/:organization/users/:id
+```
+[URL breakdown](rest#/url-breakdown)
+
+### Response
+```
+HTTP/1.1 204 OK
+Content-Type: application/json; charset=utf-8
+Flowdock-User: 2
 ```
 
 ## Get a user
