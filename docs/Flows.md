@@ -24,7 +24,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 [
   {
     "id": "deadbeefdeadbeef",
@@ -107,7 +107,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 [
   {
     "id": "deadbeefdeadbeef",
@@ -169,7 +169,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
@@ -230,7 +230,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
@@ -304,7 +304,7 @@ HTTP/1.1 201 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 9
 ```
-```
+```json
 {
   "id": "deadbeefdeadbeef",
   "name": "My flow",
@@ -369,7 +369,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 9
 ```
-```
+```json
 {
   "id": "deadbeefdeadbeef",
   "name": "My new flow",

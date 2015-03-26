@@ -5,7 +5,7 @@ In Flowdock, the user interacts directly with two types of tags: *hashtags* and 
 
 The following message sent to Flowdock...
 
-```
+```json
 {
   "event": "message",
   "content": "@Marty, there's a severe #bug in the flux-capacitor, see http://example.com",
@@ -15,7 +15,7 @@ The following message sent to Flowdock...
 
 ...would be dispatched to other listening clients in this form:
 
-```
+```json
 {
   "event": "message",
   "content": "@Marty, there's a severe #bug in the flux-capacitor.",

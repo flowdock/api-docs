@@ -57,7 +57,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": 14,
   "state": "pending",
@@ -96,7 +96,7 @@ HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": 9,
   "state": "pending",
@@ -122,7 +122,7 @@ POST /flows/:organization/:flow/invitations/import
 | list | **Required** A list of email addresses to invite. The list can be separated by commas or linefeeds, and the email addresses can be in either of the following formats: `person@example.com` or `"Joe Smith" <person@example.com>` |
 | message | An optional message that is added to the invitations. |
 
-```
+```json
 {
   "list": "someone@example.com, \"Joe Smith\" <person@example.com>",
   "message": "Please join our team's Flow."
@@ -135,7 +135,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "invitations": [
     {
@@ -186,6 +186,6 @@ HTTP/1.1 204 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {}
 ```

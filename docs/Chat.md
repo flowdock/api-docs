@@ -16,7 +16,8 @@ POST https://api.flowdock.com/v1/messages/chat/:flow_api_token
 | external\_user\_name | **Required** Name of the "user" sending the message. |
 | tags | Tags of the message, separated by commas. Example value: `cool,stuff` |
 | message_id | id of another message that's being commented. If supplied, instead of a regular message, adds a comment to another message. Only messages that are not comments themselves can be commented. |
-```
+
+```json
 {
   "content": "Howdy-Doo @Jackie #awesome",
   "external_user_name": "Stevie",

@@ -9,7 +9,8 @@ Here's an example activity message which includes an UpdateAction. This example 
 
 ```
 POST https://api.flowdock.com/messages
-
+```
+```json
 {
   "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",
   "event": "activity",

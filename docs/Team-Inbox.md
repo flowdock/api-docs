@@ -23,7 +23,7 @@ POST https://api.flowdock.com/v1/messages/team_inbox/:flow_api_token
 | tags | List of [tags](Tags) to be added to the message. Can either be an array (JSON only) or a string with tags delimited with commas. User tags should start with '@'. Hashtags can optionally be prefixed with "#". Tags are case insensitive. These are equivalent: `["@Mike", "#cool", "awesome"]` and `"#awesome,cool,@mike"` |
 | link | Link associated with the message. This will be used to link the message subject in the team inbox. Example value: `http://www.flowdock.com/` |
 
-```
+```json
 {
   "source": "News digest service",
   "from_address": "news@example.com",
@@ -38,7 +38,7 @@ POST https://api.flowdock.com/v1/messages/team_inbox/:flow_api_token
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
-```
+```json
 {}
 ```
 

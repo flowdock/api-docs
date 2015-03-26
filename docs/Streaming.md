@@ -52,15 +52,17 @@ The [EventSource API](http://www.w3.org/TR/eventsource/#the-eventsource-interfac
 is implemented in most browsers. Even older browsers can use this interface via a
 [polyfill](https://github.com/Yaffle/EventSource).
 
+```javascript
     var stream = new EventSource('https://stream.flowdock.com/flows?filter=<flow-id>&access_token=<oauth-token>')
     stream.onmessage = function(event) {
       var message = JSON.parse(event.data);
       // handle message
     }
-
+```
 
 ## Ruby Example (JSON stream)
 
+```ruby
     require 'eventmachine'
     require 'em-http'
     require 'json'
@@ -83,6 +85,7 @@ is implemented in most browsers. Even older browsers can use this interface via 
         end
       end
     end
+```
 
 ## Ruby Example (Event-Stream)
 

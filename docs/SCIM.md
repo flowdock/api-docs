@@ -28,7 +28,7 @@ GET https://api.flowdock.com/scim/:uid
 ```
 
 #### Response
-```
+```json
 {
   "message": "Authorization ok"
 }
@@ -87,7 +87,7 @@ Content-Type: application/json
 
 #### Response
 
-```
+```json
 {
   "Resources": [
     {
@@ -164,7 +164,7 @@ Content-Type: application/json
 
 #### Response
 
-```
+```json
 {
   "id": 1,
   "externalId":"johndoe@example.com",
@@ -220,7 +220,8 @@ PUT https://api.flowdock.com/scim/123456/Users/1
 Authorization: Bearer 1b54iFrTbKIgP0Fl657cHA
 Accept: application/json
 Content-Type: application/json
-
+```
+```json
 {
   "name": {
     "givenName": "New",
@@ -302,7 +303,8 @@ POST https://api.flowdock.com/scim/123456/Users
 Authorization: Bearer 1b54iFrTbKIgP0Fl657cHA
 Accept: application/json
 Content-Type: application/json
-
+```
+```json
 {
   "userName": "johndoe"
   "name": {
@@ -323,7 +325,7 @@ Content-Type: application/json
 
 A successfull request will result in a `201 Created` response.
 
-```
+```json
 {
   "id": 1,
   "externalId":"johndoe",
