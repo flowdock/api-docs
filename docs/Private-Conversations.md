@@ -116,12 +116,12 @@ Update private conversation information.
 }
 ```
 ### Response
-```json
+```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": 42,
   "url": "https://api.flowdock.com/private/42",
