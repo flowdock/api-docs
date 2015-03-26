@@ -120,7 +120,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {
   "id": 9,
   "email": "john@example.com",
@@ -157,7 +157,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {}
 ```
 
@@ -217,6 +217,6 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {}
 ```

@@ -73,9 +73,10 @@ Example request:
 
 ```
 POST https://api.flowdock.com/flows/:org/:flow/sources
-
+```
+```json
 {
-  name: "My project"
+  "name": "My project"
 }
 ```
 
@@ -85,7 +86,7 @@ POST https://api.flowdock.com/flows/:org/:flow/sources
 
 Example response data:
 
-```
+```json
 {
   "id": 36,
   "name": "My project",
@@ -120,7 +121,8 @@ Example request:
 
 ```
 POST https://api.flowdock.com/messages
-
+```
+```json
 {
   "flow_token": "3e2252e2e164d70ebbc5c59b9db629c8",
   "event": "activity",

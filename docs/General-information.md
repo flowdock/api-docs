@@ -29,7 +29,7 @@ Example:
 POST https://api.flowdock.com/v1/messages/chat/_YOUR_API_TOKEN_HERE_
 ```
 
-```
+```json
 {
   "external_user_name": "foobar",
   "content": ""
@@ -42,7 +42,7 @@ Response:
 HTTP/1.1 400 Bad Request
 Content-Type: application/json; charset=utf-8
 ```
-```
+```json
 {
   "message":  "Validation error",
   "errors":  {

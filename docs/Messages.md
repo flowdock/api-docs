@@ -41,7 +41,7 @@ Sending a message to a flow is possible using all authentication methods, includ
 | thread | New state for the [thread](threads). |
 | attachments | List of attachments for a message. Only valid for `activity` and `discussion` events. See [files](files). |
 
-```
+```json
 {
   "event": "message",
   "content": "Howdy-Doo @Jackie #awesome",
@@ -56,7 +56,7 @@ Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 Link: http://api.flowdock.com/flows/acme/main/messages/12345/comments; rel="comments"
 ```
-```
+```json
 {
   "id": 12345,
   "event": "message",
@@ -97,7 +97,7 @@ Event: `file`
 
 The format of `content` is different depending on the `Content-Type` of the request. When using `application/json`, the binary is sent as a Base64-encoded string within the JSON. Example:
 
-```
+```json
 {
   "data": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ\nbWFnZVJlYWR5ccllPAAAAElJREFUeNpiYECA/UD8n0y8nwENUGIYTkOpAhihplMNMFHbhVQ3kIVA\ncOAD/0k1kAFP+DIO3UgZTYej6XA0HY6mw9F0CAEAAQYAk/gtCSEUikYAAAAASUVORK5CYII=\n",
   "content_type": "image/png",
@@ -204,7 +204,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```javascript
+```json
 {
   "app":"chat",
   "sent":1317397485508,
@@ -263,7 +263,7 @@ Updates a message with the specified id. Note: only certain types and certain co
 | content | The message content. Updating content is only possible for your own messages of type `message` or `comment`. |
 | tags | Full list of message [tags](Tags). Any existing tags that aren't included in this parameter are removed from the message. As in the web UI, anyone can edit the tags of any message they can see. |
 
-```javascript
+```json
 {
   "content": "Updated content",
   "tags":  ["todo", "#feedback", "@all"]
@@ -276,7 +276,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```
+```json
 {}
 ```
 

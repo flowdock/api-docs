@@ -130,7 +130,7 @@ string or an object.
 | remove\_twitter\_search | A Twitter keyword is removed from the flow. `description` is the same as in `add_twitter_search`. |
 
 ### Sample
-```
+```json
 {
   "app": "chat",
   "sent": 1317397485508,
@@ -165,7 +165,7 @@ The tag-change event is sent when the tags of a message are changed. See [Tags](
 | remove | A list of tags that were removed from the message. |
 
 ### Sample
-```
+```json
 {
   "app": null,
   "sent": 1317397485508,
@@ -200,7 +200,7 @@ The message-edit event is sent when the the content of a message is changed. Onl
 | updated_content | The new content of the message. |
 
 ### Sample
-```
+```json
 {
   "app": null,
   "sent": 1317397425508,
@@ -235,7 +235,7 @@ These messages are not stored in Flowdock's database.
 timestamp is not always present when e.g. user is idle.
 
 ### Sample
-```
+```json
 {
   "event": "activity.user",
   "tags": [],
@@ -261,7 +261,7 @@ The file event is sent when a file has been uploaded to the chat.
 `content` is an object that contains metadata about the uploaded file. The `attachments` field will contain a single attachment with the same data. In the metadata, the `path` field contains the REST API path of the file. See [Files](files) for more.
 
 ### Sample
-```
+```json
 {
   "id": 31572,
   "app": "chat",
@@ -330,7 +330,7 @@ _Bolded text denotes a required field when posting a message._
 
 ### Sample
 
-```
+```json
 {
   "id": 13895827,
   "sent": 1411560930521,
@@ -404,7 +404,7 @@ _Bolded text denotes a required field when posting a message._
 
 ### Sample
 
-```
+```json
 {
   "id": 13904478,
   "sent": 1411632833971,
