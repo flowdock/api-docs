@@ -20,7 +20,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Flowdock-User: 2
 ```
-```json
+```javascript
 [
   {
     "id": 42,
@@ -46,7 +46,7 @@ Flowdock-User: 2
       "name": "Hubot Hubot"
     }]
   },
-  ...
+  // ...
 ]
 ```
 

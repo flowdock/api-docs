@@ -76,7 +76,7 @@ POST https://api.flowdock.com/flows/:org/:flow/sources
 ```
 ```json
 {
-  name: "My project"
+  "name": "My project"
 }
 ```
 

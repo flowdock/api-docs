@@ -38,7 +38,7 @@ Flowdock-User: 2
       "user_count": 10,
       "active": true,
       "url": "https://api.flowdock.com/organizations/example"
-    }
+    },
     "unread_mentions": 0,
     "open": true,
     "joined": true,
@@ -59,7 +59,7 @@ Flowdock-User: 2
       "user_count": 5,
       "active": true,
       "url": "https://api.flowdock.com/organizations/acme"
-    }
+    },
     "unread_mentions": 0,
     "open": true,
     "joined": true,
@@ -121,7 +121,7 @@ Flowdock-User: 2
       "user_count": 5,
       "active": true,
       "url": "https://api.flowdock.com/organizations/acme"
-    }
+    },
     "unread_mentions": 0,
     "open": false,
     "joined": false,
@@ -142,7 +142,7 @@ Flowdock-User: 2
       "user_count": 5,
       "active": true,
       "url": "https://api.flowdock.com/organizations/acme"
-    }
+    },
     "unread_mentions": 0,
     "open": true,
     "joined": true,

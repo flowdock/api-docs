@@ -306,7 +306,7 @@ Content-Type: application/json
 ```
 ```json
 {
-  "userName": "johndoe"
+  "userName": "johndoe",
   "name": {
     "givenName": "John",
     "familyName": "Doe"
