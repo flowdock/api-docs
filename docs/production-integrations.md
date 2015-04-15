@@ -2,13 +2,13 @@
 
 ### Introduction
 
-This guide will step you through the process of integrating your web app with Flowdock. Once integrated and published, Flowdock users can add your integration straight from their Flowdock client and your app will be able to send notifications to their flows. All future [integrations](/integrations) that aim to get published should be built in a similar manner.
-
-The guide is divided into the four steps of the development process.
+This guide will step you through the process of integrating your web app with Flowdock. Once integrated and published, Flowdock users can add your integration straight from their Flowdock client and your app will be able to send notifications to their flows. All [integrations](/integrations) that aim to target all Flowdock users should be built in a similar manner.
 
 We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails. This guide will point you to relevant parts of the code.
 
 If you have any questions, don't hesitate to contact the development team at [support@flowdock.com](mailto:support@flowdock.com).
+
+This guide is divided into the four steps of the development process:
 
 ### Steps
 
@@ -21,7 +21,10 @@ If you have any questions, don't hesitate to contact the development team at [su
 
 * [Publish your application](#/publish-app)
 * [Integration configuration](#/integration-configuration)
-* [Removing integration](#/integration-remove)
+* [Removing an integration](#/integration-remove)
+
+![A support ticket from Zendesk](/images/lifespan-of-a-support-ticket.png)
+<small>*An example of a full-fledged Flowdock integration. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
 
 <div id="/create-app"></div>
 ## 1. Create an application in Flowdock
