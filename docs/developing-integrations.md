@@ -1,15 +1,21 @@
 # Developing integrations
 
-Flowdock provides a full-fledged framework for creating custom applications that can integrate to flows. Due to the complexity related to production grade integrations, we also have a hands-on guide for getting messages to your flow within just minutes.
+An integration with Flowdock usually means one thing: getting content from another tool or service into a [flow](/help/flows), the central place where a team communicates. Integrating with a flow's [team inbox](/help/team_inbox) brings visibility into whatever is happening in the third party service, and lets the team make this activity [the context for their conversations](/help/chat). This type of integration is achieved with an integration application.
 
-## Getting started quickly
+Flowdock provides a full-fledged framework for creating custom applications that integrate with flows. An integration application can range from being really simple (sends messages to a flow's team inbox) to fully-featured, with bidirectional actions and grouped messages.
 
-Great for quickly testing how to post messages to flows, seeing how different fields are presented in the user interface and creating integrations just for your own organization.
+We've split this integration guide into two parts. The first part is a hands-on guide for quickly getting messages posted to a flow, while the second part goes into the inherent complexities of building a production-grade integration.
 
-[Read more](integration-guide)
+If anything is unclear, [we'd love to get your feedback](mailto:support@flowdock.com) so that we can improve the documentation.
 
-## Creating production grade integrations
+### 1. Quick start guide: Post messages to a flow
 
-Want to provide the end users of your service the ability to easily add your integration to a flow and receive notifications from your service? This exhaustive guide provides step by step instructions on configuring a publishable application, handling OAuth authorization with end users and finally getting your integration published.
+This guide should help you test out Flowdock's integration API, post messages to flows and see how different fields are presented in the user interface. If you're interested in building an internal-only integration for your team or organization, this guide should suffice.
+
+[Read more](integration-getting-started)
+
+### 2. Creating an integration for all Flowdock users
+
+Want to provide an integration for all of Flowdock's users? This exhaustive guide is for you. It provides step-by-step instructions on configuring a publishable application, handling OAuth authorization with users and finally getting your integration published.
 
 [Read more](production-integrations)

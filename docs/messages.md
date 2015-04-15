@@ -123,7 +123,7 @@ There are a few types of messages that can belong to a [thread](threads):
  * [Message](message-types#/message) - comments/discussion in Flowdock
  * [File](message-types#/file) - uploaded file stored in Flowdock
 
-To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the production grade integration guide](production-integrations). If you just want to post messages to your own flows, have a look at the [the quick integration guide](integration-guide) for instructions on how to skip the authorization process and obtain a token posting messages.
+To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the production grade integration guide](production-integrations). If you just want to post messages to your own flows, have a look at the [the quick integration guide](integration-getting-started) for instructions on how to skip the authorization process and obtain a token posting messages.
 
 <div id="/list"></div>
 ## List Messages

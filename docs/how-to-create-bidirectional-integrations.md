@@ -2,7 +2,7 @@
 
 ![Example bidirectional integration](/images/two-way-actions.png)
 
-Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](integration-guide). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
+Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](developing-integrations). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
 
 Here's an example activity message which includes an UpdateAction. This example defines an "assign to me" action. When it's clicked in the Flowdock UI, a signed POST request will be sent to the defined URL.
 
