@@ -1,8 +1,8 @@
-# How to integrate with Flowdock
+# Creating a production grade integration
 
 ### Introduction
 
-This guide will step you through the process of integrating your web app with Flowdock. Once integrated, your app will be able to send notifications to Flowdock flows. All future public [integrations](/integrations) should be built in a similar manner.
+This guide will step you through the process of integrating your web app with Flowdock. Once integrated and published, Flowdock users can add your integration straight from their Flowdock client and your app will be able to send notifications to their flows. All future [integrations](/integrations) that aim to get published should be built in a similar manner.
 
 The guide is divided into the four steps of the development process.
 

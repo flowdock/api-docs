@@ -8,7 +8,7 @@ Sources can be accessed with [flow token authentication](authentication#source-t
 in which case only the specific source is exposed. Creating new sources requires
 OAuth 2.0 authentication.
 
-See [how to integrate](how-to-integrate) for more information about building integrations.
+See [how to integrate](production-integrations) for more information about building integrations.
 
 
 <a id="/list"></a>

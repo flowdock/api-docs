@@ -84,7 +84,7 @@ If the action cannot be completed because the user needs to authenticate first, 
 
 The following example demonstrates how to return an authentication challenge for the user. As a best practice, we've appended the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction. This enables one click authentication that avoids [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-When we receive the request for the new authentication, we make sure that the claim's Flowdock user ID matches with the Flowdock user ID that is received from user's [authorization for Flowdock](how-to-integrate#/oauth2-authorize).
+When we receive the request for the new authentication, we make sure that the claim's Flowdock user ID matches with the Flowdock user ID that is received from user's [authorization for Flowdock](production-integrations#/oauth2-authorize).
 
 ```ruby
   def response_authentication_challenge(user_id)
