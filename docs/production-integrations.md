@@ -20,7 +20,7 @@ If you have any questions, don't hesitate to contact the development team at [su
 ### Additional steps
 
 * [Publish your application](#/publish-app)
-* [Integration configuration](#/integration-config)
+* [Integration configuration](#/integration-configuration)
 * [Removing integration](#/integration-remove)
 
 <div id="/create-app"></div>
