@@ -1,14 +1,14 @@
 # Sources
 
 Sources provide content from external sources to a flow. These include
-integrations such as GitHub, Rally and Zendesk. Each source has a secret
-`flow_token` that is used for authentication when posting content to a flow.
+[integrations](/integrations) such as GitHub, Rally and Zendesk. Each source has a secret
+`flow_token` that is used for authentication when [posting content to a flow](production-integrations#/post-inbox).
 
 Sources can be accessed with [flow token authentication](authentication#source-token),
 in which case only the specific source is exposed. Creating new sources requires
-OAuth 2.0 authentication.
+OAuth 2.0 authorization by an end user. See [the exhaustive integration guide](production-integrations) for more information on building integrations that use the OAuth framework.
 
-See [how to integrate](production-integrations) for more information about building integrations.
+If you just want to post messages to your own flows, have a look at the [the quick integration guide](integration-getting-started) for instructions on how to create sources without the OAuth authorization process.
 
 
 <a id="/list"></a>
@@ -194,12 +194,12 @@ POST /flows/:organization/:flow/sources
 ```
 
 Create a source for the specified flow. The source will be assigned a
-`flow_token` that can be used to push content by the OAuth application to the
+`flow_token` that can be used to [push content](production-integrations#/post-inbox) by [the OAuth application](production-integrations#/create-app) to the
 flow.
 
 ### OAuth scope requirements
 
-This endpoint is currently only available for OAuth applications with scope
+This endpoint is currently only available for [OAuth applications](production-integrations#/create-app) with scope
 `integration`. The OAuth application will be used as the application attribute
 of the source.
 
