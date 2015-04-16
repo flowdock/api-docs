@@ -4,9 +4,9 @@ An integration with Flowdock usually means one thing: getting an activity feed f
 
 Flowdock provides a full-fledged framework for creating custom applications that integrate with flows. An integration application can range from being really simple (sends messages to a flow's team inbox) to fully-featured, with bidirectional actions and grouped messages.
 
-We've split this integration guide into two parts. The first part is a hands-on guide for quickly getting messages posted to a flow, while the second part goes into the inherent complexities of building a production-grade integration.
+We've split this integration guide into two parts. The first part is a hands-on guide for quickly getting messages posted to a flow, while the second part goes into the inherent complexities of the OAuth authentication process and building a production-grade integration.
 
-If anything is unclear, [we'd love to get your feedback](mailto:support@flowdock.com) so that we can improve the documentation.
+If anything is unclear, [we'd love to get your feedback](mailto:support@flowdock.com) so that we can help you and improve the documentation.
 
 ### 1. Quick start guide: Post messages to a flow
 

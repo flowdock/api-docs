@@ -1,14 +1,14 @@
 # Integration quick start guide
 
+*This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with Flowdock, you can read [part 2](production-integrations) of our integration guide.*
+
+
 * [Getting started](#/getting-started)
 * [What does a great integration look like?](#/a-great-integration)
 * [The components of an integration message](#/components-of-a-message)
 * [Message types](#/message-types)
 * [Share your integration](#/share-your-integration)
 * [An example integration app: Polldock](#/an-example-integration-app)
-
-
-*This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with Flowdoc, you can read [part 2](production-integrations) of our integration guide.*
 
 <div id="/getting-started"></div>
 ### Getting started
@@ -18,7 +18,7 @@ Getting content into a flow requires the creation of two things:
 1. A developer (integration) application
 2. A [source](/api/sources) for each flow into which you want to send messages
 
-Start off by [creating a developer application](https://www.flowdock.com/oauth/applications), then generate a flow token for the desired flow(s). For testing purposes, you can generate [sources](/api/sources) using the Source generation tool that is available on the developer application's page, under Tools. Note that the flow token is only displayed once: when you create the source. Be sure to store it some place safe!
+Start off by [creating a developer application](https://www.flowdock.com/oauth/applications), then generate a [source](/api/sources) (and flow token) for the desired flow(s). For testing purposes, you can generate sources using the Source generation tool that is available on the developer application's page, under Tools. Note that the flow token is only displayed once: when you create the source. Be sure to store it some place safe!
 
 Once you've created a source, let's try sending a simple request. You can use the snippet below by replacing the `flow_token`  parameter with your source's flow token.
 
