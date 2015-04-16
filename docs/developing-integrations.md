@@ -1,6 +1,6 @@
 # Developing integrations
 
-An integration with Flowdock usually means one thing: getting content from another tool or service into a [flow](/help/flows), the central place where a team communicates. Integrating with a flow's [team inbox](/help/team_inbox) brings visibility into whatever is happening in the third party service, and lets the team make this activity [the context for their conversations](/help/chat). This type of integration is achieved with an integration application.
+An integration with Flowdock usually means one thing: getting an activity feed from another tool or service into a [flow](/help/flows), the central place where a team communicates. Integrating with a flow's [team inbox](/help/team_inbox) brings visibility into whatever is happening in the third party service, and lets the team make this activity [the context for their conversations](/help/chat). This type of integration is achieved with an integration application.
 
 Flowdock provides a full-fledged framework for creating custom applications that integrate with flows. An integration application can range from being really simple (sends messages to a flow's team inbox) to fully-featured, with bidirectional actions and grouped messages.
 
