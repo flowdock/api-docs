@@ -1,4 +1,6 @@
-# Creating a production grade integration
+# Creating a production-grade integration
+
+*This guide dives into the details of building an integration for all Flowdock users. If you're interested in just posting messages to a flow or building an internal-only integration, read our [getting started integration guide](integration-getting-started).*
 
 ### Introduction
 
@@ -8,14 +10,15 @@ We have created [an example application](https://github.com/flowdock/flowdock-ex
 
 If you have any questions, don't hesitate to contact the development team at [support@flowdock.com](mailto:support@flowdock.com).
 
-This guide is divided into the four steps of the development process:
+This guide is divided into the five steps of the development process:
 
 ### Steps
 
 1. [Create an application in Flowdock](#/create-app)
-2. [Authorize the application](#/oauth2-authorize)
-3. [Add your app as a source](#/create-integration)
-4. [Post messages to the flow](#/post-inbox)
+2. [Create an endpoint in your app](#/create-endpoint)
+3. [Authorize the application](#/oauth2-authorize)
+4. [Add your app as a flow source](#/create-integration)
+5. [Post messages to the flow](#/post-inbox)
 
 ### Additional steps
 
@@ -29,27 +32,31 @@ This guide is divided into the four steps of the development process:
 <div id="/create-app"></div>
 ## 1. Create an application in Flowdock
 
-The first step is to [create a new Flowdock developer application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on the [Developer applications page](https://www.flowdock.com/oauth/applications).
+The first step is to [create a new Flowdock developer application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on your [developer applications page](https://www.flowdock.com/oauth/applications).
 
-Follow the instructions in the form. After creating the application, you should see your Application Id and Secret tokens. You will use these when sending OAuth requests to Flowdock from your application.
+Follow the instructions in the form. After creating the application, you should see your Application ID and Secret tokens. There are used when sending OAuth requests to Flowdock from your application.
 
-First, you will need an endpoint in your web application that the user will be redirected to when they start setting up an integration with their flow. Once your application is published, users will find this link in the Flowdock app's "Inbox Settings" view. For testing purposes, on your Developer application's page, there is a flow dropdown that will generate the full setup URI for that specific flow. Your setup endpoint should start by allowing the user to authorize your app to post messages to Flowdock, which is explained in the following step.
+<div id="/create-endpoint"></div>
+## 2. Create an endpoint in your app
+First, you will need a setup endpoint in your web application. The user will be redirected to this endpoint when they start setting up an integration with their flow, and once your application is published, users will find a link to it the flow's "Inbox Settings". For testing purposes, on your developer application's page, there is a flow dropdown that will generate the full setup URI for that specific flow.
+
+Initially, the purpose of the endpoint is to identify the user in the external service (e.g. make sure they are logged in or have provided an API token), after which the user is redirected back to Flowdock in order to give the external service access to the desired flow. If the user authorizes this, they are redirected back to the external service with an OAuth access token and information about the target flow. This is explained in more detail below.
 
 <div id="/oauth2-authorize"></div>
-## 2. Authorize the application
+## 3. Authorize the application
 
 Your web application will need to be authorized using OAuth 2.0.
 
-OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to Flowdock on a user's behalf without getting access their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. Because of multiple gotchas, we recommend using an established library to implement your OAuth flow.
+OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to a service on a user's behalf without getting access their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. Because of multiple gotchas, we recommend using an established library to implement your OAuth flow.
 
-In your web app, create the endpoint that you specify as the Callback URI in your Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)).
+The endpoint created in step 2 should be specified as the Callback URI in your Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)).
 
-In our example Rails application, we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Flowdock strategy for Omniauth](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token, as you can see from the [callback endpoint in our example app](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
+In our example Rails application, we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Omniauth Flowdock strategy](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token, as you can see from the [callback endpoint in our example application](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
 
-Once you have obtained an access token for the end user, you need to set up your web app as a notifications source for the specified flow. This is described in the next section of this guide.
+Once you have obtained an access token, you need to create a flow-specific [source](sources) for your web app in the desired flow. This is described in the next section of this guide.
 
 <div id="/create-integration"></div>
-## 3. Add your app as a source
+## 4. Add your app as a source
 
 Before you can post messages to a flow, you need to use the access token (obtained in the previous step) and the flow parameters (that your setup endpoint received as query parameters) to add your app to the flow's team inbox as a [source](sources). Once done, you will obtain a `flow_token` that can be used to post ([messages](messages)) into the flow's team inbox.
 
@@ -68,7 +75,7 @@ This part of the process is implemented as part of the callback [in the example 
 <div id="/post-integration"></div>
 ### Example: Posting to the sources endpoint
 
-With the access token and flow data, you can create the actual integration between the flow and your application.
+With the access token and flow data, you can create the source – the actual integration – between the flow and your application.
 
 The flow data contains an attribute called `links`. The attribute lists available API resources for the flow and what HTTP methods are allowed for the authenticated user. You can find the integrations endpoint URL under the `sources` resource.
 
@@ -109,14 +116,14 @@ Example response data:
 | flow_token | The token for posting [messages](messages) to the flow's team inbox. |
 | application | Information about the integration application. |
 
-Storing the reference (id) is optional, but very useful if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#/integration-configuration).
+It is important to store the flow_token at this point since retrieving it later on is not possible. It is the (secret) token that is used to authenticate when posting messages. Storing the reference (id) is optional, but is required if your application contains settings that can be changed by the end user later on. Read more about [integration configuration](#/integration-configuration).
 
 This part of the process is implemented [in routes.rb](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb) in our example application.
 
-You can now test the integration flow by going to your [Applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything goes well, you should see a message about a new integration in your flow.
+You can now test the integration flow by going to your [applications page](https://www.flowdock.com/account/authorized_applications), selecting your application and clicking Start setup process after choosing a target flow. If everything works, you should see a message about a new integration in your flow.
 
 <div id="/post-inbox"></div>
-## 4. Post messages to the flow
+## 5. Post messages to the flow
 
 Your integration should now be ready to start delivering messages to the flow. All messages should be sent to the [messages endpoint](messages) (described below) using `flow_token` to authenticate and identify the target flow.
 
@@ -148,7 +155,7 @@ POST https://api.flowdock.com/messages
 }
 ```
 
-The most important fields are listed below. For full reference on fields and different message types, see the [messages documentation](messages#/thread-messages).
+The most important fields are listed below. For a full reference on fields and different message types, see the [messages documentation](messages#/thread-messages).
 
 | Name          | Description  |
 | ------------- | ------------ |
@@ -158,7 +165,7 @@ The most important fields are listed below. For full reference on fields and dif
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
 
-**Note:** Automated messages from integrations should generally be sent to the flow's team inbox.
+**Note:** Automated messages from integrations should be sent to the flow's team inbox.
 Posting to the flow's chat is generally desirable only when e.g. replying to a chat message.
 
 ## Additional steps
@@ -166,18 +173,18 @@ Posting to the flow's chat is generally desirable only when e.g. replying to a c
 <div id="/publish-app"></div>
 ### Publish your application
 
-Published applications will be listed in the Inbox Sources dialog within the Flowdock application for all users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by contacting us at [support@flowdock.com](mailto:support@flowdock.com).
+Published applications will be listed in the Inbox Sources in Flowdock for all users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by contacting us at [support@flowdock.com](mailto:support@flowdock.com).
 
 <div id="/integration-configuration"></div>
 ### Integration configuration
 
 Integration configuration is optional for applications. For example, if your application provides filtering settings for the messages it posts, you might want to allow the user to change these filtering settings later on, after the integration has already been set up.
 
-If you supply a configuration URI for your application, we will display a configure button for each of integration the end user has set up for a flow. This will allow the user to go back to your application to change the integration settings.
+If you supply a configuration URI for your application, we will display a configure button for each of a flow's integrations (sources). This will allow users to go back to your application to change the integration settings.
 
 We will provide a reference to the integration as the `integration_id` query parameter (the `id` parameter that your web application received when the [integration was created](#/post-integration)) along with the `flow` parameter. These two parameters should allow you to identify which integration the end user is trying to configure.
 
 <div id="/integration-remove"></div>
-### Removing integration
+### Removing integrations
 
-Only the end user can remove integrations. When this happens for one of your integrations, you will receive a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
+When an integration (source) is removed in Flowdock, you will start receiving a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
