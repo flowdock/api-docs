@@ -8,7 +8,7 @@
 * [An example integration app: Polldock](#/an-example-integration-app)
 
 
-This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with Flowdoc, you can read [part 2](production-integrations) of our integration guide.
+*This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with Flowdoc, you can read [part 2](production-integrations) of our integration guide.*
 
 <div id="/getting-started"></div>
 ### Getting started
@@ -68,7 +68,7 @@ The item will update in real-time along with a message saying that the ticket wa
 
 ![The update that just happened](/images/update-happened.png)
 
-That's it! These are the basics that are needed in order to get content into your flow: a developer application, and a source  (along with its flow token) for each flow.
+That's it! These are the basics that are needed in order to get content into your flow: a developer application, and a source (along with its flow token) for each flow.
 
 <div id="/a-great-integration"></div>
 ### What does a great integration look like?
