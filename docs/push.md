@@ -1,6 +1,6 @@
 # Push API
 
-**The Push API is deprecated and will be removed. The [Messages](messages) endpoint should be used instead. For instructions on how to build an integration, see our [integration guide](integration-guide).**
+**The Push API is deprecated and will be removed. The [Messages](messages) endpoint should be used instead. For instructions on how to build an integration, see our [integration guide](developing-integrations).**
 
 Use the Push API to post content to
 

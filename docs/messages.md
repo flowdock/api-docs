@@ -37,7 +37,7 @@ Sending a message to a flow is possible using all authentication methods, includ
 | external\_user\_name | Name that appears as the message sender. This will change the message to an anonymous message, as if it was sent from the [Push API](chat).  |
 | uuid | An optional client-generated unique string identifier. It is the client's responsibility to ensure the uniqueness (in the scope of the flow) of the uuid. This can be, for example, used to render sent messages instantly and later add necessary data (id) for tagging. |
 | thread_id | The `id` of the [thread](threads) this message is being posted to. In order to post a message into a thread, this or `external_thread_id` is **required**. |
-| external\_thread\_id | An ID (specified by the API user) to identify the thread this message should be added to. The ID should be unique within the [source](sources). For examples, see the integration guide's [section about posting to the inbox](how-to-integrate#/post-inbox). |
+| external\_thread\_id | An ID (specified by the API user) to identify the thread this message should be added to. The ID should be unique within the [source](sources). For examples, see the integration guide's [section about posting to the inbox](production-integrations#/post-inbox). |
 | thread | New state for the [thread](threads). |
 | attachments | List of attachments for a message. Only valid for `activity` and `discussion` events. See [files](files). |
 
@@ -123,7 +123,7 @@ There are a few types of messages that can belong to a [thread](threads):
  * [Message](message-types#/message) - comments/discussion in Flowdock
  * [File](message-types#/file) - uploaded file stored in Flowdock
 
-To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the integration guide](how-to-integrate).
+To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the production grade integration guide](production-integrations). If you just want to post these messages to your own flows, have a look at the [the quick integration guide](integration-getting-started) for instructions on how to skip the authorization process and obtain a flow token posting messages.
 
 <div id="/list"></div>
 ## List Messages

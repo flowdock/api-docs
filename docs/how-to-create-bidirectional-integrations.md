@@ -2,7 +2,7 @@
 
 ![Example bidirectional integration](/images/two-way-actions.png)
 
-Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](integration-guide). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
+Your Flowdock integration can define simple user interfaces for your app inside Flowdock. Good examples are assign to me or resolve issue. To create these kinds of bidirectional integrations, you will first need to follow the steps in the [Integration Guide](developing-integrations). Then, once you can post activities to Flowdock, you will need to include an *[actions](thread-actions)* attribute in your thread data. There are two types of actions: [UpdateAction](thread-actions#/update-action) defines an HTTP request that will be sent from Flowdock to your application, whereas a [ViewAction](thread-actions#/view-action) acts as a simple link.
 
 Here's an example activity message which includes an UpdateAction. This example defines an "assign to me" action. When it's clicked in the Flowdock UI, a signed POST request will be sent to the defined URL.
 
@@ -84,7 +84,7 @@ If the action cannot be completed because the user needs to authenticate first, 
 
 The following example demonstrates how to return an authentication challenge for the user. As a best practice, we've appended the authentication URL with a claim parameter that is uniquely created for the user that tried to perform the UpdateAction. This enables one click authentication that avoids [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-When we receive the request for the new authentication, we make sure that the claim's Flowdock user ID matches with the Flowdock user ID that is received from user's [authorization for Flowdock](how-to-integrate#/oauth2-authorize).
+When we receive the request for the new authentication, we make sure that the claim's Flowdock user ID matches with the Flowdock user ID that is received from user's [authorization for Flowdock](production-integrations#/oauth2-authorize).
 
 ```ruby
   def response_authentication_challenge(user_id)
