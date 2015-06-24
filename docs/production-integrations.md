@@ -25,6 +25,7 @@ This guide is divided into the five steps of the development process:
 * [Publish your application](#/publish-app)
 * [Integration configuration](#/integration-configuration)
 * [Removing an integration](#/integration-remove)
+* [Notify users of problems with the configured integration](#/source-errors)
 
 ![A support ticket from Zendesk](/images/lifespan-of-a-support-ticket.png)
 <small>*An example of a full-fledged Flowdock integration from Zendesk. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
@@ -190,3 +191,10 @@ We will provide a reference to the integration as the `integration_id` query par
 ### Removing integrations
 
 When an integration (source) is removed in Flowdock, you will start receiving a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
+
+<div id="/source-errors"></div>
+### Notifying users of errors
+
+After an integration has been set up between an external service and a flow we may need to later inform the flow users of problems with the integration. For example if the account used to set up the integration in the external service is disabled it may be necessary to suspend posting events to the flow.
+
+One approach to handle this is to post a normal inbox message to the flow stating that the integration needs to be reconfigured and provide a link to the configuration UI. Howeever inbox messages can be easily missed. To counter this Flowdock provides an [API](sources#/update-source) for setting an `error_message` to the configured source. When set the error message will be displayed prominently in the flow inbox sources dialog and in the flow avatar list.
