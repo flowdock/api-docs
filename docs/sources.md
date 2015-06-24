@@ -206,7 +206,7 @@ of the source.
 
 | Name          | Description  |
 | ------------- | ------------ |
-| name          | **Required** The name of the source |
+| name          | **Required.** The name of the source |
 | external_url  | URL to the external resource or entity that this source represents, e.g. GitHub repository |
 
 ### Example
@@ -283,7 +283,7 @@ PUT /sources
 
 | Name                | Description                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------ |
-| flow_token        | The token associated with the source                                                       |
+| flow_token        | **Required.** The token associated with the source                                         |
 | error_message     | The error message to be displayed for this source. Clear the error with an empty string    |
 | configuration_url | The URL where users can configure this source                                              |
 
