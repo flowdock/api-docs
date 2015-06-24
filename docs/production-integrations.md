@@ -24,7 +24,7 @@ This guide is divided into the five steps of the development process:
 
 * [Publish your application](#/publish-app)
 * [Integration configuration](#/integration-configuration)
-* [Notify users of problems](#/source-errors)
+* [Notify users of problems](#/source-problems)
 * [Removing an integration](#/integration-remove)
 
 ![A support ticket from Zendesk](/images/lifespan-of-a-support-ticket.png)
