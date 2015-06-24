@@ -207,7 +207,7 @@ of the source.
 
 | Name          | Description  |
 | ------------- | ------------ |
-| name          | **Required** The name of the source. |
+| name          | **Required** The name of the source |
 | external_url  | URL to the external resource or entity that this source represents, e.g. GitHub repository |
 
 ### Example
@@ -256,6 +256,41 @@ Flowdock-User: 9
 
 **`flow_token` is only visible in the response of the source creation request.** It cannot be
 retrieved later on.
+
+<div id="/update-source"></div>
+## Update a Source
+
+After a source has been created, two fields can be updated with a PUT request: an error message and the configuration URL of the source. The error message should be used to indicate a problem with the source, and will be displayed for people in the flow. The configuration URL defines where the user is directed to when clicking the configure link next to the source in the flow's Inbox Settings.
+
+### Using normal authentication methods
+
+```
+PUT /flows/:organization/:flow/sources/:id
+```
+
+#### Input
+
+| Name                | Description                                                                                |
+| --------------------| ------------------------------------------------------------------------------------------ |
+| `error_message`     | The error message to be displayed for this source. Clear the error with an empty string    |
+| `configuration_url` | The URL where users can configure this source                                              |
+
+
+### Using the source's `flow_token`
+
+The source can also be updated using its unique `flow_token`. This is not exactly RESTful but is handy when storing the source ID would be unnecessary.
+
+```
+PUT /sources
+```
+
+#### Input
+
+| Name                | Description                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| `flow_token`        | The token associated with the source                                                       |
+| `error_message`     | The error message to be displayed for this source. Clear the error with an empty string    |
+| `configuration_url` | The URL where users can configure this source                                              |
 
 <div id="/delete"></div>
 ## Delete a Source
