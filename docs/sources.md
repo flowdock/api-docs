@@ -203,7 +203,6 @@ This endpoint is currently only available for [OAuth applications](production-in
 `integration`. The OAuth application will be used as the application attribute
 of the source.
 
-### Input
 
 | Name          | Description  |
 | ------------- | ------------ |
@@ -268,12 +267,10 @@ After a source has been created, two fields can be updated with a PUT request: a
 PUT /flows/:organization/:flow/sources/:id
 ```
 
-#### Input
-
 | Name                | Description                                                                                |
 | --------------------| ------------------------------------------------------------------------------------------ |
-| `error_message`     | The error message to be displayed for this source. Clear the error with an empty string    |
-| `configuration_url` | The URL where users can configure this source                                              |
+| error_message     | The error message to be displayed for this source. Clear the error with an empty string    |
+| configuration_url | The URL where users can configure this source                                              |
 
 
 ### Using the source's `flow_token`
@@ -284,13 +281,11 @@ The source can also be updated using its unique `flow_token`. This is not exactl
 PUT /sources
 ```
 
-#### Input
-
 | Name                | Description                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------ |
-| `flow_token`        | The token associated with the source                                                       |
-| `error_message`     | The error message to be displayed for this source. Clear the error with an empty string    |
-| `configuration_url` | The URL where users can configure this source                                              |
+| flow_token        | The token associated with the source                                                       |
+| error_message     | The error message to be displayed for this source. Clear the error with an empty string    |
+| configuration_url | The URL where users can configure this source                                              |
 
 <div id="/delete"></div>
 ## Delete a Source
