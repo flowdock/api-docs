@@ -35,7 +35,7 @@ Flowdock-User: 2
 List the users of a flow. The user must belong to the organization and have access to the flow.
 
 ```
-GET /flows/:organisation/:flow/users
+GET /flows/:organization/:flow/users
 ```
 [URL breakdown](rest#/url-breakdown)
 
