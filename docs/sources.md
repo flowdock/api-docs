@@ -291,7 +291,7 @@ PUT /sources
 ## Delete a Source
 
 ```
-DELETE /flows/:organization/:flow/source/:id
+DELETE /flows/:organization/:flow/sources/:id
 ```
 
 Delete a source with the specified id. This will also invalidate the flow_token
