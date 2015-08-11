@@ -129,7 +129,7 @@ Use the token interface with email and password from below. With this technique,
 
 ### Redirect URI
 
-The redirect_uri parameter is optional. If left out, Flowdock will redirect users to the callback URL configured in the OAuth Application settings. If provided, the redirect URL’s host and port must exactly match the callback URL.
+The redirect_uri parameter is optional. If left out, Flowdock will redirect users to the callback URL configured in the OAuth Application settings. If provided, the redirect URL must exactly match the callback URL.
 
 If the application is an installed application, the application can use special value `urn:ietf:wg:oauth:2.0:oob` as the redirect URI. This communicates to Flowdock that authorization code should be exchanged out-of-band.
 
