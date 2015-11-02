@@ -41,6 +41,7 @@ Sending a message to a flow is possible using all authentication methods, includ
 | thread | New state for the [thread](threads). |
 | attachments | List of attachments for a message. Only valid for `activity` and `discussion` events. See [files](files). |
 
+
 ```json
 {
   "event": "message",
@@ -49,7 +50,20 @@ Sending a message to a flow is possible using all authentication methods, includ
 }
 ```
 
+### Headers
+
+Set `X-flowdock-wait-for-message` header in the request if you wish to wait until the message has been fully processed and get assigned unique message id. This may take vastly longer than not waiting for the message to be processed.
+
 ### Response
+
+If `X-flowdock-wait-for-message` header is not set or processing the message takes longer than expected Flowdock will reply with `202`
+
+```
+HTTP/1.1 202
+```
+
+Otherwise Flowodock will respond with the posted message with the assigned unique per flow message id.
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
