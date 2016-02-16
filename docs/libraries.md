@@ -41,6 +41,10 @@ A list of libraries to access Flowdock in your favorite language.
   * [python-flowdock](https://bitbucket.org/j00bar/python-flowdock) by _Joshua Ginsberg_ — A Python interface to the Flowdock API
   * [PyFlowdock](https://github.com/Aeron/PyFlowdock) by _Eugene “Aeron” Glybin_ — Simple Flowdock APIs wrapper with some useful helpers
 
+## R
+
+  * [flowdockr](https://github.com/hrbrmstr/flowdockr) by _Bob Rudis_ - An R package to work with the Flowdock API
+
 ## Ruby
 
   * [flowdock gem](https://github.com/flowdock/flowdock-api) – Ruby bindings for Push API
