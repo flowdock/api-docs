@@ -56,7 +56,7 @@ Set `X-flowdock-wait-for-message` header in the request if you wish to wait unti
 
 ### Response
 
-If `X-flowdock-wait-for-message` header is not set or processing the message takes longer than expected Flowdock will reply with `202`
+If `X-flowdock-wait-for-message` header is not set or processing the message takes longer than expected CA Flowdock will reply with `202`
 
 ```
 HTTP/1.1 202
@@ -134,8 +134,8 @@ There are a few types of messages that can belong to a [thread](threads):
 
  * [Activity](message-types#/activity) - updates to a thread
  * [Discussion](message-types#/discussion) - external discussions in another service
- * [Message](message-types#/message) - comments/discussion in Flowdock
- * [File](message-types#/file) - uploaded file stored in Flowdock
+ * [Message](message-types#/message) - comments/discussion in CA Flowdock
+ * [File](message-types#/file) - uploaded file stored in CA Flowdock
 
 To post threaded messages to a flow, you need to have an application that has been authorized by the user. This process is described in [the production grade integration guide](production-integrations). If you just want to post these messages to your own flows, have a look at the [the quick integration guide](integration-getting-started) for instructions on how to skip the authorization process and obtain a flow token posting messages.
 

@@ -1,6 +1,6 @@
 # Files
 
-The Flowdock API provides functionality for downloading and uploading files. Files are accessible via messages, which can contain file paths. There are several [message types](message-types) which can contain files, but the `file` event is used for [uploading files](messages#/send/files). For example, mail messages can contain files as attachments.
+The CA Flowdock API provides functionality for downloading and uploading files. Files are accessible via messages, which can contain file paths. There are several [message types](message-types) which can contain files, but the `file` event is used for [uploading files](messages#/send/files). For example, mail messages can contain files as attachments.
 
 ## Download a file
 

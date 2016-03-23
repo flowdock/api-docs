@@ -1,7 +1,7 @@
 # Thread actions
 
 [Threads](threads) can specify custom actions for the thread's external resource. Actions follow the [schema.org Action format](http://schema.org/Action).
-Two types of actions are supported: [ViewAction](#/view-action) and [UpdateAction](#/update-action). Actions enable you to create [bidirectional integrations with Flowdock](how-to-create-bidirectional-integrations).
+Two types of actions are supported: [ViewAction](#/view-action) and [UpdateAction](#/update-action). Actions enable you to create [bidirectional integrations with CA Flowdock](how-to-create-bidirectional-integrations).
 
 <span id="/view-action"></span>
 ## ViewAction
@@ -19,8 +19,8 @@ Two types of actions are supported: [ViewAction](#/view-action) and [UpdateActio
 <span id="/update-action"></span>
 ## UpdateAction
 [UpdateActions](http://schema.org/UpdateAction) allow for bi-directional integrations. Users can perform simple
-actions securely from Flowdock without opening new browser tabs. The integration will receive a request from Flowdock
-with the user's Flowdock user ID (for authentication) to perform actions on the resource. Text input from the user is currently not supported.
+actions securely from CA Flowdock without opening new browser tabs. The integration will receive a request from CA Flowdock
+with the user's CA Flowdock user ID (for authentication) to perform actions on the resource. Text input from the user is currently not supported.
 
 Examples on how to handle the requests coming from UpdateActions can be found in [How to create bidirectional integrations](how-to-create-bidirectional-integrations).
 
@@ -37,10 +37,10 @@ Examples on how to handle the requests coming from UpdateActions can be found in
 }
 ```
 
-### UpdateAction requests made by Flowdock
-Once Flowdock receives the thread message with UpdateActions, it converts the target's urlTemplate into a signed Flowdock URL. When a Flowdock user selects the action, Flowdock will perform the specified request to the resource. The action payload data is the same as in the thread data, enriched with agent data that contains information about the Flowdock user that is performing the action.
+### UpdateAction requests made by CA Flowdock
+Once CA Flowdock receives the thread message with UpdateActions, it converts the target's urlTemplate into a signed CA Flowdock URL. When a CA Flowdock user selects the action, CA Flowdock will perform the specified request to the resource. The action payload data is the same as in the thread data, enriched with agent data that contains information about the CA Flowdock user that is performing the action.
 
-#### Example action request from Flowdock
+#### Example action request from CA Flowdock
 ```json
 {
     "@type": "UpdateAction",
@@ -59,8 +59,8 @@ Once Flowdock receives the thread message with UpdateActions, it converts the ta
 ```
 
 <span id="/signature"></span>
-#### Flowdock user ID and request signature
-The 'FLOWDOCK-TOKEN' header is an encoded token that contains the user's Flowdock ID, expiration time and a signature of the request body. The token is encoded with [JWT](http://jwt.io) using the OAuth client secret as a signing key.
+#### CA Flowdock user ID and request signature
+The 'FLOWDOCK-TOKEN' header is an encoded token that contains the user's CA Flowdock ID, expiration time and a signature of the request body. The token is encoded with [JWT](http://jwt.io) using the OAuth client secret as a signing key.
 
 ##### Example of a decoded FLOWDOCK-TOKEN header
 ```json

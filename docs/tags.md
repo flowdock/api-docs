@@ -1,9 +1,9 @@
 # Tags
-In Flowdock, the user interacts directly with two types of tags: *hashtags* and *usertags*. Hashtags are prefixed with a hash (#) and usertags with an at sign (@). All tags are case insensitive. Hashtags are stored as-is and usertags are translated into internal meta tags, which are prefixed with colons (:).
+In CA Flowdock, the user interacts directly with two types of tags: *hashtags* and *usertags*. Hashtags are prefixed with a hash (#) and usertags with an at sign (@). All tags are case insensitive. Hashtags are stored as-is and usertags are translated into internal meta tags, which are prefixed with colons (:).
 
 [Messages](messages) can be tagged both by referring to tags in the content and explicitly defining tags by using the `tags` property. The meta tags are added based on intrinsic rules.
 
-The following message sent to Flowdock...
+The following message sent to CA Flowdock...
 
 ```json
 {
@@ -23,7 +23,7 @@ The following message sent to Flowdock...
 }
 ```
 
-For a comprehensive ruleset and a reference implementation of how tags should be parsed in Flowdock, see [Flowdock-text](https://www.github.com/flowdock/flowdock-text), a library that provides utilities for tag extraction and manipulation. It also contains the master set of tests for tag parsing in Flowdock.
+For a comprehensive ruleset and a reference implementation of how tags should be parsed in CA Flowdock, see [Flowdock-text](https://www.github.com/flowdock/flowdock-text), a library that provides utilities for tag extraction and manipulation. It also contains the master set of tests for tag parsing in CA Flowdock.
 
 ## Hashtags
 A hashtag is almost any string prefixed with a hash sign. The following are all valid hashtags:

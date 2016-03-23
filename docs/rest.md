@@ -26,7 +26,7 @@ _PATCH_ is used for most update methods instead of _PUT_ because of _PUT_'s inef
 https://user:pass@api.flowdock.com/flows/:org/:flow/messages/:message_id
 ```
 
-* `https`: The Flowdock API is served over secure HTTP *only*.
+* `https`: The CA Flowdock API is served over secure HTTP *only*.
 * `user:pass`: HTTP basic authentication credentials. You can use a user's email/password or user-specific tokens. See [Authentication](authentication). **NOTE**: When using email/password, remember to URI encode them. Characters outside the ASCII character set can exist in the e-mail address (the @ sign) and password.
 * `api.flowdock.com`: The API endpoint domain.
 * `flows`: The resource which is being requested.

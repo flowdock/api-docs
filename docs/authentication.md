@@ -1,19 +1,19 @@
 # Authentication
 
-There are three ways to authenticate as a user with the Flowdock API:
+There are three ways to authenticate as a user with the CA Flowdock API:
 
 1. OAuth 2.0
 2. User credentials with HTTP Basic Authentication
 3. API token with HTTP Basic Authentication.
 
-Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for Flowdock.
+Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for CA Flowdock.
 
 Integrations can use [flow tokens](#source-token) from configured [sources](sources) to POST messages to flows and perform actions on the source.
 
 <div id="/oauth2"></div>
 ## OAuth 2.0
 
-[OAuth 2.0](http://tools.ietf.org/html/rfc6749) is an authorization framework that enables third-party applications to obtain limited access to Flowdock on the user's behalf without getting their password. This is the preferred authentication method over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
+[OAuth 2.0](http://tools.ietf.org/html/rfc6749) is an authorization framework that enables third-party applications to obtain limited access to CA Flowdock on the user's behalf without getting their password. This is the preferred authentication method over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
 
 All developers need to [register their application](https://flowdock.com/account/authorized_applications) before getting started. A registered OAuth 2.0 application is assigned a unique Client ID and Client Secret. The Client Secret should not be shared.
 
@@ -24,7 +24,7 @@ Given the security implications of getting the implementation correct, we strong
 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) is probably the most used authorization flow. It allows clients to obtain both access tokens and refresh tokens. The flow is based on redirects and requires the client to have a web browser. Use this flow if your client is another web application.
 
 <div id="/redirect"></div>
-#### 1. Redirect users to request Flowdock access
+#### 1. Redirect users to request CA Flowdock access
 
       GET https://api.flowdock.com/oauth/authorize
 
@@ -40,9 +40,9 @@ The following query string parameters can be used:
 | state         | An unguessable random string. This is used to protect authorization consumers (you!) against cross-site request forgery attacks. |
 
 <div id="/redirect-back"></div>
-#### 2. Flowdock redirects back to your site
+#### 2. CA Flowdock redirects back to your site
 
-If the user accepts your request, Flowdock redirects back to your site with a temporary authorization code in the redirect URL as well as the state parameter provided in the previous step.
+If the user accepts your request, CA Flowdock redirects back to your site with a temporary authorization code in the redirect URL as well as the state parameter provided in the previous step.
 
 The redirect might look like
 
@@ -66,7 +66,7 @@ A successful response to this contains the following fields:
 
 | Field          | Description                       |
 | -------------- | --------------------------------- |
-| access_token   | The token that can be used to access the Flowdock API. |
+| access_token   | The token that can be used to access the CA Flowdock API. |
 | refresh_token  | A token that may be used to obtain a new access token. This is only present when the `offline_access` scope is used. |
 | expires_in     | The remaining lifetime on the access token. |
 | token_type     | The type of token received. At this time, this field will always have the value `Bearer`. |
@@ -96,7 +96,7 @@ Access tokens can also be used as a query string parameter:
 <div id="/refresh-token"></div>
 #### 4. Refresh the access token, if necessary.
 
-OAuth 2.0 access tokens are short-lived. If your application needs access to the Flowdock API beyond the lifetime of a single access token, it can obtain a refresh token. A refresh token allows your application to obtain new access tokens.
+OAuth 2.0 access tokens are short-lived. If your application needs access to the CA Flowdock API beyond the lifetime of a single access token, it can obtain a refresh token. A refresh token allows your application to obtain new access tokens.
 
 Obtain a new access token using the refresh token with
 
@@ -114,7 +114,7 @@ A successful response will contain a new access token and *may* also contain a n
 
 | Field          | Description                       |
 | -------------- | --------------------------------- |
-| access_token   | The token that can be used to access the Flowdock API. |
+| access_token   | The token that can be used to access the CA Flowdock API. |
 | refresh_token  | A token that may be used to obtain a new access token. This is only present when the `offline_access` scope is used. |
 | expires_in     | The remaining lifetime on the access token. |
 | token_type     | The type of token received. At this time, this field will always have the value `Bearer`. |
@@ -123,15 +123,15 @@ The response will by default be represented as `application/x-www-form-urlencode
 
 ### Non-Web Application Flow
 
-Applications that do not run in a web browser can use the [Resource Owner Password Credentials](http://tools.ietf.org/html/rfc6749#section-4.3) authentication flow. However, this requires users to type in their Flowdock email address and password.
+Applications that do not run in a web browser can use the [Resource Owner Password Credentials](http://tools.ietf.org/html/rfc6749#section-4.3) authentication flow. However, this requires users to type in their CA Flowdock email address and password.
 
 Use the token interface with email and password from below. With this technique, an email address and password need not be stored permanently, and the user can revoke access at any time.
 
 ### Redirect URI
 
-The redirect_uri parameter is optional. If left out, Flowdock will redirect users to the callback URL configured in the OAuth Application settings. If provided, the redirect URL must exactly match the callback URL.
+The redirect_uri parameter is optional. If left out, CA Flowdock will redirect users to the callback URL configured in the OAuth Application settings. If provided, the redirect URL must exactly match the callback URL.
 
-If the application is an installed application, the application can use special value `urn:ietf:wg:oauth:2.0:oob` as the redirect URI. This communicates to Flowdock that authorization code should be exchanged out-of-band.
+If the application is an installed application, the application can use special value `urn:ietf:wg:oauth:2.0:oob` as the redirect URI. This communicates to CA Flowdock that authorization code should be exchanged out-of-band.
 
 The application can detect when OAuth authentication is completed and extract the authorization code from the page URL. A successful OAuth 2.0 authorization would redirect to
 
@@ -145,7 +145,7 @@ Scopes are used to specify what API access your application needs. In general, i
 
 When using a web-based flow, the scopes will be displayed to the user when authorising the application.
 
-The following scopes are available in the Flowdock API:
+The following scopes are available in the CA Flowdock API:
 
 
 | Name           | Description                       |
@@ -178,7 +178,7 @@ When using `authorization_code`, the following additional fields are used to aut
 
 | Field          | Description                       |
 | -------------- | --------------------------------- |
-| code           | The code returned as part of the redirect from the Flowdock API. |
+| code           | The code returned as part of the redirect from the CA Flowdock API. |
 | redirect_uri   | The URI registered with the application. |
 
 When using `password` grant type, the following additional fields are used to authenticate the request and DO NOT add an Authorization header:
@@ -194,7 +194,7 @@ A successful response will contain the following fields:
 
 | Field          | Description                       |
 | -------------- | --------------------------------- |
-| access_token   | The token that can be used to access the Flowdock API. |
+| access_token   | The token that can be used to access the CA Flowdock API. |
 | refresh_token  | A token that may be used to obtain a new access token. This is only present when the `offline_access` scope is used. |
 | expires_in     | The remaining lifetime on the access token. |
 | token_type     | The type of token received. At this time, this field will always have the value `Bearer`. |
@@ -217,17 +217,17 @@ The API tokens are available on the [Tokens](https://flowdock.com/account/tokens
     $ curl https://deadbeefdeadbeef@api.flowdock.com/flows/acme/main/messages
     $ curl https://deadbeefdeadbeef:DUMMY@api.flowdock.com/flows/acme/main/messages
 
-Flowdock has two types of API tokens: user tokens and flow tokens. User API tokens can be used to authenticate as a specific user in [REST API](rest). Flow specific tokens can only be used to authorize anonymous posting to a flow in [Push API](push).
+CA Flowdock has two types of API tokens: user tokens and flow tokens. User API tokens can be used to authenticate as a specific user in [REST API](rest). Flow specific tokens can only be used to authorize anonymous posting to a flow in [Push API](push).
 
 ### Email / password
 
-HTTP Basic Authentication also works by using a Flowdock user's username and password as credentials. However, the representation of email addresses in URLs might be problematic.
+HTTP Basic Authentication also works by using a CA Flowdock user's username and password as credentials. However, the representation of email addresses in URLs might be problematic.
 
     $ curl https://email@example.com:password@api.flowdock.com/flows
 
 This can mean that you have to take care of properly encoding the username and password.
 
-As not all users have a separate password for Flowdock (but use Google or Rally as authentication providers), using HTTP Basic Authentication for anything user-facing is strongly discouraged.
+As not all users have a separate password for CA Flowdock (but use Google or Rally as authentication providers), using HTTP Basic Authentication for anything user-facing is strongly discouraged.
 
 <div id="source-token"></div>
 ## Source Token Authentication

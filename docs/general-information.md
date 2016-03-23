@@ -1,7 +1,7 @@
 # General Information
 
 ## Cross-origin resource sharing (CORS)
-All the Flowdock APIs support CORS and preflight OPTIONS requests. Provided that the request has set the required `Origin` header, the resulting response will have a matching `Access-Control-Allow-Origin` header along with other CORS headers:
+All the CA Flowdock APIs support CORS and preflight OPTIONS requests. Provided that the request has set the required `Origin` header, the resulting response will have a matching `Access-Control-Allow-Origin` header along with other CORS headers:
 
 ```
 Access-Control-Allow-Origin: example.com
@@ -14,7 +14,7 @@ If the REST API request fails, make sure that you are authorized with either a v
 
 ## All requests must be sent via HTTPS
 
-All the Flowdock APIs are served under HTTPS only.
+All the CA Flowdock APIs are served under HTTPS only.
 
 ## Content-Type header must always be specified
 
@@ -22,7 +22,7 @@ The Content-Type header of requests should always be specified when posting to t
 
 ## Responses are JSON documents
 
-The responses of the Flowdock APIs are sent using the JSON format. In case of an error, the JSON response contains a brief message and detailed information about the error.
+The responses of the CA Flowdock APIs are sent using the JSON format. In case of an error, the JSON response contains a brief message and detailed information about the error.
 
 Example:
 

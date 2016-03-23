@@ -1,6 +1,6 @@
 # Private conversations
 
-A private conversation in Flowdock is like a chat room for only two users.
+A private conversation in CA Flowdock is like a chat room for only two users.
 
 Note: the `open` attribute of a closed private conversation automatically changes back to `true` when new unread messages are added to the conversation.
 
