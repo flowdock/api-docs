@@ -1,6 +1,6 @@
 # Users
 
-A user in Flowdock can belong to multiple [organizations](organizations) and [flows](flows).
+A user in CA Flowdock can belong to multiple [organizations](organizations) and [flows](flows).
 
 ## List all users
 

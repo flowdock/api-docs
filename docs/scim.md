@@ -1,8 +1,8 @@
 # SCIM provisioning API
 
-The Single Sign-On for Flowdock Enterprise offers partial support for provisioning using [System for Cross-Domain Identity Management (SCIM)](http://www.simplecloud.info/).
+The Single Sign-On for CA Flowdock Enterprise offers partial support for provisioning using [System for Cross-Domain Identity Management (SCIM)](http://www.simplecloud.info/).
 
-To use the SCIM API, you need to be a Flowdock Enterprise customer and have Single Sign-On configured for your organization. Contact [support@flowdock.com](mailto:support@flowdock.com) if you have not done this yet or are interested about Flowdock Enterprise.
+To use the SCIM API, you need to be a CA Flowdock Enterprise customer and have Single Sign-On configured for your organization. Contact [support@flowdock.com](mailto:support@flowdock.com) if you have not done this yet or are interested about CA Flowdock Enterprise.
 
 ## Basics
 
@@ -38,11 +38,11 @@ Failed attempts are heavily rate-limited. If you start receiving `429` responses
 
 ## Users resource
 
-The users resource provides information about the users in your Flowdock organization. The API can only be used to access and modify users that have SSO enabled. Accounts that don't have a linked SSO identity (such as bots) will not be listed.
+The users resource provides information about the users in your CA Flowdock organization. The API can only be used to access and modify users that have SSO enabled. Accounts that don't have a linked SSO identity (such as bots) will not be listed.
 
 ### SCIM identifiers
 
-Flowdock assumes that the `userName` is the user's email address and uses that same email address as the `externalId`.
+CA Flowdock assumes that the `userName` is the user's email address and uses that same email address as the `externalId`.
 
 ### Index
 
@@ -61,11 +61,11 @@ GET https://api.flowdock.com/scim/:uid/Users
 #### Response fields:
 
 - **Resources** An array of user objects.
-    - **id** The ID of the user object in Flowdock.
+    - **id** The ID of the user object in CA Flowdock.
     - **externalId** The extenal id of the user. It has the same value as `userName`.
     - **userName** The user account name used to identify the user. This will be the Subject's NameID passed by the SAML provider.
     - **name** Information about the user's name.
-        - **givenName** First name. As Flowdock only record's a user's full name, this will be the part of the name that precedes the first space.
+        - **givenName** First name. As CA Flowdock only record's a user's full name, this will be the part of the name that precedes the first space.
         - **familyName** Last name. This is everything after the first space in a user's name.
     - **meta** SCIM metadata.
         - **location** The URL for this user resource.
@@ -73,7 +73,7 @@ GET https://api.flowdock.com/scim/:uid/Users
         - **lastModified** When the user was last modified (using the ISO 8061 format).
     - **emails** An array with all known email addresses for the user. For each one:
         - **value** Contains the email address.
-    - **nickName** The display name (nickname) of the user in Flowdock.
+    - **nickName** The display name (nickname) of the user in CA Flowdock.
 
 #### Example request
 
@@ -148,7 +148,7 @@ GET https://api.flowdock.com/scim/:uid/Users/:id
 | Parameter| Description |
 |----------|-------------|
 | **uid** | The UID of your SSO organization. |
-| **id** | The ID of the Flowdock user. |
+| **id** | The ID of the CA Flowdock user. |
 
 The response is a single user object in the same format as in the user index.
 
@@ -200,7 +200,7 @@ PUT https://api.flowdock.com/scim/:uid/Users/:id
 | Parameter| Description |
 |----------|-------------|
 | **uid** | The UID of your SSO organization. |
-| **id** | The ID of the Flowdock user. |
+| **id** | The ID of the CA Flowdock user. |
 
 The payload must be a JSON document that contains the following parts from the full user representation:
 
@@ -209,8 +209,8 @@ The payload must be a JSON document that contains the following parts from the f
     - **familyName** Last name.
 - **emails** An array of email objects. Only the first one is used. For that:
     - **value** Contains the email address.
-- **nickName** (optional) The display name of the user in Flowdock.
-- **active** (optional) Supply a value of `false` to log out all of user's sessions. This can be used when the user is suspended in the SSO provider, and will have the effect of suspending the user in Flowdock too, since the user is forced to reauthenticate, which in turn requires using the SSO provider.
+- **nickName** (optional) The display name of the user in CA Flowdock.
+- **active** (optional) Supply a value of `false` to log out all of user's sessions. This can be used when the user is suspended in the SSO provider, and will have the effect of suspending the user in CA Flowdock too, since the user is forced to reauthenticate, which in turn requires using the SSO provider.
 
 #### Example request
 
@@ -254,7 +254,7 @@ DELETE https://api.flowdock.com/scim/:uid/Users/:id
 | Parameter| Description |
 |----------|-------------|
 | **uid** | The UID of your SSO organization. |
-| **id** | The ID of the Flowdock user. |
+| **id** | The ID of the CA Flowdock user. |
 
 A response to a successful request is `204 No Content`.
 
@@ -292,7 +292,7 @@ The payload must be a JSON document that contains the following parts from the f
     - **familyName** Last name.
 - **emails** An array of email objects. Only the first one is used. For that:
     - **value** Contains the email address.
-- **nickName** (optional) The display name of the user in Flowdock. If omitted, a nickname based on name is generated.
+- **nickName** (optional) The display name of the user in CA Flowdock. If omitted, a nickname based on name is generated.
 
 
 #### Example request

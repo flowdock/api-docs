@@ -1,6 +1,6 @@
 # Integration quick start guide
 
-*This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with Flowdock, you can read [part 2](production-integrations) of our integration guide.*
+*This is a quick start guide for getting messages from an external source into your flow. For a more in-depth guide on how to build a production-quality integration with CA Flowdock, you can read [part 2](production-integrations) of our integration guide.*
 
 
 * [Getting started](#/getting-started)
@@ -42,12 +42,12 @@ Once you've created a source, let's try sending a simple request. You can use th
       "value": "open"
     }
   }
-}' https://api.flowdock.com/messages
+}' https://api.CA Flowdock.com/messages
 ```
 
-This posts a [message](messages) to the Flowdock API. Since it includes [thread](threads) data, a new thread is created and the message is posted in the context of that thread.
+This posts a [message](messages) to the CA Flowdock API. Since it includes [thread](threads) data, a new thread is created and the message is posted in the context of that thread.
 
-You can think of a thread as one "item" in the service to be integrated. For example, in customer support tools it might be a support ticket. With version control systems it can be an issue or pull request. In monitoring services, it could be an issue or alert. Messages related to this one item are grouped into one thread in Flowdock. In other words, **an item in the service to be integrated is the same as a thread in Flowdock**.
+You can think of a thread as one "item" in the service to be integrated. For example, in customer support tools it might be a support ticket. With version control systems it can be an issue or pull request. In monitoring services, it could be an issue or alert. Messages related to this one item are grouped into one thread in CA Flowdock. In other words, **an item in the service to be integrated is the same as a thread in CA Flowdock**.
 
 ![The message posted above](/images/example-message-polish-the-flux-capacitor.png)
 
@@ -73,23 +73,23 @@ That's it! These are the basics that are needed in order to get content into you
 <div id="/a-great-integration"></div>
 ### What does a great integration look like?
 
-The best Flowdock integrations are with other work-related web apps. These third party apps send activity updates to Flowdock. A great integration with a project management tool will send updates when items are created, updated or commented on.
+The best CA Flowdock integrations are with other work-related web apps. These third party apps send activity updates to CA Flowdock. A great integration with a project management tool will send updates when items are created, updated or commented on.
 
-For example, our Zendesk integration sends updates to Flowdock whenever a new customer support ticket is created, someone replies to a ticket or updates its status. Each new update can include both a message ("ticket was updated") and a new updated state for the ticket. You can see it in action [here](https://www.youtube.com/watch?v=dYuhh83EtxU).
+For example, our Zendesk integration sends updates to CA Flowdock whenever a new customer support ticket is created, someone replies to a ticket or updates its status. Each new update can include both a message ("ticket was updated") and a new updated state for the ticket. You can see it in action [here](https://www.youtube.com/watch?v=dYuhh83EtxU).
 
 <div id="/components-of-a-message"></div>
 ### The components of an integration message
 
 ![A support ticket from Zendesk with legend](/images/lifespan-of-a-support-ticket-legend.png)
 
-When presenting your app's items in Flowdock as a thread, you can use these components:
+When presenting your app's items in CA Flowdock as a thread, you can use these components:
 
 1. **Title** - Simple enough. This should be the name of the item in your app. For Zendesk, a customer support tool, this is the subject line of the support ticket.
 1. **Icon** - Each integration has its own icon. This is configured for the [developer application](https://www.flowdock.com/oauth/applications).
 1. **Fields** - All the simple properties – in other words, a list of key-value pairs. The Zendesk integration uses these to show the To, From and other fields of the support ticket. Project management tools send all the properties of a specific issue/ticket/story.
 1. **Body** - This generally contains the most important content of the item, such as an issue description. In some cases, this is not needed, such as when new replies and updates make up the most interesting content in Zendesk.
 1. **Status** - A great way to highlight progress. It gives a quick and visible answer to questions like "Has this pull request been merged?", "What's the status of our server?" or "Has this support ticket been resolved?". The status is shown visibly in the [team inbox](/help/team_inbox). You can even color-code the different states (e.g. blocked = red, solved = green).
-1. **[Actions](thread-actions)** - Now we're getting to the awesome stuff. This allows you to [build bidirectional integrations](how-to-create-bidirectional-integrations). You can define actions that allow users to complete tasks directly from Flowdock. Examples include "Assign to me", "Mark as solved", "Try to build this again" and "Merge pull request".
+1. **[Actions](thread-actions)** - Now we're getting to the awesome stuff. This allows you to [build bidirectional integrations](how-to-create-bidirectional-integrations). You can define actions that allow users to complete tasks directly from CA Flowdock. Examples include "Assign to me", "Mark as solved", "Try to build this again" and "Merge pull request".
 
 For detailed descriptions of these fields, check out the [threads documentation](threads).
 
@@ -117,11 +117,11 @@ A discussion message's most important field is *body*. You can also set the *tit
 <div id="/share-your-integration"></div>
 ### Share your integration
 
-Want to share your integration application with all of Flowdock's users? Read our [more in-depth guide](production-integrations) for information about authentication, source generation and publishing the application.
+Want to share your integration application with all of CA Flowdock's users? Read our [more in-depth guide](production-integrations) for information about authentication, source generation and publishing the application.
 
 <div id="/an-example-integration-app"></div>
 ### An example integration app: Polldock
 
-![Polldock in its own browser window and in Flowdock](/images/polldock-screenshot.png)
+![Polldock in its own browser window and in CA Flowdock](/images/polldock-screenshot.png)
 
-We've written an example polling app that updates Flowdock with new polls and votes, has a discussion integration, and even allows users to vote directly from Flowdock. The source code is [available on GitHub](https://github.com/flowdock/flowdock-example-integration). You can use it as an example for building your own integration.
+We've written an example polling app that updates CA Flowdock with new polls and votes, has a discussion integration, and even allows users to vote directly from CA Flowdock. The source code is [available on GitHub](https://github.com/flowdock/flowdock-example-integration). You can use it as an example for building your own integration.

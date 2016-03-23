@@ -1,6 +1,6 @@
 # Threads
 
-Threads represent entities in external services. They allow users to track events that happen in external services and collect related events into a single view. Furthermore, all discussion related to the entity – both in Flowdock and the external service – is visible in the thread.
+Threads represent entities in external services. They allow users to track events that happen in external services and collect related events into a single view. Furthermore, all discussion related to the entity – both in CA Flowdock and the external service – is visible in the thread.
 
 Common examples of thread entities are support tickets, issues in project management software and pull requests in version control software.
 

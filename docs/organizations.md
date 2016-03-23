@@ -1,6 +1,6 @@
 # Organizations
 
-An organization in Flowdock represents the organization/company account. [Users](users) can belong to several organizations.
+An organization in CA Flowdock represents the organization/company account. [Users](users) can belong to several organizations.
 
 The attribute `parameterized_name` is used in the URLs related to the organization. As `parameterized_name` can
 be changed by the account owner, a persistent `id` is also provided in the data.
@@ -58,7 +58,7 @@ Flowdock-User: 1
 | id | Organization resource id. |
 | parameterized_name | Organization subdomain / alternative resource id (can be changed). |
 | user_limit | Maximum number of users with the current subscription. |
-| subscription | Information about the Flowdock subscription of the organization. An object that contains a boolean `trial` and either `trial_ends` or `billing_date` (depending on the value of `trial`). |
+| subscription | Information about the CA Flowdock subscription of the organization. An object that contains a boolean `trial` and either `trial_ends` or `billing_date` (depending on the value of `trial`). |
 
 ## Get an organization
 

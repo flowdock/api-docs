@@ -1,10 +1,10 @@
 # Creating a production-grade integration
 
-*This guide dives into the details of building an integration for all Flowdock users. If you're interested in just posting messages to a flow or building an internal-only integration, read our [getting started integration guide](integration-getting-started).*
+*This guide dives into the details of building an integration for all CA Flowdock users. If you're interested in just posting messages to a flow or building an internal-only integration, read our [getting started integration guide](integration-getting-started).*
 
 ### Introduction
 
-This guide will step you through the process of integrating your web app with Flowdock. Once integrated and published, Flowdock users can add your integration straight from Flowdock to let your app send notifications to their flows. [Integrations](/integrations) that are meant for all Flowdock users should be built in a similar manner.
+This guide will step you through the process of integrating your web app with CA Flowdock. Once integrated and published, CA Flowdock users can add your integration straight from CA Flowdock to let your app send notifications to their flows. [Integrations](/integrations) that are meant for all CA Flowdock users should be built in a similar manner.
 
 We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails. This guide will point you to relevant parts of the code.
 
@@ -14,7 +14,7 @@ This guide is divided into the five steps of the development process:
 
 ### Steps
 
-1. [Create a developer application in Flowdock](#/create-app)
+1. [Create a developer application in CA Flowdock](#/create-app)
 2. [Create an endpoint in your app](#/create-endpoint)
 3. [Authorize your app with OAuth](#/oauth2-authorize)
 4. [Add your app as a flow source](#/create-integration)
@@ -28,20 +28,20 @@ This guide is divided into the five steps of the development process:
 * [Removing an integration](#/integration-remove)
 
 ![A support ticket from Zendesk](/images/lifespan-of-a-support-ticket.png)
-<small>*An example of a full-fledged Flowdock integration from Zendesk. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving Flowdock.*</small>
+<small>*An example of a full-fledged CA Flowdock integration from Zendesk. You can discuss Zendesk customer support tickets and even perform basic functions (such as assigning or closing tickets) without leaving CA Flowdock.*</small>
 
 <div id="/create-app"></div>
-## 1. Create a developer application in Flowdock
+## 1. Create a developer application in CA Flowdock
 
-The first step is to [create a new Flowdock developer application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on your [developer applications page](https://www.flowdock.com/oauth/applications).
+The first step is to [create a new CA Flowdock developer application](https://www.flowdock.com/oauth/applications/new). All your developer applications are listed on your [developer applications page](https://www.flowdock.com/oauth/applications).
 
-Follow the instructions in the form. After creating the application, you should see your Application ID and Secret tokens. There are used when sending OAuth requests to Flowdock from your application.
+Follow the instructions in the form. After creating the application, you should see your Application ID and Secret tokens. There are used when sending OAuth requests to CA Flowdock from your application.
 
 <div id="/create-endpoint"></div>
 ## 2. Create an endpoint in your app
 First, you will need a setup endpoint in your web application. The user will be redirected to this endpoint when they start setting up an integration with their flow, and once your application is published, users will find a link to it the flow's "Inbox Settings". For testing purposes, on your developer application's page, there is a flow dropdown that will generate the full setup URI for that specific flow.
 
-Initially, the purpose of the endpoint is to identify the user in your app (e.g. make sure they are logged in or have provided an API token), after which the user is redirected back to Flowdock in order to give your app access to the desired flow. If the user authorizes this, they are redirected back to your app with an OAuth access token and information about the target flow. This is explained in more detail below.
+Initially, the purpose of the endpoint is to identify the user in your app (e.g. make sure they are logged in or have provided an API token), after which the user is redirected back to CA Flowdock in order to give your app access to the desired flow. If the user authorizes this, they are redirected back to your app with an OAuth access token and information about the target flow. This is explained in more detail below.
 
 <div id="/oauth2-authorize"></div>
 ## 3. Authorize your app with OAuth
@@ -50,9 +50,9 @@ Authorization for your app is handled using OAuth 2.0. Users will give your app 
 
 OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to a service on a user's behalf without getting access their password. The OAuth 2.0 flow is described in the [Authentication](authentication#/oauth2) section of the API documentation. Because of multiple gotchas, we recommend using an established library to implement your OAuth flow.
 
-The endpoint created in step 2 should be specified as the Callback URI in your Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)).
+The endpoint created in step 2 should be specified as the Callback URI in your CA Flowdock developer app. That endpoint needs to obtain an access token from our endpoint (as described in [step 2 of the web application flow description](authentication#/redirect-back)).
 
-In our example Rails application, we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Omniauth Flowdock strategy](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token, as you can see from the [callback endpoint in our example application](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
+In our example Rails application, we have used [Omniauth](https://github.com/intridea/omniauth) combined with [the Omniauth CA Flowdock strategy](https://github.com/flowdock/omniauth-flowdock/). Omniauth takes care of exchanging the authorization code for an access token, as you can see from the [callback endpoint in our example application](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/routes.rb#L29).
 
 Once you have obtained an access token, you need to create a flow-specific [source](sources) for your web app in the desired flow. This is described in the next section of this guide.
 
@@ -112,7 +112,7 @@ Example response data:
 
 | Name          | Description  |
 | ------------- | ------------ |
-| id | A reference to this particular integration between your application and the flow. If integration configuration is enabled for your application, this will be provided when a Flowdock user attempts to configure this integration from the flow. |
+| id | A reference to this particular integration between your application and the flow. If integration configuration is enabled for your application, this will be provided when a CA Flowdock user attempts to configure this integration from the flow. |
 | name | The data source name, as provided when creating the integration. |
 | flow_token | The token for posting [messages](messages) to the flow's team inbox. |
 | application | Information about the integration application. |
@@ -163,8 +163,8 @@ The most important fields are listed below. For a full reference on fields and d
 | Name          | Description  |
 | ------------- | ------------ |
 | flow_token | The token you received after creating the integration between your application and the flow. |
-| external\_thread\_id | Identification for the thread that this message is a part of. For example, if you're creating an integration for an issue tracking tool, and you're sending issue change notifications to Flowdock, you would use the unique identifier of the issue. For GitHub issues, it would be the issue number, for a customer support tool, it would be the ticket ID. The ID only needs to be unique for this particular source (not the whole application). **This field is required if thread_id is not set.** |
-| thread_id | Flowdock's thread ID. Can be used to specify the thread into which you're posting this message. **This field is required if external\_thread\_id is not set.** |
+| external\_thread\_id | Identification for the thread that this message is a part of. For example, if you're creating an integration for an issue tracking tool, and you're sending issue change notifications to CA Flowdock, you would use the unique identifier of the issue. For GitHub issues, it would be the issue number, for a customer support tool, it would be the ticket ID. The ID only needs to be unique for this particular source (not the whole application). **This field is required if thread_id is not set.** |
+| thread_id | CA Flowdock's thread ID. Can be used to specify the thread into which you're posting this message. **This field is required if external\_thread\_id is not set.** |
 
 The example application uses [a utility class](https://github.com/flowdock/flowdock-example-integration/blob/master/lib/flowdock/activity.rb) to produce JSON payloads like the example above.
 
@@ -176,7 +176,7 @@ Posting to the flow's chat is generally desirable only when e.g. replying to a c
 <div id="/publish-app"></div>
 ### Publish your application
 
-Published applications will be listed in a flow's Inbox Sources for all Flowdock users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by contacting us at [support@flowdock.com](mailto:support@flowdock.com).
+Published applications will be listed in a flow's Inbox Sources for all CA Flowdock users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by contacting us at [support@flowdock.com](mailto:support@flowdock.com).
 
 <div id="/integration-configuration"></div>
 ### Integration configuration
@@ -197,4 +197,4 @@ One way to handle this is to post a normal inbox message to the flow, stating th
 <div id="/integration-remove"></div>
 ### Removing integrations
 
-When an integration (source) is removed in Flowdock, you will start receiving a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.
+When an integration (source) is removed in CA Flowdock, you will start receiving a `410 GONE` response when posting [messages](messages) using the `flow_token` of the integration. This means that you should stop posting messages and remove any data you may have stored for this integration in the setup phase.

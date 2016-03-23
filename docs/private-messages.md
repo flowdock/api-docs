@@ -12,7 +12,7 @@ Send a private chat message to the specified user.
 
 | Name          | Description  |
 | ------------- | ------------ |
-| event | **Required** One of the valid private message events. Determines the type of message being sent to Flowdock. See Message Types section below.  |
+| event | **Required** One of the valid private message events. Determines the type of message being sent to CA Flowdock. See Message Types section below.  |
 | content | **Required** The actual message. The format of content depends on the event. See Message Types section below. |
 
 ```json

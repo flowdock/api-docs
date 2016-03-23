@@ -227,7 +227,7 @@ The message-edit event is sent when the the content of a message is changed. Onl
 Activity.user is sent periodically by each user to let others know that they
 are online.
 
-These messages are not stored in Flowdock's database.
+These messages are not stored in CA Flowdock's database.
 
 ### Data
 
@@ -385,7 +385,7 @@ _Bolded text denotes a required field when posting a message._
 <div id="/discussion"></div>
 ## Event: discussion
 
-Discussion is a chat message or comment that is made in an external service. It should be rendered similarly to Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
+Discussion is a chat message or comment that is made in an external service. It should be rendered similarly to CA Flowdock chat messages/comments. Examples of discussions include GitHub's pull request comments or replies to Zendesk tickets.
 
 ### Data
 

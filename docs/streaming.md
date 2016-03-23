@@ -4,7 +4,7 @@
 
 ## Connecting
 
-To connect to the Streaming API, form a HTTP request and consume the resulting stream for as long as is practical. The Flowdock servers will hold the connection open indefinitely (barring a server-side error, excessive client-side lag, network hiccups or routine server maintenance). If the server returns an unexpected response code, clients should a wait few seconds before trying again.
+To connect to the Streaming API, form a HTTP request and consume the resulting stream for as long as is practical. The CA Flowdock servers will hold the connection open indefinitely (barring a server-side error, excessive client-side lag, network hiccups or routine server maintenance). If the server returns an unexpected response code, clients should a wait few seconds before trying again.
 
 ## Content Types
 
@@ -39,7 +39,7 @@ For example, to stream the flows `example/main` and `example/flow`, a request sh
 | filter | Comma separated list of flows, e.g. `example/main,example/flow`. You can also use flow ids. Either this or `user` needs to be set. |
 | user | When set to `1`, stream private messages that are sent to the user. Either this or `filter` needs to be set. |
 | accept | Define the content-type if the Accept header cannot be used. |
-| active | Show user as active in Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. |
+| active | Show user as active in CA Flowdock. Defined values `true` and `idle`. If not present, user will appear offline. |
 
 
 ### GET /flows/:organization/:flow

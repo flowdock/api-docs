@@ -1,6 +1,6 @@
 # Flows
 
-A flow in Flowdock is a team workspace that contains a chat room and a shared inbox.
+A flow in CA Flowdock is a team workspace that contains a chat room and a shared inbox.
 
 <div id="/list-flows"></div>
 ## List Flows
