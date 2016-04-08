@@ -62,7 +62,7 @@ If `X-flowdock-wait-for-message` header is not set or processing the message tak
 HTTP/1.1 202
 ```
 
-Otherwise Flowodock will respond with the posted message with the assigned unique per flow message id.
+Otherwise CA Flowdock will respond with the posted message with the assigned unique per flow message id.
 
 ```
 HTTP/1.1 200 OK
