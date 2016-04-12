@@ -178,8 +178,8 @@ Flowdock-User: 2
     "id":3816534,
     "event":"action",
     "content":{
-      "type":"add_twitter_search",
-      "description":"flowdock"
+      "type": "add_rss_feed",
+      "description": "http://apidock.com/ruby/RSS"
     },
     "attachments": [],
     "user":"18",
@@ -228,8 +228,8 @@ Flowdock-User: 2
   "id":3816534,
   "event":"action",
   "content":{
-    "type":"add_twitter_search",
-    "description":"flowdock"
+    "type": "add_rss_feed",
+    "description": "http://apidock.com/ruby/RSS"
   },
   "attachments": [],
   "user":"18",

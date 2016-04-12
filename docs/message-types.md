@@ -102,7 +102,7 @@ contains the actual comment. The id of the parent message is stored in a [specia
 <div id="/action"></div>
 ## Event: action
 
-Action events are sent by various activities, such as adding Twitter stream.
+Action events are sent by various activities, such as adding an RSS feed.
 
 ### Data
 
@@ -124,10 +124,6 @@ string or an object.
 | uninvite | An invitation is canceled by a member of the flow. `description` is the same as in `invite`. |
 | add\_rss\_feed | An RSS/Atom feed is added to the flow. `description` is the URL of the feed. |
 | remove\_rss\_feed | An RSS/Atom feed is removed from the flow. `description` is the same as in `add_rss_feed`. |
-| add\_twitter\_follow | Start following a Twitter user in the flow. `description` is the username of the Twitter user. |
-| remove\_twitter\_follow | Stop following a Twitter user in the flow. `description` is the same as in `add_twitter_follow`. |
-| add\_twitter\_search | A Twitter keyword search is added to the flow. `description` contains the Twitter search term. |
-| remove\_twitter\_search | A Twitter keyword is removed from the flow. `description` is the same as in `add_twitter_search`. |
 
 ### Sample
 ```json
@@ -140,8 +136,8 @@ string or an object.
   "id": 3816534,
   "event": "action",
   "content": {
-    "type": "add_twitter_search",
-    "description": "flowdock"
+    "type": "add_rss_feed",
+    "description": "http://apidock.com/ruby/RSS"
   },
   "user": "18",
   "attachments": [],
