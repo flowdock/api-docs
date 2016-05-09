@@ -42,7 +42,7 @@ Once you've created a source, let's try sending a simple request. You can use th
       "value": "open"
     }
   }
-}' https://api.CA Flowdock.com/messages
+}' https://api.flowdock.com/messages
 ```
 
 This posts a [message](messages) to the CA Flowdock API. Since it includes [thread](threads) data, a new thread is created and the message is posted in the context of that thread.
