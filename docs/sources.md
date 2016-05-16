@@ -147,7 +147,7 @@ Flowdock-User: 2
 ## Get a Source
 
 ```
-GET /flows/:organization/:flow/source/:id
+GET /flows/:organization/:flow/sources/:id
 ```
 
 Get a single source.
