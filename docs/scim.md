@@ -2,7 +2,7 @@
 
 The Single Sign-On for CA Flowdock Enterprise offers partial support for provisioning using [System for Cross-Domain Identity Management (SCIM)](http://www.simplecloud.info/).
 
-To use the SCIM API, you need to be a CA Flowdock Enterprise customer and have Single Sign-On configured for your organization. Contact [support@flowdock.com](mailto:support@flowdock.com) if you have not done this yet or are interested about CA Flowdock Enterprise.
+To use the SCIM API, you need to be a CA Flowdock Enterprise customer and have Single Sign-On configured for your organization. Visit our [community](https://communities.ca.com/community/ca-agile-central/ca-flowdock) page for support.
 
 ## Basics
 

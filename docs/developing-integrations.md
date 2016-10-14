@@ -6,7 +6,7 @@ CA Flowdock provides a full-fledged framework for creating custom applications t
 
 We've split this integration guide into two parts. The first part is a hands-on guide for quickly getting messages posted to a flow, while the second part goes into the inherent complexities of the OAuth authentication process and building a production-grade integration.
 
-If anything is unclear, [we'd love to get your feedback](mailto:support@flowdock.com) so that we can help you and improve the documentation.
+If anything is unclear, visit our [community](https://communities.ca.com/community/ca-agile-central/ca-flowdock) page for support.
 
 ### 1. Quick start guide: Post messages to a flow
 
