@@ -4,7 +4,7 @@ There are three ways to authenticate as a user with the CA Flowdock API:
 
 1. OAuth 2.0
 2. User credentials with HTTP Basic Authentication
-3. API token with HTTP Basic Authentication.
+3. (DEPRECATED - See https://www.flowdock.com/account/tokens) API token with HTTP Basic Authentication.
 
 Most applications should use OAuth 2.0 as it doesn't store passwords locally and does not require users to have a separate password for CA Flowdock.
 
