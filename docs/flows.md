@@ -208,7 +208,7 @@ Flowdock-User: 2
       "email": "stevie@example.com",
       "avatar": "https://d2cxspbh1aoie1.cloudfront.net/5bdd089a099acc56fc7120f6325a5d5c/",
       "status": null,
-      "disabled": true,
+      "disabled": false,
       "last_activity": 1328016712345000,
       "last_ping": 1328017612345000
     }
@@ -269,7 +269,7 @@ Flowdock-User: 2
       "email": "stevie@example.com",
       "avatar": "https://d2cxspbh1aoie1.cloudfront.net/5bdd089a099acc56fc7120f6325a5d5c/",
       "status": null,
-      "disabled": true,
+      "disabled": false,
       "last_activity": 1328016712345000,
       "last_ping": 1328017612345000
     }
