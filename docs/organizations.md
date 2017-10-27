@@ -33,23 +33,8 @@ Flowdock-User: 1
     {
       "trial": true,
       "trial_ends": "2012-10-26"
-    },
-    "users": [
-      {
-        "id": 1,
-        "name": "John Smith",
-        "email": "john@example.com",
-        "admin": true
-      },
-      {
-        "id": 42,
-        "name": "Stevie Johnson",
-        "email": "stevie@example.com",
-        "admin": false
-      }
-    ]
-  },
-  ...
+    }
+  }
 ]
 ```
 
@@ -88,21 +73,7 @@ Flowdock-User: 1
   {
     "trial": true,
     "trial_ends": "2012-10-26"
-  },
-  "users": [
-    {
-      "id": 1,
-      "name": "John Smith",
-      "email": "john@example.com",
-      "admin": true
-    },
-    {
-      "id": 42,
-      "name": "Stevie Johnson",
-      "email": "stevie@example.com",
-      "admin": false
-    }
-  ]
+  }
 }
 ```
 
@@ -135,21 +106,7 @@ Flowdock-User: 1
   {
     "trial": true,
     "trial_ends": "2012-10-26"
-  },
-  "users": [
-    {
-      "id": 1,
-      "name": "John Smith",
-      "email": "john@example.com",
-      "admin": true
-    },
-    {
-      "id": 42,
-      "name": "Stevie Johnson",
-      "email": "stevie@example.com",
-      "admin": false
-    }
-  ]
+  }
 }
 ```
 
@@ -193,20 +150,6 @@ Flowdock-User: 1
   {
     "trial": true,
     "trial_ends": "2013-01-27"
-  },
-  "users": [
-    {
-      "id": 1,
-      "name": "John Smith",
-      "email": "john@example.com",
-      "admin": true
-    },
-    {
-      "id": 42,
-      "name": "Stevie Johnson",
-      "email": "stevie@example.com",
-      "admin": false
-    }
-  ]
+  }
 }
 ```
