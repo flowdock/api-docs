@@ -156,10 +156,11 @@ Lists messages from a flow, filtered by parameters.
 | event | Filter messages by event type. Leave blank to get all messages, which is also the default. Multiple event types can be specified by separating them with commas. |
 | limit | Maximum number of messages to return. Accepted values range from 1 to 100. Defaults to 30. |
 | sort | Descending order is used by default. Use parameter value `asc` for ascending order. Note: the response JSON will always have the matching messages in ascending order by their `id`. The sort parameter is for toggling between fetching the latest or the oldest matching messages. |
-| since\_id and until\_id | Get messages starting from or leading to a message `id`. The message specified with the parameter won't be included in the response. |
+| skip | Skip a number of messages in the response of a search request. Use for paging search results. |
+| since\_id and until\_id | Get messages starting from or leading to a message `id`. The message specified with the parameter won't be included in the response. These parameters are ignored for search requests. |
 | tags | Filter messages by tags. Multiple tags can be specified by separating them with commas, which results in an AND search of those tags by default (see `tag_mode` parameter). When searching with user tags, you can use either the human-readable form, `@user`, or the internal form containing the user ID, `:user:12345`. Read more at [Tags](tags). |
 | tag_mode | Toggles tag filtering of messages. By default the value is `and`. Use value `or` to search for messages that contain any of the tags specified in `tags`. |
-| search | Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces. |
+| search | Full text search for message content. The search matches messages that contain all the specified keywords. Separate the keywords by spaces. Use skip to paginate search results. |
 
 ### Response
 ```
