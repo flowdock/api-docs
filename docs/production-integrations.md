@@ -8,7 +8,7 @@ This guide will step you through the process of integrating your web app with CA
 
 We have created [an example application](https://github.com/flowdock/flowdock-example-integration) using Ruby on Rails. This guide will point you to relevant parts of the code.
 
-If you have any questions, don't hesitate to visit our [community](https://communities.ca.com/community/ca-agile-central/ca-flowdock) page for support.
+If you have any questions, don't hesitate to visit our [community](https://community.broadcom.com/enterprisesoftware/communities/communityhomeblogs?CommunityKey=4368e236-21f9-45e2-b86f-da55ab677e23) page for support.
 
 This guide is divided into the five steps of the development process:
 
@@ -176,7 +176,7 @@ Posting to the flow's chat is generally desirable only when e.g. replying to a c
 <div id="/publish-app"></div>
 ### Publish your application
 
-Published applications will be listed in a flow's Inbox Sources for all CA Flowdock users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by visiting our [community](https://communities.ca.com/community/ca-agile-central/ca-flowdock) page.
+Published applications will be listed in a flow's Inbox Sources for all CA Flowdock users, and will be featured on our [Integrations page](/integrations). You can submit your application for review by visiting our [community](https://community.broadcom.com/enterprisesoftware/communities/communityhomeblogs?CommunityKey=4368e236-21f9-45e2-b86f-da55ab677e23) page.
 
 <div id="/integration-configuration"></div>
 ### Integration configuration
